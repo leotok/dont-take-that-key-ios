@@ -21,10 +21,12 @@ class GameViewController: UIViewController {
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
-        let scene = GameScene(size: skView.bounds.size)
+        let scene = MainMenu(size: skView.bounds.size)
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
         skView.presentScene(scene)
+        
+        print(NSLocalizedString("HelloWorld", comment: "dfd"))
     }
 
     override func shouldAutorotate() -> Bool {

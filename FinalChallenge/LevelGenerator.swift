@@ -1,5 +1,5 @@
 //
-//  Character.swift
+//  LevelGenerator.swift
 //  FinalChallenge
 //
 //  Created by Thiago De Angelis on 24/09/15.
@@ -9,14 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Character: SKSpriteNode {
 
-
-//    private init {
-//     
-//        super.init()
-//    }
+class LevelGenerator {
     
-    
-
 }

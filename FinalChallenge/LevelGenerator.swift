@@ -9,7 +9,28 @@
 import Foundation
 import SpriteKit
 
+protocol GeneratorDelegate {
+
+    func addNode(node:SKNode)
+
+
+}
 
 class LevelGenerator {
+    
+    var delegate:GeneratorDelegate?
+    
+    
+    func loadLevel(level:Int)->Bool {
+    
+    
+        
+        
+      //self.delegate?.addNode(....)
+    
+        return true
+    }
+    
+    
     
 }

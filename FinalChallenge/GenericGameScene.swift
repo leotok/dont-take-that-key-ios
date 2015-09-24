@@ -9,6 +9,11 @@
 import SpriteKit
 
 class GenericGameScene: SKScene {
+    
+    
+    
+    
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -17,7 +22,16 @@ class GenericGameScene: SKScene {
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(myLabel)
+        
+        
+        let lvlGen = LevelGenerator()
+        lvlGen.loadLevel(10)
+
+        
     }
+    
+    
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */

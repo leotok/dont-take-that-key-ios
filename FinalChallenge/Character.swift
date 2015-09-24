@@ -12,10 +12,14 @@ import SpriteKit
 class Character: SKSpriteNode {
 
 
-//    private init {
-//     
-//        super.init()
-//    }
+    init (sprite:SKTexture) {
+
+        super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
 

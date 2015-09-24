@@ -10,5 +10,20 @@ import Foundation
 import SpriteKit
 
 class Shrink: Character {
+ 
+    init () {
+        
+        //Setting Shrink`s properties
+        
+        
+        
+        super.init(sprite: SKTexture(imageNamed: "Shrink_Idle"))
+        
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

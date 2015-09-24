@@ -11,4 +11,22 @@ import SpriteKit
 
 class Sam: Character {
     
+    init () {
+    
+        //Setting Sam`s properties
+    
+        
+        
+        super.init(sprite: SKTexture(imageNamed: "Sam_Idle"))
+    
+    
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    
 }

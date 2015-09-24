@@ -35,6 +35,7 @@
 		D0B502891BB44EBC006C9C90 /* StoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502881BB44EBC006C9C90 /* StoryText.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B502951BB45165006C9C90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0B502971BB45165006C9C90 /* Localizable.strings */; };
 		D0B5029B1BB45259006C9C90 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B5029A1BB45259006C9C90 /* HUD.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B5029C1BB4885C006C9C90 /* UserInfo.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		D0B502981BB45169006C9C90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0B502991BB45170006C9C90 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0B5029A1BB45259006C9C90 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		D0B5029C1BB4885C006C9C90 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		D0B5025D1BB44623006C9C90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0B5029C1BB4885C006C9C90 /* UserInfo.plist */,
 				D0B502731BB44C69006C9C90 /* DAOUserInfo.swift */,
 				D0B5027D1BB44D85006C9C90 /* UserInfo.swift */,
 				D0B502751BB44C94006C9C90 /* GameCenterManager.swift */,
@@ -207,8 +210,8 @@
 		D0B502601BB4464F006C9C90 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				D0B502641BB4467A006C9C90 /* Sam.swift */,
 				D0B502621BB4466A006C9C90 /* Character.swift */,
+				D0B502641BB4467A006C9C90 /* Sam.swift */,
 				D0B502661BB44689006C9C90 /* Shrink.swift */,
 				D0B502681BB44690006C9C90 /* Ellie.swift */,
 			);
@@ -355,6 +358,7 @@
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				D0B502951BB45165006C9C90 /* Localizable.strings in Resources */,
 				3F29DE751BB440EB00ADE6F8 /* Assets.xcassets in Resources */,
+				D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */,
 				3F29DE731BB440EB00ADE6F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

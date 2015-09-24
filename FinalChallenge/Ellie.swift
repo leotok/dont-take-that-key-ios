@@ -11,5 +11,20 @@ import SpriteKit
 
 
 class Ellie: Character {
+   
+    init () {
+        
+        //Setting Ellie`s properties
+        
+        
+        
+        super.init(sprite: SKTexture(imageNamed: "Ellie_Idle"))
+        
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

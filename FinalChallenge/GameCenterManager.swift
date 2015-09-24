@@ -11,4 +11,23 @@ import Foundation
 
 class GameCenterManager {
     
+    
+    class var sharedInstance:GameCenterManager{
+        get {
+            struct _Singleton {
+                static let instance = GameCenterManager()
+            }
+            return _Singleton.instance
+        }
+    }
+    
+    private init(){
+        //println("Singleton 'GameCenterManager' instanciado.")
+    }
+    
+    func connect()->Bool {
+        return true
+    }
+    
+    
 }

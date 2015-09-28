@@ -19,7 +19,7 @@ class MainMenu: SKScene {
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = NSLocalizedString("Play", comment: "")
         myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        myLabel.position = CGPointMake(370, 125)
         myLabel.name = "Play"
         
         self.addChild(myLabel)
@@ -30,6 +30,14 @@ class MainMenu: SKScene {
         configuration.name = "conf"
         
         self.addChild(configuration)
+        
+        let gameName = SKLabelNode(fontNamed: "Chalkduster")
+        gameName.text = NSLocalizedString("Game Name", comment: "")
+        gameName.fontSize = 55
+        gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        
+        self.addChild(gameName)
+        
         
 
     }

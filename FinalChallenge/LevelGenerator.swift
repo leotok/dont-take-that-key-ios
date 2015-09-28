@@ -11,7 +11,7 @@ import SpriteKit
 
 protocol GeneratorDelegate {
 
-    func addNode(node:SKNode)
+    func addNodeToScene(node:SKNode)
 
 
 }

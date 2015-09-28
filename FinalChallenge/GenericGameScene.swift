@@ -8,30 +8,35 @@
 
 import SpriteKit
 
-class GenericGameScene: SKScene {
+class GenericGameScene: SKScene, GeneratorDelegate {
     
     
+    var level = -1
+    var hud:HUD!
+    var selectedPlayer:Character!
+    var characters:[Character]!
     
     
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = NSLocalizedString("HelloWorld", comment: "");
-        myLabel.fontSize = 45;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        self.hud = HUD()
+        self.addChild(self.hud)
+        hud.zPosition = 100
         
-        self.addChild(myLabel)
         
         
         let lvlGen = LevelGenerator()
-        lvlGen.loadLevel(10)
+        lvlGen.loadLevel(self.level)
 
         
     }
     
+    func addNodeToScene(node: SKNode) {
+        self.addChild(node)
+    }
     
-    
+
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
@@ -41,4 +46,31 @@ class GenericGameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+    
+    
+    
+    //Menus
+    private func pauseGame() {
+    
+        self.scene?.paused = true
+        let menu = PauseMenu()
+        menu.zPosition = 1000
+        self.addChild(menu)
+    }
+    
+    private func GameOver() {
+        
+        let menu = GameOverMenu()
+        menu.zPosition = 1000
+        self.addChild(menu)
+    }
+    
+    private func GameWin() {
+        
+        let menu = GameWinMenu()
+        menu.zPosition = 1000
+        self.addChild(menu)
+    }
+    
 }

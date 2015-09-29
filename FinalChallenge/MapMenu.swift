@@ -48,6 +48,7 @@ class MapMenu: SKScene {
             }
             else {
                 let scene = GenericGameScene(size: self.frame.size)
+                scene.levelIndex = Int(node.name!)!
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }
@@ -119,7 +120,6 @@ class MapMenu: SKScene {
         level9.position = CGPointMake(470, 270)
         level9.size = CGSize(width: 40, height: 40)
         level9.name = "9"
-        level10.
         
         addChild(level9)
         

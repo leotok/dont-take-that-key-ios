@@ -25,6 +25,7 @@ class MainMenu: SKScene {
         playButton.fontSize = 45
         playButton.position = CGPointMake(self.size.width / 2, self.size.height / 3.31)
         playButton.name = "Play"
+        playButton.zPosition = 10
         
         self.addChild(playButton)
         
@@ -32,6 +33,7 @@ class MainMenu: SKScene {
         configuration.position = CGPointMake(self.size.width / 1.05, self.size.height / 1.10)
         configuration.size = CGSize(width: 40, height: 40)
         configuration.name = "conf"
+        configuration.zPosition = 10
         
         self.addChild(configuration)
         
@@ -39,6 +41,7 @@ class MainMenu: SKScene {
         gameName.text = NSLocalizedString("Game Name", comment: "")
         gameName.fontSize = 55
         gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        gameName.zPosition = 10
         
         self.addChild(gameName) 
 

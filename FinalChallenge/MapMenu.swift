@@ -20,13 +20,55 @@ class MapMenu: SKScene {
         // Back Button
         
         let backButton = SKSpriteNode(imageNamed: "back")
-        backButton.color = SKColor.blueColor()
         backButton.position = CGPointMake(30, 380)
         backButton.size = CGSize(width: 40, height: 40)
         backButton.name = "back"
      
         addChild(backButton)
         
+        // Level Nodes
+        
+        let level1 = SKSpriteNode(imageNamed: "")
+        level1.position = CGPointMake(30, 100)
+        level1.size = CGSize(width: 40, height: 40)
+        level1.name = "level1"
+        
+        addChild(level1)
+        
+        let level2 = SKSpriteNode(imageNamed: "")
+        level2.position = CGPointMake(160, 200)
+        level2.size = CGSize(width: 40, height: 40)
+        level2.name = "level2"
+        
+        addChild(level2)
+        
+        let level3 = SKSpriteNode(imageNamed: "")
+        level3.position = CGPointMake(220, 150)
+        level3.size = CGSize(width: 40, height: 40)
+        level3.name = "level3"
+        
+        addChild(level3)
+        
+        let level4 = SKSpriteNode(imageNamed: "")
+        level4.position = CGPointMake(340, 100)
+        level4.size = CGSize(width: 40, height: 40)
+        level4.name = "level4"
+        
+        addChild(level4)
+        
+        let level5 = SKSpriteNode(imageNamed: "")
+        level5.position = CGPointMake(420, 140)
+        level5.size = CGSize(width: 40, height: 40)
+        level5.name = "level5"
+        
+        addChild(level5)
+        
+        let level6 = SKSpriteNode(imageNamed: "")
+        level6.position = CGPointMake(500, 200)
+        level6.size = CGSize(width: 40, height: 40)
+        level6.name = "level6"
+        
+        addChild(level6)
         
     }
  

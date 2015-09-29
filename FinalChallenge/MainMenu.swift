@@ -22,13 +22,13 @@ class MainMenu: SKScene {
         
         self.addChild(background)
         
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = NSLocalizedString("Play", comment: "")
-        myLabel.fontSize = 45
-        myLabel.position = CGPointMake(370, 125)
-        myLabel.name = "Play"
+        let playButton = SKLabelNode(fontNamed:"Chalkduster")
+        playButton.text = NSLocalizedString("Play", comment: "")
+        playButton.fontSize = 45
+        playButton.position = CGPointMake(self.size.width / 2, self.size.height / 3.31)
+        playButton.name = "Play"
         
-        self.addChild(myLabel)
+        self.addChild(playButton)
         
        let configuration = SKSpriteNode(imageNamed: "configuracao")
         configuration.position = CGPointMake(700, 375)

@@ -11,14 +11,11 @@ import SpriteKit
 
 class Settings: SKScene {
     
-    var parentScene: SKScene!
-    
     override func didMoveToView(view: SKView) {
         // Back Button
         
         let backButton = SKSpriteNode(imageNamed: "back")
-        backButton.anchorPoint = CGPointMake(-1, 1)
-        backButton.position = CGPointMake(0, 375)
+        backButton.position = CGPointMake(30, 380)
         backButton.size = CGSize(width: 40, height: 40)
         backButton.name = "back"
         
@@ -34,8 +31,9 @@ class Settings: SKScene {
             
             if node.name == "back" {
                 
+                let scene = MainMenu(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(1.5)
-                self.view?.presentScene(parentScene, transition: transition)
+                self.view?.presentScene(scene, transition: transition)
                 
             }
         }

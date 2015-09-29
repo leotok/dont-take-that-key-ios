@@ -16,6 +16,12 @@ class MainMenu: SKScene {
         
         self.backgroundColor = SKColor.redColor()
         
+        let background = SKSpriteNode(imageNamed: "backgound_teste.jpg")
+        background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
+        background.size = self.size
+        
+        self.addChild(background)
+        
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = NSLocalizedString("Play", comment: "")
         myLabel.fontSize = 45
@@ -49,14 +55,12 @@ class MainMenu: SKScene {
             if node.name == "Play" {
                 
                 let scene = MapMenu(size:self.frame.size)
-                scene.parentScene = self
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
                 
             } else if node.name == "conf" {
                 
                 let scene = Settings(size:self.frame.size)
-                scene.parentScene = self
                 let transition2 = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition2)
                 

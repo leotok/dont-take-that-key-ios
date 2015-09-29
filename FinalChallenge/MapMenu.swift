@@ -20,12 +20,14 @@ class MapMenu: SKScene {
         // Back Button
         
         let backButton = SKSpriteNode(imageNamed: "back")
-        backButton.anchorPoint = CGPointMake(-1, 1)
-        backButton.position = CGPointMake(0, 375)
+        backButton.color = SKColor.blueColor()
+        backButton.position = CGPointMake(30, 380)
         backButton.size = CGSize(width: 40, height: 40)
         backButton.name = "back"
      
         addChild(backButton)
+        
+        
     }
  
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -36,8 +38,9 @@ class MapMenu: SKScene {
             
             if node.name == "back" {
                 
+                let scene = MainMenu(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(1.5)
-                self.view?.presentScene(parentScene, transition: transition)
+                self.view?.presentScene(scene, transition: transition)
                 
             }
         }

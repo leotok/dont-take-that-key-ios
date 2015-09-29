@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+protocol Pausable {
+    
+    func pauseScene()->Bool
+    func unpauseScene()->Bool
+    
+}
 class Sam: Character {
     
     init () {

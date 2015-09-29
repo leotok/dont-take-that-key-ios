@@ -8,22 +8,31 @@
 
 import SpriteKit
 
-class GenericGameScene: SKScene, GeneratorDelegate {
+class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
     
     
     var level = -1
     var hud:HUD!
     var selectedPlayer:Character!
     var characters:[Character]!
+    var gameLayer:SKNode!
+    var pausableLayer:SKNode!
     
-    
+
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        self.hud = HUD()
+        hud = HUD()
         self.addChild(self.hud)
         hud.zPosition = 100
         
+        
+        gameLayer = SKNode()
+        gameLayer.zPosition = 50
+        self.addChild(gameLayer)
+        
+        pausableLayer = SKNode()
+        gameLayer.addChild(pausableLayer)
         
         
         let lvlGen = LevelGenerator()
@@ -47,8 +56,15 @@ class GenericGameScene: SKScene, GeneratorDelegate {
         /* Called before each frame is rendered */
     }
     
-    
-    
+    // Sam Protocol
+    func pauseScene() -> Bool {
+        pausableLayer.paused = true
+        return true
+    }
+    func unpauseScene() -> Bool {
+        pausableLayer.paused = false
+        return false
+    }
     
     //Menus
     private func pauseGame() {

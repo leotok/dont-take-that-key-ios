@@ -11,6 +11,9 @@ import SpriteKit
 
 class Character: SKSpriteNode {
 
+    private var isUsingPower = false
+    private var powerDuration:Float = 0.0
+    private var lastUpdatePower = NSDate()
 
     init (sprite:SKTexture) {
 
@@ -22,5 +25,45 @@ class Character: SKSpriteNode {
     }
     
     
+    func walkRight () {
+    
+    
+    }
+    
+    func walkLeft () {
+    
+    }
 
+    func jump() {
+    
+    }
+    
+    func usePower() {
+    
+        if isUsingPower {
+            self.activePower()
+        }
+        else {
+            self.deactivatePower()
+        }
+        
+    }
+    
+    private func activePower() {
+        isUsingPower = true
+        lastUpdatePower = NSDate()
+    
+    }
+    private func deactivatePower() {
+        isUsingPower = false
+    }
+
+    func updatePower(interval:NSDate) {
+        
+        //TODO calcular intervalo e substrair do power duration
+        
+        
+    }
+    
+    
 }

@@ -14,8 +14,6 @@ class MainMenu: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        self.backgroundColor = SKColor.redColor()
-        
         let background = SKSpriteNode(imageNamed: "backgound_teste.jpg")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
         background.size = self.size
@@ -31,7 +29,7 @@ class MainMenu: SKScene {
         self.addChild(playButton)
         
        let configuration = SKSpriteNode(imageNamed: "configuracao")
-        configuration.position = CGPointMake(700, 375)
+        configuration.position = CGPointMake(self.size.width / 1.05, self.size.height / 1.10)
         configuration.size = CGSize(width: 40, height: 40)
         configuration.name = "conf"
         

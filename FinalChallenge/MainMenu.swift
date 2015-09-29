@@ -29,7 +29,7 @@ class MainMenu: SKScene {
         
         self.addChild(playButton)
         
-       let configuration = SKSpriteNode(imageNamed: "configuracao")
+       let configuration = SKSpriteNode(imageNamed: "configuracaoBt")
         configuration.position = CGPointMake(self.size.width / 1.05, self.size.height / 1.10)
         configuration.size = CGSize(width: 40, height: 40)
         configuration.name = "conf"

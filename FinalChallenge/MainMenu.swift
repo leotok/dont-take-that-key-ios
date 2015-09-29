@@ -36,21 +36,11 @@ class MainMenu: SKScene {
         gameName.fontSize = 55
         gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
-        self.addChild(gameName)
-        
-        
+        self.addChild(gameName) 
 
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-//        var i = 0
-//        for touch in (touches) {
-//
-//            print(i)
-//            i++
-//        }
-       
         
         for touch in (touches ) {
             let location = touch.locationInNode(self)
@@ -58,27 +48,18 @@ class MainMenu: SKScene {
             
             if node.name == "Play" {
                 
-                let scene = GenericGameScene(size:self.frame.size)
+                let scene = MapMenu(size:self.frame.size)
+                scene.parentScene = self
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
                 
             } else if node.name == "conf" {
                 
-                let scene2 = GenericGameScene(size:self.frame.size)
+                let scene2 = Settings(size:self.frame.size)
                 let transition2 = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene2, transition: transition2)
                 
             }
-            
-            
         }
-
-        
-        
-        
     }
-    
-
-    
-    
 }

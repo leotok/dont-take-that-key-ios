@@ -55,9 +55,10 @@ class MainMenu: SKScene {
                 
             } else if node.name == "conf" {
                 
-                let scene2 = Settings(size:self.frame.size)
+                let scene = Settings(size:self.frame.size)
+                scene.parentScene = self
                 let transition2 = SKTransition.fadeWithDuration(1.5)
-                self.view?.presentScene(scene2, transition: transition2)
+                self.view?.presentScene(scene, transition: transition2)
                 
             }
         }

@@ -16,6 +16,9 @@ class MapMenu: SKScene {
     override func didMoveToView(view: SKView) {
      
         self.backgroundColor = SKColor.whiteColor()
+        
+        // Back Button
+        
         let backButton = SKSpriteNode(imageNamed: "back")
         backButton.anchorPoint = CGPointMake(-1, 1)
         backButton.position = CGPointMake(0, 375)

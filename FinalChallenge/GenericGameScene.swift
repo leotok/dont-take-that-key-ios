@@ -8,7 +8,14 @@
 
 import SpriteKit
 
-class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
+
+let playerCategory:UInt32 = 1
+let objectCategory:UInt32 = 2
+let hazardCategory:UInt32 = 4
+let keyCategory:UInt32 = 8
+let doorCategory:UInt32 = 16
+
+class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDelegate {
     
     var levelIndex = 0
     var hud:HUD!
@@ -43,6 +50,8 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
         self.lixosDoLeo()
         
         /* Setup your scene here */
+        self.physicsWorld.contactDelegate = self
+        
         hud = HUD()
         self.addChild(self.hud)
         hud.zPosition = 100
@@ -90,6 +99,42 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        var playerPB:SKPhysicsBody
+        var notPlayerPB:SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            playerPB = contact.bodyA
+            notPlayerPB = contact.bodyB
+        }
+        else {
+            playerPB = contact.bodyB
+            notPlayerPB = contact.bodyA
+        }
+        
+        let player = playerPB.node as! Character
+        
+        if notPlayerPB.categoryBitMask == hazardCategory {
+            player.die()
+            self.GameOver()
+            
+        }
+        else if notPlayerPB.categoryBitMask == keyCategory {
+        
+            //do something
+            notPlayerPB.node?.removeFromParent()
+        }
+        else if notPlayerPB.categoryBitMask == doorCategory {
+            //do something
+            self.GameWin()
+        }
+        
+    }
+    
     
     // Sam Protocol
     func pauseScene() -> Bool {

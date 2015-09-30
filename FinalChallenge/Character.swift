@@ -22,6 +22,11 @@ class Character: SKSpriteNode {
     init (sprite:SKTexture) {
         idleTexture = sprite
         super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
+        physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size())
+        physicsBody?.categoryBitMask = playerCategory
+        physicsBody?.collisionBitMask = objectCategory | hazardCategory
+        physicsBody?.contactTestBitMask = keyCategory | doorCategory
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -87,6 +92,10 @@ class Character: SKSpriteNode {
         //TODO calcular intervalo e substrair do power duration
         
         
+    }
+    
+    func die() {
+    
     }
     
     /* INTERNAL AND PRIVATE METHODS */

@@ -16,6 +16,8 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     override func didMoveToView(view: SKView) {
         
+        // Background
+        
         background = SKSpriteNode(imageNamed: "desert")
         background.anchorPoint = CGPointZero
         background.position = CGPointZero
@@ -59,7 +61,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }
-            else if node.zPosition == 0 {
+            else if node.zPosition == 1 {
                 let scene = GenericGameScene(size: self.frame.size)
                 scene.levelIndex = Int(node.name!)!
                 let transition = SKTransition.fadeWithDuration(1.5)
@@ -71,7 +73,6 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func dragMap(gesture: UIPanGestureRecognizer) {
         
         let translation = gesture.translationInView(self.view)
-        
         var newXPosition: CGFloat = background.position.x + translation.x
         
         if translation.x > 0 {
@@ -82,144 +83,105 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         }
         
         background.position.x = newXPosition
-        
         gesture.setTranslation(CGPointZero, inView: self.view)
     }
     
     func addSamLevels() {
         
-        let level1 = SKSpriteNode(imageNamed: "clock")
+        let level1 = LevelButton(type: LevelButtonType.Sam)
         level1.position = CGPointMake(60, 100)
-        level1.size = CGSize(width: 40, height: 40)
         level1.name = "1"
-        
         background.addChild(level1)
         
-        let level2 = SKSpriteNode(imageNamed: "clock")
+        let level2 = LevelButton(type: LevelButtonType.Sam)
         level2.position = CGPointMake(90, 190)
-        level2.size = CGSize(width: 40, height: 40)
         level2.name = "2"
-        
         background.addChild(level2)
         
-        let level3 = SKSpriteNode(imageNamed: "clock")
+        let level3 = LevelButton(type: LevelButtonType.Sam)
         level3.position = CGPointMake(150, 150)
-        level3.size = CGSize(width: 40, height: 40)
         level3.name = "3"
-        
         background.addChild(level3)
         
-        let level4 = SKSpriteNode(imageNamed: "clock")
+        let level4 = LevelButton(type: LevelButtonType.Sam)
         level4.position = CGPointMake(210, 110)
-        level4.size = CGSize(width: 40, height: 40)
         level4.name = "4"
-        
         background.addChild(level4)
         
-        let level5 = SKSpriteNode(imageNamed: "clock")
+        let level5 = LevelButton(type: LevelButtonType.Sam)
         level5.position = CGPointMake(270, 140)
-        level5.size = CGSize(width: 40, height: 40)
         level5.name = "5"
-        
         background.addChild(level5)
         
-        let level6 = SKSpriteNode(imageNamed: "clock")
+        let level6 = LevelButton(type: LevelButtonType.Sam)
         level6.position = CGPointMake(320, 200)
-        level6.size = CGSize(width: 40, height: 40)
         level6.name = "6"
-        
         background.addChild(level6)
     }
     
     func addShrinkLevels() {
         
-        let level7 = SKSpriteNode(imageNamed: "freud")
+        let level7 = LevelButton(type: LevelButtonType.Shrink)
         level7.position = CGPointMake(370, 230)
-        level7.size = CGSize(width: 40, height: 40)
         level7.name = "7"
-        
         background.addChild(level7)
         
-        let level8 = SKSpriteNode(imageNamed: "freud")
+        let level8 = LevelButton(type: LevelButtonType.Shrink)
         level8.position = CGPointMake(420, 250)
-        level8.size = CGSize(width: 40, height: 40)
         level8.name = "8"
-        
         background.addChild(level8)
         
-        let level9 = SKSpriteNode(imageNamed: "freud")
+        let level9 = LevelButton(type: LevelButtonType.Shrink)
         level9.position = CGPointMake(470, 270)
-        level9.size = CGSize(width: 40, height: 40)
         level9.name = "9"
-        
         background.addChild(level9)
         
-        let level10 = SKSpriteNode(imageNamed: "freud")
+        let level10 = LevelButton(type: LevelButtonType.Shrink)
         level10.position = CGPointMake(520, 300)
-        level10.size = CGSize(width: 40, height: 40)
         level10.name = "10"
-        
         background.addChild(level10)
         
-        let level11 = SKSpriteNode(imageNamed: "freud")
+        let level11 = LevelButton(type: LevelButtonType.Shrink)
         level11.position = CGPointMake(570, 270)
-        level11.size = CGSize(width: 40, height: 40)
         level11.name = "11"
-        
         background.addChild(level11)
         
-        let level12 = SKSpriteNode(imageNamed: "freud")
+        let level12 = LevelButton(type: LevelButtonType.Shrink)
         level12.position = CGPointMake(620, 230)
-        level12.size = CGSize(width: 40, height: 40)
         level12.name = "12"
-        
         background.addChild(level12)
     }
     
     func addEllieLevels() {
         
-        
-        let level13 = SKSpriteNode(imageNamed: "fat-bottom-girls")
+        let level13 = LevelButton(type: LevelButtonType.Ellie)
         level13.position = CGPointMake(370, 190)
-        level13.size = CGSize(width: 40, height: 40)
         level13.name = "13"
-        
         background.addChild(level13)
         
-        let level14 = SKSpriteNode(imageNamed: "fat-bottom-girls")
+        let level14 = LevelButton(type: LevelButtonType.Ellie)
         level14.position = CGPointMake(420, 170)
-        level14.size = CGSize(width: 40, height: 40)
         level14.name = "14"
-        
         background.addChild(level14)
         
-        let level15 = SKSpriteNode(imageNamed: "fat-bottom-girls")
+        let level15 = LevelButton(type: LevelButtonType.Ellie)
         level15.position = CGPointMake(470, 150)
-        level15.size = CGSize(width: 40, height: 40)
         level15.name = "15"
-        
         background.addChild(level15)
         
-        let level16 = SKSpriteNode(imageNamed: "fat-bottom-girls")
+        let level16 = LevelButton(type: LevelButtonType.Ellie)
         level16.position = CGPointMake(520, 130)
-        level16.size = CGSize(width: 40, height: 40)
         level16.name = "16"
-        
         background.addChild(level16)
         
-        let level17 = SKSpriteNode(imageNamed: "fat-bottom-girls")
+        let level17 = LevelButton(type: LevelButtonType.Ellie)
         level17.position = CGPointMake(570, 120)
-        level17.size = CGSize(width: 40, height: 40)
         level17.name = "17"
-        
         background.addChild(level17)
         
-        let level18 = SKSpriteNode(imageNamed: "fat-bottom-girls")
+        let level18 = LevelButton(type: LevelButtonType.Ellie)
         level18.position = CGPointMake(620, 140)
-        level18.size = CGSize(width: 40, height: 40)
         level18.name = "18"
-        
         background.addChild(level18)
-        
     }
 }

@@ -24,6 +24,7 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
     var gameLayer:SKNode!
     var pausableLayer:SKNode!
     
+    private var gotKey = false
 
     //to remove
     func lixosDoLeo() {
@@ -124,13 +125,13 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
             
         }
         else if notPlayerPB.categoryBitMask == keyCategory {
-        
-            //do something
+            gotKey = true
             notPlayerPB.node?.removeFromParent()
         }
         else if notPlayerPB.categoryBitMask == doorCategory {
-            //do something
-            self.GameWin()
+            if gotKey {
+                self.GameWin()
+            }
         }
         
     }

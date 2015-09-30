@@ -10,5 +10,12 @@ import Foundation
 
 
 class UserInfo {
+ 
+    var musicON = true
+    var soundON = true
+    var samLevels = 0
+    var ellieLevels = 0
+    var shrinkLevels = 0
+    var allCharacterLevels = 0
     
 }

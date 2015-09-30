@@ -13,10 +13,10 @@ class PauseButton: SKSpriteNode{
     
     var pauseImage: UIImage
     
-    init(pauseImage:String) {
-        self.pauseImage = UIImage(named: pauseImage)!
+    init() {
+        self.pauseImage = UIImage(named: "pause")!
         let texture = SKTexture(image: self.pauseImage)
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
     required init?(coder aDecoder: NSCoder) {

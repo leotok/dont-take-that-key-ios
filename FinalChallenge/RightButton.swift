@@ -13,10 +13,10 @@ class RightButton: SKSpriteNode{
     
     var rightImage: UIImage
     
-    init(rightImage:String) {
-        self.rightImage = UIImage(named: rightImage)!
+    init() {
+        self.rightImage = UIImage(named: "right")!
         let texture = SKTexture(image: self.rightImage)
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
     required init?(coder aDecoder: NSCoder) {

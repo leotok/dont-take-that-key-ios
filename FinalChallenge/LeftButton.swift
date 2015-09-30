@@ -13,10 +13,10 @@ class LeftButton: SKSpriteNode{
     
     var leftImage: UIImage
     
-    init(leftImage:String) {
-        self.leftImage = UIImage(named: leftImage)!
+    init() {
+        self.leftImage = UIImage(named: "left")!
         let texture = SKTexture(image: self.leftImage)
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
     required init?(coder aDecoder: NSCoder) {

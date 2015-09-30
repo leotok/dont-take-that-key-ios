@@ -13,55 +13,47 @@ class HUD: SKSpriteNode {
     
     //var switchCharacterButton: SwitchCharacterButton
     //var pauseButton: PauseButton
-    var switchCharacterButton: SKSpriteNode
-    var pauseButton: SKSpriteNode
+    var switchCharacterButton: SwitchCharacterButton
+    var pauseButton: PauseButton
     var leftButton: LeftButton
     var rightButton: RightButton
     var jumpButton: JumpButton
     var powerButton: PowerButton
     
     init() {
-//        self.switchCharacterButton = SwitchCharacterButton(characterImage: "Elie")
-//        self.pauseButton = PauseButton(pauseImage: "Pause")
-        self.leftButton = LeftButton(leftImage: "Left")
-        self.rightButton = RightButton(rightImage: "Right")
-        self.jumpButton = JumpButton(jumpImage: "Jump")
+
+        //self.switchCharacterButton = SwitchCharacterButton(characterImage: "Elie")
+        self.leftButton = LeftButton()
+        self.rightButton = RightButton()
+        self.jumpButton = JumpButton()
         self.powerButton = PowerButton(powerImage: "Power")
-        self.switchCharacterButton = SKSpriteNode(imageNamed: "Elie")
-        self.pauseButton = SKSpriteNode(imageNamed: "Pause")
+        self.switchCharacterButton = SwitchCharacterButton(characterImage: "bla")
+        self.pauseButton = PauseButton()
         
         super.init(texture: nil, color: UIColor.clearColor(), size: UIScreen.mainScreen().bounds.size)
-        
     }
 
     func setPositions(){
+
+        let screenWidth = self.scene!.size.width
+        let screenHeight = self.scene!.size.height
         
-        self.leftButton = LeftButton(leftImage: "Left")
-        self.rightButton = RightButton(rightImage: "Right")
-        self.jumpButton = JumpButton(jumpImage: "Jump")
-        self.powerButton = PowerButton(powerImage: "Power")
-        self.switchCharacterButton = SKSpriteNode(imageNamed: "Elie")
-        self.pauseButton = SKSpriteNode(imageNamed: "Pause")
-        self.switchCharacterButton.position = CGPointMake(10, (self.scene?.size.height)!-10)
-        self.pauseButton.position = CGPointMake((self.scene?.size.width)!-10, (self.scene?.size.height)!-10)
-        self.leftButton.position = CGPointMake(10, 10)
-        self.rightButton.position = CGPointMake(20, 10)
-        self.jumpButton.position = CGPointMake((self.scene?.size.width)!-20, 10)
-        self.powerButton.position = CGPointMake((self.scene?.size.width)!-10, 10)
+        switchCharacterButton.position = CGPointMake(switchCharacterButton.size.width/2, screenHeight - switchCharacterButton.size.height/2)
+        pauseButton.position = CGPointMake(screenWidth - pauseButton.size.width/2, screenHeight - pauseButton.size.height/2)
+        leftButton.position = CGPointMake(leftButton.frame.size.width/2+10, leftButton.frame.size.height/2)
         
-        self.switchCharacterButton.zPosition = 2000
-        self.pauseButton.zPosition = 2000
-        self.leftButton.zPosition = 2000
-        self.rightButton.zPosition = 2000
-        self.jumpButton.zPosition = 2000
-        self.powerButton.zPosition = 2000
+        rightButton.position.y = leftButton.position.y
+        rightButton.position.x = leftButton.position.x + rightButton.size.width
         
-        self.switchCharacterButton.hidden = false
-        self.pauseButton.hidden = false
-        self.leftButton.hidden = false
-        self.rightButton.hidden = false
-        self.jumpButton.hidden = false
-        self.powerButton.hidden = false
+        jumpButton.position = CGPointMake(screenWidth - 2 * jumpButton.size.width, leftButton.position.y)
+        powerButton.position = CGPointMake(screenWidth - powerButton.size.width, leftButton.position.y)
+        
+        self.switchCharacterButton.zPosition = 2
+        self.pauseButton.zPosition = 2
+        self.leftButton.zPosition = 2
+        self.rightButton.zPosition = 2
+        self.jumpButton.zPosition = 2
+        self.powerButton.zPosition = 2
         
         self.addChild(switchCharacterButton)
         self.addChild(pauseButton)
@@ -69,9 +61,7 @@ class HUD: SKSpriteNode {
         self.addChild(rightButton)
         self.addChild(jumpButton)
         self.addChild(powerButton)
-        
-        print(self.frame.height)
-        print(self.frame.width)
+
     }
     
     required init?(coder aDecoder: NSCoder) {

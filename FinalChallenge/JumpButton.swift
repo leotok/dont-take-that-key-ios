@@ -13,10 +13,10 @@ class JumpButton: SKSpriteNode{
     
     var jumpImage: UIImage
     
-    init(jumpImage:String) {
-        self.jumpImage = UIImage(named: jumpImage)!
+    init() {
+        self.jumpImage = UIImage(named: "jump")!
         let texture = SKTexture(image: self.jumpImage)
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
     required init?(coder aDecoder: NSCoder) {

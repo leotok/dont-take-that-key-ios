@@ -49,13 +49,15 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
     override func didMoveToView(view: SKView) {
         //to remove
         self.lixosDoLeo()
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        
         
         /* Setup your scene here */
         self.physicsWorld.contactDelegate = self
         
         hud = HUD()
         self.addChild(self.hud)
-        hud.zPosition = 100
+        hud.zPosition = 500
         hud.setPositions()
         
         gameLayer = SKNode()
@@ -68,6 +70,11 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
         
         let lvlGen = LevelGenerator()
         lvlGen.loadLevel(self.levelIndex)
+        
+        //Sam Teste
+        selectedPlayer = Sam()
+        selectedPlayer.position = CGPointMake(300, 300)
+        self.addChild(selectedPlayer)
 
         
     }

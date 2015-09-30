@@ -14,9 +14,9 @@ class PowerButton: SKSpriteNode{
     var powerImage: UIImage
     
     init(powerImage:String) {
-        self.powerImage = UIImage(named: powerImage)!
+        self.powerImage = UIImage(named: "power")!
         let texture = SKTexture(image: self.powerImage)
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
     required init?(coder aDecoder: NSCoder) {

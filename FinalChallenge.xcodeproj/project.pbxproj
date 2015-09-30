@@ -20,6 +20,7 @@
 		3F7793781BBB10090005F6D8 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7793771BBB10090005F6D8 /* clock.png */; settings = {ASSET_TAGS = (); }; };
 		3F77937A1BBB13650005F6D8 /* freud.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7793791BBB13650005F6D8 /* freud.png */; settings = {ASSET_TAGS = (); }; };
 		3F77937C1BBB18870005F6D8 /* fat-bottom-girls.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937B1BBB18870005F6D8 /* fat-bottom-girls.png */; settings = {ASSET_TAGS = (); }; };
+		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; settings = {ASSET_TAGS = (); }; };
 		7D2C40D71BB9C56A00C1DF7D /* configuracao.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D2C40D61BB9C56A00C1DF7D /* configuracao.png */; settings = {ASSET_TAGS = (); }; };
 		D0B502631BB4466A006C9C90 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502621BB4466A006C9C90 /* Character.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B502651BB4467A006C9C90 /* Sam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502641BB4467A006C9C90 /* Sam.swift */; settings = {ASSET_TAGS = (); }; };
@@ -81,6 +82,7 @@
 		3F7793771BBB10090005F6D8 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		3F7793791BBB13650005F6D8 /* freud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freud.png; sourceTree = "<group>"; };
 		3F77937B1BBB18870005F6D8 /* fat-bottom-girls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fat-bottom-girls.png"; sourceTree = "<group>"; };
+		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
 		7D2C40D61BB9C56A00C1DF7D /* configuracao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = configuracao.png; sourceTree = "<group>"; };
 		D0B502621BB4466A006C9C90 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		D0B502641BB4467A006C9C90 /* Sam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sam.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				7D2C40D61BB9C56A00C1DF7D /* configuracao.png */,
 				3F7793771BBB10090005F6D8 /* clock.png */,
 				3F77937B1BBB18870005F6D8 /* fat-bottom-girls.png */,
+				3F77937D1BBB242B0005F6D8 /* desert.png */,
 				3F7793751BBB06290005F6D8 /* backgound_teste.jpg */,
 				3F7793791BBB13650005F6D8 /* freud.png */,
 				3F7793731BBAE3B50005F6D8 /* back.png */,
@@ -377,6 +380,7 @@
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				D0B502951BB45165006C9C90 /* Localizable.strings in Resources */,
 				7D2C40D71BB9C56A00C1DF7D /* configuracao.png in Resources */,
+				3F77937E1BBB242B0005F6D8 /* desert.png in Resources */,
 				3F7793741BBAE3B50005F6D8 /* back.png in Resources */,
 				3F77937A1BBB13650005F6D8 /* freud.png in Resources */,
 				3F7793761BBB06290005F6D8 /* backgound_teste.jpg in Resources */,

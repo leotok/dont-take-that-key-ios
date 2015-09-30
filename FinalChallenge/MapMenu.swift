@@ -61,9 +61,10 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }
-            else if node.zPosition == 1 {
+            else if node.name == "LevelButton" {
+                let levelButton = node as! LevelButton
                 let scene = GenericGameScene(size: self.frame.size)
-                scene.levelIndex = Int(node.name!)!
+                scene.levelIndex = levelButton.level
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }
@@ -88,100 +89,82 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     func addSamLevels() {
         
-        let level1 = LevelButton(type: LevelButtonType.Sam)
+        let level1 = LevelButton(type: LevelButtonType.Sam, level: 1)
         level1.position = CGPointMake(60, 100)
-        level1.name = "1"
         background.addChild(level1)
         
-        let level2 = LevelButton(type: LevelButtonType.Sam)
+        let level2 = LevelButton(type: LevelButtonType.Sam, level: 2)
         level2.position = CGPointMake(90, 190)
-        level2.name = "2"
         background.addChild(level2)
         
-        let level3 = LevelButton(type: LevelButtonType.Sam)
+        let level3 = LevelButton(type: LevelButtonType.Sam, level: 3)
         level3.position = CGPointMake(150, 150)
-        level3.name = "3"
         background.addChild(level3)
         
-        let level4 = LevelButton(type: LevelButtonType.Sam)
+        let level4 = LevelButton(type: LevelButtonType.Sam, level:4)
         level4.position = CGPointMake(210, 110)
-        level4.name = "4"
         background.addChild(level4)
         
-        let level5 = LevelButton(type: LevelButtonType.Sam)
+        let level5 = LevelButton(type: LevelButtonType.Sam, level:5)
         level5.position = CGPointMake(270, 140)
-        level5.name = "5"
         background.addChild(level5)
         
-        let level6 = LevelButton(type: LevelButtonType.Sam)
+        let level6 = LevelButton(type: LevelButtonType.Sam, level:6)
         level6.position = CGPointMake(320, 200)
-        level6.name = "6"
         background.addChild(level6)
     }
     
     func addShrinkLevels() {
         
-        let level7 = LevelButton(type: LevelButtonType.Shrink)
+        let level7 = LevelButton(type: LevelButtonType.Shrink,level:7)
         level7.position = CGPointMake(370, 230)
-        level7.name = "7"
         background.addChild(level7)
         
-        let level8 = LevelButton(type: LevelButtonType.Shrink)
+        let level8 = LevelButton(type: LevelButtonType.Shrink,level:8)
         level8.position = CGPointMake(420, 250)
-        level8.name = "8"
         background.addChild(level8)
         
-        let level9 = LevelButton(type: LevelButtonType.Shrink)
+        let level9 = LevelButton(type: LevelButtonType.Shrink,level:9)
         level9.position = CGPointMake(470, 270)
-        level9.name = "9"
         background.addChild(level9)
         
-        let level10 = LevelButton(type: LevelButtonType.Shrink)
+        let level10 = LevelButton(type: LevelButtonType.Shrink,level:10)
         level10.position = CGPointMake(520, 300)
-        level10.name = "10"
         background.addChild(level10)
         
-        let level11 = LevelButton(type: LevelButtonType.Shrink)
+        let level11 = LevelButton(type: LevelButtonType.Shrink,level:11)
         level11.position = CGPointMake(570, 270)
-        level11.name = "11"
         background.addChild(level11)
         
-        let level12 = LevelButton(type: LevelButtonType.Shrink)
+        let level12 = LevelButton(type: LevelButtonType.Shrink,level:12)
         level12.position = CGPointMake(620, 230)
-        level12.name = "12"
         background.addChild(level12)
     }
     
     func addEllieLevels() {
         
-        let level13 = LevelButton(type: LevelButtonType.Ellie)
+        let level13 = LevelButton(type: LevelButtonType.Ellie,level:13)
         level13.position = CGPointMake(370, 190)
-        level13.name = "13"
         background.addChild(level13)
         
-        let level14 = LevelButton(type: LevelButtonType.Ellie)
+        let level14 = LevelButton(type: LevelButtonType.Ellie,level:14)
         level14.position = CGPointMake(420, 170)
-        level14.name = "14"
         background.addChild(level14)
         
-        let level15 = LevelButton(type: LevelButtonType.Ellie)
+        let level15 = LevelButton(type: LevelButtonType.Ellie,level:15)
         level15.position = CGPointMake(470, 150)
-        level15.name = "15"
         background.addChild(level15)
         
-        let level16 = LevelButton(type: LevelButtonType.Ellie)
+        let level16 = LevelButton(type: LevelButtonType.Ellie,level:16)
         level16.position = CGPointMake(520, 130)
-        level16.name = "16"
         background.addChild(level16)
         
-        let level17 = LevelButton(type: LevelButtonType.Ellie)
+        let level17 = LevelButton(type: LevelButtonType.Ellie,level:17)
         level17.position = CGPointMake(570, 120)
-        level17.name = "17"
         background.addChild(level17)
         
-        let level18 = LevelButton(type: LevelButtonType.Ellie)
+        let level18 = LevelButton(type: LevelButtonType.Ellie,level:18)
         level18.position = CGPointMake(620, 140)
-        level18.name = "18"
         background.addChild(level18)
     }
 }

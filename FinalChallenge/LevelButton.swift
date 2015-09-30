@@ -20,11 +20,15 @@ enum LevelButtonType: String {
 
 class LevelButton: SKSpriteNode{
     
-    init(type: LevelButtonType) {
+    private(set) var level = -1
+    
+    init(type: LevelButtonType, level:Int) {
         
+        self.level = level
         let texture = SKTexture(imageNamed: type.rawValue)
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(40, 40))
         self.zPosition = 1
+        self.name = "LevelButton"
 
     }
     

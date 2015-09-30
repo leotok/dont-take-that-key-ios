@@ -9,17 +9,24 @@
 import Foundation
 import SpriteKit
 
-class MapMenu: SKScene {
+class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     var parentScene: SKScene!
     
     override func didMoveToView(view: SKView) {
-     
+        
         let background = SKSpriteNode(imageNamed: "desert")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
         background.size = self.size
+        background.zPosition = -1
         
         addChild(background)
+        
+        // PanGesture
+        
+//        var panGesture = UIPanGestureRecognizer(target: self, action: Selector("dragMap"))
+//        panGesture.delegate = self
+//        self.view?.addGestureRecognizer(panGesture)
         
         // Back Button
         
@@ -27,7 +34,6 @@ class MapMenu: SKScene {
         backButton.position = CGPointMake(30, 380)
         backButton.size = CGSize(width: 40, height: 40)
         backButton.name = "back"
-        background.zPosition = 10
      
         addChild(backButton)
         
@@ -36,8 +42,6 @@ class MapMenu: SKScene {
         addSamLevels()
         addShrinkLevels()
         addEllieLevels()
-        
-        
         
     }
  
@@ -53,12 +57,32 @@ class MapMenu: SKScene {
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }
-            else {
+            else if node.zPosition == 0 {
                 let scene = GenericGameScene(size: self.frame.size)
                 scene.levelIndex = Int(node.name!)!
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch in (touches) {
+            let location = touch.locationInNode(self)
+            let node = self.nodeAtPoint(location)
+            
+            print("touch Moved")
+            
+            if node.zPosition == -1 {
+                
+                print("touched background")
+                if let gesture = touch.gestureRecognizers?.first {
+                    
+                }
+                
+            }
+            
         }
     }
     

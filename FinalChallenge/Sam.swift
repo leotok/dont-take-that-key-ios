@@ -17,14 +17,14 @@ protocol Pausable {
 }
 class Sam: Character {
     
+    var delegate:Pausable?
+    
     init () {
     
         //Setting Sam`s properties
-    
-        
-        
         super.init(sprite: SKTexture(imageNamed: "Sam_Idle"))
-    
+        self.walkTextures = [SKTexture]()
+        self.jumpTextures = [SKTexture]()
     
     }
 
@@ -32,7 +32,15 @@ class Sam: Character {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
+     internal override func activePower() {
+        super.activePower()
+        self.delegate?.pauseScene()
+        
+    }
+    internal override func deactivatePower() {
+        super.deactivatePower()
+        self.delegate?.unpauseScene()
+    }
+
     
 }

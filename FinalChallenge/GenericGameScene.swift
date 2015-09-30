@@ -8,20 +8,26 @@
 
 import SpriteKit
 
-class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
+
+let playerCategory:UInt32 = 1
+let objectCategory:UInt32 = 2
+let hazardCategory:UInt32 = 4
+let keyCategory:UInt32 = 8
+let doorCategory:UInt32 = 16
+
+class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDelegate {
     
     var levelIndex = 0
-    var level = -1
     var hud:HUD!
     var selectedPlayer:Character!
     var characters:[Character]!
     var gameLayer:SKNode!
     var pausableLayer:SKNode!
     
+    private var gotKey = false
 
-    
-    override func didMoveToView(view: SKView) {
-        
+    //to remove
+    func lixosDoLeo() {
         // Back Button
         
         let backButton = SKSpriteNode(imageNamed: "back")
@@ -31,16 +37,22 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
         
         addChild(backButton)
         
-        
         let levelTitle = SKLabelNode(fontNamed:"Chalkduster")
         levelTitle.text = "Fase \(levelIndex)"
         levelTitle.fontSize = 45
         levelTitle.position = CGPointMake(self.size.width / 2, self.size.height / 3.31)
         levelTitle.zPosition = 10
-        
         addChild(levelTitle)
+    
+    }
+    
+    override func didMoveToView(view: SKView) {
+        //to remove
+        self.lixosDoLeo()
         
         /* Setup your scene here */
+        self.physicsWorld.contactDelegate = self
+        
         hud = HUD()
         self.addChild(self.hud)
         hud.zPosition = 100
@@ -55,13 +67,13 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
         
         
         let lvlGen = LevelGenerator()
-        lvlGen.loadLevel(self.level)
+        lvlGen.loadLevel(self.levelIndex)
 
         
     }
     
     func addNodeToScene(node: SKNode) {
-        self.addChild(node)
+        self.pausableLayer.addChild(node)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -88,6 +100,42 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        var playerPB:SKPhysicsBody
+        var notPlayerPB:SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            playerPB = contact.bodyA
+            notPlayerPB = contact.bodyB
+        }
+        else {
+            playerPB = contact.bodyB
+            notPlayerPB = contact.bodyA
+        }
+        
+        let player = playerPB.node as! Character
+        
+        if notPlayerPB.categoryBitMask == hazardCategory {
+            player.die()
+            self.GameOver()
+            
+        }
+        else if notPlayerPB.categoryBitMask == keyCategory {
+            gotKey = true
+            notPlayerPB.node?.removeFromParent()
+        }
+        else if notPlayerPB.categoryBitMask == doorCategory {
+            if gotKey {
+                self.GameWin()
+            }
+        }
+        
+    }
+    
     
     // Sam Protocol
     func pauseScene() -> Bool {

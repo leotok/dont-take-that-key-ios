@@ -11,7 +11,6 @@ import SpriteKit
 class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
     
     var levelIndex = 0
-    var level = -1
     var hud:HUD!
     var selectedPlayer:Character!
     var characters:[Character]!
@@ -55,7 +54,7 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
         
         
         let lvlGen = LevelGenerator()
-        lvlGen.loadLevel(self.level)
+        lvlGen.loadLevel(self.levelIndex)
 
         
     }

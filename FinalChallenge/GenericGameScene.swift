@@ -18,9 +18,8 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
     var pausableLayer:SKNode!
     
 
-    
-    override func didMoveToView(view: SKView) {
-        
+    //to remove
+    func lixosDoLeo() {
         // Back Button
         
         let backButton = SKSpriteNode(imageNamed: "back")
@@ -30,14 +29,18 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
         
         addChild(backButton)
         
-        
         let levelTitle = SKLabelNode(fontNamed:"Chalkduster")
         levelTitle.text = "Fase \(levelIndex)"
         levelTitle.fontSize = 45
         levelTitle.position = CGPointMake(self.size.width / 2, self.size.height / 3.31)
         levelTitle.zPosition = 10
-        
         addChild(levelTitle)
+    
+    }
+    
+    override func didMoveToView(view: SKView) {
+        //to remove
+        self.lixosDoLeo()
         
         /* Setup your scene here */
         hud = HUD()
@@ -60,7 +63,7 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable {
     }
     
     func addNodeToScene(node: SKNode) {
-        self.addChild(node)
+        self.pausableLayer.addChild(node)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

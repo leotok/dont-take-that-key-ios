@@ -56,7 +56,7 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
         hud = HUD()
         self.addChild(self.hud)
         hud.zPosition = 100
-        
+        hud.setPositions()
         
         gameLayer = SKNode()
         gameLayer.zPosition = 50

@@ -133,14 +133,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         /* Called before each frame is rendered */
     }
     
-
     
     func didBeginContact(contact: SKPhysicsContact) {
         
         var playerPB:SKPhysicsBody
         var notPlayerPB:SKPhysicsBody
-        
-        print("firstContact")
         
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             playerPB = contact.bodyA
@@ -168,7 +165,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         else if notPlayerPB.categoryBitMask == objectCategory {
-            print("ay que la hora")
             if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 selectedPlayer.reachedGround()
             }
@@ -188,7 +184,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     //Menus
-    private func pauseGame() {
+    func pauseGame() {
     
         self.scene?.paused = true
         let menu = PauseMenu()

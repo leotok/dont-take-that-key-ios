@@ -26,7 +26,7 @@ class Character: SKSpriteNode {
         physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size())
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory
-        physicsBody?.contactTestBitMask = keyCategory | doorCategory
+        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
         physicsBody?.usesPreciseCollisionDetection = true

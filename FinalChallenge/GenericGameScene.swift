@@ -24,6 +24,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     var gameLayer:SKNode!
     var pausableLayer:SKNode!
     var characterSingleton:CurrentCharacterSingleton!
+    var popUpOpened = false
+    
     
     private var gotKey = false
 
@@ -110,11 +112,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             let node = self.nodeAtPoint(location)
             
-            if node.name == "back" {
-                
-                let scene = MapMenu(size:self.frame.size)
-                let transition = SKTransition.fadeWithDuration(1.5)
-                self.view?.presentScene(scene, transition: transition)
+            if popUpOpened {
                 
             }
             else{
@@ -125,8 +123,12 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        hud.touchesBegan(touches, withEvent: event)
+        if popUpOpened {
         
+        }
+        else {
+            hud.touchesBegan(touches, withEvent: event)
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -200,7 +202,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     //Menus
     func pauseGame() {
-    
+        self.popUpOpened = true
         self.scene?.paused = true
         let menu = PauseMenu.createPauseMenu(self.size)
         menu.zPosition = 1000

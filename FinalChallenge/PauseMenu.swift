@@ -21,7 +21,7 @@ class PauseMenu: SKSpriteNode {
 
         
         let pauseMenu = PauseMenu(color: UIColor.redColor(), size: CGSizeMake(size.width*0.8, size.height*0.8))
-        
+        pauseMenu.position = CGPointMake(size.width/2, size.height/2)
         let resumeButton = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(150, 50))
         resumeButton.name = "resume"
 
@@ -40,6 +40,7 @@ class PauseMenu: SKSpriteNode {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+        print("asdsda")
     }
     
 }

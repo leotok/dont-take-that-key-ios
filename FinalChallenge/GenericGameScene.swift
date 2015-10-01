@@ -133,7 +133,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         /* Called before each frame is rendered */
     }
     
-
     
     func didBeginContact(contact: SKPhysicsContact) {
         
@@ -185,7 +184,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     //Menus
-    private func pauseGame() {
+    func pauseGame() {
     
         self.scene?.paused = true
         let menu = PauseMenu()

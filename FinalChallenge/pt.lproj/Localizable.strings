@@ -7,3 +7,7 @@
 */
 
 
+"Play"="Jogar!";
+"ResetMsg"="Você tem certeza?";
+"LeftAnswer"="Sim";
+"RightAnswer"="Cancelar";

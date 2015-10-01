@@ -115,7 +115,9 @@ class LevelGenerator {
                     let tile = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(64, 64))
                     tile.position = CGPointMake( 48 + 64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     tile.zPosition = 10
-                    tile.physicsBody?.collisionBitMask = 2
+                    tile.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(64, 54))
+                    tile.physicsBody?.categoryBitMask = 2
+                    tile.physicsBody?.collisionBitMask = 1
                     levelScene.addChild(tile)
                 }
             }

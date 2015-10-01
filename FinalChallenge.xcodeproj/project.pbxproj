@@ -16,6 +16,7 @@
 		3F29DE831BB440EB00ADE6F8 /* FinalChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE821BB440EB00ADE6F8 /* FinalChallengeTests.swift */; };
 		3F29DE8E1BB440EB00ADE6F8 /* FinalChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */; };
 		3F609D601BBC6F4B00B30010 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */; settings = {ASSET_TAGS = (); }; };
+		3F609D641BBDA66200B30010 /* Level_Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F609D631BBDA66200B30010 /* Level_Test.txt */; settings = {ASSET_TAGS = (); }; };
 		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; settings = {ASSET_TAGS = (); }; };
 		D08F3B331BBC59EE008E1B79 /* JumpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B341BBC59EE008E1B79 /* LeftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */; settings = {ASSET_TAGS = (); }; };
@@ -79,6 +80,7 @@
 		3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalChallengeUITests.swift; sourceTree = "<group>"; };
 		3F29DE8F1BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
+		3F609D631BBDA66200B30010 /* Level_Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_Test.txt; sourceTree = "<group>"; };
 		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
 		D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpButton.swift; sourceTree = "<group>"; };
 		D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftButton.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		D0B502721BB44C19006C9C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F609D631BBDA66200B30010 /* Level_Test.txt */,
 				3F77937D1BBB242B0005F6D8 /* desert.png */,
 				3F29DE711BB440EB00ADE6F8 /* Main.storyboard */,
 				3F29DE761BB440EB00ADE6F8 /* LaunchScreen.storyboard */,
@@ -391,6 +394,7 @@
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				D0B502951BB45165006C9C90 /* Localizable.strings in Resources */,
 				3F77937E1BBB242B0005F6D8 /* desert.png in Resources */,
+				3F609D641BBDA66200B30010 /* Level_Test.txt in Resources */,
 				3F29DE751BB440EB00ADE6F8 /* Assets.xcassets in Resources */,
 				D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */,
 				3F29DE731BB440EB00ADE6F8 /* Main.storyboard in Resources */,

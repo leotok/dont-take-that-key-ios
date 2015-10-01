@@ -41,8 +41,17 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         let scene = GenericGameScene(size: size)
         scene.levelIndex = levelIndex
         let lvlGen = LevelGenerator()
-        lvlGen.loadLevel(levelIndex, scene: scene)
         
+        scene.gameLayer = SKNode()
+        scene.gameLayer.zPosition = 50
+        scene.addChild(scene.gameLayer)
+        
+        scene.pausableLayer = SKNode()
+        scene.gameLayer.addChild(scene.pausableLayer)
+    
+        
+        lvlGen.loadLevel(levelIndex, scene: scene)
+
         return scene
     
     }
@@ -83,13 +92,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         hud.zPosition = 500
         hud.setPositions()
         
-        gameLayer = SKNode()
-        gameLayer.zPosition = 50
-        self.addChild(gameLayer)
-        
-        pausableLayer = SKNode()
-        gameLayer.addChild(pausableLayer)
-        
+
         
 
         //Sam Teste

@@ -32,7 +32,6 @@ class LeftButton: SKSpriteNode{
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("ué")
         characterSingleton.currentCharacter!.stopWalking()
     }
 }

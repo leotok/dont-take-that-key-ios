@@ -75,6 +75,10 @@ class Character: SKSpriteNode {
     
     }
     
+    func stopImpulse(){
+        self.removeActionForKey("Jump")
+    }
+    
     func reachedGround() {
         isJumping = false
     }

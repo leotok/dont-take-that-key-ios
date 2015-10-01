@@ -137,6 +137,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         var playerPB:SKPhysicsBody
         var notPlayerPB:SKPhysicsBody
         
+        print("firstContact")
+        
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             playerPB = contact.bodyA
             notPlayerPB = contact.bodyB
@@ -163,6 +165,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         else if notPlayerPB.categoryBitMask == objectCategory {
+            print("ay que la hora")
             if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 selectedPlayer.reachedGround()
             }

@@ -29,4 +29,14 @@ class JumpButton: SKSpriteNode{
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.currentCharacter!.jump()
     }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("eeeeeeeeeeh")
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
+        if(characterSingleton.currentCharacter!.isJumping == true){
+            characterSingleton.currentCharacter?.removeActionForKey("Jump")
+            characterSingleton.currentCharacter!.stopImpulse()
+        }
+    }
+    
 }

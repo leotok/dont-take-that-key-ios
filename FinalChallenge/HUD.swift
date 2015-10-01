@@ -109,6 +109,9 @@ class HUD: SKSpriteNode {
             else if(self.rightButton.frame.contains(location)){
                 self.rightButton.touchesEnded(touches, withEvent: event)
             }
+            else if(self.jumpButton.frame.contains(location)){
+                self.jumpButton.touchesEnded(touches, withEvent: event)
+            }
         }
     }
 }

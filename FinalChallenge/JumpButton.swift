@@ -12,10 +12,12 @@ import SpriteKit
 class JumpButton: SKSpriteNode{
     
     var jumpImage: UIImage
+    var characterSingleton: CurrentCharacterSingleton
     
     init() {
         self.jumpImage = UIImage(named: "jump")!
         let texture = SKTexture(image: self.jumpImage)
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
@@ -24,6 +26,7 @@ class JumpButton: SKSpriteNode{
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
+        characterSingleton.currentCharacter!.jump()
     }
 }

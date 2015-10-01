@@ -19,6 +19,7 @@ class HUD: SKSpriteNode {
     var rightButton: RightButton
     var jumpButton: JumpButton
     var powerButton: PowerButton
+    var currentCharacter: Character?
     
     init() {
 
@@ -64,6 +65,10 @@ class HUD: SKSpriteNode {
 
     }
     
+    func setCharacter(currentCharacter: Character){
+        self.currentCharacter = currentCharacter
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -90,6 +95,19 @@ class HUD: SKSpriteNode {
             }
             else if(self.powerButton.frame.contains(location)){
                 self.powerButton.touchesBegan(touches, withEvent: event)
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in (touches) {
+            let location = touch.locationInNode(self)
+            
+            if(self.leftButton.frame.contains(location)){
+                self.leftButton.touchesEnded(touches, withEvent: event)
+            }
+            else if(self.rightButton.frame.contains(location)){
+                self.rightButton.touchesEnded(touches, withEvent: event)
             }
         }
     }

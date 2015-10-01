@@ -23,6 +23,7 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
     var characters:[Character]!
     var gameLayer:SKNode!
     var pausableLayer:SKNode!
+    var characterSingleton:CurrentCharacterSingleton!
     
     private var gotKey = false
 
@@ -75,8 +76,9 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
         selectedPlayer = Sam()
         selectedPlayer.position = CGPointMake(300, 300)
         self.addChild(selectedPlayer)
-
         
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
+        characterSingleton.setCurrentCharacter(selectedPlayer)
     }
     
     func addNodeToScene(node: SKNode) {
@@ -96,11 +98,15 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
                 self.view?.presentScene(scene, transition: transition)
                 
             }
+            else{
+                hud.touchesEnded(touches, withEvent: event)
+            }
         }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        hud.touchesBegan(touches, withEvent: event)
         
     }
    

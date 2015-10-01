@@ -21,6 +21,9 @@ class Character: SKSpriteNode {
     
     init (sprite:SKTexture) {
         idleTexture = sprite
+        walkTextures = [sprite,sprite,sprite]
+        print("ayyyyy")
+        print(walkTextures)
         super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
         physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size())
         physicsBody?.categoryBitMask = playerCategory
@@ -35,6 +38,7 @@ class Character: SKSpriteNode {
     
     
     func walkRight () {
+        walkTextures = [idleTexture,idleTexture,idleTexture]
         let moveX = SKAction.moveByX(100, y: 0, duration: 0.3)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
         let walkAction = SKAction.group([moveX,animate])
@@ -44,6 +48,7 @@ class Character: SKSpriteNode {
     }
     
     func walkLeft () {
+        walkTextures = [idleTexture,idleTexture,idleTexture]
         let moveX = SKAction.moveByX(-100, y: 0, duration: 0.3)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
         let walkAction = SKAction.group([moveX,animate])
@@ -61,8 +66,9 @@ class Character: SKSpriteNode {
     func jump() {
         
         if !isJumping {
+            jumpTextures = [idleTexture,idleTexture,idleTexture]
             let animate = SKAction.animateWithTextures(jumpTextures, timePerFrame: 0.2)
-            let impulse = SKAction.applyImpulse(CGVectorMake(0, 250), duration: 1)
+            let impulse = SKAction.applyImpulse(CGVectorMake(0, 80), duration: 0.1)
             let jumpAction = SKAction.group([animate,impulse])
             isJumping = true
             self.runAction(jumpAction, withKey:"Jump")
@@ -71,7 +77,6 @@ class Character: SKSpriteNode {
     }
     
     func reachedGround() {
-        self.removeActionForKey("Jump")
         isJumping = false
     }
     

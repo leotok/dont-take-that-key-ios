@@ -82,6 +82,8 @@ class HUD: SKSpriteNode {
                 self.switchCharacterButton.touchesBegan(touches, withEvent: event)
             }
             else if(self.pauseButton.frame.contains(location)){
+                let genericScene = self.scene as! GenericGameScene
+                genericScene.pauseGame()
                 self.pauseButton.touchesBegan(touches, withEvent: event)
             }
             else if(self.leftButton.frame.contains(location)){

@@ -107,11 +107,9 @@ class LevelGenerator {
         {
             let string = levelMatrix[i]
             var index = string.startIndex //advancedBy(1)
-            print(string)
             for j in 0...(self.numberOfHorizontalTiles - 1)
             {
                 if string[index] ==  "1" {
-                    print(index)
                     let tile = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(64, 64))
                     tile.position = CGPointMake( -32 + 64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     tile.zPosition = 10

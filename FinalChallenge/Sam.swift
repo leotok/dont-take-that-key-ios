@@ -23,6 +23,7 @@ class Sam: Character {
     
         //Setting Sam`s properties
         super.init(sprite: SKTexture(imageNamed: "Sam_Idle"))
+        //self.physicsBody = SKPhysicsBody(texture: self.texture!, size: (self.texture?.size())!)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
     

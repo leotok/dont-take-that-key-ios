@@ -9,6 +9,6 @@
 import Foundation
 import SpriteKit
 
-class GameOverMenu: SKNode {
+class GameOverMenu: SKSpriteNode {
     
 }

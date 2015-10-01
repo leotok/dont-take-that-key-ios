@@ -173,6 +173,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     
+    override func didSimulatePhysics() {
+        //centerCamera()
+    }
+    func centerCamera() {
+        let positionInScene = self.convertPoint(selectedPlayer.position, fromNode: selectedPlayer.parent!)
+        self.position = CGPointMake(gameLayer.position.x - positionInScene.x + 200, gameLayer.position.y)
+    }
+    
     // Sam Protocol
     func pauseScene() -> Bool {
         pausableLayer.paused = true
@@ -183,11 +191,18 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         return false
     }
     
+    func quitLevel() {
+    
+        let scene = MapMenu(size:self.size)
+        let transition = SKTransition.fadeWithDuration(1.5)
+        self.view?.presentScene(scene, transition: transition)
+    }
+    
     //Menus
     func pauseGame() {
     
         self.scene?.paused = true
-        let menu = PauseMenu()
+        let menu = PauseMenu.createPauseMenu(self.size)
         menu.zPosition = 1000
         self.addChild(menu)
     }

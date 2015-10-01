@@ -15,7 +15,7 @@ let hazardCategory:UInt32 = 4
 let keyCategory:UInt32 = 8
 let doorCategory:UInt32 = 16
 
-class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDelegate {
+class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     var levelIndex = 0
     var hud:HUD!
@@ -26,6 +26,28 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
     
     private var gotKey = false
 
+    
+    override private init(size: CGSize) {
+        super.init(size: size)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    class func createScene (size:CGSize, levelIndex:Int)->GenericGameScene {
+        
+        let scene = GenericGameScene(size: size)
+        scene.levelIndex = levelIndex
+        let lvlGen = LevelGenerator()
+        lvlGen.loadLevel(levelIndex, scene: scene)
+        
+        return scene
+    
+    }
+    
+    
+    
     //to remove
     func lixosDoLeo() {
         // Back Button
@@ -68,19 +90,13 @@ class GenericGameScene: SKScene, GeneratorDelegate, Pausable, SKPhysicsContactDe
         gameLayer.addChild(pausableLayer)
         
         
-        let lvlGen = LevelGenerator()
-        lvlGen.loadLevel(self.levelIndex)
-        
+
         //Sam Teste
         selectedPlayer = Sam()
         selectedPlayer.position = CGPointMake(300, 300)
         self.addChild(selectedPlayer)
 
         
-    }
-    
-    func addNodeToScene(node: SKNode) {
-        self.pausableLayer.addChild(node)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

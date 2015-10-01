@@ -26,7 +26,7 @@ class LevelGenerator {
     var levelIndex = 0
     
     let numberOfVerticalTiles = 6
-    let numberOfHorizontalTiles = 14
+    let numberOfHorizontalTiles = 12
     
     func loadLevel(level:Int , scene:GenericGameScene )->Bool {
   
@@ -111,7 +111,7 @@ class LevelGenerator {
             {
                 if string[index] ==  "1" {
                     let tile = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(64, 64))
-                    tile.position = CGPointMake( -32 + 64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
+                    tile.position = CGPointMake(  64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     tile.zPosition = 10
                     tile.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(64, 64))
                     tile.physicsBody?.categoryBitMask = 2

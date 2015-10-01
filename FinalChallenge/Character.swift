@@ -22,14 +22,13 @@ class Character: SKSpriteNode {
     init (sprite:SKTexture) {
         idleTexture = sprite
         walkTextures = [sprite,sprite,sprite]
-        print("ayyyyy")
-        print(walkTextures)
         super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
         physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size())
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory
         physicsBody?.contactTestBitMask = keyCategory | doorCategory
-        
+        physicsBody?.allowsRotation = false
+        physicsBody?.restitution = 0.0
     }
 
     required init?(coder aDecoder: NSCoder) {

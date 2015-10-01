@@ -26,7 +26,7 @@ class LevelGenerator {
     var levelIndex = 0
     
     let numberOfVerticalTiles = 6
-    let numberOfHorizontalTiles = 11
+    let numberOfHorizontalTiles = 14
     
     func loadLevel(level:Int , scene:GenericGameScene )->Bool {
   
@@ -106,20 +106,27 @@ class LevelGenerator {
         for i in 0...(self.numberOfVerticalTiles - 1)
         {
             let string = levelMatrix[i]
-            let index = string.startIndex.advancedBy(1)
-            
+            var index = string.startIndex //advancedBy(1)
+            print(string)
             for j in 0...(self.numberOfHorizontalTiles - 1)
             {
                 if string[index] ==  "1" {
-                 
+                    print(index)
                     let tile = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(64, 64))
-                    tile.position = CGPointMake( 48 + 64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
+                    tile.position = CGPointMake( -32 + 64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     tile.zPosition = 10
-                    tile.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(64, 54))
+                    tile.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(64, 64))
                     tile.physicsBody?.categoryBitMask = 2
-                    tile.physicsBody?.collisionBitMask = 1
-                    levelScene.addChild(tile)
+                    tile.physicsBody?.collisionBitMask = 1 | 2
+                    tile.physicsBody?.affectedByGravity = false
+                    tile.physicsBody?.allContactedBodies()
+                    tile.physicsBody?.allowsRotation = false
+                    tile.physicsBody?.restitution = 0
+                    tile.physicsBody?.dynamic = false
+                    tile.physicsBody?.usesPreciseCollisionDetection = true
+                    levelScene.pausableLayer.addChild(tile)
                 }
+                index = index.advancedBy(1)
             }
         }
     }

@@ -29,6 +29,7 @@ class Character: SKSpriteNode {
         physicsBody?.contactTestBitMask = keyCategory | doorCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
+        physicsBody?.usesPreciseCollisionDetection = true
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -9,28 +9,18 @@
 import Foundation
 import SpriteKit
 
-protocol GeneratorDelegate {
-
-    func addNodeToScene(node:SKNode)
-
-
-}
 
 class LevelGenerator {
     
-    var delegate:GeneratorDelegate?
+//    var levelMatrix = Array<Int<Int>>()
     
-    
-    func loadLevel(level:Int)->Bool {
-    
-    
+    func loadLevel(level:Int, scene:GenericGameScene)->Bool {
+  
         
-        
-      //self.delegate?.addNode(....)
+    
+    
     
         return true
     }
-    
-    
     
 }

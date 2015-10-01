@@ -12,10 +12,12 @@ import SpriteKit
 class PowerButton: SKSpriteNode{
     
     var powerImage: UIImage
+    var characterSingleton: CurrentCharacterSingleton
     
     init(powerImage:String) {
         self.powerImage = UIImage(named: "power")!
         let texture = SKTexture(image: self.powerImage)
+        characterSingleton = CurrentCharacterSingleton()
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
@@ -24,6 +26,7 @@ class PowerButton: SKSpriteNode{
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        //characterSingleton = CurrentCharacterSingleton()
+        characterSingleton.currentCharacter?.usePower()
     }
 }

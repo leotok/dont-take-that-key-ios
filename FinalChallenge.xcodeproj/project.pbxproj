@@ -45,6 +45,7 @@
 		D0B502951BB45165006C9C90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0B502971BB45165006C9C90 /* Localizable.strings */; };
 		D0B5029B1BB45259006C9C90 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B5029A1BB45259006C9C90 /* HUD.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B5029C1BB4885C006C9C90 /* UserInfo.plist */; settings = {ASSET_TAGS = (); }; };
+		E920A65E1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		D0B502991BB45170006C9C90 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0B5029A1BB45259006C9C90 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		D0B5029C1BB4885C006C9C90 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
+		E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCharacterSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			children = (
 				D08F3B391BBC59F7008E1B79 /* HUD */,
 				3F29DE6D1BB440EB00ADE6F8 /* GenericGameScene.swift */,
+				E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */,
 				D0B5027F1BB44DB3006C9C90 /* LevelGenerator.swift */,
 				D0B502881BB44EBC006C9C90 /* StoryText.swift */,
 				D0B5029A1BB45259006C9C90 /* HUD.swift */,
@@ -435,6 +438,7 @@
 				D0B502651BB4467A006C9C90 /* Sam.swift in Sources */,
 				D0B5027C1BB44D0A006C9C90 /* Settings.swift in Sources */,
 				3F29DE701BB440EB00ADE6F8 /* GameViewController.swift in Sources */,
+				E920A65E1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift in Sources */,
 				D08F3B331BBC59EE008E1B79 /* JumpButton.swift in Sources */,
 				D08F3B381BBC59EE008E1B79 /* SwitchCharacterButton.swift in Sources */,
 				3F29DE6A1BB440EB00ADE6F8 /* AppDelegate.swift in Sources */,

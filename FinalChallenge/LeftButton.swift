@@ -12,10 +12,12 @@ import SpriteKit
 class LeftButton: SKSpriteNode{
     
     var leftImage: UIImage
+    var characterSingleton: CurrentCharacterSingleton
     
     init() {
         self.leftImage = UIImage(named: "left")!
         let texture = SKTexture(image: self.leftImage)
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
@@ -25,5 +27,12 @@ class LeftButton: SKSpriteNode{
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
+        characterSingleton.currentCharacter!.walkLeft()
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("ué")
+        characterSingleton.currentCharacter!.stopWalking()
     }
 }

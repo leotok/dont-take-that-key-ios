@@ -12,10 +12,12 @@ import SpriteKit
 class RightButton: SKSpriteNode{
     
     var rightImage: UIImage
+    var characterSingleton: CurrentCharacterSingleton
     
     init() {
         self.rightImage = UIImage(named: "right")!
         let texture = SKTexture(image: self.rightImage)
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
     }
     
@@ -24,6 +26,11 @@ class RightButton: SKSpriteNode{
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
+        characterSingleton.currentCharacter!.walkRight()
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        characterSingleton.currentCharacter!.stopWalking()
     }
 }

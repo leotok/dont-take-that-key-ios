@@ -23,6 +23,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     var characters:[Character]!
     var gameLayer:SKNode!
     var pausableLayer:SKNode!
+    var characterSingleton:CurrentCharacterSingleton!
     
     private var gotKey = false
 
@@ -95,8 +96,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         selectedPlayer = Sam()
         selectedPlayer.position = CGPointMake(300, 300)
         self.addChild(selectedPlayer)
-
         
+        characterSingleton = CurrentCharacterSingleton.sharedInstance
+        characterSingleton.setCurrentCharacter(selectedPlayer)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -112,11 +114,15 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 self.view?.presentScene(scene, transition: transition)
                 
             }
+            else{
+                hud.touchesEnded(touches, withEvent: event)
+            }
         }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        hud.touchesBegan(touches, withEvent: event)
         
     }
    
@@ -154,6 +160,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         else if notPlayerPB.categoryBitMask == doorCategory {
             if gotKey {
                 self.GameWin()
+            }
+        }
+        else if notPlayerPB.categoryBitMask == objectCategory {
+            if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+                selectedPlayer.reachedGround()
             }
         }
         

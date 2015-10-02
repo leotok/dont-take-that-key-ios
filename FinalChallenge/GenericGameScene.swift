@@ -25,6 +25,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     var pausableLayer:SKNode!
     var characterSingleton:CurrentCharacterSingleton!
     var popUpOpened = false
+    var popUp:Menu?
     
     
     private var gotKey = false
@@ -112,8 +113,12 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             let node = self.nodeAtPoint(location)
             
+            
             if popUpOpened {
-                
+                popUp?.touchesEnded(touches, withEvent: event)
+            }
+            else if node.name == "character"{
+                self.selectedPlayer = node as! Character
             }
             else{
                 hud.touchesEnded(touches, withEvent: event)
@@ -204,9 +209,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     func pauseGame() {
         self.popUpOpened = true
         self.scene?.paused = true
-        let menu = PauseMenu.createPauseMenu(self.size)
-        menu.zPosition = 1000
-        self.addChild(menu)
+        self.popUp = PauseMenu.createPauseMenu(self.size)
+        popUp!.zPosition = 1000
+        self.addChild(popUp!)
+    }
+    func resume() {
+        self.scene?.paused = false
+        self.popUpOpened = false
+    
     }
     
     private func GameOver() {

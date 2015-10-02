@@ -30,6 +30,7 @@ class Character: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
         physicsBody?.usesPreciseCollisionDetection = true
+        name = "character"
     }
 
     required init?(coder aDecoder: NSCoder) {

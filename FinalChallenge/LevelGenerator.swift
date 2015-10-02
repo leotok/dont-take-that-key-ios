@@ -110,18 +110,11 @@ class LevelGenerator {
             for j in 0...(self.numberOfHorizontalTiles - 1)
             {
                 if string[index] ==  "1" {
-                    let tile = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(64, 64))
+                    let tile = StaticObject(sprite: SKTexture())
+                    tile.color = SKColor.blueColor()
+                    tile.size = CGSizeMake(64, 64)
                     tile.position = CGPointMake(  64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
-                    tile.zPosition = 10
-                    tile.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(64, 64))
-                    tile.physicsBody?.categoryBitMask = 2
-                    tile.physicsBody?.collisionBitMask = 1 | 2
-                    tile.physicsBody?.affectedByGravity = false
-                    tile.physicsBody?.allContactedBodies()
-                    tile.physicsBody?.allowsRotation = false
-                    tile.physicsBody?.restitution = 0
-                    tile.physicsBody?.dynamic = false
-                    tile.physicsBody?.usesPreciseCollisionDetection = true
+
                     levelScene.pausableLayer.addChild(tile)
                 }
                 index = index.advancedBy(1)

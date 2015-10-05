@@ -12,7 +12,7 @@ private let currentCharacterSingleton = CurrentCharacterSingleton()
 
 class CurrentCharacterSingleton {
     
-    var currentCharacter: Character?
+    var currentCharacter: GameCharacter?
     
     class var sharedInstance: CurrentCharacterSingleton {
         return currentCharacterSingleton
@@ -22,7 +22,7 @@ class CurrentCharacterSingleton {
         
     }
     
-    func setCurrentCharacter(newCurrentCharacter: Character) {
+    func setCurrentCharacter(newCurrentCharacter: GameCharacter) {
         currentCharacterSingleton.currentCharacter = newCurrentCharacter
     }
     

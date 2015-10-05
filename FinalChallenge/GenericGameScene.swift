@@ -19,7 +19,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     var levelIndex = 0
     var hud:HUD!
-    var selectedPlayer:Character!
+    var selectedPlayer: GameCharacter!
     var characters:[Character]!
     var gameLayer:SKNode!
     var pausableLayer:SKNode!
@@ -118,7 +118,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 popUp?.touchesEnded(touches, withEvent: event)
             }
             else if node.name == "character"{
-                self.selectedPlayer = node as! Character
+                self.selectedPlayer = node as! GameCharacter
             }
             else{
                 hud.touchesEnded(touches, withEvent: event)
@@ -155,7 +155,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             notPlayerPB = contact.bodyA
         }
         
-        let player = playerPB.node as! Character
+        let player = playerPB.node as! GameCharacter
         
         if notPlayerPB.categoryBitMask == hazardCategory {
             player.die()

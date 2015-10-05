@@ -18,6 +18,8 @@
 		3F609D601BBC6F4B00B30010 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */; settings = {ASSET_TAGS = (); }; };
 		3F609D641BBDA66200B30010 /* Level_Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F609D631BBDA66200B30010 /* Level_Test.txt */; settings = {ASSET_TAGS = (); }; };
 		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; settings = {ASSET_TAGS = (); }; };
+		3F7E93A81BC3007D0018BA4E /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A61BC3007D0018BA4E /* crate.png */; settings = {ASSET_TAGS = (); }; };
+		3F7E93A91BC3007D0018BA4E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A71BC3007D0018BA4E /* key.png */; settings = {ASSET_TAGS = (); }; };
 		D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F11631BBEECFE00DC6888 /* Menu.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B331BBC59EE008E1B79 /* JumpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B341BBC59EE008E1B79 /* LeftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */; settings = {ASSET_TAGS = (); }; };
@@ -25,7 +27,7 @@
 		D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B301BBC59EE008E1B79 /* PowerButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B371BBC59EE008E1B79 /* RightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B311BBC59EE008E1B79 /* RightButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B381BBC59EE008E1B79 /* SwitchCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B321BBC59EE008E1B79 /* SwitchCharacterButton.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B502631BB4466A006C9C90 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502621BB4466A006C9C90 /* Character.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502621BB4466A006C9C90 /* GameCharacter.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B502651BB4467A006C9C90 /* Sam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502641BB4467A006C9C90 /* Sam.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B502671BB44689006C9C90 /* Shrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502661BB44689006C9C90 /* Shrink.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B502691BB44690006C9C90 /* Ellie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B502681BB44690006C9C90 /* Ellie.swift */; settings = {ASSET_TAGS = (); }; };
@@ -84,6 +86,8 @@
 		3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		3F609D631BBDA66200B30010 /* Level_Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_Test.txt; sourceTree = "<group>"; };
 		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
+		3F7E93A61BC3007D0018BA4E /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
+		3F7E93A71BC3007D0018BA4E /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		D01F11631BBEECFE00DC6888 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpButton.swift; sourceTree = "<group>"; };
 		D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftButton.swift; sourceTree = "<group>"; };
@@ -91,7 +95,7 @@
 		D08F3B301BBC59EE008E1B79 /* PowerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerButton.swift; sourceTree = "<group>"; };
 		D08F3B311BBC59EE008E1B79 /* RightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightButton.swift; sourceTree = "<group>"; };
 		D08F3B321BBC59EE008E1B79 /* SwitchCharacterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCharacterButton.swift; sourceTree = "<group>"; };
-		D0B502621BB4466A006C9C90 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		D0B502621BB4466A006C9C90 /* GameCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCharacter.swift; sourceTree = "<group>"; };
 		D0B502641BB4467A006C9C90 /* Sam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sam.swift; sourceTree = "<group>"; };
 		D0B502661BB44689006C9C90 /* Shrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shrink.swift; sourceTree = "<group>"; };
 		D0B502681BB44690006C9C90 /* Ellie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellie.swift; sourceTree = "<group>"; };
@@ -248,7 +252,7 @@
 		D0B502601BB4464F006C9C90 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				D0B502621BB4466A006C9C90 /* Character.swift */,
+				D0B502621BB4466A006C9C90 /* GameCharacter.swift */,
 				D0B502641BB4467A006C9C90 /* Sam.swift */,
 				D0B502661BB44689006C9C90 /* Shrink.swift */,
 				D0B502681BB44690006C9C90 /* Ellie.swift */,
@@ -270,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				3F609D631BBDA66200B30010 /* Level_Test.txt */,
+				3F7E93A61BC3007D0018BA4E /* crate.png */,
+				3F7E93A71BC3007D0018BA4E /* key.png */,
 				3F77937D1BBB242B0005F6D8 /* desert.png */,
 				3F29DE711BB440EB00ADE6F8 /* Main.storyboard */,
 				3F29DE761BB440EB00ADE6F8 /* LaunchScreen.storyboard */,
@@ -397,9 +403,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7E93A91BC3007D0018BA4E /* key.png in Resources */,
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				D0B502951BB45165006C9C90 /* Localizable.strings in Resources */,
 				3F77937E1BBB242B0005F6D8 /* desert.png in Resources */,
+				3F7E93A81BC3007D0018BA4E /* crate.png in Resources */,
 				3F609D641BBDA66200B30010 /* Level_Test.txt in Resources */,
 				3F29DE751BB440EB00ADE6F8 /* Assets.xcassets in Resources */,
 				D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */,
@@ -458,7 +466,7 @@
 				D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */,
 				D0B5026F1BB44A7D006C9C90 /* MovableObject.swift in Sources */,
 				D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */,
-				D0B502631BB4466A006C9C90 /* Character.swift in Sources */,
+				D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

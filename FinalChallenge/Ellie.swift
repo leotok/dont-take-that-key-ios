@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 
-class Ellie: Character {
+class Ellie: GameCharacter{
    
     init () {
         

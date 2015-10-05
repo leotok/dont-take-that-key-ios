@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Shrink: Character {
+class Shrink: GameCharacter{
  
     init () {
         

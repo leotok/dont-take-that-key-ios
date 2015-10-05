@@ -15,7 +15,7 @@ protocol Pausable {
     func unpauseScene()->Bool
     
 }
-class Sam: Character {
+class Sam: GameCharacter{
     
     var delegate:Pausable?
     

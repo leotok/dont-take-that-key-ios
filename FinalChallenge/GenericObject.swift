@@ -14,7 +14,7 @@ class GenericObject: SKSpriteNode {
  
     init (sprite:SKTexture) {
         
-        super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
+        super.init(texture: sprite, color: UIColor.clearColor(), size: CGSizeMake(32, 32))
     }
     
     required init?(coder aDecoder: NSCoder) {

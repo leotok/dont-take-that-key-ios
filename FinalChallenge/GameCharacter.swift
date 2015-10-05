@@ -1,5 +1,5 @@
 //
-//  Character.swift
+//  GameCharacter.swift
 //  FinalChallenge
 //
 //  Created by Thiago De Angelis on 24/09/15.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Character: SKSpriteNode {
+class GameCharacter: SKSpriteNode {
     
     var isJumping = false
     private var isUsingPower = false

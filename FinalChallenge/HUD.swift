@@ -19,7 +19,7 @@ class HUD: SKSpriteNode {
     var rightButton: RightButton
     var jumpButton: JumpButton
     var powerButton: PowerButton
-    var currentCharacter: Character?
+    var currentCharacter: GameCharacter?
     
     init() {
 
@@ -65,7 +65,7 @@ class HUD: SKSpriteNode {
 
     }
     
-    func setCharacter(currentCharacter: Character){
+    func setCharacter(currentCharacter: GameCharacter){
         self.currentCharacter = currentCharacter
     }
     

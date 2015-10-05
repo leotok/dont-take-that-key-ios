@@ -15,7 +15,7 @@ class StaticObject: GenericObject {
 
         super.init(sprite: sprite)
         zPosition = 10
-        physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(64, 64))
+        physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(32, 32))
         physicsBody?.categoryBitMask = 2
         physicsBody?.collisionBitMask = 1 | 2
         physicsBody?.affectedByGravity = false

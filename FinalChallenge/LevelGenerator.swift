@@ -24,14 +24,17 @@ class LevelGenerator {
     var levelScene: GenericGameScene!
     var theme: LevelTheme!
     var levelIndex = 0
-    
-    let numberOfVerticalTiles = 6
-    let numberOfHorizontalTiles = 12
+
+    let numberOfVerticalTiles = 13
+    let numberOfHorizontalTiles = 24
+    let spriteWidth: CGFloat = 32
+    let spriteHeight: CGFloat = 32
     
     func loadLevel(level:Int , scene:GenericGameScene )->Bool {
   
         levelIndex = level
         levelScene = scene
+        
         
         getLevelMatrixFromTxt()
         defineLevelTheme()
@@ -106,19 +109,47 @@ class LevelGenerator {
         for i in 0...(self.numberOfVerticalTiles - 1)
         {
             let string = levelMatrix[i]
-            var index = string.startIndex //advancedBy(1)
+            var index = string.startIndex
             for j in 0...(self.numberOfHorizontalTiles - 1)
             {
-                if string[index] ==  "1" {
-                    let tile = StaticObject(sprite: SKTexture())
-                    tile.color = SKColor.blueColor()
-                    tile.size = CGSizeMake(64, 64)
-                    tile.position = CGPointMake(  64 * CGFloat( (numberOfHorizontalTiles - j - 1) )  , 32 + 64 * CGFloat( (numberOfVerticalTiles - i - 1) ) )
-
+                if let tile: GenericObject = getNodeType( string[index] )
+                {
+                    tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , 16 + spriteHeight * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     levelScene.pausableLayer.addChild(tile)
                 }
                 index = index.advancedBy(1)
             }
         }
+    }
+    
+    func getNodeType(nodeType: Character)-> GenericObject? {
+        
+        var tile: GenericObject!
+        
+        switch (nodeType) {
+            
+            case "1":
+            
+            tile = StaticObject(sprite: SKTexture())
+            tile.color = SKColor.blueColor()
+            tile.size = CGSizeMake(spriteWidth, spriteHeight)
+            
+            case "2":
+            
+            tile = StaticObject(sprite: SKTexture(imageNamed: "key"))
+            tile.size = CGSizeMake(spriteWidth, spriteHeight)
+            
+            case "3":
+            
+            tile = MovableObject(sprite: SKTexture(imageNamed: "crate"))
+            tile.size = CGSizeMake(spriteWidth, spriteHeight)
+            
+            case "0":
+            print("No nodes here.")
+            default:
+            print("Node type inside .txt doesnt exists.")
+        }
+        
+        return tile
     }
 }

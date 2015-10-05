@@ -83,9 +83,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         //to remove
-        self.lixosDoLeo()
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-        
+        self.lixosDoLeo()        
         
         /* Setup your scene here */
         self.physicsWorld.contactDelegate = self
@@ -129,7 +127,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         if popUpOpened {
-        
+            popUp?.touchesBegan(touches, withEvent: event)
         }
         else {
             hud.touchesBegan(touches, withEvent: event)
@@ -217,6 +215,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.scene?.paused = false
         self.popUpOpened = false
     
+    }
+    func reset() {
+        let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)
+        let transition = SKTransition.fadeWithDuration(1.5)
+        self.view?.presentScene(scene, transition: transition)
     }
     
     private func GameOver() {

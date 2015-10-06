@@ -66,7 +66,6 @@ class GameCharacter: SKSpriteNode {
         self.texture = idleTexture
     }
     
-    
     func jump() {
         
         if !isJumping {

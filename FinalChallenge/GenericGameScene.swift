@@ -140,6 +140,17 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+//        self.selectedPlayer.physicsBody!.velocity = CGVectorMake(-200, 0)
+//        
+//        if(hud.isWalking()){
+//            if(hud.walkingLeft){
+//                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(-200, 0)
+//            }
+//            else{
+//                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(200, 0)
+//            }
+//        }
     }
     
     

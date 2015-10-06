@@ -20,6 +20,9 @@ class HUD: SKSpriteNode {
     var jumpButton: JumpButton
     var powerButton: PowerButton
     var currentCharacter: GameCharacter?
+    var walking: Bool = false
+    var walkingLeft: Bool = false
+    var walkingRight: Bool = false
     
     init() {
 
@@ -73,6 +76,9 @@ class HUD: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func isWalking()-> Bool{
+        return walking
+    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in (touches) {
@@ -88,9 +94,13 @@ class HUD: SKSpriteNode {
             }
             else if(self.leftButton.frame.contains(location)){
                 self.leftButton.touchesBegan(touches, withEvent: event)
+                walking = true
+                walkingLeft = true
             }
             else if(self.rightButton.frame.contains(location)){
                 self.rightButton.touchesBegan(touches, withEvent: event)
+                walking = true
+                walkingRight = true
             }
             else if(self.jumpButton.frame.contains(location)){
                 self.jumpButton.touchesBegan(touches, withEvent: event)
@@ -107,9 +117,13 @@ class HUD: SKSpriteNode {
             
             if(self.leftButton.frame.contains(location)){
                 self.leftButton.touchesEnded(touches, withEvent: event)
+                walking = false
+                walkingLeft = false
             }
             else if(self.rightButton.frame.contains(location)){
                 self.rightButton.touchesEnded(touches, withEvent: event)
+                walking = false
+                walkingRight = false
             }
             else if(self.jumpButton.frame.contains(location)){
                 self.jumpButton.touchesEnded(touches, withEvent: event)

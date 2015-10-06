@@ -98,6 +98,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
 
         //Sam Teste
         selectedPlayer = Sam()
+        selectedPlayer.setWalkingTextures([SKTexture(imageNamed: "Sam_Walk1"),
+                                           SKTexture(imageNamed: "Sam_Walk2"),
+                                           SKTexture(imageNamed: "Sam_Walk3"),
+                                           SKTexture(imageNamed: "Sam_Walk4")])
         selectedPlayer.position = CGPointMake(300, 300)
         self.addChild(selectedPlayer)
         

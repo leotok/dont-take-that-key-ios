@@ -21,7 +21,6 @@ class GameCharacter: SKSpriteNode {
     
     init (sprite:SKTexture) {
         idleTexture = sprite
-        walkTextures = [sprite,sprite,sprite]
         super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
         physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size())
         physicsBody?.categoryBitMask = playerCategory
@@ -37,9 +36,13 @@ class GameCharacter: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setWalkingTextures(sprites: [SKTexture]){
+        self.walkTextures = sprites
+    }
+    
     
     func walkRight () {
-        walkTextures = [idleTexture,idleTexture,idleTexture]
+        //walkTextures = [idleTexture,idleTexture,idleTexture]
         let moveX = SKAction.moveByX(100, y: 0, duration: 0.3)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
         let walkAction = SKAction.group([moveX,animate])
@@ -49,7 +52,7 @@ class GameCharacter: SKSpriteNode {
     }
     
     func walkLeft () {
-        walkTextures = [idleTexture,idleTexture,idleTexture]
+        //walkTextures = [idleTexture,idleTexture,idleTexture]
         let moveX = SKAction.moveByX(-100, y: 0, duration: 0.3)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
         let walkAction = SKAction.group([moveX,animate])

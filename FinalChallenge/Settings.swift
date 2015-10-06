@@ -12,7 +12,7 @@ import SpriteKit
 class Settings: SKScene {
     
     var userInfo = UserInfo()
-    
+    var popUp:SKSpriteNode?
     
     override func didMoveToView(view: SKView) {
         // Back Button
@@ -33,7 +33,7 @@ class Settings: SKScene {
         addChild(backButton)
         
         let musicButton = SKLabelNode(fontNamed: "Chalkduster")
-        musicButton.text = NSLocalizedString("music", comment: "")
+        musicButton.text = NSLocalizedString("MusicSettings", comment: "")
         musicButton.position = CGPointMake(self.size.width/2, self.size.height/1.38)
         musicButton.name = "music"
         musicButton.zPosition = 10
@@ -62,7 +62,7 @@ class Settings: SKScene {
         print (checkMusicButton.position.y)
         
         let soundButton = SKLabelNode(fontNamed: "Chalkduster")
-        soundButton.text = NSLocalizedString("sound", comment: "")
+        soundButton.text = NSLocalizedString("SoundSettings", comment: "")
         soundButton.position = CGPointMake(self.size.width/2, self.size.height/1.66)
         soundButton.name = "sound"
         soundButton.zPosition = 10
@@ -85,7 +85,7 @@ class Settings: SKScene {
         addChild(checkSoundButton)
 
         let languageButton = SKLabelNode(fontNamed: "Chalkduster")
-        languageButton.text = NSLocalizedString("language", comment: "")
+        languageButton.text = NSLocalizedString("LanguageSettings", comment: "")
         languageButton.position = CGPointMake(self.size.width/2, self.size.height/2.08)
         languageButton.name = "language"
         languageButton.zPosition = 10
@@ -111,7 +111,7 @@ class Settings: SKScene {
         
         
         let creditsButton = SKLabelNode(fontNamed: "Chalkduster")
-        creditsButton.text = NSLocalizedString("credits", comment: "")
+        creditsButton.text = NSLocalizedString("CreditsSettings", comment: "")
         creditsButton.position = CGPointMake(self.size.width/2, self.size.height/2.76)
         creditsButton.name = "credits"
         creditsButton.zPosition = 10
@@ -120,7 +120,7 @@ class Settings: SKScene {
         addChild(creditsButton)
         
         let resetButton = SKLabelNode(fontNamed: "Chalkduster")
-        resetButton.text = NSLocalizedString("reset game", comment: "")
+        resetButton.text = NSLocalizedString("ResetGameSettings", comment: "")
         resetButton.position = CGPointMake(self.size.width/2, self.size.height/4.14)
         resetButton.name = "reset"
         resetButton.zPosition = 10
@@ -133,18 +133,19 @@ class Settings: SKScene {
     
     func resetPopUp() {
     
-        let popUp = SKSpriteNode(color: SKColor.redColor(), size: CGSizeMake(frame.width*0.6, frame.height*0.6))
-        popUp.position = CGPointMake(frame.size.width/2, frame.size.height/2)
-        popUp.zPosition = 20
-        self.addChild(popUp)
-    
+        self.popUp = SKSpriteNode(color: SKColor.redColor(), size: CGSizeMake(frame.width*0.6, frame.height*0.6))
+        self.popUp?.position = CGPointMake(frame.size.width/2, frame.size.height/2)
+        self.popUp?.zPosition = 20
+        self.addChild(popUp!)
+        
         let question = SKLabelNode(text: NSLocalizedString("ResetMsg", comment: ""))
-        question.position.y = popUp.size.height*0.19
-        popUp.addChild(question)
+        question.position.y = popUp!.size.height*0.19
+        popUp!.addChild(question)
         
         let yesSquare = SKSpriteNode(color: SKColor.whiteColor(), size: CGSizeMake(frame.width*0.2, frame.height*0.12))
         yesSquare.position = CGPointMake(-0.13*frame.width, -0.14*frame.height)
-        popUp.addChild(yesSquare)
+        yesSquare.name = "yesSquare"
+        popUp!.addChild(yesSquare)
         
         let yes = SKLabelNode(text: NSLocalizedString("LeftAnswer", comment: ""))
        //yes.position = CGPointMake(-100, -69)
@@ -153,11 +154,13 @@ class Settings: SKScene {
         
         let cancelSquare = SKSpriteNode(color: SKColor.whiteColor(), size: CGSizeMake(frame.width*0.2, frame.height*0.12))
         cancelSquare.position = CGPointMake(0.13*frame.width, -0.14*frame.height)
-        popUp.addChild(cancelSquare)
+        cancelSquare.name = "cancelSquare"
+        popUp!.addChild(cancelSquare)
         
         let cancel = SKLabelNode(text: NSLocalizedString("RightAnswer", comment: ""))
        // cancel.position = CGPointMake(100, -69)
         cancel.fontColor = SKColor.blackColor()
+        cancel.name = "cancelSquare"
         cancelSquare.addChild(cancel)
 
     }
@@ -211,6 +214,9 @@ class Settings: SKScene {
             
             self.resetPopUp()
             
+            } else if node.name == "cancelSquare" {
+                
+                self.popUp?.removeFromParent()
             }
                 
             else if node.name == "brFlag" {

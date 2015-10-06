@@ -11,3 +11,8 @@
 "ResetMsg"="Are you sure?";
 "LeftAnswer"="Yes";
 "RightAnswer"="Cancel";
+"MusicSettings"="music";
+"SoundSettings"="sound";
+"LanguageSettings"="language";
+"CreditsSettings"="credits";
+"ResetGameSettings"="reset game";

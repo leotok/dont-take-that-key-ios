@@ -11,3 +11,8 @@
 "ResetMsg"="Você tem certeza?";
 "LeftAnswer"="Sim";
 "RightAnswer"="Cancelar";
+"MusicSettings"="música";
+"SoundSettings"="som";
+"LanguageSettings"="idioma";
+"CreditsSettings"="créditos";
+"ResetGameSettings"="resetar jogo";

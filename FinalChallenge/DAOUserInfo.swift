@@ -46,8 +46,8 @@ class DAOUserInfo {
             return false
         }
 
-//        var dictonary = ["Campo1":data.campo1,"Campo2":data.campo2]
-//        dictonary.writeToFile(plistPath, atomically: true)
+        let dictonary = ["musicOn":data.musicON,"soundON":data.soundON,"samLevels":data.samLevels,"ellieLevels":data.ellieLevels,"shrinkLevels":data.shrinkLevels,"allCharacterLevels":data.allCharacterLevels]
+        dictonary.writeToFile(plistPath, atomically: true)
         
         return true
     
@@ -56,24 +56,18 @@ class DAOUserInfo {
     func load()->UserInfo {
     
         let plistPath = self.getPath()
-
         
-        let dataDict = NSDictionary(contentsOfFile: "plistPath")
+        let dataDict = NSDictionary(contentsOfFile: plistPath)
     
         let data = UserInfo()
-        
-//        data1 = dataDict?.objectForKey("Campo1")
-//        data2 = dataDict?.objectForKey("Campo2")
-        
-        print(data)
-        print(plistPath)
-        print(dataDict)
+        data.musicON = dataDict?.valueForKey("musicON") as! Bool
+        data.soundON = dataDict?.valueForKey("soundON") as! Bool
+        data.samLevels = dataDict?.valueForKey("samLevels") as! Int
+        data.ellieLevels = dataDict?.valueForKey("ellieLevels") as! Int
+        data.shrinkLevels = dataDict?.valueForKey("shrinkLevels") as! Int
+        data.allCharacterLevels = dataDict?.valueForKey("allCharacterLevels") as! Int
         
         return data
     }
     
-    
-    
-    
-    
-}
+} // End of Class

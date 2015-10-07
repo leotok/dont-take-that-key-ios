@@ -15,16 +15,19 @@ enum LevelButtonType: String {
     case Shrink = "freud"
     case Ellie = "fat-bottom-girls"
     case AllCharacters = "allchar"
+    case Locked = "lock"
     
 }
 
 class LevelButton: SKSpriteNode{
     
     private(set) var level = -1
+    var type: LevelButtonType!
     
     init(type: LevelButtonType, level:Int) {
         
         self.level = level
+        self.type = type
         let texture = SKTexture(imageNamed: type.rawValue)
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(40, 40))
         self.zPosition = 1

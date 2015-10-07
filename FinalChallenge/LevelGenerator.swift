@@ -138,14 +138,24 @@ class LevelGenerator {
             
             tile = StaticObject(sprite: SKTexture(imageNamed: "key"))
             tile.size = CGSizeMake(spriteWidth, spriteHeight)
+            tile.physicsBody?.categoryBitMask = keyCategory
+            tile.physicsBody?.collisionBitMask = objectCategory
             
             case "3":
             
             tile = MovableObject(sprite: SKTexture(imageNamed: "crate"))
             tile.size = CGSizeMake(spriteWidth, spriteHeight)
             
+            case "4":
+            
+            tile = StaticObject(sprite: SKTexture(imageNamed: "door"))
+            tile.anchorPoint = CGPointMake(0.25, 0.25)
+            tile.size = CGSizeMake(2 * spriteWidth, 2 * spriteHeight)
+            tile.physicsBody?.categoryBitMask = doorCategory
+            tile.physicsBody?.collisionBitMask = objectCategory
+            
             case "0":
-            print("No nodes here.")
+                break;
             default:
             print("Node type inside .txt doesnt exists.")
         }

@@ -21,8 +21,7 @@ class Sam: GameCharacter{
     
     init () {
     
-        
-        print("mamae to na globo")
+
         //Setting Sam`s properties
         super.init(sprite: SKTexture(imageNamed: "Sam_Idle"))
         //self.physicsBody = SKPhysicsBody(texture: self.texture!, size: (self.texture?.size())!)

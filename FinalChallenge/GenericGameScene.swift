@@ -246,9 +246,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     private func GameWin() {
         
-        let menu = GameWinMenu()
-        menu.zPosition = 1000
-        self.addChild(menu)
+        self.popUpOpened = true
+        self.scene?.paused = true
+        self.popUp = GameWinMenu.createGameWinMenu(self.size)
+        self.popUp!.zPosition = 1000
+        self.addChild(popUp!)
     }
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class GameWinMenu: SKSpriteNode {
+class GameWinMenu: Menu {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         
@@ -17,7 +17,7 @@ class GameWinMenu: SKSpriteNode {
     }
     
     
-    class func createGameOverMenu(size:CGSize)->GameWinMenu {
+    class func createGameWinMenu(size:CGSize)->GameWinMenu {
         
         
         let pauseMenu = GameWinMenu(color: UIColor.redColor(), size: CGSizeMake(size.width*0.8, size.height*0.8))

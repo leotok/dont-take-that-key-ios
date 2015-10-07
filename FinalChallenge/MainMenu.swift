@@ -13,6 +13,7 @@ import AVFoundation
 class MainMenu: SKScene {
     
     var backgroundMusic = AVAudioPlayer()
+    var userInfo:UserInfo!
     
     override func didMoveToView(view: SKView) {
         
@@ -48,14 +49,16 @@ class MainMenu: SKScene {
         self.addChild(gameName)
         
         let dao = DAOUserInfo()
-        let userInfo = dao.load()
+        userInfo = dao.load()
         
         if userInfo.musicON == true {
         
             if let musicFile = NSBundle.mainBundle().URLForResource("MainMenuMusic", withExtension: "mp3") {
             do {
                 self.backgroundMusic = try AVAudioPlayer(contentsOfURL: musicFile)
-                print("VAI")
+                backgroundMusic.numberOfLoops = -1
+                backgroundMusic.prepareToPlay()
+                backgroundMusic.play()
             }
             catch {
                 print("AVAudio error.")
@@ -80,12 +83,18 @@ class MainMenu: SKScene {
                 
                 let scene = MapMenu(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(1.5)
+                if userInfo.musicON {
+                    backgroundMusic.stop()
+                }
                 self.view?.presentScene(scene, transition: transition)
                 
             } else if node.name == "conf" {
                 
                 let scene = Settings(size:self.frame.size)
                 let transition2 = SKTransition.fadeWithDuration(1.5)
+                if userInfo.musicON {
+                    backgroundMusic.stop()
+                }
                 self.view?.presentScene(scene, transition: transition2)
                 
             }

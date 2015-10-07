@@ -8,9 +8,11 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class MainMenu: SKScene {
     
+    var backgroundMusic = AVAudioPlayer()
     
     override func didMoveToView(view: SKView) {
         
@@ -43,8 +45,29 @@ class MainMenu: SKScene {
         gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         gameName.zPosition = 10
         
-        self.addChild(gameName) 
-
+        self.addChild(gameName)
+        
+        let dao = DAOUserInfo()
+        let userInfo = dao.load()
+        
+        if userInfo.musicON == true {
+        
+            if let musicFile = NSBundle.mainBundle().URLForResource("MainMenuMusic", withExtension: "mp3") {
+            do {
+                self.backgroundMusic = try AVAudioPlayer(contentsOfURL: musicFile)
+                print("VAI")
+            }
+            catch {
+                print("AVAudio error.")
+                
+            }
+            }
+            else {
+                print("Arquivo de som nao existe.")
+            }
+        }
+        
+        
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

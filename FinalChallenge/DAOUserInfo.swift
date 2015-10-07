@@ -46,7 +46,7 @@ class DAOUserInfo {
             return false
         }
 
-        let dictonary = ["musicOn":data.musicON,"soundON":data.soundON,"samLevels":data.samLevels,"ellieLevels":data.ellieLevels,"shrinkLevels":data.shrinkLevels,"allCharacterLevels":data.allCharacterLevels]
+        let dictonary = ["musicON":data.musicON,"soundON":data.soundON,"samLevels":data.samLevels,"ellieLevels":data.ellieLevels,"shrinkLevels":data.shrinkLevels,"allCharacterLevels":data.allCharacterLevels]
         dictonary.writeToFile(plistPath, atomically: true)
         
         return true
@@ -59,6 +59,9 @@ class DAOUserInfo {
         
         let dataDict = NSDictionary(contentsOfFile: plistPath)
     
+        if dataDict == nil || dataDict?.count == 0 {
+            return UserInfo()
+        }
         let data = UserInfo()
         data.musicON = dataDict?.valueForKey("musicON") as! Bool
         data.soundON = dataDict?.valueForKey("soundON") as! Bool

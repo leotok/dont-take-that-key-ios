@@ -11,10 +11,14 @@ import SpriteKit
 
 class Settings: SKScene {
     
-    var userInfo = UserInfo()
+    var userInfo:UserInfo!
     var popUp:SKSpriteNode?
     
     override func didMoveToView(view: SKView) {
+        
+        let dao = DAOUserInfo()
+        self.userInfo = dao.load()
+        
         // Back Button
         
         let background = SKSpriteNode(imageNamed: "wallpaper1")
@@ -181,7 +185,9 @@ class Settings: SKScene {
             else if node.name == "checkMusic" {
             
                 let checkBoxMusic = node as! SKSpriteNode
-     
+                
+                let dao = DAOUserInfo()
+                
                 if userInfo.musicON == true {
                 
                     checkBoxMusic.texture = SKTexture(imageNamed: "checkbox0")
@@ -193,12 +199,15 @@ class Settings: SKScene {
                     userInfo.musicON = true
                 }
             
+                dao.save(userInfo)
             }
          
             else if node.name == "checkSound" {
                 
                 let checkBoxSound = node as! SKSpriteNode
                 
+                let dao = DAOUserInfo()
+
                 if userInfo.soundON == true {
                     
                     checkBoxSound.texture = SKTexture(imageNamed: "checkbox0")
@@ -209,6 +218,8 @@ class Settings: SKScene {
                     checkBoxSound.texture = SKTexture(imageNamed: "checkbox1")
                     userInfo.soundON = true
                 }
+                
+                dao.save(userInfo)
                 
             } else if node.name == "reset" {
             

@@ -22,13 +22,12 @@ class LevelGenerator {
     
     var levelMatrix: Array<String>!
     var levelScene: GenericGameScene!
-    var theme: LevelTheme!
     var levelIndex = 0
 
     let numberOfVerticalTiles = 13
     let numberOfHorizontalTiles = 24
-    let spriteWidth: CGFloat = 32
-    let spriteHeight: CGFloat = 32
+    let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
+    let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375  // 32 pts. Mesmo calculo para width e height para manter a proporcao 1x1 em qualquer device
     
     func loadLevel(level:Int , scene:GenericGameScene )->Bool {
   
@@ -44,7 +43,7 @@ class LevelGenerator {
         return true
     }
     
-    func getLevelMatrixFromTxt() {
+    private func getLevelMatrixFromTxt() {
      
         if let path = NSBundle.mainBundle().pathForResource("Level_Test", ofType: "txt"){
             
@@ -69,29 +68,25 @@ class LevelGenerator {
         }
     }
     
-    func defineLevelTheme() {
+    private func defineLevelTheme() -> LevelTheme {
         
         switch (levelIndex) {
             
         case 1...6:
-            theme = LevelTheme.Sam
-            break
+            return LevelTheme.Sam
             
         case 7...12:
-            theme = LevelTheme.Shrink
-            break
+            return LevelTheme.Shrink
             
         case 13...18:
-            theme = LevelTheme.Ellie
-            break
+            return LevelTheme.Ellie
             
         default:
-            theme = LevelTheme.Sam
-            break
+            return LevelTheme.Sam
         }
     }
 
-    func printLevelMatrixLog() {
+    private func printLevelMatrixLog() {
     
         for i in 0...(self.numberOfVerticalTiles - 1) {
             
@@ -104,7 +99,7 @@ class LevelGenerator {
         }
     }
     
-    func generateNodes() {
+    private func generateNodes() {
         
         for i in 0...(self.numberOfVerticalTiles - 1)
         {
@@ -122,7 +117,7 @@ class LevelGenerator {
         }
     }
     
-    func getNodeType(nodeType: Character)-> GenericObject? {
+    private func getNodeType(nodeType: Character)-> GenericObject? {
         
         var tile: GenericObject!
         

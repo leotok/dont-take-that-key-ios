@@ -23,10 +23,22 @@ class Sam: GameCharacter{
     
 
         //Setting Sam`s properties
-        super.init(sprite: SKTexture(imageNamed: "Sam_Idle"))
+        let texture = SKTexture(imageNamed: "Sam_Idle")
+        texture.filteringMode = SKTextureFilteringMode.Nearest
+        super.init(sprite: texture)
         //self.physicsBody = SKPhysicsBody(texture: self.texture!, size: (self.texture?.size())!)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
+        
+        var walkingTexures = [SKTexture]()
+        
+        for i in 1...4 {
+            let texture = SKTexture(imageNamed: "Sam_Walk\(i)")
+            texture.filteringMode = SKTextureFilteringMode.Nearest
+            walkingTexures.append(texture)
+            print(i)
+        }
+        self.setWalkingTextures(walkingTexures)
     
     }
 

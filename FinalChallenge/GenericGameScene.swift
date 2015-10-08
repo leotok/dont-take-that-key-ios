@@ -61,31 +61,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     }
     
-    
-    
-    //to remove
-    func lixosDoLeo() {
-        // Back Button
-        
-        let backButton = SKSpriteNode(imageNamed: "back")
-        backButton.position = CGPointMake(30, 380)
-        backButton.size = CGSize(width: 40, height: 40)
-        backButton.name = "back"
-        
-        addChild(backButton)
-        
-        let levelTitle = SKLabelNode(fontNamed:"Chalkduster")
-        levelTitle.text = "Fase \(levelIndex)"
-        levelTitle.fontSize = 45
-        levelTitle.position = CGPointMake(self.size.width / 2, self.size.height / 3.31)
-        levelTitle.zPosition = 10
-        addChild(levelTitle)
-    
-    }
-    
-    override func didMoveToView(view: SKView) {
-        //to remove
-        self.lixosDoLeo()        
+    override func didMoveToView(view: SKView) {      
         
         /* Setup your scene here */
         self.physicsWorld.contactDelegate = self
@@ -100,10 +76,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
 
         //Sam Teste
         selectedPlayer = Sam()
-        selectedPlayer.setWalkingTextures([SKTexture(imageNamed: "Sam_Walk1"),
-                                           SKTexture(imageNamed: "Sam_Walk2"),
-                                           SKTexture(imageNamed: "Sam_Walk3"),
-                                           SKTexture(imageNamed: "Sam_Walk4")])
         selectedPlayer.position = CGPointMake(300, 300)
         self.addChild(selectedPlayer)
         

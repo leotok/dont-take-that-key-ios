@@ -76,7 +76,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
 
         //Sam Teste
         selectedPlayer = Sam()
-        selectedPlayer.position = CGPointMake(300, 300)
+        selectedPlayer.position = CGPointMake(250, 300)
         self.addChild(selectedPlayer)
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance

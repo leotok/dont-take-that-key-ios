@@ -61,9 +61,6 @@ class Settings: SKScene {
         checkMusicButton.zPosition = 10
         
         addChild(checkMusicButton)
-
-        print(musicButton.position.y)
-        print (checkMusicButton.position.y)
         
         let soundButton = SKLabelNode(fontNamed: "Chalkduster")
         soundButton.text = NSLocalizedString("SoundSettings", comment: "")

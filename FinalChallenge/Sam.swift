@@ -36,7 +36,6 @@ class Sam: GameCharacter{
             let texture = SKTexture(imageNamed: "Sam_Walk\(i)")
             texture.filteringMode = SKTextureFilteringMode.Nearest
             walkingTexures.append(texture)
-            print(i)
         }
         self.setWalkingTextures(walkingTexures)
     

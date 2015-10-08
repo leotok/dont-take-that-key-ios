@@ -17,6 +17,8 @@ class MainMenu: SKScene {
     
     override func didMoveToView(view: SKView) {
         
+        self.view?.multipleTouchEnabled = true
+        
         let background = SKSpriteNode(imageNamed: "backgound_teste.jpg")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
         background.size = self.size
@@ -71,6 +73,11 @@ class MainMenu: SKScene {
         }
         
         
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.userInteractionEnabled = true
+        print(touches.count)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

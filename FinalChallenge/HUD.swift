@@ -35,6 +35,8 @@ class HUD: SKSpriteNode {
         self.pauseButton = PauseButton()
         
         super.init(texture: nil, color: UIColor.clearColor(), size: UIScreen.mainScreen().bounds.size)
+        
+        self.userInteractionEnabled = true
     }
 
     func setPositions(){
@@ -82,6 +84,7 @@ class HUD: SKSpriteNode {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print(touches.count)
+        var currC = CurrentCharacterSingleton.sharedInstance
         for touch in (touches) {
             let location = touch.locationInNode(self)
             
@@ -94,17 +97,23 @@ class HUD: SKSpriteNode {
                 self.pauseButton.touchesBegan(touches, withEvent: event)
             }
             if(self.leftButton.frame.contains(location)){
-                self.leftButton.touchesBegan(touches, withEvent: event)
+                currC.currentCharacter?.walkLeft()
+                //self.leftButton.touchesBegan(touches, withEvent: event)
                 walking = true
                 walkingLeft = true
+                print("leftButton")
             }
-            if(self.rightButton.frame.contains(location)){
-                self.rightButton.touchesBegan(touches, withEvent: event)
+            else if(self.rightButton.frame.contains(location)){
+                currC.currentCharacter?.walkRight()
+                //self.rightButton.touchesBegan(touches, withEvent: event)
                 walking = true
                 walkingRight = true
+                print("rightButton")
             }
             if(self.jumpButton.frame.contains(location)){
-                self.jumpButton.touchesBegan(touches, withEvent: event)
+                currC.currentCharacter?.jump()
+                //self.jumpButton.touchesBegan(touches, withEvent: event)
+                print("jumpButton")
             }
             if(self.powerButton.frame.contains(location)){
                 self.powerButton.touchesBegan(touches, withEvent: event)

@@ -104,6 +104,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        self.userInteractionEnabled = true
         if popUpOpened {
             popUp?.touchesBegan(touches, withEvent: event)
         }

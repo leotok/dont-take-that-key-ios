@@ -35,8 +35,8 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         // Back Button
         
         let backButton = SKSpriteNode(imageNamed: "back")
-        backButton.position = CGPointMake(30, 380)
         backButton.size = CGSize(width: 40, height: 40)
+        backButton.position = CGPointMake(backButton.size.width/2, (scene?.size.height)! - backButton.size.height/2)
         backButton.name = "back"
      
         addChild(backButton)

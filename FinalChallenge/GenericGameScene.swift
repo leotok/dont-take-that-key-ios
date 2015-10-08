@@ -54,6 +54,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
         
         lvlGen.loadLevel(levelIndex, scene: scene)
+        
+        scene.physicsWorld.gravity = CGVectorMake(0, -9.8)
 
         return scene
     
@@ -141,14 +143,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-//        self.selectedPlayer.physicsBody!.velocity = CGVectorMake(-200, 0)
-//        
 //        if(hud.isWalking()){
 //            if(hud.walkingLeft){
-//                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(-200, 0)
+//                self.selectedPlayer.physicsBody!.velocity = CGVectorAdd(-200, 0)
+//                CGVectorAdd
 //            }
 //            else{
 //                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(200, 0)
+//
 //            }
 //        }
     }

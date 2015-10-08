@@ -81,31 +81,32 @@ class HUD: SKSpriteNode {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print(touches.count)
         for touch in (touches) {
             let location = touch.locationInNode(self)
             
             if(self.switchCharacterButton.frame.contains(location)){
                 self.switchCharacterButton.touchesBegan(touches, withEvent: event)
             }
-            else if(self.pauseButton.frame.contains(location)){
+            if(self.pauseButton.frame.contains(location)){
                 let genericScene = self.scene as! GenericGameScene
                 genericScene.pauseGame()
                 self.pauseButton.touchesBegan(touches, withEvent: event)
             }
-            else if(self.leftButton.frame.contains(location)){
+            if(self.leftButton.frame.contains(location)){
                 self.leftButton.touchesBegan(touches, withEvent: event)
                 walking = true
                 walkingLeft = true
             }
-            else if(self.rightButton.frame.contains(location)){
+            if(self.rightButton.frame.contains(location)){
                 self.rightButton.touchesBegan(touches, withEvent: event)
                 walking = true
                 walkingRight = true
             }
-            else if(self.jumpButton.frame.contains(location)){
+            if(self.jumpButton.frame.contains(location)){
                 self.jumpButton.touchesBegan(touches, withEvent: event)
             }
-            else if(self.powerButton.frame.contains(location)){
+            if(self.powerButton.frame.contains(location)){
                 self.powerButton.touchesBegan(touches, withEvent: event)
             }
         }
@@ -120,12 +121,12 @@ class HUD: SKSpriteNode {
                 walking = false
                 walkingLeft = false
             }
-            else if(self.rightButton.frame.contains(location)){
+            if(self.rightButton.frame.contains(location)){
                 self.rightButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingRight = false
             }
-            else if(self.jumpButton.frame.contains(location)){
+            if(self.jumpButton.frame.contains(location)){
                 self.jumpButton.touchesEnded(touches, withEvent: event)
             }
         }

@@ -43,26 +43,30 @@ class GameCharacter: SKSpriteNode {
     
     func walkRight () {
         //walkTextures = [idleTexture,idleTexture,idleTexture]
-        let moveX = SKAction.moveByX(100, y: 0, duration: 0.3)
+        let moveX = SKAction.moveByX(50, y: 0, duration: 0.3)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
         let walkAction = SKAction.group([moveX,animate])
     
         self.xScale = 1
-        self.runAction(SKAction.repeatActionForever(walkAction), withKey:"Walk")
+        self.runAction(SKAction.repeatActionForever(moveX), withKey:"Walk")
+        self.runAction(SKAction.repeatActionForever(animate),withKey: "Animate")
     }
     
     func walkLeft () {
         //walkTextures = [idleTexture,idleTexture,idleTexture]
-        let moveX = SKAction.moveByX(-100, y: 0, duration: 0.3)
+        let moveX = SKAction.moveByX(-50, y: 0, duration: 0.3)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
         let walkAction = SKAction.group([moveX,animate])
         
         self.xScale = -1
-        self.runAction(SKAction.repeatActionForever(walkAction), withKey:"Walk")
+        self.runAction(SKAction.repeatActionForever(moveX), withKey:"Walk")
+        self.runAction(SKAction.repeatActionForever(animate),withKey: "Animate")
     }
 
     func stopWalking() {
         self.removeActionForKey("Walk")
+        self.removeActionForKey("Animate")
+        physicsBody?.velocity = CGVectorMake(0, 0)
         self.texture = idleTexture
     }
     

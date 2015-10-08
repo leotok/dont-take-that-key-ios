@@ -20,16 +20,25 @@ class PauseMenu: Menu {
     class func createPauseMenu(size:CGSize)->PauseMenu {
 
         
-        let pauseMenu = PauseMenu(color: UIColor.redColor(), size: CGSizeMake(size.width*0.8, size.height*0.8))
+        let pauseMenu = PauseMenu(color: UIColor(red: 53/255, green: 42/255, blue: 42/255, alpha: 1), size: CGSizeMake(size.width*0.8, size.height*0.8))
         pauseMenu.position = CGPointMake(size.width/2, size.height/2)
         
-        let resumeButton = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(150, 50))
+        let msgLabel = SKLabelNode(text: "Paused")
+        msgLabel.fontColor = UIColor.whiteColor()
+        msgLabel.fontSize = 40
+        msgLabel.fontName = "Arial"
+        msgLabel.position = CGPointMake(0, pauseMenu.size.height/4)
+        pauseMenu.addChild(msgLabel)
+        
+        
+        
+        let resumeButton = SKSpriteNode(imageNamed: "ResumeButton")
         resumeButton.name = "resume"
-        resumeButton.position = CGPointMake(-70, -50)
+        resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
 
-        let quit = SKSpriteNode(color: UIColor.greenColor(), size: CGSizeMake(150, 50))
+        let quit = SKSpriteNode(imageNamed: "QuitButton")
         quit.name = "quit"
-        quit.position = CGPointMake(70, -50)
+        quit.position = CGPointMake(quit.size.width/2+10, -50)
         
         
         pauseMenu.addChild(resumeButton)

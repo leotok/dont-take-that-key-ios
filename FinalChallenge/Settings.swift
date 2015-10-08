@@ -29,8 +29,8 @@ class Settings: SKScene {
         addChild(background)
         
         let backButton = SKSpriteNode(imageNamed: "back")
-        backButton.position = CGPointMake(30, 380)
         backButton.size = CGSize(width: 40, height: 40)
+        backButton.position = CGPointMake(25, size.height - 25)
         backButton.name = "back"
         backButton.zPosition = 10
         

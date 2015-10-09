@@ -195,11 +195,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     //Menus
     func pauseGame() {
-        self.popUpOpened = true
-        self.scene?.paused = true
-        self.popUp = PauseMenu.createPauseMenu(self.size)
-        popUp!.zPosition = 1000
-        self.addChild(popUp!)
+        if !popUpOpened {
+            self.popUpOpened = true
+            self.scene?.paused = true
+            self.popUp = PauseMenu.createPauseMenu(self.size)
+            popUp!.zPosition = 1000
+            self.addChild(popUp!)
+        }
     }
     func resume() {
         self.scene?.paused = false
@@ -214,9 +216,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     private func GameOver() {
         
-        let menu = GameOverMenu()
-        menu.zPosition = 1000
-        self.addChild(menu)
+        self.popUp = GameOverMenu.createGameOverMenu(self.size)
+        self.scene?.paused = true
+        self.popUpOpened = true
+        self.popUp!.zPosition = 1000
+        self.addChild(self.popUp!)
     }
     
     private func GameWin() {

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F13163D1BC8298500D227DD /* Level_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316361BC8298500D227DD /* Level_1.txt */; settings = {ASSET_TAGS = (); }; };
+		3F13163E1BC8298500D227DD /* Level_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316371BC8298500D227DD /* Level_2.txt */; settings = {ASSET_TAGS = (); }; };
+		3F13163F1BC8298500D227DD /* Level_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316381BC8298500D227DD /* Level_3.txt */; settings = {ASSET_TAGS = (); }; };
+		3F1316401BC8298500D227DD /* Level_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316391BC8298500D227DD /* Level_4.txt */; settings = {ASSET_TAGS = (); }; };
+		3F1316411BC8298500D227DD /* Level_5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F13163A1BC8298500D227DD /* Level_5.txt */; settings = {ASSET_TAGS = (); }; };
+		3F1316421BC8298500D227DD /* Level_6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F13163B1BC8298500D227DD /* Level_6.txt */; settings = {ASSET_TAGS = (); }; };
+		3F1316431BC8298500D227DD /* Level_Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F13163C1BC8298500D227DD /* Level_Test.txt */; settings = {ASSET_TAGS = (); }; };
+		3F1316451BC8302000D227DD /* spike.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316441BC8302000D227DD /* spike.png */; settings = {ASSET_TAGS = (); }; };
 		3F29DE6A1BB440EB00ADE6F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE691BB440EB00ADE6F8 /* AppDelegate.swift */; };
 		3F29DE6E1BB440EB00ADE6F8 /* GenericGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE6D1BB440EB00ADE6F8 /* GenericGameScene.swift */; };
 		3F29DE701BB440EB00ADE6F8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE6F1BB440EB00ADE6F8 /* GameViewController.swift */; };
@@ -16,7 +24,6 @@
 		3F29DE831BB440EB00ADE6F8 /* FinalChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE821BB440EB00ADE6F8 /* FinalChallengeTests.swift */; };
 		3F29DE8E1BB440EB00ADE6F8 /* FinalChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */; };
 		3F609D601BBC6F4B00B30010 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */; settings = {ASSET_TAGS = (); }; };
-		3F609D641BBDA66200B30010 /* Level_Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F609D631BBDA66200B30010 /* Level_Test.txt */; settings = {ASSET_TAGS = (); }; };
 		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; settings = {ASSET_TAGS = (); }; };
 		3F7E93A91BC3007D0018BA4E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A71BC3007D0018BA4E /* key.png */; settings = {ASSET_TAGS = (); }; };
 		3F7E93AB1BC309B90018BA4E /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93AA1BC309B90018BA4E /* crate.png */; settings = {ASSET_TAGS = (); }; };
@@ -75,6 +82,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F1316361BC8298500D227DD /* Level_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_1.txt; sourceTree = "<group>"; };
+		3F1316371BC8298500D227DD /* Level_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_2.txt; sourceTree = "<group>"; };
+		3F1316381BC8298500D227DD /* Level_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_3.txt; sourceTree = "<group>"; };
+		3F1316391BC8298500D227DD /* Level_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_4.txt; sourceTree = "<group>"; };
+		3F13163A1BC8298500D227DD /* Level_5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_5.txt; sourceTree = "<group>"; };
+		3F13163B1BC8298500D227DD /* Level_6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_6.txt; sourceTree = "<group>"; };
+		3F13163C1BC8298500D227DD /* Level_Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_Test.txt; sourceTree = "<group>"; };
+		3F1316441BC8302000D227DD /* spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spike.png; sourceTree = "<group>"; };
 		3F29DE661BB440EB00ADE6F8 /* FinalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29DE691BB440EB00ADE6F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F29DE6D1BB440EB00ADE6F8 /* GenericGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGameScene.swift; sourceTree = "<group>"; };
@@ -90,7 +105,6 @@
 		3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalChallengeUITests.swift; sourceTree = "<group>"; };
 		3F29DE8F1BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
-		3F609D631BBDA66200B30010 /* Level_Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_Test.txt; sourceTree = "<group>"; };
 		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
 		3F7E93A71BC3007D0018BA4E /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		3F7E93AA1BC309B90018BA4E /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
@@ -161,6 +175,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1316351BC8298500D227DD /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				3F1316361BC8298500D227DD /* Level_1.txt */,
+				3F1316371BC8298500D227DD /* Level_2.txt */,
+				3F1316381BC8298500D227DD /* Level_3.txt */,
+				3F1316391BC8298500D227DD /* Level_4.txt */,
+				3F13163A1BC8298500D227DD /* Level_5.txt */,
+				3F13163B1BC8298500D227DD /* Level_6.txt */,
+				3F13163C1BC8298500D227DD /* Level_Test.txt */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
 		3F29DE5D1BB440EB00ADE6F8 = {
 			isa = PBXGroup;
 			children = (
@@ -290,8 +318,9 @@
 		D0B502721BB44C19006C9C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3F609D631BBDA66200B30010 /* Level_Test.txt */,
+				3F1316351BC8298500D227DD /* Levels */,
 				3FA5619C1BC5AF2A009AD173 /* door.png */,
+				3F1316441BC8302000D227DD /* spike.png */,
 				3F7E93A71BC3007D0018BA4E /* key.png */,
 				3FA561AC1BC5BF4D009AD173 /* clock.png */,
 				3FA561AA1BC5BF22009AD173 /* lock.png */,
@@ -423,15 +452,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1316421BC8298500D227DD /* Level_6.txt in Resources */,
 				3F7E93AB1BC309B90018BA4E /* crate.png in Resources */,
 				3FA5619D1BC5AF2A009AD173 /* door.png in Resources */,
+				3F1316411BC8298500D227DD /* Level_5.txt in Resources */,
 				3F7E93A91BC3007D0018BA4E /* key.png in Resources */,
+				3F13163F1BC8298500D227DD /* Level_3.txt in Resources */,
+				3F1316401BC8298500D227DD /* Level_4.txt in Resources */,
+				3F1316451BC8302000D227DD /* spike.png in Resources */,
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				D0B502951BB45165006C9C90 /* Localizable.strings in Resources */,
+				3F13163D1BC8298500D227DD /* Level_1.txt in Resources */,
 				3F77937E1BBB242B0005F6D8 /* desert.png in Resources */,
-				3F609D641BBDA66200B30010 /* Level_Test.txt in Resources */,
 				3FA561AD1BC5BF4D009AD173 /* clock.png in Resources */,
+				3F13163E1BC8298500D227DD /* Level_2.txt in Resources */,
 				3F29DE751BB440EB00ADE6F8 /* Assets.xcassets in Resources */,
+				3F1316431BC8298500D227DD /* Level_Test.txt in Resources */,
 				3FA561AB1BC5BF22009AD173 /* lock.png in Resources */,
 				7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */,
 				D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */,

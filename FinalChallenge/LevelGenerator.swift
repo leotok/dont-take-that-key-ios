@@ -45,14 +45,17 @@ class LevelGenerator {
     
     private func getLevelMatrixFromTxt() {
      
-        if let path = NSBundle.mainBundle().pathForResource("Level_Test", ofType: "txt"){
+        let levelPath = "Level_\(levelIndex)"
+        
+        if let path = NSBundle.mainBundle().pathForResource(levelPath, ofType: "txt")
+        {
             
             var data: String!
             
             do {
                 data = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
             } catch {
-                print("Error reading .txt file")
+                print("Error reading .txt file.")
             }
         
             if let content = (data){
@@ -60,11 +63,11 @@ class LevelGenerator {
                 print("Read data")
             }
             else {
-                print("Couldnt read data")
+                print("Couldnt read data.")
             }
         }
         else {
-            print("Couldnt find txt")
+            print("Couldnt find txt.")
         }
     }
     
@@ -109,7 +112,7 @@ class LevelGenerator {
             {
                 if let tile: GenericObject = getNodeType( string[index] )
                 {
-                    tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , 16 + spriteHeight * CGFloat( (numberOfVerticalTiles - i - 1) ) )
+                    tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     levelScene.pausableLayer.addChild(tile)
                 }
                 index = index.advancedBy(1)
@@ -150,6 +153,14 @@ class LevelGenerator {
             tile.size = CGSizeMake(2 * spriteWidth, 2 * spriteHeight)
             tile.physicsBody?.usesPreciseCollisionDetection = true
             tile.physicsBody?.categoryBitMask = doorCategory
+            tile.physicsBody?.collisionBitMask = objectCategory
+            
+            case "5":
+            
+            tile = StaticObject(sprite: SKTexture(imageNamed: "spike"))
+            tile.size = CGSizeMake(spriteWidth, spriteHeight)
+            tile.physicsBody?.usesPreciseCollisionDetection = true
+            tile.physicsBody?.categoryBitMask = hazardCategory
             tile.physicsBody?.collisionBitMask = objectCategory
             
             case "0":

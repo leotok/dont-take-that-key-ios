@@ -13,8 +13,13 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     var parentScene: SKScene!
     var background: SKSpriteNode!
+    var userInfo: UserInfo!
     
     override func didMoveToView(view: SKView) {
+        
+        // User info
+        
+        userInfo = DAOUserInfo().load()
         
         // Background
         
@@ -94,23 +99,23 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         level1.position = CGPointMake(60, 100)
         background.addChild(level1)
         
-        let level2 = LevelButton(type: LevelButtonType.Locked, level: 2)
+        let level2 = LevelButton(type: LevelButtonType.Sam, level: 2)
         level2.position = CGPointMake(90, 190)
         background.addChild(level2)
         
-        let level3 = LevelButton(type: LevelButtonType.Locked, level: 3)
+        let level3 = LevelButton(type: LevelButtonType.Sam, level: 3)
         level3.position = CGPointMake(150, 150)
         background.addChild(level3)
         
-        let level4 = LevelButton(type: LevelButtonType.Locked, level:4)
+        let level4 = LevelButton(type: LevelButtonType.Sam, level:4)
         level4.position = CGPointMake(210, 110)
         background.addChild(level4)
         
-        let level5 = LevelButton(type: LevelButtonType.Locked, level:5)
+        let level5 = LevelButton(type: LevelButtonType.Sam, level:5)
         level5.position = CGPointMake(270, 140)
         background.addChild(level5)
         
-        let level6 = LevelButton(type: LevelButtonType.Locked, level:6)
+        let level6 = LevelButton(type: LevelButtonType.Sam, level:6)
         level6.position = CGPointMake(320, 200)
         background.addChild(level6)
     }

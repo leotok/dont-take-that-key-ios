@@ -13,13 +13,8 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     var parentScene: SKScene!
     var background: SKSpriteNode!
-    var userInfo: UserInfo!
     
     override func didMoveToView(view: SKView) {
-        
-        // User info
-        
-        userInfo = DAOUserInfo().load()
         
         // Background
         
@@ -95,82 +90,61 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     func addSamLevels() {
         
-        let level1 = LevelButton(type: LevelButtonType.Sam, level: 1)
-        level1.position = CGPointMake(60, 100)
-        background.addChild(level1)
+        let userInfo = DAOUserInfo().load()
+        let samLevelPositionArray = [CGPointMake(60, 100),CGPointMake(90, 190),CGPointMake(150, 150),CGPointMake(210, 110), CGPointMake(270, 140), CGPointMake(320, 200)]
         
-        let level2 = LevelButton(type: LevelButtonType.Sam, level: 2)
-        level2.position = CGPointMake(90, 190)
-        background.addChild(level2)
-        
-        let level3 = LevelButton(type: LevelButtonType.Sam, level: 3)
-        level3.position = CGPointMake(150, 150)
-        background.addChild(level3)
-        
-        let level4 = LevelButton(type: LevelButtonType.Sam, level:4)
-        level4.position = CGPointMake(210, 110)
-        background.addChild(level4)
-        
-        let level5 = LevelButton(type: LevelButtonType.Sam, level:5)
-        level5.position = CGPointMake(270, 140)
-        background.addChild(level5)
-        
-        let level6 = LevelButton(type: LevelButtonType.Sam, level:6)
-        level6.position = CGPointMake(320, 200)
-        background.addChild(level6)
+        for i in 1...6 {
+            
+            let level: LevelButton!
+            
+            if i <= userInfo.samLevels {
+                level = LevelButton(type: LevelButtonType.Sam, level: i)
+            }
+            else {
+                level = LevelButton(type: LevelButtonType.Locked, level: i)
+            }
+            level.position = samLevelPositionArray[i-1]
+            background.addChild(level)
+        }
     }
     
     func addShrinkLevels() {
         
-        let level7 = LevelButton(type: LevelButtonType.Locked,level:7)
-        level7.position = CGPointMake(370, 230)
-        background.addChild(level7)
+        let userInfo = DAOUserInfo().load()
+        let shrinkLevelPositionArray = [CGPointMake(370, 230),CGPointMake(420, 250),CGPointMake(470, 270),CGPointMake(520, 300), CGPointMake(570, 270), CGPointMake(620, 230)]
         
-        let level8 = LevelButton(type: LevelButtonType.Locked,level:8)
-        level8.position = CGPointMake(420, 250)
-        background.addChild(level8)
-        
-        let level9 = LevelButton(type: LevelButtonType.Locked,level:9)
-        level9.position = CGPointMake(470, 270)
-        background.addChild(level9)
-        
-        let level10 = LevelButton(type: LevelButtonType.Locked,level:10)
-        level10.position = CGPointMake(520, 300)
-        background.addChild(level10)
-        
-        let level11 = LevelButton(type: LevelButtonType.Locked,level:11)
-        level11.position = CGPointMake(570, 270)
-        background.addChild(level11)
-        
-        let level12 = LevelButton(type: LevelButtonType.Locked,level:12)
-        level12.position = CGPointMake(620, 230)
-        background.addChild(level12)
+        for i in 1...6 {
+            
+            let level: LevelButton!
+            
+            if i <= userInfo.shrinkLevels {
+                level = LevelButton(type: LevelButtonType.Shrink, level: i + 6)
+            }
+            else {
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
+            }
+            level.position = shrinkLevelPositionArray[i-1]
+            background.addChild(level)
+        }
     }
     
     func addEllieLevels() {
         
-        let level13 = LevelButton(type: LevelButtonType.Locked,level:13)
-        level13.position = CGPointMake(370, 190)
-        background.addChild(level13)
+        let userInfo = DAOUserInfo().load()
+        let ellieLevelPositionArray = [CGPointMake(370, 190),CGPointMake(420, 170),CGPointMake(470, 150),CGPointMake(520, 130), CGPointMake(570, 120), CGPointMake(620, 140)]
         
-        let level14 = LevelButton(type: LevelButtonType.Locked,level:14)
-        level14.position = CGPointMake(420, 170)
-        background.addChild(level14)
-        
-        let level15 = LevelButton(type: LevelButtonType.Locked,level:15)
-        level15.position = CGPointMake(470, 150)
-        background.addChild(level15)
-        
-        let level16 = LevelButton(type: LevelButtonType.Locked,level:16)
-        level16.position = CGPointMake(520, 130)
-        background.addChild(level16)
-        
-        let level17 = LevelButton(type: LevelButtonType.Locked,level:17)
-        level17.position = CGPointMake(570, 120)
-        background.addChild(level17)
-        
-        let level18 = LevelButton(type: LevelButtonType.Locked,level:18)
-        level18.position = CGPointMake(620, 140)
-        background.addChild(level18)
+        for i in 1...6 {
+            
+            let level: LevelButton!
+            
+            if i <= userInfo.ellieLevels {
+                level = LevelButton(type: LevelButtonType.Ellie, level: i + 12)
+            }
+            else {
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 12)
+            }
+            level.position = ellieLevelPositionArray[i-1]
+            background.addChild(level)
+        }
     }
 }

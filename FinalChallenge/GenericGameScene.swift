@@ -224,6 +224,23 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     private func GameWin() {
+        let dao = DAOUserInfo()
+        let userInfo = dao.load()
+        
+        if levelIndex < 6 && userInfo.samLevels <= levelIndex {
+            userInfo.samLevels = levelIndex + 1
+        }
+        else if levelIndex == 6 && userInfo.ellieLevels == 0 && userInfo.shrinkLevels == 0 {
+            userInfo.ellieLevels = levelIndex - 5
+            userInfo.shrinkLevels = levelIndex - 5
+        }
+        else if levelIndex < 12 && userInfo.shrinkLevels <= levelIndex - 6 {
+            userInfo.shrinkLevels = levelIndex - 5
+        }
+        else if levelIndex < 18 && userInfo.ellieLevels <= levelIndex - 12 {
+            userInfo.ellieLevels = levelIndex - 11
+        }
+        dao.save(userInfo)
         
         self.popUpOpened = true
         self.scene?.paused = true

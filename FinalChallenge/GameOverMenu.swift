@@ -31,7 +31,7 @@ class GameOverMenu: Menu {
         pauseMenu.addChild(msgLabel)
         
         
-        let resumeButton = SKSpriteNode(imageNamed: "ResetButton")
+        let resumeButton = SKSpriteNode(imageNamed: "NextButton")
         resumeButton.name = "reset"
         resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
         

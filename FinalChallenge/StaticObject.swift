@@ -14,14 +14,7 @@ class StaticObject: GenericObject {
     override init(sprite: SKTexture) {
 
         super.init(sprite: sprite)
-        zPosition = 10
-        physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(32, 32))
-        physicsBody?.categoryBitMask = 2
-        physicsBody?.collisionBitMask = 1 | 2
         physicsBody?.affectedByGravity = false
-        physicsBody?.allContactedBodies()
-        physicsBody?.allowsRotation = false
-        physicsBody?.restitution = 0
         physicsBody?.dynamic = false
     }
 

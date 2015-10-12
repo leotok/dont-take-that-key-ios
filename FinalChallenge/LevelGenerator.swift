@@ -129,18 +129,13 @@ class LevelGenerator {
             case "1":
             
             tile = StaticObject(sprite: SKTexture())
-            tile.color = SKColor.blueColor()
+            tile.color = SKColor.redColor()
             tile.size = CGSizeMake(spriteWidth, spriteHeight)
             tile.physicsBody?.contactTestBitMask = playerCategory
             
             case "2":
             
-            tile = StaticObject(sprite: SKTexture(imageNamed: "key"))
-            tile.size = CGSizeMake(spriteWidth, spriteHeight)
-            tile.physicsBody?.usesPreciseCollisionDetection = true
-            tile.physicsBody?.categoryBitMask = keyCategory
-            tile.physicsBody?.collisionBitMask = objectCategory
-            tile.physicsBody?.contactTestBitMask = playerCategory
+            tile = KeyNode()
             
             case "3":
             
@@ -150,12 +145,7 @@ class LevelGenerator {
             
             case "4":
             
-            tile = StaticObject(sprite: SKTexture(imageNamed: "door"))
-            tile.anchorPoint = CGPointMake(0.25, 0.25)
-            tile.size = CGSizeMake(2 * spriteWidth, 2 * spriteHeight)
-            tile.physicsBody?.usesPreciseCollisionDetection = true
-            tile.physicsBody?.categoryBitMask = doorCategory
-            tile.physicsBody?.collisionBitMask = objectCategory
+            tile = DoorNode()
             
             case "5":
             

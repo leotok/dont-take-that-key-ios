@@ -16,7 +16,7 @@ class KeyNode: StaticObject {
         let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         
-        let keySprite = SKTexture(imageNamed: "key")
+        let keySprite = SKTexture(imageNamed: "Key")
         super.init(sprite: keySprite)
         
         self.size = CGSizeMake(spriteWidth, spriteHeight)
@@ -24,6 +24,9 @@ class KeyNode: StaticObject {
         self.physicsBody?.categoryBitMask = keyCategory
         self.physicsBody?.collisionBitMask = objectCategory
         self.physicsBody?.contactTestBitMask = playerCategory
+        
+        let action = SKAction.moveBy(CGVectorMake(0, 5), duration: 1)
+        self.runAction(SKAction.repeatActionForever((SKAction.sequence([action,action.reversedAction()]))))
     }
     
     

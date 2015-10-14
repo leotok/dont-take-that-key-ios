@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
         let scene = MainMenu(size: skView.bounds.size)
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
+        self.view?.multipleTouchEnabled = true
         skView.presentScene(scene)
 
     }

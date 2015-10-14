@@ -139,9 +139,7 @@ class LevelGenerator {
             
             case "3":
             
-            tile = MovableObject(sprite: SKTexture(imageNamed: "crate"))
-            tile.physicsBody?.usesPreciseCollisionDetection = true
-            tile.size = CGSizeMake(spriteWidth, spriteHeight)
+            tile = CrateNode()
             
             case "4":
             
@@ -149,12 +147,7 @@ class LevelGenerator {
             
             case "5":
             
-            tile = StaticObject(sprite: SKTexture(imageNamed: "spike"))
-            tile.size = CGSizeMake(spriteWidth, spriteHeight)
-            tile.physicsBody?.usesPreciseCollisionDetection = true
-            tile.physicsBody?.categoryBitMask = hazardCategory
-            tile.physicsBody?.collisionBitMask = objectCategory | playerCategory
-            tile.physicsBody?.contactTestBitMask = playerCategory
+            tile = SpikeNode()
             
             case "0":
                 break;

@@ -128,10 +128,11 @@ class LevelGenerator {
             
             case "1":
             
-            tile = StaticObject(sprite: SKTexture())
+                tile = StaticObject(sprite: SKTexture(imageNamed: "ground_2"))
             tile.color = SKColor.redColor()
             tile.size = CGSizeMake(spriteWidth, spriteHeight)
             tile.physicsBody?.contactTestBitMask = playerCategory
+            
             
             case "2":
             

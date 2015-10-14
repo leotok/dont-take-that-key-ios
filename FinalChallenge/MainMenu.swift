@@ -17,7 +17,7 @@ class MainMenu: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        self.view?.multipleTouchEnabled = true
+        //self.view?.multipleTouchEnabled = true
         
         let background = SKSpriteNode(imageNamed: "backgound_teste.jpg")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )

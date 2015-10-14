@@ -50,8 +50,6 @@ class GameCharacter: SKSpriteNode {
         self.xScale = 1
         self.runAction(SKAction.repeatActionForever(moveX), withKey:"Walk")
         self.runAction(SKAction.repeatActionForever(animate),withKey: "Animate")
-        var actiondeCuERola = SKAction.runBlock({self.userInteractionEnabled = true})
-        self.runAction(actiondeCuERola, withKey:"wtv")
     }
     
     func walkLeft () {

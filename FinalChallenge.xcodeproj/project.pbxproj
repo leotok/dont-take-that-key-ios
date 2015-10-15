@@ -47,6 +47,7 @@
 		3FA561AD1BC5BF4D009AD173 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AC1BC5BF4D009AD173 /* clock.png */; settings = {ASSET_TAGS = (); }; };
 		7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */; settings = {ASSET_TAGS = (); }; };
 		D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F11631BBEECFE00DC6888 /* Menu.swift */; settings = {ASSET_TAGS = (); }; };
+		D05474341BCFF8390035CFCB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05474331BCFF8390035CFCB /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B331BBC59EE008E1B79 /* JumpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B341BBC59EE008E1B79 /* LeftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B351BBC59EE008E1B79 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2F1BBC59EE008E1B79 /* PauseButton.swift */; settings = {ASSET_TAGS = (); }; };
@@ -141,6 +142,7 @@
 		3FA561AC1BC5BF4D009AD173 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainMenuMusic.mp3; sourceTree = "<group>"; };
 		D01F11631BBEECFE00DC6888 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		D05474331BCFF8390035CFCB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpButton.swift; sourceTree = "<group>"; };
 		D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftButton.swift; sourceTree = "<group>"; };
 		D08F3B2F1BBC59EE008E1B79 /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				D0B5025E1BB44634006C9C90 /* Game */,
 				D0B5025D1BB44623006C9C90 /* Model */,
 				3F29DE6F1BB440EB00ADE6F8 /* GameViewController.swift */,
+				D05474331BCFF8390035CFCB /* Extensions.swift */,
 				D0B502971BB45165006C9C90 /* Localizable.strings */,
 				D0B502721BB44C19006C9C90 /* Supporting Files */,
 			);
@@ -453,7 +456,7 @@
 				TargetAttributes = {
 					3F29DE651BB440EB00ADE6F8 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 6ZQ4CB9ZL9;
+						DevelopmentTeam = 5BS7QB5JFF;
 					};
 					3F29DE7D1BB440EB00ADE6F8 = {
 						CreatedOnToolsVersion = 7.0;
@@ -577,6 +580,7 @@
 				D08F3B371BBC59EE008E1B79 /* RightButton.swift in Sources */,
 				D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */,
 				D0B5026F1BB44A7D006C9C90 /* MovableObject.swift in Sources */,
+				D05474341BCFF8390035CFCB /* Extensions.swift in Sources */,
 				D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */,
 				D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */,
 			);

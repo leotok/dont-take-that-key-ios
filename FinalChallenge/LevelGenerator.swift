@@ -128,8 +128,8 @@ class LevelGenerator {
             
             case "1":
             
-                tile = StaticObject(sprite: SKTexture(imageNamed: "ground_2"))
-            tile.color = SKColor.redColor()
+            let i = Int.random(2...5)
+            tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
             tile.size = CGSizeMake(spriteWidth, spriteHeight)
             tile.physicsBody?.contactTestBitMask = playerCategory
             
@@ -156,6 +156,18 @@ class LevelGenerator {
             tile.physicsBody?.categoryBitMask = hazardCategory
             tile.physicsBody?.collisionBitMask = objectCategory | playerCategory
             tile.physicsBody?.contactTestBitMask = playerCategory
+            
+            case "6":
+            
+                let i = Int.random(1...4)
+                tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop\(i)"))
+                tile.color = SKColor.redColor()
+                tile.size = CGSizeMake(spriteWidth, spriteHeight)
+                tile.physicsBody?.contactTestBitMask = playerCategory
+            
+            break
+            
+            
             
             case "0":
                 break;

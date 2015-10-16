@@ -7,7 +7,9 @@
 */
 
 
-"Play"="Jogar!";
+"Play"="Jogar";
+"Game Name"="The World of Sam";
+
 "ResetMsg"="Você tem certeza?";
 "LeftAnswer"="Sim";
 "RightAnswer"="Cancelar";

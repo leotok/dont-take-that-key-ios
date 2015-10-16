@@ -36,6 +36,12 @@ class HUD: SKSpriteNode {
         
         super.init(texture: nil, color: UIColor.clearColor(), size: UIScreen.mainScreen().bounds.size)
         
+        self.leftButton.userInteractionEnabled = true
+        self.rightButton.userInteractionEnabled = true
+        self.jumpButton.userInteractionEnabled = true
+        self.powerButton.userInteractionEnabled = true
+        self.switchCharacterButton.userInteractionEnabled = true
+        self.pauseButton.userInteractionEnabled = true
         self.userInteractionEnabled = true
     }
 

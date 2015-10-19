@@ -75,6 +75,7 @@
 		D0B5029B1BB45259006C9C90 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B5029A1BB45259006C9C90 /* HUD.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B5029C1BB4885C006C9C90 /* UserInfo.plist */; settings = {ASSET_TAGS = (); }; };
 		E920A65E1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */; settings = {ASSET_TAGS = (); }; };
+		E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974FEBE1BD549EA00613064 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		D0B5029A1BB45259006C9C90 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		D0B5029C1BB4885C006C9C90 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCharacterSingleton.swift; sourceTree = "<group>"; };
+		E974FEBE1BD549EA00613064 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 			children = (
 				D08F3B391BBC59F7008E1B79 /* HUD */,
 				3F29DE6D1BB440EB00ADE6F8 /* GenericGameScene.swift */,
+				E974FEBE1BD549EA00613064 /* Extensions.swift */,
 				E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */,
 				D0B5027F1BB44DB3006C9C90 /* LevelGenerator.swift */,
 				D0B502881BB44EBC006C9C90 /* StoryText.swift */,
@@ -577,6 +580,7 @@
 				D08F3B371BBC59EE008E1B79 /* RightButton.swift in Sources */,
 				D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */,
 				D0B5026F1BB44A7D006C9C90 /* MovableObject.swift in Sources */,
+				E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */,
 				D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */,
 				D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */,
 			);

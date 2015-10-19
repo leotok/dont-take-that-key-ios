@@ -36,11 +36,42 @@ class LevelGenerator {
         
         
         getLevelMatrixFromTxt()
-        defineLevelTheme()
+        addCorrespondingBackground()
         //printLevelMatrixLog()
         generateNodes()
         
         return true
+    }
+    
+    private func addCorrespondingBackground() {
+        
+        let theme = defineLevelTheme()
+        
+        switch (theme) {
+            
+        case LevelTheme.Sam:
+            
+            let background = SKSpriteNode(imageNamed: "gameplayBackground")
+            background.color = SKColor.blueColor()
+            background.position = CGPointMake( self.levelScene.size.width / 2 , self.levelScene.size.height / 2 )
+            background.size = self.levelScene.size
+            background.texture?.filteringMode = SKTextureFilteringMode.Nearest
+            background.zPosition = -100
+            levelScene.addChild(background)
+            
+        case LevelTheme.Shrink:
+            break
+
+        case LevelTheme.Ellie:
+            break
+            
+        case LevelTheme.AllChar:
+            break
+        
+        default:
+            print("No theme found. Wrong level index.")
+        }
+        
     }
     
     private func getLevelMatrixFromTxt() {
@@ -67,7 +98,7 @@ class LevelGenerator {
             }
         }
         else {
-            print("Couldnt find txt.")
+            print("Couldnt find txt with path: \(levelPath).")
         }
     }
     

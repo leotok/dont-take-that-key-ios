@@ -63,10 +63,12 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             }
             else if node.name == "LevelButton" {
                 if (node as! LevelButton).type != LevelButtonType.Locked {
-                let levelButton = node as! LevelButton
-                let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
-                let transition = SKTransition.fadeWithDuration(1.5)
-                self.view?.presentScene(scene, transition: transition)
+        
+                    let levelButton = node as! LevelButton
+                    print("Level: \(levelButton.level)")
+                    let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
+                    let transition = SKTransition.fadeWithDuration(1.5)
+                    self.view?.presentScene(scene, transition: transition)
                 }
             }
         }

@@ -17,6 +17,7 @@ class GenericObject: SKSpriteNode {
         let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         
+        sprite.filteringMode = SKTextureFilteringMode.Nearest
         super.init(texture: sprite, color: UIColor.clearColor(), size: CGSizeMake(spriteWidth , spriteHeight))
         zPosition = 10
         physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(spriteWidth,spriteHeight))

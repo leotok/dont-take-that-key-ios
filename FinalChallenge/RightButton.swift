@@ -25,12 +25,12 @@ class RightButton: SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        characterSingleton = CurrentCharacterSingleton.sharedInstance
-        characterSingleton.currentCharacter!.walkRight()
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        characterSingleton = CurrentCharacterSingleton.sharedInstance
+//        characterSingleton.currentCharacter!.walkRight()
+//    }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        characterSingleton.currentCharacter!.stopWalking()
-    }
+//    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        characterSingleton.currentCharacter!.stopWalking()
+//    }
 }

@@ -25,8 +25,8 @@ class PowerButton: SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        //characterSingleton = CurrentCharacterSingleton()
-        characterSingleton.currentCharacter?.usePower()
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        //characterSingleton = CurrentCharacterSingleton()
+//        characterSingleton.currentCharacter?.usePower()
+//    }
 }

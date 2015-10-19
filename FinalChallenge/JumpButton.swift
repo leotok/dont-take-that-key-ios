@@ -25,17 +25,17 @@ class JumpButton: SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        characterSingleton = CurrentCharacterSingleton.sharedInstance
-        characterSingleton.currentCharacter!.jump()
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        characterSingleton = CurrentCharacterSingleton.sharedInstance
+//        characterSingleton.currentCharacter!.jump()
+//    }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        characterSingleton = CurrentCharacterSingleton.sharedInstance
-        if(characterSingleton.currentCharacter!.isJumping == true){
-            characterSingleton.currentCharacter?.removeActionForKey("Jump")
-            characterSingleton.currentCharacter!.stopImpulse()
-        }
-    }
+//    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        characterSingleton = CurrentCharacterSingleton.sharedInstance
+//        if(characterSingleton.currentCharacter!.isJumping == true){
+//            characterSingleton.currentCharacter?.removeActionForKey("Jump")
+//            characterSingleton.currentCharacter!.stopImpulse()
+//        }
+//    }
     
 }

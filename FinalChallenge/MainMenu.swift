@@ -23,9 +23,9 @@ class MainMenu: SKScene {
         self.backgroundColor = UIColor.blackColor()
         self.addChild(background)
         
-        let playButton = SKLabelNode(fontNamed:"AmericanTypewriter")
+        let playButton = SKLabelNode(fontNamed:"Pixel-Art")
         playButton.text = NSLocalizedString("Play", comment: "")
-        playButton.fontSize = 45
+        playButton.fontSize = 35
         playButton.position = CGPointMake(self.size.width / 2, self.size.height / 6.1)
         playButton.name = "Play"
         playButton.zPosition = 10
@@ -41,9 +41,9 @@ class MainMenu: SKScene {
         
         self.addChild(configuration)
         
-        let gameName = SKLabelNode(fontNamed: "AmericanTypewriter")
+        let gameName = SKLabelNode(fontNamed: "Pixel-Art")
         gameName.text = NSLocalizedString("Game Name", comment: "")
-        gameName.fontSize = 55
+        gameName.fontSize = 45
         gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 2.2)
         gameName.zPosition = 20
         

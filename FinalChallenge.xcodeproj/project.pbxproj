@@ -79,6 +79,7 @@
 		D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B5029C1BB4885C006C9C90 /* UserInfo.plist */; settings = {ASSET_TAGS = (); }; };
 		E920A65E1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */; settings = {ASSET_TAGS = (); }; };
 		E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974FEBE1BD549EA00613064 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		E974FEC11BD69D5000613064 /* pixelart.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E974FEC01BD69C0800613064 /* pixelart.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		D0B5029C1BB4885C006C9C90 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCharacterSingleton.swift; sourceTree = "<group>"; };
 		E974FEBE1BD549EA00613064 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E974FEC01BD69C0800613064 /* pixelart.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixelart.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +370,7 @@
 		D0B502721BB44C19006C9C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E974FEC01BD69C0800613064 /* pixelart.ttf */,
 				3F1316A41BD56EBE00D227DD /* gameplayBackground.png */,
 				3F1316351BC8298500D227DD /* Levels */,
 				3FA5619C1BC5AF2A009AD173 /* door.png */,
@@ -534,6 +537,7 @@
 				3F13165C1BC8415100D227DD /* Level_17.txt in Resources */,
 				3F1316521BC8415100D227DD /* Level_7.txt in Resources */,
 				3F13165A1BC8415100D227DD /* Level_15.txt in Resources */,
+				E974FEC11BD69D5000613064 /* pixelart.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

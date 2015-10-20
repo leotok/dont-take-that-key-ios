@@ -19,10 +19,13 @@ class GameCharacter: SKSpriteNode {
     internal var walkTextures:[SKTexture]!
     internal var jumpTextures:[SKTexture]!
     
+    let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
+    let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2  / 12.9375
+    
     init (sprite:SKTexture) {
         idleTexture = sprite
-        super.init(texture: sprite, color: UIColor.clearColor(), size: sprite.size())
-        physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size())
+        super.init(texture: sprite, color: UIColor.clearColor(), size: CGSizeMake(spriteWidth, spriteHeight))
+        physicsBody = SKPhysicsBody(texture: sprite, size: CGSizeMake(spriteWidth, spriteHeight))
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory
         physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory
@@ -43,8 +46,8 @@ class GameCharacter: SKSpriteNode {
     
     func walkRight () {
         //walkTextures = [idleTexture,idleTexture,idleTexture]
-        let moveX = SKAction.moveByX(50, y: 0, duration: 0.3)
-        let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
+        let moveX = SKAction.moveByX(30, y: 0, duration: 0.2)
+        let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.15)
         let walkAction = SKAction.group([moveX,animate])
     
         self.xScale = 1
@@ -54,8 +57,8 @@ class GameCharacter: SKSpriteNode {
     
     func walkLeft () {
         //walkTextures = [idleTexture,idleTexture,idleTexture]
-        let moveX = SKAction.moveByX(-50, y: 0, duration: 0.3)
-        let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.2)
+        let moveX = SKAction.moveByX(-30, y: 0, duration: 0.2)
+        let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.15)
         let walkAction = SKAction.group([moveX,animate])
         
         self.xScale = -1
@@ -75,7 +78,7 @@ class GameCharacter: SKSpriteNode {
         if !isJumping {
             jumpTextures = [idleTexture,idleTexture,idleTexture]
             let animate = SKAction.animateWithTextures(jumpTextures, timePerFrame: 0.2)
-            let impulse = SKAction.applyImpulse(CGVectorMake(0, 80), duration: 0.1)
+            let impulse = SKAction.applyImpulse(CGVectorMake(0, 15), duration: 0.1)
             let jumpAction = SKAction.group([animate,impulse])
             isJumping = true
             self.runAction(jumpAction, withKey:"Jump")

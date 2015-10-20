@@ -37,12 +37,12 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     
     private var gotKey = false
-
+    
     
     override private init(size: CGSize) {
         super.init(size: size)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -59,17 +59,17 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         scene.pausableLayer = SKNode()
         scene.gameLayer.addChild(scene.pausableLayer)
-    
+        
         
         lvlGen.loadLevel(levelIndex, scene: scene)
         
         scene.physicsWorld.gravity = CGVectorMake(0, -9.8)
-
+        
         return scene
-    
+        
     }
     
-    override func didMoveToView(view: SKView) {      
+    override func didMoveToView(view: SKView) {
         
         /* Setup your scene here */
         self.physicsWorld.contactDelegate = self
@@ -101,13 +101,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.jumpButton!.zPosition = 200
         self.powerButton!.zPosition = 200
         
-//        self.leftButton!.userInteractionEnabled = true
-//        self.rightButton!.userInteractionEnabled = true
-//        self.jumpButton!.userInteractionEnabled = true
-//        self.powerButton!.userInteractionEnabled = true
-//        self.switchCharacterButton!.userInteractionEnabled = true
-//        self.pauseButton!.userInteractionEnabled = true
-//        self.userInteractionEnabled = true
+        //        self.leftButton!.userInteractionEnabled = true
+        //        self.rightButton!.userInteractionEnabled = true
+        //        self.jumpButton!.userInteractionEnabled = true
+        //        self.powerButton!.userInteractionEnabled = true
+        //        self.switchCharacterButton!.userInteractionEnabled = true
+        //        self.pauseButton!.userInteractionEnabled = true
+        //        self.userInteractionEnabled = true
         
         self.addChild(switchCharacterButton!)
         self.addChild(pauseButton!)
@@ -116,15 +116,15 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.addChild(jumpButton!)
         self.addChild(powerButton!)
         
-//        hud = HUD()
-//        hud.userInteractionEnabled = true
-//        self.addChild(self.hud)
-//        hud.zPosition = 500
-//        hud.setPositions()
+        //        hud = HUD()
+        //        hud.userInteractionEnabled = true
+        //        self.addChild(self.hud)
+        //        hud.zPosition = 500
+        //        hud.setPositions()
         
-
         
-
+        
+        
         //Sam Teste
         selectedPlayer = Sam()
         selectedPlayer.position = CGPointMake(250, 300)
@@ -143,14 +143,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             if(self.leftButton!.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
                 //self.leftButton.touchesEnded(touches, withEvent: event)
-//                walking = false
-//                walkingLeft = false
+                //                walking = false
+                //                walkingLeft = false
             }
             if(self.rightButton!.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
                 //self.rightButton.touchesEnded(touches, withEvent: event)
-//                walking = false
-//                walkingRight = false
+                //                walking = false
+                //                walkingRight = false
             }
             if(self.jumpButton!.frame.contains(location)){
                 if(characterSingleton.currentCharacter!.isJumping == true){
@@ -161,80 +161,86 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         
-//        for touch in (touches ) {
-//            let location = touch.locationInNode(self)
-//            let node = self.nodeAtPoint(location)
-//            
-//            
-//            if popUpOpened {
-//                popUp?.touchesEnded(touches, withEvent: event)
-//            }
-//            else if node.name == "character"{
-//                self.selectedPlayer = node as! GameCharacter
-//            }
-//            else{
-//                //hud.touchesEnded(touches, withEvent: event)
-//            }
-//        }
+        //        for touch in (touches ) {
+        //            let location = touch.locationInNode(self)
+        //            let node = self.nodeAtPoint(location)
+        //
+        //
+        //            if popUpOpened {
+        //                popUp?.touchesEnded(touches, withEvent: event)
+        //            }
+        //            else if node.name == "character"{
+        //                self.selectedPlayer = node as! GameCharacter
+        //            }
+        //            else{
+        //                //hud.touchesEnded(touches, withEvent: event)
+        //            }
+        //        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        self.userInteractionEnabled = true
-        
+        /* Called when a touch begins */
+        print("Touches Began")
         var currC = CurrentCharacterSingleton.sharedInstance
+        
         for touch in (touches) {
+            
+            print("For touches")
             let location = touch.locationInNode(self)
             
             if(self.switchCharacterButton!.frame.contains(location)){
             }
+            
             if(self.pauseButton!.frame.contains(location)){
                 let genericScene = self.scene as! GenericGameScene
                 genericScene.pauseGame()
             }
+            
             if(self.leftButton!.frame.contains(location)){
                 currC.currentCharacter?.walkLeft()
-//                walking = true
-//                walkingLeft = true
+                //                walking = true
+                //                walkingLeft = true
                 print("leftButton")
             }
-            else if(self.rightButton!.frame.contains(location)){
+            else if(self.rightButton!.frame.contains(location)) {
                 currC.currentCharacter?.walkRight()
                 //self.rightButton.touchesBegan(touches, withEvent: event)
-//                walking = true
-//                walkingRight = true
+                //                walking = true
+                //                walkingRight = true
                 print("rightButton")
             }
+            
             if(self.jumpButton!.frame.contains(location)){
                 currC.currentCharacter?.jump()
                 //self.jumpButton.touchesBegan(touches, withEvent: event)
                 print("jumpButton")
             }
+            
             if(self.powerButton!.frame.contains(location)){
             }
         }
-//        if popUpOpened {
-//            popUp?.touchesBegan(touches, withEvent: event)
-//        }
-//        else {
-//            //print("to entrando aqui")
-//            hud.touchesBegan(touches, withEvent: event)
-//        }
+        //        if popUpOpened {
+        //            popUp?.touchesBegan(touches, withEvent: event)
+        //        }
+        //        else {
+        //            //print("to entrando aqui")
+        //            hud.touchesBegan(touches, withEvent: event)
+        //        }
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-//        if(hud.isWalking()){
-//            if(hud.walkingLeft){
-//                self.selectedPlayer.physicsBody!.velocity = CGVectorAdd(-200, 0)
-//                CGVectorAdd
-//            }
-//            else{
-//                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(200, 0)
-//
-//            }
-//        }
+        //        if(hud.isWalking()){
+        //            if(hud.walkingLeft){
+        //                self.selectedPlayer.physicsBody!.velocity = CGVectorAdd(-200, 0)
+        //                CGVectorAdd
+        //            }
+        //            else{
+        //                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(200, 0)
+        //
+        //            }
+        //        }
     }
     
     
@@ -296,7 +302,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     func quitLevel() {
-    
+        
         let scene = MapMenu(size:self.size)
         let transition = SKTransition.fadeWithDuration(1.5)
         self.view?.presentScene(scene, transition: transition)
@@ -310,6 +316,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             self.popUpOpened = true
             self.scene?.paused = true
             self.popUp = PauseMenu.createPauseMenu(self.size)
+            self.popUp?.userInteractionEnabled = true
             popUp!.zPosition = 1000
             self.addChild(popUp!)
         }
@@ -317,7 +324,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     func resume() {
         self.scene?.paused = false
         self.popUpOpened = false
-    
+        
     }
     func reset() {
         let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)
@@ -331,6 +338,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.scene?.paused = true
         self.popUpOpened = true
         self.popUp!.zPosition = 1000
+        self.popUp?.userInteractionEnabled = true
         self.addChild(self.popUp!)
     }
     
@@ -357,6 +365,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.scene?.paused = true
         self.popUp = GameWinMenu.createGameWinMenu(self.size)
         self.popUp!.zPosition = 1000
+        self.popUp?.userInteractionEnabled = true
         self.addChild(popUp!)
     }
     

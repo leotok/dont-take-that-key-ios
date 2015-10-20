@@ -39,8 +39,17 @@ class LevelGenerator {
         addCorrespondingBackground()
         //printLevelMatrixLog()
         generateNodes()
+        addCharacterToGameScene()
         
         return true
+    }
+    
+    private func addCharacterToGameScene() {
+    
+        levelScene.selectedPlayer = Sam()
+        levelScene.selectedPlayer.position = CGPointMake(100, 300)
+        levelScene.addChild(levelScene.selectedPlayer)
+    
     }
     
     private func addCorrespondingBackground() {

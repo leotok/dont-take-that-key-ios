@@ -31,7 +31,7 @@ class GameCharacter: SKSpriteNode {
         physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
-        physicsBody?.usesPreciseCollisionDetection = true
+       // physicsBody?.usesPreciseCollisionDetection = true
         name = "character"
     }
 

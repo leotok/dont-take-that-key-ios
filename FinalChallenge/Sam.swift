@@ -45,8 +45,8 @@ class Sam: GameCharacter{
         fatalError("init(coder:) has not been implemented")
     }
     
-     internal override func activePower() {
-        super.activePower()
+     internal override func activatePower() {
+        super.activatePower()
         self.delegate?.pauseScene()
         
     }

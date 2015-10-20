@@ -98,7 +98,7 @@ class GameCharacter: SKSpriteNode {
     func usePower() {
     
         if isUsingPower {
-            self.activePower()
+            self.activatePower()
         }
         else {
             self.deactivatePower()
@@ -119,7 +119,7 @@ class GameCharacter: SKSpriteNode {
     
     /* INTERNAL AND PRIVATE METHODS */
     
-    internal func activePower() {
+    internal func activatePower() {
         isUsingPower = true
         lastUpdatePower = NSDate()
     

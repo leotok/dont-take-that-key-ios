@@ -58,6 +58,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         scene.addChild(scene.gameLayer)
         
         scene.pausableLayer = SKNode()
+        scene.pausableLayer.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeZero)
+        scene.pausableLayer.physicsBody?.collisionBitMask = 0
         scene.gameLayer.addChild(scene.pausableLayer)
         
         
@@ -214,6 +216,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
             
             if(self.powerButton!.frame.contains(location)){
+                print("tree powers activate")
                 currC.currentCharacter?.usePower()
             }
         }
@@ -291,11 +294,26 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     // Sam Protocol
     func pauseScene() -> Bool {
+        print("ZA WARUDO")
         pausableLayer.paused = true
+        
+        for(var i = 0;i < pausableLayer.children.count;i++){
+            pausableLayer.children[i].physicsBody?.affectedByGravity = false
+            pausableLayer.children[i].paused = true
+            pausableLayer.children[i].physicsBody?.velocity = CGVectorMake(0, 0)
+            pausableLayer.children[i].physicsBody?.dynamic = false
+        }
         return true
     }
     func unpauseScene() -> Bool {
         pausableLayer.paused = false
+        
+        for(var i = 0;i < pausableLayer.children.count;i++){
+            if(pausableLayer.children[i].isKindOfClass(CrateNode)){
+                pausableLayer.children[i].physicsBody?.dynamic = true
+                pausableLayer.children[i].physicsBody?.affectedByGravity = true
+            }
+        }
         return false
     }
     
@@ -308,9 +326,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     //Menus
     func pauseGame() {
-        print("you should be called")
         if !popUpOpened {
-            print("and you should have netered here")
             self.popUpOpened = true
             self.scene?.paused = true
             self.popUp = PauseMenu.createPauseMenu(self.size)

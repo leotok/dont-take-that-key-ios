@@ -11,7 +11,7 @@ import SpriteKit
 
 class DoorNode: StaticObject {
 
-        init() {
+    init() {
         
         let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
         let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
@@ -20,6 +20,7 @@ class DoorNode: StaticObject {
         super.init(sprite: doorSprite)
         
         self.anchorPoint = CGPointMake(0.25, 0.25)
+        self.zPosition = -50
         self.size = CGSizeMake(spriteWidth, spriteHeight)
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = doorCategory

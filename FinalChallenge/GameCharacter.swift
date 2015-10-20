@@ -32,6 +32,7 @@ class GameCharacter: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
         physicsBody?.usesPreciseCollisionDetection = true
+        self.zPosition = 1
         name = "character"
     }
 
@@ -96,8 +97,9 @@ class GameCharacter: SKSpriteNode {
     
     
     func usePower() {
+        print("by the power of GraySkull")
     
-        if isUsingPower {
+        if !isUsingPower {
             self.activatePower()
         }
         else {
@@ -120,6 +122,7 @@ class GameCharacter: SKSpriteNode {
     /* INTERNAL AND PRIVATE METHODS */
     
     internal func activatePower() {
+        print("I have the power")
         isUsingPower = true
         lastUpdatePower = NSDate()
     

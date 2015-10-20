@@ -45,10 +45,16 @@ class Sam: GameCharacter{
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setDelegate(delegate: Pausable){
+        self.delegate = delegate
+    }
+    
      internal override func activatePower() {
+        print("row row")
         super.activatePower()
+        print("fight the powa")
         self.delegate?.pauseScene()
-        
+        print(self.delegate)
     }
     internal override func deactivatePower() {
         super.deactivatePower()

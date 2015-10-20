@@ -46,8 +46,10 @@ class LevelGenerator {
     
     private func addCharacterToGameScene() {
     
-        levelScene.selectedPlayer = Sam()
-        levelScene.selectedPlayer.position = CGPointMake(100, 300)
+        let player = Sam()
+        player.setDelegate(levelScene)
+        levelScene.selectedPlayer = player
+        levelScene.selectedPlayer.position = CGPointMake(50, 150)
         levelScene.addChild(levelScene.selectedPlayer)
     
     }
@@ -168,7 +170,7 @@ class LevelGenerator {
             
             case "1":
             
-            let i = Int.random(2...5)
+            let i = 1 //Int.random(2...5)
             tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
             tile.size = CGSizeMake(spriteWidth, spriteHeight)
             tile.physicsBody?.contactTestBitMask = playerCategory
@@ -192,7 +194,7 @@ class LevelGenerator {
             
             case "6":
             
-                let i = Int.random(1...4)
+                let i = 1 //Int.random(1...4)
                 tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop\(i)"))
                 tile.color = SKColor.redColor()
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)

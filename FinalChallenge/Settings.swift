@@ -36,7 +36,7 @@ class Settings: SKScene {
         
         addChild(backButton)
         
-        let musicButton = SKLabelNode(fontNamed: "Chalkduster")
+        let musicButton = SKLabelNode(fontNamed: "Pixel-Art")
         musicButton.text = NSLocalizedString("MusicSettings", comment: "")
         musicButton.position = CGPointMake(self.size.width/2, self.size.height/1.38)
         musicButton.name = "music"
@@ -62,7 +62,7 @@ class Settings: SKScene {
         
         addChild(checkMusicButton)
         
-        let soundButton = SKLabelNode(fontNamed: "Chalkduster")
+        let soundButton = SKLabelNode(fontNamed: "Pixel-Art")
         soundButton.text = NSLocalizedString("SoundSettings", comment: "")
         soundButton.position = CGPointMake(self.size.width/2, self.size.height/1.66)
         soundButton.name = "sound"
@@ -85,7 +85,7 @@ class Settings: SKScene {
         
         addChild(checkSoundButton)
 
-        let languageButton = SKLabelNode(fontNamed: "Chalkduster")
+        let languageButton = SKLabelNode(fontNamed: "Pixel-Art")
         languageButton.text = NSLocalizedString("LanguageSettings", comment: "")
         languageButton.position = CGPointMake(self.size.width/2, self.size.height/2.08)
         languageButton.name = "language"
@@ -111,7 +111,7 @@ class Settings: SKScene {
         addChild(euaFlag)
         
         
-        let creditsButton = SKLabelNode(fontNamed: "Chalkduster")
+        let creditsButton = SKLabelNode(fontNamed: "Pixel-Art")
         creditsButton.text = NSLocalizedString("CreditsSettings", comment: "")
         creditsButton.position = CGPointMake(self.size.width/2, self.size.height/2.76)
         creditsButton.name = "credits"
@@ -120,7 +120,7 @@ class Settings: SKScene {
         
         addChild(creditsButton)
         
-        let resetButton = SKLabelNode(fontNamed: "Chalkduster")
+        let resetButton = SKLabelNode(fontNamed: "Pixel-Art")
         resetButton.text = NSLocalizedString("ResetGameSettings", comment: "")
         resetButton.position = CGPointMake(self.size.width/2, self.size.height/4.14)
         resetButton.name = "reset"

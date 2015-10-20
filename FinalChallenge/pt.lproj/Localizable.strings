@@ -8,13 +8,13 @@
 
 
 "Play"="Jogar";
-"Game Name"="The World of Sam";
+"Game Name"="Stuck on the Puzzle";
 
 "ResetMsg"="Você tem certeza?";
 "LeftAnswer"="Sim";
 "RightAnswer"="Cancelar";
-"MusicSettings"="música";
+"MusicSettings"="musica";
 "SoundSettings"="som";
 "LanguageSettings"="idioma";
-"CreditsSettings"="créditos";
+"CreditsSettings"="creditos";
 "ResetGameSettings"="resetar jogo";

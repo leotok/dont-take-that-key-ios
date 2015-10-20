@@ -18,13 +18,12 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     override func didMoveToView(view: SKView) {
         
         // Background
-        
-        background = SKSpriteNode(imageNamed: "desert")
+        let texture = SKTexture(imageNamed: "desert")
+        background = SKSpriteNode(texture: nil, color: UIColor.blackColor(), size: texture.size())//(imageNamed: "desert")
         background.anchorPoint = CGPointZero
         background.position = CGPointZero
         background.size = CGSizeMake(self.size.width * 1.5, self.size.height * 1.5)
         background.zPosition = -1
-        
         addChild(background)
         
         // PanGesture
@@ -135,7 +134,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             let level: LevelButton!
             
             if i <= userInfo.shrinkLevels {
-                level = LevelButton(type: LevelButtonType.Shrink, level: i + 6)
+                level = LevelButton(type: LevelButtonType.Sam, level: i + 6)
             }
             else {
                 level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
@@ -155,7 +154,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             let level: LevelButton!
             
             if i <= userInfo.ellieLevels {
-                level = LevelButton(type: LevelButtonType.Ellie, level: i + 12)
+                level = LevelButton(type: LevelButtonType.Sam, level: i + 12)
             }
             else {
                 level = LevelButton(type: LevelButtonType.Locked, level: i + 12)

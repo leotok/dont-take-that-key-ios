@@ -23,9 +23,11 @@ class Sam: GameCharacter{
     
 
         //Setting Sam`s properties
-        let texture = SKTexture(imageNamed: "Sam_Idle")
-        texture.filteringMode = SKTextureFilteringMode.Nearest
-        super.init(sprite: texture)
+        let texture1 = SKTexture(imageNamed: "Sam_Idle2")
+        texture1.filteringMode = SKTextureFilteringMode.Nearest
+        let texture2 = SKTexture(imageNamed: "Sam_Idle1")
+        texture2.filteringMode = SKTextureFilteringMode.Nearest
+        super.init(sprite:[texture1,texture2])
         //self.physicsBody = SKPhysicsBody(texture: self.texture!, size: (self.texture?.size())!)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
@@ -45,10 +47,16 @@ class Sam: GameCharacter{
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setDelegate(delegate: Pausable){
+        self.delegate = delegate
+    }
+    
      internal override func activatePower() {
+        print("row row")
         super.activatePower()
+        print("fight the powa")
         self.delegate?.pauseScene()
-        
+        print(self.delegate)
     }
     internal override func deactivatePower() {
         super.deactivatePower()

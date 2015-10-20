@@ -14,8 +14,9 @@ class SwitchCharacterButton: SKSpriteNode{
     var characterImage: UIImage
     
     init(characterImage:String) {
-        self.characterImage = UIImage(named: "character")!
+        self.characterImage = UIImage(named: "Sam_bolinha")!
         let texture = SKTexture(image: self.characterImage)
+        texture.filteringMode = SKTextureFilteringMode.Nearest
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(50, 50))
     }
     

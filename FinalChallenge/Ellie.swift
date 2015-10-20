@@ -18,7 +18,7 @@ class Ellie: GameCharacter{
         
         
         
-        super.init(sprite: SKTexture(imageNamed: "Ellie_Idle"))
+        super.init(sprite: [SKTexture(imageNamed: "Ellie_Idle")])
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
         

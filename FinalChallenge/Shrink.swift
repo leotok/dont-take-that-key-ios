@@ -17,7 +17,7 @@ class Shrink: GameCharacter{
         
         
         
-        super.init(sprite: SKTexture(imageNamed: "Shrink_Idle"))
+        super.init(sprite: [SKTexture(imageNamed: "Shrink_Idle")])
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
         

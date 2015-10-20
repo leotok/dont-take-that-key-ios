@@ -13,6 +13,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
     var parentScene: SKScene!
     var background: SKSpriteNode!
+    var panGesture: UIPanGestureRecognizer!
     
     override func didMoveToView(view: SKView) {
         
@@ -28,7 +29,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         
         // PanGesture
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: Selector("dragMap:"))
+        panGesture = UIPanGestureRecognizer(target: self, action: Selector("dragMap:"))
         panGesture.delegate = self
         self.view?.addGestureRecognizer(panGesture)
         
@@ -48,6 +49,18 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         addEllieLevels()
         
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        print("Touches began")
+        
+        for _ in (touches ) {
+            
+            print("For Touches")
+            
+        }
+        
+    }
  
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
@@ -59,11 +72,13 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 
                 let scene = MainMenu(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(1.5)
+                self.view?.removeGestureRecognizer(panGesture)
                 self.view?.presentScene(scene, transition: transition)
             }
             else if node.name == "LevelButton" {
                 if (node as! LevelButton).type != LevelButtonType.Locked {
-        
+                    
+                    self.view?.removeGestureRecognizer(panGesture)
                     let levelButton = node as! LevelButton
                     print("Level: \(levelButton.level)")
                     let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)

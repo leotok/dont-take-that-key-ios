@@ -17,14 +17,14 @@ class MainMenu: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        //self.view?.multipleTouchEnabled = true
-        
+        self.view?.multipleTouchEnabled = true
+
         let background = SKSpriteNode(imageNamed: "backgound_teste.jpg")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
         background.size = self.size
         
         self.addChild(background)
-        
+
         let playButton = SKLabelNode(fontNamed:"Chalkduster")
         playButton.text = NSLocalizedString("Play", comment: "")
         playButton.fontSize = 45
@@ -49,7 +49,7 @@ class MainMenu: SKScene {
         gameName.zPosition = 10
         
         self.addChild(gameName)
-        
+
         let dao = DAOUserInfo()
         userInfo = dao.load()
         
@@ -76,13 +76,24 @@ class MainMenu: SKScene {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.userInteractionEnabled = true
-        print(touches.count)
+
+        print("Touches began")
+        
+        for _ in (touches ) {
+            
+            print("For Touches")
+            
+        }
+
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+
         for touch in (touches ) {
+            
+            
+            
             let location = touch.locationInNode(self)
             let node = self.nodeAtPoint(location)
             

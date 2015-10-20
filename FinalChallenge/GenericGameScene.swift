@@ -214,6 +214,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
             
             if(self.powerButton!.frame.contains(location)){
+                currC.currentCharacter?.usePower()
             }
         }
         //        if popUpOpened {

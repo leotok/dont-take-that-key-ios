@@ -102,7 +102,7 @@ class Settings: SKScene {
         
         addChild(brazilFlag)
         
-        let euaFlag = SKSpriteNode(imageNamed: "flag_eua2")
+        let euaFlag = SKSpriteNode(imageNamed: "EUAflag2")
         euaFlag.position = CGPointMake(self.size.width / 1.33, self.size.height / 2)
         euaFlag.size = CGSize(width: 30, height: 20)
         euaFlag.name = "enFlag"

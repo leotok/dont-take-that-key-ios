@@ -20,8 +20,8 @@ class KeyNode: StaticObject {
         super.init(sprite: keySprite)
         
         self.size = CGSizeMake(spriteWidth, spriteHeight)
-        self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = keyCategory
+        physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.collisionBitMask = objectCategory
         self.physicsBody?.contactTestBitMask = playerCategory
         

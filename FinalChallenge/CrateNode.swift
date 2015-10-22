@@ -20,7 +20,6 @@ class CrateNode: MovableObject {
         super.init(sprite: keySprite)
         
         self.size = CGSizeMake(spriteWidth, spriteHeight)
-        self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = objectCategory
     }
     

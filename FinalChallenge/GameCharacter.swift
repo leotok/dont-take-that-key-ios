@@ -24,15 +24,18 @@ class GameCharacter: SKSpriteNode {
     
     init (sprite:[SKTexture]) {
         self.paradoTextures = sprite
-        super.init(texture: sprite[1], color: UIColor.clearColor(), size: CGSizeMake(spriteWidth, spriteHeight))
-        physicsBody = SKPhysicsBody(texture: sprite[0], size: CGSizeMake(spriteWidth, spriteHeight))
+        let spriteSize = sprite.first?.size()
+        let charSize = CGSizeMake((spriteSize?.width)! / 1.5, (spriteSize?.height)! / 1.5)
+        super.init(texture: sprite.first, color: UIColor.clearColor(), size: charSize)
+        //physicsBody = SKPhysicsBody(texture: sprite.first!, size: CGSizeMake(spriteWidth, spriteHeight))
+        physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory
         physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
 
-        physicsBody?.usesPreciseCollisionDetection = true
+        //physicsBody?.usesPreciseCollisionDetection = true
         self.zPosition = 1
 
         name = "character"
@@ -75,8 +78,8 @@ class GameCharacter: SKSpriteNode {
         self.removeActionForKey("Animate")
         physicsBody?.velocity = CGVectorMake(0, 0)
         let wait = SKAction.waitForDuration(3)
-        let animate = SKAction.animateWithTextures(self.paradoTextures, timePerFrame: 0.2)
-        self.runAction(SKAction.repeatActionForever(SKAction.sequence([animate,wait])), withKey:"Idle")
+        let animate = SKAction.animateWithTextures([paradoTextures[1],paradoTextures[0]], timePerFrame: 0.2)
+        self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait,animate])), withKey:"Idle")
         
         
     }
@@ -89,7 +92,8 @@ class GameCharacter: SKSpriteNode {
             let impulse = SKAction.applyImpulse(CGVectorMake(0, 15), duration: 0.1)
             let jumpAction = SKAction.group([animate,impulse])
             isJumping = true
-            self.runAction(jumpAction, withKey:"Jump")
+            //self.runAction(jumpAction, withKey:"Jump")
+            self.runAction(impulse, withKey: "Jump")
         }
     
     }

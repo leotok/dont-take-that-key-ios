@@ -20,7 +20,7 @@ class SpikeNode: StaticObject {
         super.init(sprite: keySprite)
         
         self.size = CGSizeMake(spriteWidth, spriteHeight)
-        self.physicsBody?.usesPreciseCollisionDetection = true
+        physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = hazardCategory
         self.physicsBody?.collisionBitMask = objectCategory | playerCategory
         self.physicsBody?.contactTestBitMask = playerCategory

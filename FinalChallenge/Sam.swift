@@ -23,9 +23,9 @@ class Sam: GameCharacter{
     
 
         //Setting Sam`s properties
-        let texture1 = SKTexture(imageNamed: "Sam_Idle2")
+        let texture1 = SKTexture(imageNamed: "Sam_Idle1")
+        let texture2 = SKTexture(imageNamed: "Sam_Idle2")
         texture1.filteringMode = SKTextureFilteringMode.Nearest
-        let texture2 = SKTexture(imageNamed: "Sam_Idle1")
         texture2.filteringMode = SKTextureFilteringMode.Nearest
         super.init(sprite:[texture1,texture2])
         //self.physicsBody = SKPhysicsBody(texture: self.texture!, size: (self.texture?.size())!)

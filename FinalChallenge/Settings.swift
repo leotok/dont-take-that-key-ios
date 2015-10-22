@@ -94,7 +94,7 @@ class Settings: SKScene {
         
         addChild(languageButton)
         
-        let brazilFlag = SKSpriteNode(imageNamed: "flag_brazil2")
+        let brazilFlag = SKSpriteNode(imageNamed: "BRAflag")
         brazilFlag.position = CGPointMake(self.size.width / 1.45, self.size.height / 2)
         brazilFlag.size = CGSize(width: 30, height: 20)
         brazilFlag.name = "brFlag"

@@ -180,7 +180,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         print("Touches Began")
-        var currC = CurrentCharacterSingleton.sharedInstance
+        let currC = CurrentCharacterSingleton.sharedInstance
         
         for touch in (touches) {
             

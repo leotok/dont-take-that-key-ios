@@ -92,7 +92,7 @@ class HUD: SKSpriteNode {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
-        var currC = CurrentCharacterSingleton.sharedInstance
+        let currC = CurrentCharacterSingleton.sharedInstance
         for touch in (touches) {
             let location = touch.locationInNode(self)
             

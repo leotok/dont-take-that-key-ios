@@ -62,6 +62,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         scene.pausableLayer.physicsBody?.collisionBitMask = 0
         scene.gameLayer.addChild(scene.pausableLayer)
         
+        scene.shouldEnableEffects = true
+        
         
         lvlGen.loadLevel(levelIndex, scene: scene)
         
@@ -292,9 +294,17 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.position = CGPointMake(gameLayer.position.x - positionInScene.x + 200, gameLayer.position.y)
     }
     
+    func screenShot() -> UIImage {
+        UIGraphicsBeginImageContext(CGSizeMake(frame.size.width, frame.size.height))
+        var context:CGContextRef  = UIGraphicsGetCurrentContext()!
+        self.view?.drawViewHierarchyInRect(frame, afterScreenUpdates: true)
+        var screenShot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return screenShot
+    }
+    
     // Sam Protocol
     func pauseScene() -> Bool {
-        print("ZA WARUDO")
         pausableLayer.paused = true
         
         for(var i = 0;i < pausableLayer.children.count;i++){
@@ -303,6 +313,31 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             pausableLayer.children[i].physicsBody?.velocity = CGVectorMake(0, 0)
             pausableLayer.children[i].physicsBody?.dynamic = false
         }
+        self.selectedPlayer.removeFromParent()
+        var image = self.screenShot()
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Copy)
+        
+        image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
+        
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Difference)
+        
+        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),UIColor.whiteColor().CGColor)
+        
+        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0,image.size.width,image.size.height))
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        var texture = SKTexture(image: image)
+        
+        var imageNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        imageNode.zPosition = 4900
+        imageNode.position = CGPointMake(CGFloat(UIScreen.mainScreen().bounds.size.width/2), UIScreen.mainScreen().bounds.size.height/2)
+        self.addChild(imageNode)
+        self.scene?.addChild(self.selectedPlayer)
         return true
     }
     func unpauseScene() -> Bool {

@@ -78,9 +78,6 @@ class LevelGenerator {
             
         case LevelTheme.AllChar:
             break
-        
-        default:
-            print("No theme found. Wrong level index.")
         }
         
     }

@@ -50,6 +50,7 @@
 		3FA561AD1BC5BF4D009AD173 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AC1BC5BF4D009AD173 /* clock.png */; settings = {ASSET_TAGS = (); }; };
 		7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */; settings = {ASSET_TAGS = (); }; };
 		D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F11631BBEECFE00DC6888 /* Menu.swift */; settings = {ASSET_TAGS = (); }; };
+		D0202D6D1BDA9A8A008B5030 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0202D6C1BDA9A8A008B5030 /* GameKit.framework */; };
 		D08F3B331BBC59EE008E1B79 /* JumpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B341BBC59EE008E1B79 /* LeftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */; settings = {ASSET_TAGS = (); }; };
 		D08F3B351BBC59EE008E1B79 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F3B2F1BBC59EE008E1B79 /* PauseButton.swift */; settings = {ASSET_TAGS = (); }; };
@@ -149,6 +150,7 @@
 		3FA561AC1BC5BF4D009AD173 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainMenuMusic.mp3; sourceTree = "<group>"; };
 		D01F11631BBEECFE00DC6888 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		D0202D6C1BDA9A8A008B5030 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		D08F3B2D1BBC59EE008E1B79 /* JumpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpButton.swift; sourceTree = "<group>"; };
 		D08F3B2E1BBC59EE008E1B79 /* LeftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftButton.swift; sourceTree = "<group>"; };
 		D08F3B2F1BBC59EE008E1B79 /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0202D6D1BDA9A8A008B5030 /* GameKit.framework in Frameworks */,
 				3FA561A11BC5B3DA009AD173 /* AudioToolbox.framework in Frameworks */,
 				3FA5619F1BC5B3A0009AD173 /* AVFoundation.framework in Frameworks */,
 			);
@@ -239,6 +242,7 @@
 		3F29DE5D1BB440EB00ADE6F8 = {
 			isa = PBXGroup;
 			children = (
+				D0202D6C1BDA9A8A008B5030 /* GameKit.framework */,
 				7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */,
 				3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */,
 				3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */,

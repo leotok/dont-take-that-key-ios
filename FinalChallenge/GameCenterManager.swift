@@ -7,10 +7,13 @@
 //
 
 import Foundation
-
+import GameKit
 
 class GameCenterManager {
     
+    private var leaderboardIdentifier: String? = nil
+    private var gameCenterEnabled: Bool = false
+    var gcEnabled = false
     
     class var sharedInstance:GameCenterManager{
         get {
@@ -25,9 +28,26 @@ class GameCenterManager {
         //println("Singleton 'GameCenterManager' instanciado.")
     }
     
-    func connect()->Bool {
-        return true
+    func authenticateLocalPlayer() {
+        let localPlayer : GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(GameViewController, error) -> Void in
+            
+            if ((GameViewController) != nil) {
+              //  self.presentViewController(GameViewController!, animated: true, completion: nil)
+            }
+            else if (localPlayer.authenticated) {
+                print("Ta autenticado game center ")
+                self.gcEnabled = true
+                
+                
+            }
+            else {
+                self.gcEnabled = false;
+                print("Deu ruim no game center, desabilitando...")
+                print(error)
+            }
+        }
     }
-    
     
 }

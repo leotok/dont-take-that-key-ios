@@ -88,11 +88,12 @@ class GameCharacter: SKSpriteNode {
         
         if !isJumping {
             jumpTextures = self.paradoTextures
-            let animate = SKAction.animateWithTextures(jumpTextures, timePerFrame: 0.2)
-            let impulse = SKAction.applyImpulse(CGVectorMake(0, 15), duration: 0.1)
-            let jumpAction = SKAction.group([animate,impulse])
-            isJumping = true
+            //let animate = SKAction.animateWithTextures(jumpTextures, timePerFrame: 0.2)
+            //let jumpAction = SKAction.group([animate,impulse])
             //self.runAction(jumpAction, withKey:"Jump")
+
+            let impulse = SKAction.applyImpulse(CGVectorMake(0, 15), duration: 0.1)
+            isJumping = true
             self.runAction(impulse, withKey: "Jump")
         }
     

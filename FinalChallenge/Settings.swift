@@ -19,7 +19,33 @@ class Settings: SKScene {
         let dao = DAOUserInfo()
         self.userInfo = dao.load()
         
-        // Back Button
+
+        let gear1 = SKSpriteNode(imageNamed: "brownGear")
+        self.addChild(gear1)
+        let rodaRoda = SKAction.rotateByAngle(-30, duration: 20)
+        gear1.runAction(SKAction.repeatActionForever(rodaRoda))
+        gear1.position = CGPointMake(gear1.size.width/2,gear1.size.height/2)
+        gear1.zPosition = 10
+        
+        let gear2 = SKSpriteNode(imageNamed: "grayGear")
+        self.addChild(gear2)
+        let rodaRoda2 = SKAction.rotateByAngle(60, duration: 20)
+        gear2.runAction(SKAction.repeatActionForever(rodaRoda2))
+        gear2.position = CGPointMake(gear2.size.width/2,self.size.height-gear2.size.height/2)
+        gear2.zPosition = 10
+        gear2.size = CGSizeMake(90, 90)
+        
+        let gear3 = SKSpriteNode(imageNamed: "gearsBACK")
+        self.addChild(gear3)
+        let rodaRoda3 = SKAction.rotateByAngle(60, duration: 20)
+        gear3.runAction(SKAction.repeatActionForever(rodaRoda))
+        gear3.position = CGPointMake(self.size.width-gear3.size.width/2,self.size.height/2)
+        gear3.zPosition = 10
+        //gear3.size = CGSizeMake(90, 90)
+
+        
+        
+        
         
         let background = SKSpriteNode(imageNamed: "wallpaper1")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
@@ -166,6 +192,7 @@ class Settings: SKScene {
 
     }
     
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch in (touches ) {
@@ -230,12 +257,14 @@ class Settings: SKScene {
             else if node.name == "brFlag" {
                 NSUserDefaults.standardUserDefaults().setObject(["pt"], forKey: "AppleLanguages")
                 NSUserDefaults.standardUserDefaults().synchronize()
+                
             }
 
             else if node.name == "enFlag" {
                 NSUserDefaults.standardUserDefaults().setObject(["en"], forKey: "AppleLanguages")
                 NSUserDefaults.standardUserDefaults().synchronize()
-            }
+                
+            } 
         }
     }
 }

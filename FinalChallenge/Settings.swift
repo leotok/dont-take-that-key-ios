@@ -32,7 +32,7 @@ class Settings: SKScene {
         backButton.size = CGSize(width: 40, height: 40)
         backButton.position = CGPointMake(25, size.height - 25)
         backButton.name = "back"
-        backButton.zPosition = 10
+        backButton.zPosition = ZPositionEnum.Button.rawValue
         
         addChild(backButton)
         
@@ -40,7 +40,7 @@ class Settings: SKScene {
         musicButton.text = NSLocalizedString("MusicSettings", comment: "")
         musicButton.position = CGPointMake(self.size.width/2, self.size.height/1.38)
         musicButton.name = "music"
-        musicButton.zPosition = 10
+        musicButton.zPosition = ZPositionEnum.Button.rawValue
         musicButton.fontColor = SKColor.blackColor()
         musicButton.color = SKColor.redColor()
         
@@ -58,7 +58,7 @@ class Settings: SKScene {
         checkMusicButton.size = CGSize(width: 20, height: 20)
         checkMusicButton.position = CGPointMake(self.size.width/1.5, musicButton.position.y + checkMusicButton.size.height/2)
         checkMusicButton.name = "checkMusic"
-        checkMusicButton.zPosition = 10
+        checkMusicButton.zPosition = ZPositionEnum.Button.rawValue
         
         addChild(checkMusicButton)
         
@@ -66,7 +66,7 @@ class Settings: SKScene {
         soundButton.text = NSLocalizedString("SoundSettings", comment: "")
         soundButton.position = CGPointMake(self.size.width/2, self.size.height/1.66)
         soundButton.name = "sound"
-        soundButton.zPosition = 10
+        soundButton.zPosition = ZPositionEnum.Button.rawValue
         soundButton.fontColor = SKColor.blackColor()
         
         addChild(soundButton)
@@ -81,7 +81,7 @@ class Settings: SKScene {
         checkSoundButton.size = CGSize(width: 20, height: 20)
         checkSoundButton.position = CGPointMake(self.size.width/1.5, soundButton.position.y + checkSoundButton.size.height/2)
         checkSoundButton.name = "checkSound"
-        checkSoundButton.zPosition = 10
+        checkSoundButton.zPosition = ZPositionEnum.Button.rawValue
         
         addChild(checkSoundButton)
 
@@ -89,7 +89,7 @@ class Settings: SKScene {
         languageButton.text = NSLocalizedString("LanguageSettings", comment: "")
         languageButton.position = CGPointMake(self.size.width/2, self.size.height/2.08)
         languageButton.name = "language"
-        languageButton.zPosition = 10
+        languageButton.zPosition = ZPositionEnum.Button.rawValue
         languageButton.fontColor = SKColor.blackColor()
         
         addChild(languageButton)
@@ -98,7 +98,7 @@ class Settings: SKScene {
         brazilFlag.position = CGPointMake(self.size.width / 1.45, self.size.height / 2)
         brazilFlag.size = CGSize(width: 30, height: 20)
         brazilFlag.name = "brFlag"
-        brazilFlag.zPosition = 10
+        brazilFlag.zPosition = ZPositionEnum.Button.rawValue
         
         addChild(brazilFlag)
         
@@ -106,7 +106,7 @@ class Settings: SKScene {
         euaFlag.position = CGPointMake(self.size.width / 1.33, self.size.height / 2)
         euaFlag.size = CGSize(width: 30, height: 20)
         euaFlag.name = "enFlag"
-        euaFlag.zPosition = 10
+        euaFlag.zPosition = ZPositionEnum.Button.rawValue
         
         addChild(euaFlag)
         
@@ -115,7 +115,7 @@ class Settings: SKScene {
         creditsButton.text = NSLocalizedString("CreditsSettings", comment: "")
         creditsButton.position = CGPointMake(self.size.width/2, self.size.height/2.76)
         creditsButton.name = "credits"
-        creditsButton.zPosition = 10
+        creditsButton.zPosition = ZPositionEnum.Button.rawValue
         creditsButton.fontColor = SKColor.blackColor()
         
         addChild(creditsButton)
@@ -124,7 +124,7 @@ class Settings: SKScene {
         resetButton.text = NSLocalizedString("ResetGameSettings", comment: "")
         resetButton.position = CGPointMake(self.size.width/2, self.size.height/4.14)
         resetButton.name = "reset"
-        resetButton.zPosition = 10
+        resetButton.zPosition = ZPositionEnum.Button.rawValue
         resetButton.fontColor = SKColor.blackColor()
         
         
@@ -136,7 +136,7 @@ class Settings: SKScene {
     
         self.popUp = SKSpriteNode(color: SKColor.redColor(), size: CGSizeMake(frame.width*0.6, frame.height*0.6))
         self.popUp?.position = CGPointMake(frame.size.width/2, frame.size.height/2)
-        self.popUp?.zPosition = 20
+        self.popUp?.zPosition = ZPositionEnum.PopUp.rawValue
         self.addChild(popUp!)
         
         let question = SKLabelNode(text: NSLocalizedString("ResetMsg", comment: ""))

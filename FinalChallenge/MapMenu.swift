@@ -23,7 +23,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         background.anchorPoint = CGPointZero
         background.position = CGPointZero
         background.size = CGSizeMake(self.size.width * 1.5, self.size.height * 1.5)
-        background.zPosition = -1
+        background.zPosition = ZPositionEnum.Background.rawValue
         addChild(background)
         
         // PanGesture

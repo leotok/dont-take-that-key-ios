@@ -12,8 +12,21 @@ import SpriteKit
 let playerCategory:UInt32 = 1
 let objectCategory:UInt32 = 2
 let hazardCategory:UInt32 = 4
-let keyCategory:UInt32 = 8
-let doorCategory:UInt32 = 16
+let keyCategory:UInt32    = 8
+let doorCategory:UInt32   = 16
+
+enum ZPositionEnum : CGFloat {
+    
+    case Background = -1
+    case Objects    = 2
+    case Tile       = 6
+    case GameLayer  = 8
+    case Button     = 10
+    case Character  = 12
+    case Labels     = 14
+    case PopUp      = 16
+
+}
 
 class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
@@ -54,7 +67,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         let lvlGen = LevelGenerator()
         
         scene.gameLayer = SKNode()
-        scene.gameLayer.zPosition = 50
+        scene.gameLayer.zPosition = ZPositionEnum.GameLayer.rawValue
         scene.addChild(scene.gameLayer)
         
         scene.pausableLayer = SKNode()
@@ -98,12 +111,12 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         jumpButton!.position = CGPointMake(screenWidth - 2 * jumpButton!.size.width, leftButton!.position.y)
         powerButton!.position = CGPointMake(screenWidth - powerButton!.size.width, leftButton!.position.y)
         
-        self.switchCharacterButton!.zPosition = 200
-        self.pauseButton!.zPosition = 200
-        self.leftButton!.zPosition = 200
-        self.rightButton!.zPosition = 200
-        self.jumpButton!.zPosition = 200
-        self.powerButton!.zPosition = 200
+        self.switchCharacterButton!.zPosition = ZPositionEnum.Button.rawValue
+        self.pauseButton!.zPosition = ZPositionEnum.Button.rawValue
+        self.leftButton!.zPosition = ZPositionEnum.Button.rawValue
+        self.rightButton!.zPosition = ZPositionEnum.Button.rawValue
+        self.jumpButton!.zPosition = ZPositionEnum.Button.rawValue
+        self.powerButton!.zPosition = ZPositionEnum.Button.rawValue
         
         //        self.leftButton!.userInteractionEnabled = true
         //        self.rightButton!.userInteractionEnabled = true
@@ -123,7 +136,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         //        hud = HUD()
         //        hud.userInteractionEnabled = true
         //        self.addChild(self.hud)
-        //        hud.zPosition = 500
+        //        hud.zPosition = ZPositionEnum.Button.rawValue
         //        hud.setPositions()
         
         
@@ -334,7 +347,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         var texture = SKTexture(image: image)
         
         var imageNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
-        imageNode.zPosition = 4900
+        imageNode.zPosition = ZPositionEnum.PopUp.rawValue
         imageNode.position = CGPointMake(CGFloat(UIScreen.mainScreen().bounds.size.width/2), UIScreen.mainScreen().bounds.size.height/2)
         self.addChild(imageNode)
         self.scene?.addChild(self.selectedPlayer)
@@ -366,7 +379,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             self.scene?.paused = true
             self.popUp = PauseMenu.createPauseMenu(self.size)
             self.popUp?.userInteractionEnabled = true
-            popUp!.zPosition = 1000
+            popUp!.zPosition = ZPositionEnum.PopUp.rawValue
             self.addChild(popUp!)
         }
     }
@@ -386,7 +399,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.popUp = GameOverMenu.createGameOverMenu(self.size)
         self.scene?.paused = true
         self.popUpOpened = true
-        self.popUp!.zPosition = 1000
+        self.popUp!.zPosition = ZPositionEnum.PopUp.rawValue
         self.popUp?.userInteractionEnabled = true
         self.addChild(self.popUp!)
     }
@@ -413,7 +426,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.popUpOpened = true
         self.scene?.paused = true
         self.popUp = GameWinMenu.createGameWinMenu(self.size)
-        self.popUp!.zPosition = 1000
+        self.popUp!.zPosition = ZPositionEnum.PopUp.rawValue
         self.popUp?.userInteractionEnabled = true
         self.addChild(popUp!)
     }

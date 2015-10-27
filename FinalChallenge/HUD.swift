@@ -62,12 +62,12 @@ class HUD: SKSpriteNode {
         jumpButton.position = CGPointMake(screenWidth - 2 * jumpButton.size.width, leftButton.position.y)
         powerButton.position = CGPointMake(screenWidth - powerButton.size.width, leftButton.position.y)
         
-        self.switchCharacterButton.zPosition = 2
-        self.pauseButton.zPosition = 2
-        self.leftButton.zPosition = 2
-        self.rightButton.zPosition = 2
-        self.jumpButton.zPosition = 2
-        self.powerButton.zPosition = 2
+        self.switchCharacterButton.zPosition = ZPositionEnum.Button.rawValue
+        self.pauseButton.zPosition = ZPositionEnum.Button.rawValue
+        self.leftButton.zPosition = ZPositionEnum.Button.rawValue
+        self.rightButton.zPosition = ZPositionEnum.Button.rawValue
+        self.jumpButton.zPosition = ZPositionEnum.Button.rawValue
+        self.powerButton.zPosition = ZPositionEnum.Button.rawValue
         
         self.addChild(switchCharacterButton)
         self.addChild(pauseButton)

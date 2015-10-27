@@ -28,7 +28,7 @@ class MainMenu: SKScene {
         playButton.fontSize = 35
         playButton.position = CGPointMake(self.size.width / 2, self.size.height / 6.1)
         playButton.name = "Play"
-        playButton.zPosition = 10
+        playButton.zPosition = ZPositionEnum.Button.rawValue
         playButton.runAction(SKAction.repeatActionForever(
             SKAction.sequence([SKAction.fadeOutWithDuration(2),SKAction.fadeInWithDuration(2)])))
         self.addChild(playButton)
@@ -37,7 +37,7 @@ class MainMenu: SKScene {
         configuration.position = CGPointMake(self.size.width / 1.05, self.size.height / 1.10)
         configuration.size = CGSize(width: 40, height: 40)
         configuration.name = "conf"
-        configuration.zPosition = 10
+        configuration.zPosition = ZPositionEnum.Button.rawValue
         
         self.addChild(configuration)
         
@@ -45,7 +45,7 @@ class MainMenu: SKScene {
         gameName.text = NSLocalizedString("Game Name", comment: "")
         gameName.fontSize = 40
         gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 2.2)
-        gameName.zPosition = 20
+        gameName.zPosition = ZPositionEnum.Labels.rawValue
         
         self.addChild(gameName)
         

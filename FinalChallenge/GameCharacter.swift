@@ -36,7 +36,7 @@ class GameCharacter: SKSpriteNode {
         physicsBody?.restitution = 0.0
 
         //physicsBody?.usesPreciseCollisionDetection = true
-        self.zPosition = 5000
+        self.zPosition = ZPositionEnum.Character.rawValue
 
         name = "character"
     }

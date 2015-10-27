@@ -67,7 +67,7 @@ class LevelGenerator {
             background.position = CGPointMake( self.levelScene.size.width / 2 , self.levelScene.size.height / 2 )
             background.size = self.levelScene.size
             background.texture?.filteringMode = SKTextureFilteringMode.Nearest
-            background.zPosition = -100
+            background.zPosition = ZPositionEnum.Background.rawValue
             levelScene.addChild(background)
             
         case LevelTheme.Shrink:

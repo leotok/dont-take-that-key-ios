@@ -20,7 +20,7 @@ class DoorNode: StaticObject {
         super.init(sprite: doorSprite)
         
         self.anchorPoint = CGPointMake(0.25, 0.25)
-        self.zPosition = -50
+        self.zPosition = ZPositionEnum.Objects.rawValue
         physicsBody?.usesPreciseCollisionDetection = true
         self.size = CGSizeMake(spriteWidth, spriteHeight)
         self.physicsBody?.categoryBitMask = doorCategory

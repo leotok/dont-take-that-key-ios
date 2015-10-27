@@ -19,7 +19,7 @@ class GenericObject: SKSpriteNode {
         
         sprite.filteringMode = SKTextureFilteringMode.Nearest
         super.init(texture: sprite, color: UIColor.clearColor(), size: CGSizeMake(spriteWidth , spriteHeight))
-        zPosition = 10
+        zPosition = ZPositionEnum.Objects.rawValue
         physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(spriteWidth,spriteHeight))
         physicsBody?.categoryBitMask = 2
         physicsBody?.collisionBitMask = 1 | 2

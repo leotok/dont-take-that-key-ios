@@ -15,8 +15,13 @@ class StoryText: SKNode {
     init(text:String) {
     
         let label = SKLabelNode(text: text)
+        label.fontName = "Avenir"
+        label.fontSize = 20
+        label.fontColor = UIColor.whiteColor()
         
         super.init()
+        
+        self.zPosition = ZPositionEnum.Labels.rawValue
     
         self.addChild(label)
     }

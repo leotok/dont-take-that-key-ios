@@ -17,15 +17,16 @@ let doorCategory:UInt32   = 16
 
 enum ZPositionEnum : CGFloat {
     
-    case Background = -1
-    case Objects    = 2
-    case Spike      = 3
-    case Tile       = 6
-    case GameLayer  = 1
-    case Button     = 10
-    case Character  = 12
-    case Labels     = 14
-    case PopUp      = 16
+    case Background     = -1
+    case GameLayer      = 1
+    case Objects        = 2
+    case Spike          = 3
+    case Tile           = 6
+    case NegBackground  = 8
+    case Button         = 10
+    case Character      = 12
+    case Labels         = 14
+    case PopUp          = 16
 
 }
 
@@ -142,7 +143,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         
         
-        
+        let storyTelling = StoryText(text: "Era uma vez um lugarsinho no meio do nada")
+        storyTelling.position.x = (scene?.size.width)! / 2
+        storyTelling.position.y = (scene?.size.height)! / 1.5
+        scene?.addChild(storyTelling)
 
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
@@ -348,7 +352,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         var texture = SKTexture(image: image)
         
         var imageNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
-        imageNode.zPosition = ZPositionEnum.PopUp.rawValue
+        imageNode.zPosition = ZPositionEnum.Background.rawValue
         imageNode.position = CGPointMake(CGFloat(UIScreen.mainScreen().bounds.size.width/2), UIScreen.mainScreen().bounds.size.height/2)
         self.addChild(imageNode)
         self.scene?.addChild(self.selectedPlayer)

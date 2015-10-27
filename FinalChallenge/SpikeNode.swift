@@ -24,6 +24,7 @@ class SpikeNode: StaticObject {
         self.physicsBody?.categoryBitMask = hazardCategory
         self.physicsBody?.collisionBitMask = objectCategory | playerCategory
         self.physicsBody?.contactTestBitMask = playerCategory
+        self.zPosition = ZPositionEnum.Spike.rawValue
     }
     
     

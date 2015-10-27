@@ -19,7 +19,14 @@ class Settings: SKScene {
         let dao = DAOUserInfo()
         self.userInfo = dao.load()
         
-        // Back Button
+
+        let gear1 = SKSpriteNode(imageNamed: "brownGear")
+        self.addChild(gear1)
+        let rodaRoda = SKAction.rotateByAngle(-30, duration: 20)
+        gear1.runAction(SKAction.repeatActionForever(rodaRoda))
+        gear1.position = CGPointMake(gear1.size.width/2,gear1.size.height/2)
+        gear1.zPosition = 10
+        
         
         let background = SKSpriteNode(imageNamed: "wallpaper1")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
@@ -166,6 +173,7 @@ class Settings: SKScene {
 
     }
     
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch in (touches ) {
@@ -230,12 +238,14 @@ class Settings: SKScene {
             else if node.name == "brFlag" {
                 NSUserDefaults.standardUserDefaults().setObject(["pt"], forKey: "AppleLanguages")
                 NSUserDefaults.standardUserDefaults().synchronize()
+                
             }
 
             else if node.name == "enFlag" {
                 NSUserDefaults.standardUserDefaults().setObject(["en"], forKey: "AppleLanguages")
                 NSUserDefaults.standardUserDefaults().synchronize()
-            }
+                
+            } 
         }
     }
 }

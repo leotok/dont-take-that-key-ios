@@ -24,6 +24,7 @@ class LevelGenerator {
     var levelScene: GenericGameScene!
     var levelIndex = 0
 
+    var numberOfControlTiles = 0
     let numberOfVerticalTiles = 13
     let numberOfHorizontalTiles = 24
     let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
@@ -149,7 +150,7 @@ class LevelGenerator {
             var index = string.startIndex
             for j in 0...(self.numberOfHorizontalTiles - 1)
             {
-                if let tile: GenericObject = getNodeType( string[index] )
+                if let tile: SKSpriteNode = getNodeType( string[index] )
                 {
                     tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (numberOfVerticalTiles - i - 1) ) )
                     levelScene.pausableLayer.addChild(tile)
@@ -159,35 +160,35 @@ class LevelGenerator {
         }
     }
     
-    private func getNodeType(nodeType: Character)-> GenericObject? {
+    private func getNodeType(nodeType: Character)-> SKSpriteNode? {
         
-        var tile: GenericObject!
+        var tile: SKSpriteNode!
         
         switch (nodeType) {
             
             case "1":
             
-            let i = 1 //Int.random(2...5)
-            tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
-            tile.size = CGSizeMake(spriteWidth, spriteHeight)
-            tile.physicsBody?.contactTestBitMask = playerCategory
+                let i = 1 //Int.random(2...5)
+                tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
+                tile.size = CGSizeMake(spriteWidth, spriteHeight)
+                tile.physicsBody?.contactTestBitMask = playerCategory
             
             
             case "2":
             
-            tile = KeyNode()
+                tile = KeyNode()
             
             case "3":
             
-            tile = CrateNode()
+                tile = CrateNode()
             
             case "4":
             
-            tile = DoorNode()
+                tile = DoorNode()
             
             case "5":
             
-            tile = SpikeNode()
+                tile = SpikeNode()
             
             case "6":
             
@@ -197,14 +198,18 @@ class LevelGenerator {
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)
                 tile.physicsBody?.contactTestBitMask = playerCategory
             
-            break
+            case "7":
             
-            
-            
+                tile =  ControlTile.createControlTile()
+                numberOfControlTiles++
+                (tile as! ControlTile).number = numberOfControlTiles
+                
             case "0":
+                
                 break;
+            
             default:
-            print("Node type inside .txt doesnt exists.")
+                print("Node type inside .txt doesnt exists.")
         }
         
         return tile

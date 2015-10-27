@@ -14,6 +14,7 @@ let objectCategory:UInt32 = 2
 let hazardCategory:UInt32 = 4
 let keyCategory:UInt32    = 8
 let doorCategory:UInt32   = 16
+let controlTileCategory: UInt32 = 32
 
 enum ZPositionEnum : CGFloat {
     
@@ -24,8 +25,8 @@ enum ZPositionEnum : CGFloat {
     case Tile           = 6
     case NegBackground  = 8
     case Button         = 10
-    case Character      = 12
-    case Labels         = 14
+    case Labels         = 12
+    case Character      = 14
     case PopUp          = 16
 
 }
@@ -33,6 +34,7 @@ enum ZPositionEnum : CGFloat {
 class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     var levelIndex = 0
+    var levelStory: StoryText!
     var hud:HUD!
     var selectedPlayer: GameCharacter!
     var characters:[Character]!
@@ -142,11 +144,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         //        hud.setPositions()
         
         
-        
-        let storyTelling = StoryText(text: "Era uma vez um lugarsinho no meio do nada")
-        storyTelling.position.x = (scene?.size.width)! / 2
-        storyTelling.position.y = (scene?.size.height)! / 1.5
-        scene?.addChild(storyTelling)
+        levelStory = StoryText.getStoryforLevel(self.levelIndex, size: size)
+        addChild(levelStory)
 
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
@@ -299,6 +298,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 selectedPlayer.reachedGround()
             }
+        }
+        else if notPlayerPB.contactTestBitMask == controlTileCategory {
+            
+            let control = notPlayerPB.node as! ControlTile
+            control.activated == true
+            
+            StoryText.reactToControlTile(control, level: levelIndex, story: levelStory)
         }
         
     }

@@ -40,6 +40,8 @@
 		3F29DE831BB440EB00ADE6F8 /* FinalChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE821BB440EB00ADE6F8 /* FinalChallengeTests.swift */; };
 		3F29DE8E1BB440EB00ADE6F8 /* FinalChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */; };
 		3F609D601BBC6F4B00B30010 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */; settings = {ASSET_TAGS = (); }; };
+		3F6580261BDFFEF2004B473E /* StoryLabeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6580251BDFFEF2004B473E /* StoryLabeNode.swift */; settings = {ASSET_TAGS = (); }; };
+		3F6580281BE00530004B473E /* ControlTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6580271BE00530004B473E /* ControlTile.swift */; settings = {ASSET_TAGS = (); }; };
 		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; settings = {ASSET_TAGS = (); }; };
 		3F7E93A91BC3007D0018BA4E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A71BC3007D0018BA4E /* key.png */; settings = {ASSET_TAGS = (); }; };
 		3F7E93AB1BC309B90018BA4E /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93AA1BC309B90018BA4E /* crate.png */; settings = {ASSET_TAGS = (); }; };
@@ -140,6 +142,8 @@
 		3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalChallengeUITests.swift; sourceTree = "<group>"; };
 		3F29DE8F1BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
+		3F6580251BDFFEF2004B473E /* StoryLabeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryLabeNode.swift; sourceTree = "<group>"; };
+		3F6580271BE00530004B473E /* ControlTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlTile.swift; sourceTree = "<group>"; };
 		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
 		3F7E93A71BC3007D0018BA4E /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		3F7E93AA1BC309B90018BA4E /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 				E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */,
 				D0B5027F1BB44DB3006C9C90 /* LevelGenerator.swift */,
 				D0B502881BB44EBC006C9C90 /* StoryText.swift */,
+				3F6580251BDFFEF2004B473E /* StoryLabeNode.swift */,
 				D0B5029A1BB45259006C9C90 /* HUD.swift */,
 				D0B502811BB44DDB006C9C90 /* Popup Menu */,
 			);
@@ -361,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				D0B5026C1BB44A6E006C9C90 /* GenericObject.swift */,
+				3F6580271BE00530004B473E /* ControlTile.swift */,
 				D0B5026E1BB44A7D006C9C90 /* MovableObject.swift */,
 				D0B502701BB44A8A006C9C90 /* StaticObject.swift */,
 				3F13165E1BCB003200D227DD /* DoorNode.swift */,
@@ -571,6 +577,7 @@
 				3F1316611BCB032B00D227DD /* KeyNode.swift in Sources */,
 				3F29DE6E1BB440EB00ADE6F8 /* GenericGameScene.swift in Sources */,
 				D08F3B341BBC59EE008E1B79 /* LeftButton.swift in Sources */,
+				3F6580281BE00530004B473E /* ControlTile.swift in Sources */,
 				3F13165F1BCB003200D227DD /* DoorNode.swift in Sources */,
 				D0B502891BB44EBC006C9C90 /* StoryText.swift in Sources */,
 				D0B502691BB44690006C9C90 /* Ellie.swift in Sources */,
@@ -595,6 +602,7 @@
 				D0B5029B1BB45259006C9C90 /* HUD.swift in Sources */,
 				D0B502761BB44C94006C9C90 /* GameCenterManager.swift in Sources */,
 				D0B502741BB44C69006C9C90 /* DAOUserInfo.swift in Sources */,
+				3F6580261BDFFEF2004B473E /* StoryLabeNode.swift in Sources */,
 				3F1316651BCD4C4800D227DD /* SpikeNode.swift in Sources */,
 				D08F3B371BBC59EE008E1B79 /* RightButton.swift in Sources */,
 				D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */,

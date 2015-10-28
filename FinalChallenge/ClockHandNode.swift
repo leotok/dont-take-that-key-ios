@@ -33,7 +33,7 @@ class ClockHandNode: StaticObject {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0
         
-        let action = (SKAction.rotateByAngle(2 * 3.14 , duration: 2))
+        let action = (SKAction.rotateByAngle(2 * 3.14 , duration: Double(Int.random(2...4))))
         self.runAction(SKAction.repeatActionForever(action))
     }
 

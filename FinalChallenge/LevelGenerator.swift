@@ -145,15 +145,22 @@ class LevelGenerator {
     
     private func generateNodes() {
         
-        for i in 0...(self.numberOfVerticalTiles - 1)
+        var levelRatio = 1
+        let theme = defineLevelTheme()
+        
+        if theme == .Shrink || theme == .Ellie || theme == .AllChar {
+            levelRatio = 2
+        }
+        
+        for i in 0...(levelRatio * self.numberOfVerticalTiles - 1)
         {
             let string = levelMatrix[i]
             var index = string.startIndex
-            for j in 0...(self.numberOfHorizontalTiles - 1)
+            for j in 0...(levelRatio * self.numberOfHorizontalTiles - 1)
             {
                 if let tile: SKSpriteNode = getNodeType( string[index] )
                 {
-                    tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (numberOfVerticalTiles - i - 1) ) )
+                    tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
                     levelScene.pausableLayer.addChild(tile)
                 }
                 index = index.advancedBy(1)
@@ -203,6 +210,10 @@ class LevelGenerator {
                 tile =  ControlTile.createControlTile()
                 numberOfControlTiles++
                 (tile as! ControlTile).number = numberOfControlTiles
+            
+            case "8":
+            
+                tile = ClockHandNode()
                 
             case "0":
                 

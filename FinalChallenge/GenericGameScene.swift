@@ -15,6 +15,7 @@ let hazardCategory:UInt32 = 4
 let keyCategory:UInt32    = 8
 let doorCategory:UInt32   = 16
 let controlTileCategory: UInt32 = 32
+let ClockHandCategory: UInt32 = 64
 
 enum ZPositionEnum : CGFloat {
     
@@ -22,6 +23,7 @@ enum ZPositionEnum : CGFloat {
     case GameLayer      = 1
     case Objects        = 2
     case Spike          = 3
+    case ClockHand      = 4
     case Tile           = 6
     case NegBackground  = 8
     case Button         = 10

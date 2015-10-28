@@ -35,13 +35,14 @@ class LevelGenerator {
         levelIndex = level
         levelScene = scene
         
-        
+        let time = NSDate()
         getLevelMatrixFromTxt()
         addCorrespondingBackground()
         //printLevelMatrixLog()
         generateNodes()
         addCharacterToGameScene()
         
+        print("\(NSDate().timeIntervalSinceDate(time)) seconds to load level")
         return true
     }
     
@@ -172,7 +173,6 @@ class LevelGenerator {
                 tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)
                 tile.physicsBody?.contactTestBitMask = playerCategory
-            
             
             case "2":
             

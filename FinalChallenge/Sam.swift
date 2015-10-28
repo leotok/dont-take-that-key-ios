@@ -52,11 +52,9 @@ class Sam: GameCharacter{
     }
     
      internal override func activatePower() {
-        print("row row")
         super.activatePower()
-        print("fight the powa")
         self.delegate?.pauseScene()
-        print(self.delegate)
+//        print(self.delegate)
     }
     internal override func deactivatePower() {
         super.deactivatePower()

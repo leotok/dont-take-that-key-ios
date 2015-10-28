@@ -49,18 +49,6 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        print("Touches began")
-        
-        for _ in (touches ) {
-            
-            print("For Touches")
-            
-        }
-        
-    }
- 
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch in (touches ) {
@@ -79,9 +67,8 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                     
                     self.view?.removeGestureRecognizer(panGesture)
                     let levelButton = node as! LevelButton
-                    print("Level: \(levelButton.level)")
                     let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
-                    let transition = SKTransition.fadeWithDuration(1.5)
+                    let transition = SKTransition.fadeWithDuration(0.5)
                     self.view?.presentScene(scene, transition: transition)
                 }
             }

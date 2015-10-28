@@ -109,7 +109,6 @@ class MainMenu: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.userInteractionEnabled = true
-        print(touches.count)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

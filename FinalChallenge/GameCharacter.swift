@@ -31,7 +31,7 @@ class GameCharacter: SKSpriteNode {
         physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory
-        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory
+        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
 
@@ -109,7 +109,6 @@ class GameCharacter: SKSpriteNode {
     
     
     func usePower() {
-        print("by the power of GraySkull")
     
         if !isUsingPower {
             self.activatePower()
@@ -134,7 +133,7 @@ class GameCharacter: SKSpriteNode {
     /* INTERNAL AND PRIVATE METHODS */
     
     internal func activatePower() {
-        print("I have the power")
+
         isUsingPower = true
         lastUpdatePower = NSDate()
     

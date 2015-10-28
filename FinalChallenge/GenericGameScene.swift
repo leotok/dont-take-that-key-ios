@@ -198,12 +198,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
-        print("Touches Began")
         let currC = CurrentCharacterSingleton.sharedInstance
         
         for touch in (touches) {
             
-            print("For touches")
             let location = touch.locationInNode(self)
             
             if(self.switchCharacterButton!.frame.contains(location)){
@@ -235,7 +233,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
             
             if(self.powerButton!.frame.contains(location)){
-                print("tree powers activate")
+                print("Power button")
                 currC.currentCharacter?.usePower()
             }
         }
@@ -243,7 +241,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         //            popUp?.touchesBegan(touches, withEvent: event)
         //        }
         //        else {
-        //            //print("to entrando aqui")
         //            hud.touchesBegan(touches, withEvent: event)
         //        }
     }
@@ -299,12 +296,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 selectedPlayer.reachedGround()
             }
         }
-        else if notPlayerPB.contactTestBitMask == controlTileCategory {
+        else if notPlayerPB.categoryBitMask == controlTileCategory {
             
             let control = notPlayerPB.node as! ControlTile
-            control.activated == true
-            
-            StoryText.reactToControlTile(control, level: levelIndex, story: levelStory)
+            print(control.activated)
+            if control.activated == false {
+                control.activated = true
+                levelStory.reactToControlTile(control, level: levelIndex)
+            }   
         }
         
     }
@@ -360,7 +359,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         var imageNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
         imageNode.zPosition = ZPositionEnum.Background.rawValue
         imageNode.position = CGPointMake(CGFloat(UIScreen.mainScreen().bounds.size.width/2), UIScreen.mainScreen().bounds.size.height/2)
-        self.addChild(imageNode)
+        //self.addChild(imageNode)
         self.scene?.addChild(self.selectedPlayer)
         return true
     }

@@ -15,7 +15,7 @@ class ControlTile: SKSpriteNode {
     var activated = false
     
     init(size: CGSize) {
-        super.init(texture: SKTexture(), color: UIColor.clearColor(), size: size)
+        super.init(texture: nil, color: UIColor.clearColor(), size: size)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,9 +31,9 @@ class ControlTile: SKSpriteNode {
         let tile = ControlTile(size: size)
         
         tile.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(spriteWidth,spriteHeight))
-        tile.physicsBody?.collisionBitMask = 0
-        tile.physicsBody?.contactTestBitMask = playerCategory
+//        tile.physicsBody?.collisionBitMask = 0
         tile.physicsBody?.categoryBitMask = controlTileCategory
+        tile.physicsBody?.contactTestBitMask = playerCategory
         tile.physicsBody?.dynamic = false
 
         return tile

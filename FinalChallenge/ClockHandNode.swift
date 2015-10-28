@@ -16,17 +16,23 @@ class ClockHandNode: StaticObject {
         let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 4 / 12.9375
         let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 4 / 12.9375
         
-        let keySprite = SKTexture(imageNamed: "ponteiroGrande")
-        super.init(sprite: keySprite)
+        let sprite = SKTexture(imageNamed: "ponteiroPequeno")
+        super.init(sprite: sprite)
         
-        self.size = CGSizeMake(spriteWidth, spriteHeight)
-        self.physicsBody?.categoryBitMask = ClockHandCategory
+       // self.anchorPoint = CGPointMake(0.1, 0.53 )
+        
+        size = CGSizeMake(spriteWidth, spriteHeight)
+        physicsBody = SKPhysicsBody(texture: sprite, size: sprite.size())
+        physicsBody?.categoryBitMask = clockHandCategory
         physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.collisionBitMask = playerCategory
-        self.physicsBody?.contactTestBitMask = 0
-        self.zPosition = ZPositionEnum.ClockHand.rawValue
+        physicsBody?.collisionBitMask = playerCategory
+        physicsBody?.contactTestBitMask = playerCategory
+        physicsBody?.affectedByGravity = false
+        physicsBody?.dynamic = false
+        zPosition = ZPositionEnum.ClockHand.rawValue
+        physicsBody?.allowsRotation = false
+        physicsBody?.restitution = 0
         
-        self.anchorPoint = CGPointMake(0, 0.5 )
         let action = (SKAction.rotateByAngle(2 * 3.14 , duration: 2))
         self.runAction(SKAction.repeatActionForever(action))
     }

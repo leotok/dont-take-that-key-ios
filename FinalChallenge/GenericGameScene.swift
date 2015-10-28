@@ -15,7 +15,7 @@ let hazardCategory:UInt32 = 4
 let keyCategory:UInt32    = 8
 let doorCategory:UInt32   = 16
 let controlTileCategory: UInt32 = 32
-let ClockHandCategory: UInt32 = 64
+let clockHandCategory: UInt32 = 64
 
 enum ZPositionEnum : CGFloat {
     
@@ -294,9 +294,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         else if notPlayerPB.categoryBitMask == objectCategory {
+
             if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 selectedPlayer.reachedGround()
             }
+        }
+        else if notPlayerPB.categoryBitMask == clockHandCategory {
+            selectedPlayer.reachedGround()
         }
         else if notPlayerPB.categoryBitMask == controlTileCategory {
             

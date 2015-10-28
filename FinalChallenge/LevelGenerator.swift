@@ -51,7 +51,7 @@ class LevelGenerator {
         let player = Sam()
         player.setDelegate(levelScene)
         levelScene.selectedPlayer = player
-        levelScene.selectedPlayer.position = CGPointMake(50, 150)
+        levelScene.selectedPlayer.position = CGPointMake(50, 300)
         levelScene.addChild(levelScene.selectedPlayer)
     
     }
@@ -214,6 +214,7 @@ class LevelGenerator {
             case "8":
             
                 tile = ClockHandNode()
+            
                 
             case "0":
                 
@@ -224,5 +225,18 @@ class LevelGenerator {
         }
         
         return tile
+    }
+    
+    private func attachDebugRectWithSize(s: CGSize, node: SKSpriteNode) {
+        let bodyPath = CGPathCreateWithRect(CGRectMake(-s.width / 2, -s.height / 2, s.width, s.height), nil)
+        attachDebugFrameFromPath(bodyPath, node: node)
+    }
+    
+    private func attachDebugFrameFromPath(bodyPath: CGPathRef, node: SKSpriteNode) {
+        let shape = SKShapeNode()
+        shape.path = bodyPath
+        shape.strokeColor = SKColor.yellowColor()
+        shape.lineWidth = 1.0
+        node.addChild(shape)
     }
 }

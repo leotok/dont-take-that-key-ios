@@ -83,8 +83,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         scene.shouldEnableEffects = true
         
+//        let cameraNode = SKCameraNode()
+//        scene.addChild(cameraNode)
+//        scene.camera = cameraNode
         
         lvlGen.loadLevel(levelIndex, scene: scene)
+        
+        scene.size = lvlGen.getLevelSize()
         
         scene.physicsWorld.gravity = CGVectorMake(0, -9.8)
         
@@ -248,6 +253,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
+        self.centerCamera()
         /* Called before each frame is rendered */
         
         //        if(hud.isWalking()){
@@ -316,11 +322,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     
     override func didSimulatePhysics() {
-        //centerCamera()
     }
+    
     func centerCamera() {
-        let positionInScene = self.convertPoint(selectedPlayer.position, fromNode: selectedPlayer.parent!)
-        self.position = CGPointMake(gameLayer.position.x - positionInScene.x + 200, gameLayer.position.y)
+        scene!.camera?.position = selectedPlayer.position
     }
     
     func screenShot() -> UIImage {
@@ -342,30 +347,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             pausableLayer.children[i].physicsBody?.velocity = CGVectorMake(0, 0)
             pausableLayer.children[i].physicsBody?.dynamic = false
         }
-        self.selectedPlayer.removeFromParent()
-        var image = self.screenShot()
-        
-        UIGraphicsBeginImageContext(image.size)
-        
-        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Copy)
-        
-        image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
-        
-        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Difference)
-        
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),UIColor.whiteColor().CGColor)
-        
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0,image.size.width,image.size.height))
-        image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        var texture = SKTexture(image: image)
-        
-        var imageNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
-        imageNode.zPosition = ZPositionEnum.Background.rawValue
-        imageNode.position = CGPointMake(CGFloat(UIScreen.mainScreen().bounds.size.width/2), UIScreen.mainScreen().bounds.size.height/2)
-        //self.addChild(imageNode)
         self.scene?.addChild(self.selectedPlayer)
         return true
     }

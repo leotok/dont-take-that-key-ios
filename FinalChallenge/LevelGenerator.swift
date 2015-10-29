@@ -23,6 +23,7 @@ class LevelGenerator {
     var levelMatrix: Array<String>!
     var levelScene: GenericGameScene!
     var levelIndex = 0
+    var levelRatio: Int = 1
 
     var numberOfControlTiles = 0
     let numberOfVerticalTiles = 13
@@ -35,6 +36,13 @@ class LevelGenerator {
         levelIndex = level
         levelScene = scene
         
+        self.levelRatio = 1
+        let theme = defineLevelTheme()
+        
+        if theme == .Shrink || theme == .Ellie || theme == .AllChar {
+            self.levelRatio = 2
+        }
+        
         let time = NSDate()
         getLevelMatrixFromTxt()
         addCorrespondingBackground()
@@ -44,6 +52,11 @@ class LevelGenerator {
         
         print("\(NSDate().timeIntervalSinceDate(time)) seconds to load level")
         return true
+    }
+    
+    func getLevelSize()->CGSize{
+        let size = CGSize(width: CGFloat(self.numberOfHorizontalTiles) * CGFloat(levelRatio) * spriteWidth, height: CGFloat(self.numberOfVerticalTiles) * CGFloat(levelRatio) * spriteHeight)
+        return size
     }
     
     private func addCharacterToGameScene() {
@@ -144,13 +157,7 @@ class LevelGenerator {
     }
     
     private func generateNodes() {
-        
-        var levelRatio = 1
-        let theme = defineLevelTheme()
-        
-        if theme == .Shrink || theme == .Ellie || theme == .AllChar {
-            levelRatio = 2
-        }
+    
         
         for i in 0...(levelRatio * self.numberOfVerticalTiles - 1)
         {

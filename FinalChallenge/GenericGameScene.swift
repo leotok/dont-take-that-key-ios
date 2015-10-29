@@ -218,24 +218,20 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 currC.currentCharacter?.walkLeft()
                 //                walking = true
                 //                walkingLeft = true
-                print("leftButton")
             }
             else if(self.rightButton!.frame.contains(location)) {
                 currC.currentCharacter?.walkRight()
                 //self.rightButton.touchesBegan(touches, withEvent: event)
                 //                walking = true
                 //                walkingRight = true
-                print("rightButton")
             }
             
             if(self.jumpButton!.frame.contains(location)){
                 currC.currentCharacter?.jump()
                 //self.jumpButton.touchesBegan(touches, withEvent: event)
-                print("jumpButton")
             }
             
             if(self.powerButton!.frame.contains(location)){
-                print("Power button")
                 currC.currentCharacter?.usePower()
             }
         }

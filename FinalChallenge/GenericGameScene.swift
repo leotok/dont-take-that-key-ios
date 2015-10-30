@@ -157,6 +157,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
+        
+        self.camera = SKCameraNode()
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -318,10 +320,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     
     override func didSimulatePhysics() {
+<<<<<<< Updated upstream
     }
     
     func centerCamera() {
         scene!.camera?.position = selectedPlayer.position
+=======
+        self.camera?.position = self.selectedPlayer.position
+>>>>>>> Stashed changes
     }
     
     func screenShot() -> UIImage {

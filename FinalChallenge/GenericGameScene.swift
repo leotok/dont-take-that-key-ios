@@ -157,6 +157,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
+        
+        self.camera = SKCameraNode()
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -249,7 +251,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
-        self.centerCamera()
         /* Called before each frame is rendered */
         
         //        if(hud.isWalking()){
@@ -317,12 +318,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     
-    override func didSimulatePhysics() {
-    }
-    
-    func centerCamera() {
-        scene!.camera?.position = selectedPlayer.position
-    }
     
     func screenShot() -> UIImage {
         UIGraphicsBeginImageContext(CGSizeMake(frame.size.width, frame.size.height))

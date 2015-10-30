@@ -343,7 +343,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             pausableLayer.children[i].physicsBody?.velocity = CGVectorMake(0, 0)
             pausableLayer.children[i].physicsBody?.dynamic = false
         }
-        self.scene?.addChild(self.selectedPlayer)
+       // self.scene?.addChild(self.selectedPlayer)
         return true
     }
     func unpauseScene() -> Bool {

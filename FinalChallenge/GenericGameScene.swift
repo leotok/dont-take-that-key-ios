@@ -251,7 +251,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
-        self.centerCamera()
         /* Called before each frame is rendered */
         
         //        if(hud.isWalking()){
@@ -319,16 +318,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     
-    override func didSimulatePhysics() {
-<<<<<<< Updated upstream
-    }
-    
-    func centerCamera() {
-        scene!.camera?.position = selectedPlayer.position
-=======
-        self.camera?.position = self.selectedPlayer.position
->>>>>>> Stashed changes
-    }
     
     func screenShot() -> UIImage {
         UIGraphicsBeginImageContext(CGSizeMake(frame.size.width, frame.size.height))

@@ -21,6 +21,7 @@ enum LevelTheme {
 class LevelGenerator {
     
     var levelMatrix: Array<String>!
+    var levelTheme: LevelTheme!
     var levelScene: GenericGameScene!
     var levelIndex = 0
     var levelRatio: Int = 1
@@ -35,11 +36,9 @@ class LevelGenerator {
   
         levelIndex = level
         levelScene = scene
-        
-        self.levelRatio = 1
-        let theme = defineLevelTheme()
-        
-        if theme == .Shrink || theme == .Ellie || theme == .AllChar {
+        levelTheme = defineLevelTheme()
+    
+        if levelTheme == .Shrink || levelTheme == .Ellie || levelTheme == .AllChar {
             self.levelRatio = 2
         }
         
@@ -71,30 +70,29 @@ class LevelGenerator {
     
     private func addCorrespondingBackground() {
         
-        let theme = defineLevelTheme()
-        
-        switch (theme) {
-            
-        case LevelTheme.Sam:
-            
-            let background = SKSpriteNode(imageNamed: "gameplayBackground")
-            background.color = SKColor.blueColor()
-            background.position = CGPointMake( self.levelScene.size.width / 2 , self.levelScene.size.height / 2 )
-            background.size = self.levelScene.size
-            background.texture?.filteringMode = SKTextureFilteringMode.Nearest
-            background.zPosition = ZPositionEnum.Background.rawValue
-            levelScene.addChild(background)
-            
-        case LevelTheme.Shrink:
-            break
+        if let theme = levelTheme {
+            switch (theme) {
+                
+            case LevelTheme.Sam:
+                
+                let background = SKSpriteNode(imageNamed: "gameplayBackground")
+                background.color = SKColor.blueColor()
+                background.position = CGPointMake( self.levelScene.size.width / 2 , self.levelScene.size.height / 2 )
+                background.size = self.levelScene.size
+                background.texture?.filteringMode = SKTextureFilteringMode.Nearest
+                background.zPosition = ZPositionEnum.Background.rawValue
+                levelScene.addChild(background)
+                
+            case LevelTheme.Shrink:
+                break
 
-        case LevelTheme.Ellie:
-            break
-            
-        case LevelTheme.AllChar:
-            break
+            case LevelTheme.Ellie:
+                break
+                
+            case LevelTheme.AllChar:
+                break
+            }
         }
-        
     }
     
     private func getLevelMatrixFromTxt() {

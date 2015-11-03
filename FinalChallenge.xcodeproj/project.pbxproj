@@ -46,6 +46,7 @@
 		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; };
 		3F7E93A91BC3007D0018BA4E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A71BC3007D0018BA4E /* key.png */; };
 		3F7E93AB1BC309B90018BA4E /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93AA1BC309B90018BA4E /* crate.png */; };
+		3F9CAADB1BE9167D008A3A2C /* AmpulhetaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */; };
 		3FA5619D1BC5AF2A009AD173 /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA5619C1BC5AF2A009AD173 /* door.png */; };
 		3FA5619F1BC5B3A0009AD173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */; };
 		3FA561A11BC5B3DA009AD173 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */; };
@@ -149,6 +150,7 @@
 		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
 		3F7E93A71BC3007D0018BA4E /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		3F7E93AA1BC309B90018BA4E /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
+		3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmpulhetaNode.swift; sourceTree = "<group>"; };
 		3FA5619C1BC5AF2A009AD173 /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
 		3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -375,6 +377,7 @@
 				3F13165E1BCB003200D227DD /* DoorNode.swift */,
 				3F1316601BCB032B00D227DD /* KeyNode.swift */,
 				3F1316621BCD4B6100D227DD /* CrateNode.swift */,
+				3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */,
 				3F1316641BCD4C4800D227DD /* SpikeNode.swift */,
 			);
 			name = Objects;
@@ -612,6 +615,7 @@
 				D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */,
 				D0B5026F1BB44A7D006C9C90 /* MovableObject.swift in Sources */,
 				E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */,
+				3F9CAADB1BE9167D008A3A2C /* AmpulhetaNode.swift in Sources */,
 				D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */,
 				D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */,
 			);

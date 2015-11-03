@@ -220,6 +220,9 @@ class LevelGenerator {
             
                 tile = ClockHandNode()
             
+            case "9":
+            
+                tile = AmpulhetaNode()
                 
             case "0":
                 

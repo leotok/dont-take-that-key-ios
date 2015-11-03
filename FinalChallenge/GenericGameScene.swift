@@ -345,7 +345,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         pausableLayer.paused = false
         
         for(var i = 0;i < pausableLayer.children.count;i++){
-            if(pausableLayer.children[i].isKindOfClass(CrateNode)){
+            if(pausableLayer.children[i].isKindOfClass(MovableObject)){
                 pausableLayer.children[i].physicsBody?.dynamic = true
                 pausableLayer.children[i].physicsBody?.affectedByGravity = true
             }

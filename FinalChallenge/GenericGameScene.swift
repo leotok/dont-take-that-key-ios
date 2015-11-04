@@ -54,6 +54,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     var jumpButton: JumpButton?
     var powerButton: PowerButton?
     
+    var onBeginAchiev:String?
+    var onWinAchiev:String?
+    
     
     private var gotKey = false
     
@@ -159,6 +162,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         characterSingleton.setCurrentCharacter(selectedPlayer)
         
         self.camera = SKCameraNode()
+        
+        onBeginAchiev = "HelloWorld"
+        if let achievStr = self.onBeginAchiev {
+            GameCenterManager.sharedInstance.postAchievement(achievStr)
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

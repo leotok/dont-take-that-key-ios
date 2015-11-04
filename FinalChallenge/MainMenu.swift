@@ -78,7 +78,6 @@ class MainMenu: SKScene {
         
         playBackGroundMusic()
         
-        GameCenterManager.sharedInstance.authenticateLocalPlayer()
     }
     
     

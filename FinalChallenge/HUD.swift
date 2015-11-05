@@ -48,13 +48,13 @@ class HUD: SKSpriteNode {
     }
 
     func setPositions(){
-
-        let screenWidth = self.scene!.size.width
-        let screenHeight = self.scene!.size.height
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
         
         switchCharacterButton.position = CGPointMake(switchCharacterButton.size.width/2, screenHeight - switchCharacterButton.size.height/2)
         pauseButton.position = CGPointMake(screenWidth - pauseButton.size.width/2, screenHeight - pauseButton.size.height/2)
-        leftButton.position = CGPointMake(leftButton.frame.size.width/2+10, leftButton.frame.size.height/2)
+        leftButton.position = CGPointMake(leftButton.frame.size.width/2+10, leftButton.frame.size.height/2+7)
         
         rightButton.position.y = leftButton.position.y
         rightButton.position.x = leftButton.position.x + rightButton.size.width
@@ -121,6 +121,62 @@ class HUD: SKSpriteNode {
                 print("jumpButton")
             }
             if(self.powerButton.frame.contains(location)){
+            }
+        }
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        print("cancelled was called")
+        let characterSingleton = CurrentCharacterSingleton.sharedInstance
+        for touch in (touches)! {
+            let location = touch.locationInNode(self)
+            
+            if(self.leftButton.frame.contains(location)){
+                characterSingleton.currentCharacter!.stopWalking()
+                //self.leftButton.touchesEnded(touches, withEvent: event)
+                walking = false
+                walkingLeft = false
+            }
+            if(self.rightButton.frame.contains(location)){
+                characterSingleton.currentCharacter!.stopWalking()
+                //self.rightButton.touchesEnded(touches, withEvent: event)
+                walking = false
+                walkingRight = false
+            }
+            if(self.jumpButton.frame.contains(location)){
+                if(characterSingleton.currentCharacter!.isJumping == true){
+                    characterSingleton.currentCharacter?.removeActionForKey("Jump")
+                    characterSingleton.currentCharacter!.stopImpulse()
+                }
+                //self.jumpButton.touchesEnded(touches, withEvent: event)
+            }
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("moved was called")
+        let characterSingleton = CurrentCharacterSingleton.sharedInstance
+        for touch in (touches) {
+            let location = touch.locationInNode(self)
+            
+            if(self.leftButton.frame.contains(location)){
+                characterSingleton.currentCharacter!.stopWalking()
+                //self.leftButton.touchesEnded(touches, withEvent: event)
+                walking = false
+                walkingLeft = false
+            }
+            if(self.rightButton.frame.contains(location)){
+                characterSingleton.currentCharacter!.stopWalking()
+                //self.rightButton.touchesEnded(touches, withEvent: event)
+                walking = false
+                walkingRight = false
+            }
+            if(self.jumpButton.frame.contains(location)){
+                if(characterSingleton.currentCharacter!.isJumping == true){
+                    characterSingleton.currentCharacter?.removeActionForKey("Jump")
+                    characterSingleton.currentCharacter!.stopImpulse()
+                }
+                //self.jumpButton.touchesEnded(touches, withEvent: event)
             }
         }
     }

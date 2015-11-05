@@ -45,6 +45,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     var characterSingleton:CurrentCharacterSingleton!
     var popUpOpened = false
     var popUp:Menu?
+    var finishedPositioning: Bool = false
     
     var switchCharacterButton: SwitchCharacterButton?
     var pauseButton: PauseButton?
@@ -53,6 +54,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     var jumpButton: JumpButton?
     var powerButton: PowerButton?
+    
+    var lastPositionX: CGFloat?
+    var lastPositionY: CGFloat?
     
     
     private var gotKey = false
@@ -83,13 +87,16 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         scene.shouldEnableEffects = true
         
-//        let cameraNode = SKCameraNode()
-//        scene.addChild(cameraNode)
-//        scene.camera = cameraNode
-        
         lvlGen.loadLevel(levelIndex, scene: scene)
-        
+    
         scene.size = lvlGen.getLevelSize()
+        
+        if(scene.size.width-UIScreen.mainScreen().bounds.size.width > 200){
+            let cameraNode = SKCameraNode()
+            scene.camera = cameraNode
+            scene.camera?.position = CGPointMake(50,300)
+            scene.addChild(cameraNode)
+        }
         
         scene.physicsWorld.gravity = CGVectorMake(0, -9.8)
         
@@ -100,59 +107,35 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         
         /* Setup your scene here */
+        let scene1 = GenericGameScene(size: scene!.size)
+        let lvlGen = LevelGenerator()
+        
+        scene1.gameLayer = SKNode()
+        scene1.gameLayer.zPosition = ZPositionEnum.GameLayer.rawValue
+        scene1.addChild(scene1.gameLayer)
+        
+        scene1.pausableLayer = SKNode()
+        scene1.pausableLayer.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeZero)
+        scene1.pausableLayer.physicsBody?.collisionBitMask = 0
+        scene1.gameLayer.addChild(scene1.pausableLayer)
+        
+        lvlGen.loadLevel(levelIndex, scene: scene1)
+        
+        scene!.view!.frame.size = lvlGen.getLevelSize()
+        
         self.physicsWorld.contactDelegate = self
         
-        self.leftButton = LeftButton()
-        self.rightButton = RightButton()
-        self.jumpButton = JumpButton()
-        self.powerButton = PowerButton(powerImage: "Power")
-        self.switchCharacterButton = SwitchCharacterButton(characterImage: "bla")
-        self.pauseButton = PauseButton()
-        
-        let screenWidth = self.scene!.size.width
-        let screenHeight = self.scene!.size.height
-        
-        switchCharacterButton!.position = CGPointMake(switchCharacterButton!.size.width/2, screenHeight - switchCharacterButton!.size.height/2)
-        pauseButton!.position = CGPointMake(screenWidth - pauseButton!.size.width/2, screenHeight - pauseButton!.size.height/2)
-        leftButton!.position = CGPointMake(leftButton!.frame.size.width/2+10, leftButton!.frame.size.height/2)
-        
-        rightButton!.position.y = leftButton!.position.y
-        rightButton!.position.x = leftButton!.position.x + rightButton!.size.width
-        
-        jumpButton!.position = CGPointMake(screenWidth - 2 * jumpButton!.size.width, leftButton!.position.y)
-        powerButton!.position = CGPointMake(screenWidth - powerButton!.size.width, leftButton!.position.y)
-        
-        self.switchCharacterButton!.zPosition = ZPositionEnum.Button.rawValue
-        self.pauseButton!.zPosition = ZPositionEnum.Button.rawValue
-        self.leftButton!.zPosition = ZPositionEnum.Button.rawValue
-        self.rightButton!.zPosition = ZPositionEnum.Button.rawValue
-        self.jumpButton!.zPosition = ZPositionEnum.Button.rawValue
-        self.powerButton!.zPosition = ZPositionEnum.Button.rawValue
-        
-        //        self.leftButton!.userInteractionEnabled = true
-        //        self.rightButton!.userInteractionEnabled = true
-        //        self.jumpButton!.userInteractionEnabled = true
-        //        self.powerButton!.userInteractionEnabled = true
-        //        self.switchCharacterButton!.userInteractionEnabled = true
-        //        self.pauseButton!.userInteractionEnabled = true
-        //        self.userInteractionEnabled = true
-        
-        self.addChild(switchCharacterButton!)
-        self.addChild(pauseButton!)
-        self.addChild(leftButton!)
-        self.addChild(rightButton!)
-        self.addChild(jumpButton!)
-        self.addChild(powerButton!)
-        
-        //        hud = HUD()
-        //        hud.userInteractionEnabled = true
-        //        self.addChild(self.hud)
-        //        hud.zPosition = ZPositionEnum.Button.rawValue
-        //        hud.setPositions()
+                hud = HUD()
+                self.addChild(self.hud)
+                hud.zPosition = ZPositionEnum.Button.rawValue
+                hud.setPositions()
         
         
         levelStory = StoryText.getStoryforLevel(self.levelIndex, size: size)
         addChild(levelStory)
+        
+        self.lastPositionX = selectedPlayer.position.x
+        self.lastPositionY = selectedPlayer.position.y
 
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
@@ -160,112 +143,47 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+                for touch in (touches ) {
+                    let location = touch.locationInNode(self)
+                    let node = self.nodeAtPoint(location)
         
-        let characterSingleton = CurrentCharacterSingleton.sharedInstance
-        for touch in (touches) {
-            let location = touch.locationInNode(self)
-            
-            if(self.leftButton!.frame.contains(location)){
-                characterSingleton.currentCharacter!.stopWalking()
-                //self.leftButton.touchesEnded(touches, withEvent: event)
-                //                walking = false
-                //                walkingLeft = false
-            }
-            if(self.rightButton!.frame.contains(location)){
-                characterSingleton.currentCharacter!.stopWalking()
-                //self.rightButton.touchesEnded(touches, withEvent: event)
-                //                walking = false
-                //                walkingRight = false
-            }
-            if(self.jumpButton!.frame.contains(location)){
-                if(characterSingleton.currentCharacter!.isJumping == true){
-                    characterSingleton.currentCharacter?.removeActionForKey("Jump")
-                    characterSingleton.currentCharacter!.stopImpulse()
+        
+                    if popUpOpened {
+                        popUp?.touchesEnded(touches, withEvent: event)
+                    }
+                    else if node.name == "character"{
+                        self.selectedPlayer = node as! GameCharacter
+                    }
+                    else{
+                        hud.touchesEnded(touches, withEvent: event)
+                    }
                 }
-                //self.jumpButton.touchesEnded(touches, withEvent: event)
-            }
-        }
-        
-        //        for touch in (touches ) {
-        //            let location = touch.locationInNode(self)
-        //            let node = self.nodeAtPoint(location)
-        //
-        //
-        //            if popUpOpened {
-        //                popUp?.touchesEnded(touches, withEvent: event)
-        //            }
-        //            else if node.name == "character"{
-        //                self.selectedPlayer = node as! GameCharacter
-        //            }
-        //            else{
-        //                //hud.touchesEnded(touches, withEvent: event)
-        //            }
-        //        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
-        let currC = CurrentCharacterSingleton.sharedInstance
-        
-        for touch in (touches) {
-            
-            let location = touch.locationInNode(self)
-            
-            if(self.switchCharacterButton!.frame.contains(location)){
-            }
-            
-            if(self.pauseButton!.frame.contains(location)){
-                let genericScene = self.scene as! GenericGameScene
-                genericScene.pauseGame()
-            }
-            
-            if(self.leftButton!.frame.contains(location)){
-                currC.currentCharacter?.walkLeft()
-                //                walking = true
-                //                walkingLeft = true
-                print("leftButton")
-            }
-            else if(self.rightButton!.frame.contains(location)) {
-                currC.currentCharacter?.walkRight()
-                //self.rightButton.touchesBegan(touches, withEvent: event)
-                //                walking = true
-                //                walkingRight = true
-                print("rightButton")
-            }
-            
-            if(self.jumpButton!.frame.contains(location)){
-                currC.currentCharacter?.jump()
-                //self.jumpButton.touchesBegan(touches, withEvent: event)
-                print("jumpButton")
-            }
-            
-            if(self.powerButton!.frame.contains(location)){
-                print("Power button")
-                currC.currentCharacter?.usePower()
-            }
-        }
-        //        if popUpOpened {
-        //            popUp?.touchesBegan(touches, withEvent: event)
-        //        }
-        //        else {
-        //            hud.touchesBegan(touches, withEvent: event)
-        //        }
+                if popUpOpened {
+                    popUp?.touchesBegan(touches, withEvent: event)
+                }
+                else {
+                    hud.touchesBegan(touches, withEvent: event)
+                    finishedPositioning = true
+                }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let t = touches.first!;
+        let lp = t.previousLocationInNode(self);
+        let p = t.locationInNode(self);
+        let x = lp.x-p.x;
+        let y = lp.y-p.y;
+        camera!.position.x += x;
+        camera!.position.y += y;
     }
     
     override func update(currentTime: CFTimeInterval) {
         self.centerCamera()
         /* Called before each frame is rendered */
-        
-        //        if(hud.isWalking()){
-        //            if(hud.walkingLeft){
-        //                self.selectedPlayer.physicsBody!.velocity = CGVectorAdd(-200, 0)
-        //                CGVectorAdd
-        //            }
-        //            else{
-        //                self.selectedPlayer.physicsBody!.velocity = CGVectorMake(200, 0)
-        //
-        //            }
-        //        }
     }
     
     
@@ -302,6 +220,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         else if notPlayerPB.categoryBitMask == objectCategory {
 
             if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+                finishedPositioning = true
                 selectedPlayer.reachedGround()
             }
         }
@@ -317,24 +236,19 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 levelStory.reactToControlTile(control, level: levelIndex)
             }   
         }
-        
-    }
-    
-    
-    override func didSimulatePhysics() {
     }
     
     func centerCamera() {
-        scene!.camera?.position = selectedPlayer.position
-    }
-    
-    func screenShot() -> UIImage {
-        UIGraphicsBeginImageContext(CGSizeMake(frame.size.width, frame.size.height))
-        var context:CGContextRef  = UIGraphicsGetCurrentContext()!
-        self.view?.drawViewHierarchyInRect(frame, afterScreenUpdates: true)
-        var screenShot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return screenShot
+        if(self.lastPositionX >= 50 && self.lastPositionX <= 682 && self.size.width-UIScreen.mainScreen().bounds.size.width > 200){
+            scene!.camera?.position = CGPointMake(selectedPlayer.position.x+545,selectedPlayer.position.y-141)
+            
+            if(finishedPositioning){
+                self.hud.position = CGPointMake(self.hud.position.x+(selectedPlayer.position.x-self.lastPositionX!), self.hud.position.y+(selectedPlayer.position.y-self.lastPositionY!))
+            }
+        }
+        
+        self.lastPositionX = selectedPlayer.position.x
+        self.lastPositionY = selectedPlayer.position.y
     }
     
     // Sam Protocol
@@ -347,7 +261,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             pausableLayer.children[i].physicsBody?.velocity = CGVectorMake(0, 0)
             pausableLayer.children[i].physicsBody?.dynamic = false
         }
-        self.scene?.addChild(self.selectedPlayer)
         return true
     }
     func unpauseScene() -> Bool {

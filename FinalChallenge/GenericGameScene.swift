@@ -57,6 +57,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     var lastPositionX: CGFloat?
     var lastPositionY: CGFloat?
+    var onBeginAchiev:String?
+    var onWinAchiev:String?
     
     
     private var gotKey = false
@@ -125,10 +127,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         
-                hud = HUD()
-                self.addChild(self.hud)
-                hud.zPosition = ZPositionEnum.Button.rawValue
-                hud.setPositions()
+        hud = HUD()
+        self.addChild(self.hud)
+        hud.zPosition = ZPositionEnum.Button.rawValue
+        hud.setPositions()
         
         
         levelStory = StoryText.getStoryforLevel(self.levelIndex, size: size)
@@ -140,6 +142,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
+        
+        self.camera = SKCameraNode()
+        
+        onBeginAchiev = "HelloWorld"
+        if let achievStr = self.onBeginAchiev {
+            GameCenterManager.sharedInstance.postAchievement(achievStr)
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -172,18 +181,19 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let t = touches.first!;
-        let lp = t.previousLocationInNode(self);
-        let p = t.locationInNode(self);
-        let x = lp.x-p.x;
-        let y = lp.y-p.y;
-        camera!.position.x += x;
-        camera!.position.y += y;
+//        let t = touches.first!
+//        let lp = t.previousLocationInNode(self)
+//        let p = t.locationInNode(self)
+//        let x = lp.x-p.x
+//        let y = lp.y-p.y
+//        scene!.camera!.position.x += x
+//        scene!.camera!.position.y += y
     }
     
     override func update(currentTime: CFTimeInterval) {
-        self.centerCamera()
         /* Called before each frame is rendered */
+        
+        self.centerCamera()
     }
     
     
@@ -249,6 +259,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         self.lastPositionX = selectedPlayer.position.x
         self.lastPositionY = selectedPlayer.position.y
+        
     }
     
     // Sam Protocol
@@ -267,7 +278,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         pausableLayer.paused = false
         
         for(var i = 0;i < pausableLayer.children.count;i++){
-            if(pausableLayer.children[i].isKindOfClass(CrateNode)){
+            if(pausableLayer.children[i].isKindOfClass(MovableObject)){
                 pausableLayer.children[i].physicsBody?.dynamic = true
                 pausableLayer.children[i].physicsBody?.affectedByGravity = true
             }

@@ -16,6 +16,11 @@ class MovableObject: GenericObject {
         super.init(sprite: sprite)
         physicsBody?.affectedByGravity = true
         physicsBody?.dynamic = true
+        physicsBody?.categoryBitMask = 2
+        physicsBody?.collisionBitMask = 1 | 2
+        physicsBody?.allowsRotation = false
+        physicsBody?.restitution = 0
+
     }
     
     required init?(coder aDecoder: NSCoder) {

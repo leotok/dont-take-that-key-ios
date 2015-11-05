@@ -38,12 +38,35 @@ class Settings: SKScene {
         let gear3 = SKSpriteNode(imageNamed: "gearsBACK")
         self.addChild(gear3)
         let rodaRoda3 = SKAction.rotateByAngle(60, duration: 20)
-        gear3.runAction(SKAction.repeatActionForever(rodaRoda))
+        gear3.runAction(SKAction.repeatActionForever(rodaRoda3))
         gear3.position = CGPointMake(self.size.width-gear3.size.width/2,self.size.height/2)
         gear3.zPosition = 10
-        //gear3.size = CGSizeMake(90, 90)
+        gear3.size = CGSizeMake(130, 130)
 
+        let gear4 = SKSpriteNode(imageNamed: "bigGear")
+        self.addChild(gear4)
+        let rodaRoda4 = SKAction.rotateByAngle(-40, duration: 23)
+        gear4.runAction(SKAction.repeatActionForever(rodaRoda4))
+        gear4.position = CGPointMake(self.size.width/5.66,self.size.height/3)
+        gear4.zPosition = 10
+       
+        let gear5 = SKSpriteNode(imageNamed: "gearsBACK")
+        self.addChild(gear5)
+        let rodaRoda5 = SKAction.rotateByAngle(60, duration: 20)
+        gear5.runAction(SKAction.repeatActionForever(rodaRoda5))
+        gear5.position = CGPointMake(self.size.width/4.33,self.size.height/1.38)
+        gear5.zPosition = 10
+        gear5.size = CGSizeMake(150, 150)
         
+//        let gear6 = SKSpriteNode(imageNamed: "gearGear")
+//        self.addChild(gear6)
+//        let rodaRoda6 = SKAction.rotateByAngle(60, duration: 20)
+//        gear6.runAction(SKAction.repeatActionForever(rodaRoda6))
+//        gear6.position = CGPointMake(100,300)
+//        gear6.zPosition = 10
+   
+
+
         
         
         

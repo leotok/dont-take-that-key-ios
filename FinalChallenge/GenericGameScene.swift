@@ -298,7 +298,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         }
         else if notPlayerPB.categoryBitMask == objectCategory {
 
-            if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+            if playerPB.node?.physicsBody?.velocity.dy == 0 {//if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 selectedPlayer.reachedGround()
             }
         }

@@ -47,7 +47,7 @@
 		3F7E93A91BC3007D0018BA4E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A71BC3007D0018BA4E /* key.png */; };
 		3F7E93AB1BC309B90018BA4E /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93AA1BC309B90018BA4E /* crate.png */; };
 		3F9CAADB1BE9167D008A3A2C /* AmpulhetaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */; };
-		3FA5619D1BC5AF2A009AD173 /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA5619C1BC5AF2A009AD173 /* door.png */; };
+		3F9CAADD1BEA6D10008A3A2C /* MooreLevelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CAADC1BEA6D10008A3A2C /* MooreLevelGenerator.swift */; };
 		3FA5619F1BC5B3A0009AD173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */; };
 		3FA561A11BC5B3DA009AD173 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */; };
 		3FA561AB1BC5BF22009AD173 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AA1BC5BF22009AD173 /* lock.png */; };
@@ -151,7 +151,7 @@
 		3F7E93A71BC3007D0018BA4E /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		3F7E93AA1BC309B90018BA4E /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
 		3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmpulhetaNode.swift; sourceTree = "<group>"; };
-		3FA5619C1BC5AF2A009AD173 /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
+		3F9CAADC1BEA6D10008A3A2C /* MooreLevelGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MooreLevelGenerator.swift; sourceTree = "<group>"; };
 		3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3FA561AA1BC5BF22009AD173 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
@@ -336,6 +336,7 @@
 				E974FEBE1BD549EA00613064 /* Extensions.swift */,
 				E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */,
 				D0B5027F1BB44DB3006C9C90 /* LevelGenerator.swift */,
+				3F9CAADC1BEA6D10008A3A2C /* MooreLevelGenerator.swift */,
 				D0B502881BB44EBC006C9C90 /* StoryText.swift */,
 				3F6580251BDFFEF2004B473E /* StoryLabelNode.swift */,
 				D0B5029A1BB45259006C9C90 /* HUD.swift */,
@@ -389,7 +390,6 @@
 				E974FEC01BD69C0800613064 /* pixelart.ttf */,
 				3F1316A41BD56EBE00D227DD /* gameplayBackground.png */,
 				3F1316351BC8298500D227DD /* Levels */,
-				3FA5619C1BC5AF2A009AD173 /* door.png */,
 				3F1316441BC8302000D227DD /* spike.png */,
 				3F7E93A71BC3007D0018BA4E /* key.png */,
 				3FA561AC1BC5BF4D009AD173 /* clock.png */,
@@ -524,7 +524,6 @@
 				3F1316421BC8298500D227DD /* Level_6.txt in Resources */,
 				3F1316A51BD56EBE00D227DD /* gameplayBackground.png in Resources */,
 				3F7E93AB1BC309B90018BA4E /* crate.png in Resources */,
-				3FA5619D1BC5AF2A009AD173 /* door.png in Resources */,
 				3F1316561BC8415100D227DD /* Level_11.txt in Resources */,
 				3F1316411BC8298500D227DD /* Level_5.txt in Resources */,
 				3F1316551BC8415100D227DD /* Level_10.txt in Resources */,
@@ -616,6 +615,7 @@
 				D0B5026F1BB44A7D006C9C90 /* MovableObject.swift in Sources */,
 				E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */,
 				3F9CAADB1BE9167D008A3A2C /* AmpulhetaNode.swift in Sources */,
+				3F9CAADD1BEA6D10008A3A2C /* MooreLevelGenerator.swift in Sources */,
 				D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */,
 				D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */,
 			);

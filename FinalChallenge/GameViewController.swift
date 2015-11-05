@@ -26,6 +26,10 @@ class GameViewController: UIViewController {
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
         self.view?.multipleTouchEnabled = true
+        
+        GameCenterManager.sharedInstance.vc = self
+        GameCenterManager.sharedInstance.authenticateLocalPlayer()
+        
         skView.presentScene(scene)
 
     }

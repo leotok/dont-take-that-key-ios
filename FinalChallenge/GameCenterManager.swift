@@ -11,9 +11,11 @@ import GameKit
 
 class GameCenterManager {
     
-    private var leaderboardIdentifier: String? = nil
+    //private var leaderboardIdentifier: String? = nil
     private var gameCenterEnabled: Bool = false
     var gcEnabled = false
+    private var localPlayer:GKLocalPlayer!
+    var vc:UIViewController!
     
     class var sharedInstance:GameCenterManager{
         get {
@@ -25,21 +27,27 @@ class GameCenterManager {
     }
     
     private init(){
-        //println("Singleton 'GameCenterManager' instanciado.")
+        //println("Singleton 'GaßmeCenterManager' instanciado.")
     }
     
-    func authenticateLocalPlayer() {
-        let localPlayer : GKLocalPlayer = GKLocalPlayer.localPlayer()
+    func authenticateLocalPlayer()
+    {
+         localPlayer = GKLocalPlayer.localPlayer()
         
         localPlayer.authenticateHandler = {(GameViewController, error) -> Void in
             
             if ((GameViewController) != nil) {
-              //  self.presentViewController(GameViewController!, animated: true, completion: nil)
+                self.vc!.presentViewController(GameViewController!, animated: true, completion: nil)
             }
-            else if (localPlayer.authenticated) {
+            else if (self.localPlayer.authenticated) {
                 print("Ta autenticado game center ")
                 self.gcEnabled = true
                 
+                self.localPlayer.loadDefaultLeaderboardIdentifierWithCompletionHandler({(leaderBoardIdentifier: String?, error: NSError?) -> Void in
+                    if error != nil {
+                        print(error)
+                    }
+                })
                 
             }
             else {
@@ -49,5 +57,29 @@ class GameCenterManager {
             }
         }
     }
+
+    func postAchievement(id:String) {
+     
+        if self.localPlayer.authenticated {
+            
+            let gkachiev = GKAchievement(identifier: id)
+            
+            
+            GKAchievement.reportAchievements([gkachiev], withCompletionHandler: {(error:NSError?) ->Void in
+                if error != nil {
+                    print(error)
+                }
+            })
+            print("reportado achiev")
+            
+            
+        }
+        else {
+            print("nao autenticado")
+        }
+        
+        
+    }
+    
     
 }

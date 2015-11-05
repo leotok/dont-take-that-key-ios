@@ -49,7 +49,7 @@ class LevelGenerator {
         addCharacterToGameScene()
         
         let moore = MooreLevelGenerator()
-        moore.loadLevel(scene)
+        moore.loadLevel(scene, index: level)
         
         print("\(NSDate().timeIntervalSinceDate(time)) seconds to load level")
         return true

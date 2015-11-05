@@ -53,14 +53,16 @@ class MooreLevelGenerator {
     private var shapesArray = Array<Array<ContourLine>>()
     private var levelScene: SKScene?
     
+    var levelIndex = 1
     let numberOfVerticalTiles = 13
     let numberOfHorizontalTiles = 24
     let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
     let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375  // 32 pts. Mesmo calculo para width e height para manter a proporcao 1x1 em qualquer device
     
-    func loadLevel(scene:GenericGameScene )->Bool {
+    func loadLevel(scene:GenericGameScene, index: Int)->Bool {
         
         levelScene = scene
+        levelIndex = index
         
         let startTime = NSDate()
         
@@ -141,7 +143,7 @@ class MooreLevelGenerator {
     
     private func getLevelMatrixFromTxt() {
         
-        let levelPath = "Level_1"
+        let levelPath = "Level_\(levelIndex)"
         
         if let path = NSBundle.mainBundle().pathForResource(levelPath, ofType: "txt")
         {

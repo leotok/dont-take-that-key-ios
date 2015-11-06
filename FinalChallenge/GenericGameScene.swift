@@ -308,7 +308,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     func resume() {
         self.scene?.paused = false
         self.popUpOpened = false
-        
     }
     func reset() {
         let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)

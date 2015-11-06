@@ -191,7 +191,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        print("\(selectedPlayer.position.x) \(selectedPlayer.position.y)")
+       // print("\(selectedPlayer.position.x) \(selectedPlayer.position.y)")
         self.centerCamera()
     }
     
@@ -227,8 +227,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         else if notPlayerPB.categoryBitMask == objectCategory {
-            //if playerPB.node?.physicsBody?.velocity.dy == 0 {
-                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+            if playerPB.velocity.dy == 0 {
+//                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 finishedPositioning = true
                 selectedPlayer.reachedGround()
             }

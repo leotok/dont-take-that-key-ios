@@ -204,18 +204,18 @@ class MooreLevelGenerator {
             case .North:
                 if (line.point.i == nextLine.point.i  && line.point.j == nextLine.point.j - 1) || (line.point.i == nextLine.point.i + 1  && line.point.j == nextLine.point.j - 1 ) {
                     // caso desenha apenas uma linha
-                    print("1 line north.")
+                    //print("1 line north.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i) * spriteHeight)
                 }
                 else if (line.point.i == nextLine.point.i - 1 && line.point.j == nextLine.point.j - 1 ) || ( line.point.i == nextLine.point.i - 1 && line.point.j == nextLine.point.j ) {
                     //caso desenha 2 linhas
-                    print("2 line north.")
+                    //print("2 line north.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i - 1 && line.point.j == nextLine.point.j + 1 ) || ( line.point.i == nextLine.point.i  && line.point.j == nextLine.point.j + 1 ) {
                     //case desenha 3 linhas
-                    print("3 line north.")
+                    //print("3 line north.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
@@ -227,24 +227,24 @@ class MooreLevelGenerator {
             case .South:
                 if ( line.point.i == nextLine.point.i  && line.point.j == nextLine.point.j + 1 ) || ( line.point.i == nextLine.point.i - 1  && line.point.j == nextLine.point.j + 1 )  {
                     // caso desenha apenas uma linha
-                    print("1 line south.")
+                    //print("1 line south.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i + 1 && line.point.j == nextLine.point.j + 1 ) ||  ( line.point.i == nextLine.point.i + 1 && line.point.j == nextLine.point.j ) {
                     //caso desenha 2 linhas
-                    print("2 line south.")
+                    //print("2 line south.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i + 1 && line.point.j == nextLine.point.j - 1 ) || ( line.point.i == nextLine.point.i && line.point.j == nextLine.point.j - 1 ) {
                     //case desenha 3 linhas
-                    print("3 line south.")
+                    //print("3 line south.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                 }
                 else {
-                    print("4 lines south.")
+                    //print("4 lines south.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i + 1 ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
@@ -254,18 +254,18 @@ class MooreLevelGenerator {
             case .West:
                 if (line.point.i == nextLine.point.i + 1  && line.point.j == nextLine.point.j ) || ( line.point.i == nextLine.point.i + 1  && line.point.j == nextLine.point.j + 1 ) {
                     // caso desenha apenas uma linha
-                    print("1 line west.")
+                    //print("1 line west.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i + 1 && line.point.j == nextLine.point.j - 1 ) || ( line.point.i == nextLine.point.i && line.point.j == nextLine.point.j - 1 ) {
                     //caso desenha 2 linhas
-                    print("2 line west.")
+                    //print("2 line west.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i - 1 && line.point.j == nextLine.point.j - 1 ) || ( line.point.i == nextLine.point.i - 1 && line.point.j == nextLine.point.j ) {
                     //case desenha 3 linhas
-                    print("3 line west.")
+                    //print("3 line west.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
@@ -277,18 +277,18 @@ class MooreLevelGenerator {
             case .East:
                 if ( line.point.i == nextLine.point.i - 1  && line.point.j == nextLine.point.j ) || ( line.point.i == nextLine.point.i - 1  && line.point.j == nextLine.point.j - 1 ) {
                     // caso desenha apenas uma linha
-                    print("1 line east.")
+                    //print("1 line east.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i - 1 && line.point.j == nextLine.point.j + 1 ) || ( line.point.i == nextLine.point.i  && line.point.j == nextLine.point.j + 1 ) {
                     //caso desenha 2 linhas
-                    print("2 line east.")
+                    //print("2 line east.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                 }
                 else if ( line.point.i == nextLine.point.i + 1 && line.point.j == nextLine.point.j + 1 ) || ( line.point.i == nextLine.point.i + 1 && line.point.j == nextLine.point.j )  {
                     //case desenha 3 linhas
-                    print("3 line east.")
+                    //print("3 line east.")
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
@@ -307,7 +307,6 @@ class MooreLevelGenerator {
         let shape = SKShapeNode(path: path)
         shape.position.y = CGFloat(spriteHeight * CGFloat(numberOfVerticalTiles*levelRatio!))
         shape.position.x =  -spriteWidth / 2
-        print(shape.position)
         shape.physicsBody = SKPhysicsBody(edgeChainFromPath: path)
         shape.physicsBody?.categoryBitMask = objectCategory
         shape.physicsBody?.contactTestBitMask = playerCategory
@@ -392,7 +391,6 @@ class MooreLevelGenerator {
                     }
                     let line = ContourLine(point: curPoint, direction: dir)
                     contourLinesArray.append(line)
-                    //print(line)
                 }
                 else if getCharFromStringAtIndex(mooreMatrix[curPoint.i], index: curPoint.j) == contourChar && (curPoint.i != start.i || curPoint.j != start.j) {
                     print("Found contour char.")
@@ -409,11 +407,11 @@ class MooreLevelGenerator {
                 }
             }
             
-           // printLevelMatrixLog(mooreMatrix)
+            // Descomentar para ver o resultado dos contornos
+            //printLevelMatrixLog(mooreMatrix)
             if curPoint.i ==  start.i && curPoint.j == start.j {
                 let last = ContourLine(point: TilePoint(i: curPoint.i, j: curPoint.j), direction: newDir)
                 contourLinesArray.append(last)
-                print("Last: \(last)")
                 print("Contour done.")
                 return
             }
@@ -422,7 +420,6 @@ class MooreLevelGenerator {
         if found == false {
             let last = ContourLine(point: TilePoint(i: start.i, j: start.j), direction: .South)
             contourLinesArray.append(last)
-            print("Last: \(last)")
             print("Contour done.")
             return
         }

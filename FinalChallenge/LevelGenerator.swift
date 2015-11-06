@@ -65,7 +65,7 @@ class LevelGenerator {
         let player = Sam()
         player.setDelegate(levelScene)
         levelScene.selectedPlayer = player
-        levelScene.selectedPlayer.position = CGPointMake(450, 500)
+        levelScene.selectedPlayer.position = CGPointMake(50, 300)
         levelScene.addChild(levelScene.selectedPlayer)
     
     }

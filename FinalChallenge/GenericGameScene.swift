@@ -317,7 +317,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     private func GameOver() {
         
-        self.popUp = GameOverMenu.createGameOverMenu(self.size)
+        self.popUp = GameOverMenu.createGameOverMenu(UIScreen.mainScreen().bounds.size)
+        self.popUp?.position = CGPointMake(selectedPlayer.position.x+200,selectedPlayer.position.y+25)
         self.scene?.paused = true
         self.popUpOpened = true
         self.popUp!.zPosition = ZPositionEnum.PopUp.rawValue

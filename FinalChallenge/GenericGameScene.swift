@@ -298,7 +298,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         if !popUpOpened {
             self.popUpOpened = true
             self.scene?.paused = true
-            self.popUp = PauseMenu.createPauseMenu(self.size)
+            self.popUp = PauseMenu.createPauseMenu(UIScreen.mainScreen().bounds.size)
+            self.popUp?.position = CGPointMake(selectedPlayer.position.x+200,selectedPlayer.position.y+25)
             self.popUp?.userInteractionEnabled = true
             popUp!.zPosition = ZPositionEnum.PopUp.rawValue
             self.addChild(popUp!)

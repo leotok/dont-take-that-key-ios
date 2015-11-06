@@ -143,8 +143,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
         
-        self.camera = SKCameraNode()
-        
         onBeginAchiev = "HelloWorld"
         if let achievStr = self.onBeginAchiev {
             GameCenterManager.sharedInstance.postAchievement(achievStr)
@@ -181,18 +179,19 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        let t = touches.first!
-//        let lp = t.previousLocationInNode(self)
-//        let p = t.locationInNode(self)
-//        let x = lp.x-p.x
-//        let y = lp.y-p.y
-//        scene!.camera!.position.x += x
-//        scene!.camera!.position.y += y
+        
+        let t = touches.first!
+        let lp = t.previousLocationInNode(self)
+        let p = t.locationInNode(self)
+        let x = lp.x-p.x
+        let y = lp.y-p.y
+        scene!.camera!.position.x += x
+        scene!.camera!.position.y += y
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        
+        print("\(selectedPlayer.position.x) \(selectedPlayer.position.y)")
         self.centerCamera()
     }
     
@@ -228,8 +227,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         else if notPlayerPB.categoryBitMask == objectCategory {
-
-            if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+            //if playerPB.node?.physicsBody?.velocity.dy == 0 {
+                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 finishedPositioning = true
                 selectedPlayer.reachedGround()
             }
@@ -249,8 +248,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     func centerCamera() {
-        if(self.lastPositionX >= 50 && self.lastPositionX <= 682 && self.size.width-UIScreen.mainScreen().bounds.size.width > 200){
+        if(self.lastPositionX >= 50 && self.lastPositionX <= 682 && self.camera != nil){
             scene!.camera?.position = CGPointMake(selectedPlayer.position.x+545,selectedPlayer.position.y-141)
+            //scene?.camera?.position = selectedPlayer.position
             
             if(finishedPositioning){
                 self.hud.position = CGPointMake(self.hud.position.x+(selectedPlayer.position.x-self.lastPositionX!), self.hud.position.y+(selectedPlayer.position.y-self.lastPositionY!))

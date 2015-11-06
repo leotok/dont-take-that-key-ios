@@ -45,9 +45,11 @@ class LevelGenerator {
         let time = NSDate()
         getLevelMatrixFromTxt()
         addCorrespondingBackground()
-        //printLevelMatrixLog()
         generateNodes()
         addCharacterToGameScene()
+        
+        let moore = MooreLevelGenerator()
+        moore.loadLevel(scene, index: level, levelRatio: levelRatio)
         
         print("\(NSDate().timeIntervalSinceDate(time)) seconds to load level")
         return true
@@ -63,8 +65,7 @@ class LevelGenerator {
         let player = Sam()
         player.setDelegate(levelScene)
         levelScene.selectedPlayer = player
-        levelScene.selectedPlayer.position = CGPointMake(50, 300)
-        //levelScene.selectedPlayer.position = CGPointMake(400, 600)
+        levelScene.selectedPlayer.position = CGPointMake(450, 500)
         levelScene.addChild(levelScene.selectedPlayer)
     
     }
@@ -184,8 +185,8 @@ class LevelGenerator {
             
                 let i = 1 //Int.random(2...5)
                 tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
+                tile.physicsBody = nil
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)
-                tile.physicsBody?.contactTestBitMask = playerCategory
             
             case "2":
             
@@ -207,9 +208,8 @@ class LevelGenerator {
             
                 let i = 1 //Int.random(1...4)
                 tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop\(i)"))
-                tile.color = SKColor.redColor()
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)
-                tile.physicsBody?.contactTestBitMask = playerCategory
+                tile.physicsBody = nil
             
             case "7":
             

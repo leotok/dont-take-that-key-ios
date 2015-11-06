@@ -13,15 +13,15 @@ class ClockHandNode: StaticObject {
     
     init() {
         
-        let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 4 / 12.9375
-        let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 8 / 12.9375
+        let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height  / 12.9375
+        let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         
-        let sprite = SKTexture(imageNamed: "ponteiroPequeno")
+        let sprite = SKTexture(imageNamed: "ponteiroGrande")
         super.init(sprite: sprite)
         
        // self.anchorPoint = CGPointMake(0.1, 0.53 )
         
-        size = CGSizeMake(spriteWidth,  spriteHeight)
+        size = sprite.size()
         physicsBody = SKPhysicsBody(texture: sprite, size: sprite.size())
         physicsBody?.categoryBitMask = clockHandCategory
         physicsBody?.usesPreciseCollisionDetection = true

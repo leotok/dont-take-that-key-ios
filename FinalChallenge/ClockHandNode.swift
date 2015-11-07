@@ -32,6 +32,7 @@ class ClockHandNode: StaticObject {
         zPosition = ZPositionEnum.ClockHand.rawValue
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0
+        physicsBody?.friction = 2
         
         let action = (SKAction.rotateByAngle(-2 * 3.14 , duration: Double(Int.random(2...4))))
         self.runAction(SKAction.repeatActionForever(action))

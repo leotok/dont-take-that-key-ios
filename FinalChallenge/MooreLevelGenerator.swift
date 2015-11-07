@@ -305,6 +305,7 @@ class MooreLevelGenerator {
         print("Shape created.")
         
         let shape = SKShapeNode(path: path)
+        shape.strokeColor = .clearColor()
         shape.position.y = CGFloat(spriteHeight * CGFloat(numberOfVerticalTiles*levelRatio!))
         shape.position.x =  -spriteWidth / 2
         shape.physicsBody = SKPhysicsBody(edgeChainFromPath: path)

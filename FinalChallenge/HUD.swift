@@ -121,6 +121,8 @@ class HUD: SKSpriteNode {
                 print("jumpButton")
             }
             if(self.powerButton.frame.contains(location)){
+                (self.parent as! GenericGameScene).pauseScene()
+                
             }
         }
     }

@@ -19,12 +19,12 @@ class DoorNode: StaticObject {
         let doorSprite = SKTexture(imageNamed: "door")
         super.init(sprite: doorSprite)
         
-        self.anchorPoint = CGPointMake(0.5, 0.25)
+        self.anchorPoint = CGPointMake(0.25, 0.25)
         self.zPosition = ZPositionEnum.Objects.rawValue
         physicsBody?.usesPreciseCollisionDetection = true
         self.size = doorSprite.size()//CGSizeMake(spriteWidth, spriteHeight)
         self.physicsBody?.categoryBitMask = doorCategory
-        self.physicsBody?.collisionBitMask = objectCategory
+        self.physicsBody?.collisionBitMask = 0
     }
     
     

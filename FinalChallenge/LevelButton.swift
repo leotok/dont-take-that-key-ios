@@ -15,7 +15,7 @@ enum LevelButtonType: String {
     case Shrink = "freud"
     case Ellie = "fat-bottom-girls"
     case AllCharacters = "allchar"
-    case Locked = "lock"
+    case Locked = "lock 2"
     
 }
 

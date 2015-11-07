@@ -103,7 +103,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 level = LevelButton(type: LevelButtonType.Sam, level: i)
             }
             else {
-                level = LevelButton(type: LevelButtonType.Locked, level: i)
+                level = LevelButton(type: LevelButtonType.Sam, level: i)
             }
             level.position = samLevelPositionArray[i-1]
             background.addChild(level)
@@ -123,7 +123,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 level = LevelButton(type: LevelButtonType.Sam, level: i + 6)
             }
             else {
-                level = LevelButton(type: LevelButtonType.Sam, level: i + 6)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
             }
             level.position = shrinkLevelPositionArray[i-1]
             background.addChild(level)

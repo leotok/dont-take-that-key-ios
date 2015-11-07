@@ -142,11 +142,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
-        
-        onBeginAchiev = "HelloWorld"
-        if let achievStr = self.onBeginAchiev {
-            GameCenterManager.sharedInstance.postAchievement(achievStr)
-        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -185,8 +180,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         let p = t.locationInNode(self)
         let x = lp.x-p.x
         let y = lp.y-p.y
-        scene!.camera!.position.x += x
-        scene!.camera!.position.y += y
+        
+        if let camera = scene?.camera {
+            camera.position.x += x
+            camera.position.y += y
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -264,8 +262,15 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     // Sam Protocol
     func pauseScene() -> Bool {
+        
+        if pausableLayer.paused == true {
+            return unpauseScene()
+        }
+
+        
         pausableLayer.paused = true
         
+        print(pausableLayer.children.count)
         for(var i = 0;i < pausableLayer.children.count;i++){
             pausableLayer.children[i].physicsBody?.affectedByGravity = false
             pausableLayer.children[i].paused = true
@@ -299,7 +304,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             self.popUpOpened = true
             self.scene?.paused = true
             self.popUp = PauseMenu.createPauseMenu(UIScreen.mainScreen().bounds.size)
-            self.popUp?.position = CGPointMake(selectedPlayer.position.x+200,selectedPlayer.position.y+25)
+            self.popUp?.position = CGPointMake(size.width / 2, size.height / 2)//CGPointMake(selectedPlayer.position.x+200,selectedPlayer.position.y+25)
             self.popUp?.userInteractionEnabled = true
             popUp!.zPosition = ZPositionEnum.PopUp.rawValue
             self.addChild(popUp!)
@@ -319,7 +324,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     private func GameOver() {
         
         self.popUp = GameOverMenu.createGameOverMenu(UIScreen.mainScreen().bounds.size)
-        self.popUp?.position = CGPointMake(selectedPlayer.position.x+200,selectedPlayer.position.y+25)
+        self.popUp?.position = CGPointMake(self.frame.size.width/2,self.frame.size.height/2)
         self.scene?.paused = true
         self.popUpOpened = true
         self.popUp!.zPosition = ZPositionEnum.PopUp.rawValue

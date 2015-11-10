@@ -78,8 +78,9 @@ class MooreLevelGenerator {
         
         for var i = 1; i < 26 && (line.point.i >= 0 && line.point.j >= 0) ; i++ {
             
+            var array = Array<ContourLine>()
+            array.append(line)
             if line.point.i >= 0 && line.point.j >= 0 {
-                var array = Array<ContourLine>()
                 traceContourForChar(&array,tracedChar: "1", contourChar: startingChar, start: line.point, point: line.point, startingDir: line.direction)
                 shapesArray.append(array)
                 startingChar = getCharFromStringAtIndex(alphabet, index: i)
@@ -90,7 +91,6 @@ class MooreLevelGenerator {
         print("Generated in \(NSDate().timeIntervalSinceDate(startTime)) seconds.")
         
         for shape in shapesArray {
-            print(shape.count)
             createNodeForContourLines(shape)
         }
         
@@ -186,9 +186,13 @@ class MooreLevelGenerator {
         let path = CGPathCreateMutable()
         
         let initialPoint = contourLinesArray.first?.point
-        CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j + 1) * spriteHeight, CGFloat(initialPoint!.i) * spriteWidth)
-        // CGPathAddLineToPoint(path, nil, CGFloat(initialPoint!.j + 1) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteHeight)
-        
+        if contourLinesArray.count == 1 {
+            CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j ) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteWidth)
+        }
+        else {
+            CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j + 1) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteWidth)
+        }
+
         for k in 0...contourLinesArray.count - 1 {
             
             let line = contourLinesArray[k]
@@ -245,10 +249,10 @@ class MooreLevelGenerator {
                 }
                 else {
                     //print("4 lines south.")
-                    CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1) * spriteHeight)
-                    CGPathAddLineToPoint(path, nil, CGFloat(line.point.j) * spriteHeight, CGFloat(line.point.i + 1 ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
                     CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i ) * spriteHeight)
+                    CGPathAddLineToPoint(path, nil, CGFloat(line.point.j + 1) * spriteHeight, CGFloat(line.point.i + 1 ) * spriteHeight)
+                    CGPathAddLineToPoint(path, nil, CGFloat(line.point.j ) * spriteHeight, CGFloat(line.point.i + 1 ) * spriteHeight)
                 }
                 
             case .West:
@@ -296,13 +300,12 @@ class MooreLevelGenerator {
                 else {
                     print("Outro caso de East.")
                 }
-                
-                
             default:
                 print("There shouldn't be a line with \(line.direction) direction.")
             }
         }
-        print("Shape created.")
+        CGPathCloseSubpath(path)
+        print("Shape created.\n")
         
         let shape = SKShapeNode(path: path)
         shape.strokeColor = .clearColor()
@@ -412,7 +415,7 @@ class MooreLevelGenerator {
             //printLevelMatrixLog(mooreMatrix)
             if curPoint.i ==  start.i && curPoint.j == start.j {
                 let last = ContourLine(point: TilePoint(i: curPoint.i, j: curPoint.j), direction: newDir)
-                contourLinesArray.append(last)
+//                contourLinesArray.append(last)
                 print("Contour done.")
                 return
             }
@@ -420,7 +423,7 @@ class MooreLevelGenerator {
         
         if found == false {
             let last = ContourLine(point: TilePoint(i: start.i, j: start.j), direction: .South)
-            contourLinesArray.append(last)
+//            contourLinesArray.append(last)
             print("Contour done.")
             return
         }

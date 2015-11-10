@@ -16,6 +16,7 @@ let keyCategory:UInt32    = 8
 let doorCategory:UInt32   = 16
 let controlTileCategory: UInt32 = 32
 let clockHandCategory: UInt32 = 64
+let crateCategory: UInt32 = 128
 
 enum ZPositionEnum : CGFloat {
     
@@ -224,16 +225,16 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 self.GameWin()
             }
         }
-        else if notPlayerPB.categoryBitMask == objectCategory {
+        else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
             if playerPB.velocity.dy == 0 {
 //                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 finishedPositioning = true
                 selectedPlayer.reachedGround()
             }
         }
-        else if notPlayerPB.categoryBitMask == clockHandCategory {
-            selectedPlayer.reachedGround()
-        }
+//        else if (notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory ){
+//            selectedPlayer.reachedGround()
+//        }
         else if notPlayerPB.categoryBitMask == controlTileCategory {
             
             let control = notPlayerPB.node as! ControlTile
@@ -283,7 +284,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         pausableLayer.paused = false
         
         for(var i = 0;i < pausableLayer.children.count;i++){
-            if(pausableLayer.children[i].isKindOfClass(MovableObject)){
+            //if(pausableLayer.children[i].isKindOfClass(MovableObject)){
+            let categoria = (pausableLayer.children[i] as! SKSpriteNode).physicsBody?.categoryBitMask
+            if pausableLayer.children[i].isKindOfClass(MovableObject) == true || categoria == crateCategory {
                 pausableLayer.children[i].physicsBody?.dynamic = true
                 pausableLayer.children[i].physicsBody?.affectedByGravity = true
             }

@@ -30,8 +30,8 @@ class GameCharacter: SKSpriteNode {
         //physicsBody = SKPhysicsBody(texture: sprite.first!, size: CGSizeMake(spriteWidth, spriteHeight))
         physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory
-        physicsBody?.collisionBitMask = objectCategory | hazardCategory | clockHandCategory
-        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory | clockHandCategory
+        physicsBody?.collisionBitMask = objectCategory | hazardCategory | clockHandCategory | crateCategory
+        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory | clockHandCategory |  crateCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
 

@@ -15,7 +15,7 @@ class GameCharacter: SKSpriteNode {
     private var isUsingPower = false
     private var powerDuration:Float = 0.0
     private var lastUpdatePower = NSDate()
-    private var paradoTextures:[SKTexture]!
+    private var idleTextures:[SKTexture]!
     internal var walkTextures:[SKTexture]!
     internal var jumpTextures:[SKTexture]!
     
@@ -23,11 +23,10 @@ class GameCharacter: SKSpriteNode {
     let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2  / 12.9375
     
     init (sprite:[SKTexture]) {
-        self.paradoTextures = sprite
+        self.idleTextures = sprite
         let spriteSize = sprite.first?.size()
         let charSize = CGSizeMake((spriteSize?.width)! / 1.5, (spriteSize?.height)! / 1.5)
         super.init(texture: sprite.first, color: UIColor.clearColor(), size: charSize)
-        //physicsBody = SKPhysicsBody(texture: sprite.first!, size: CGSizeMake(spriteWidth, spriteHeight))
         physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory | clockHandCategory | crateCategory
@@ -35,7 +34,6 @@ class GameCharacter: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
 
-        //physicsBody?.usesPreciseCollisionDetection = true
         self.zPosition = ZPositionEnum.Character.rawValue
 
         name = "character"
@@ -51,10 +49,8 @@ class GameCharacter: SKSpriteNode {
     
     func walkRight () {
         self.removeActionForKey("Idle")
-        //walkTextures = [idleTexture,idleTexture,idleTexture]
         let moveX = SKAction.moveByX(30, y: 0, duration: 0.2)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.15)
-        //let walkAction = SKAction.group([moveX,animate])
     
         self.xScale = 1
         self.runAction(SKAction.repeatActionForever(moveX), withKey:"Walk")
@@ -63,10 +59,8 @@ class GameCharacter: SKSpriteNode {
     
     func walkLeft () {
         self.removeActionForKey("Idle")
-        //walkTextures = [idleTexture,idleTexture,idleTexture]
         let moveX = SKAction.moveByX(-30, y: 0, duration: 0.2)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.15)
-      //  let walkAction = SKAction.group([moveX,animate])
         
         self.xScale = -1
         self.runAction(SKAction.repeatActionForever(moveX), withKey:"Walk")
@@ -77,17 +71,16 @@ class GameCharacter: SKSpriteNode {
         self.removeActionForKey("Walk")
         self.removeActionForKey("Animate")
         physicsBody?.velocity = CGVectorMake(0, 0)
+        self.texture = idleTextures[0]
         let wait = SKAction.waitForDuration(3)
-        let animate = SKAction.animateWithTextures([paradoTextures[1],paradoTextures[0]], timePerFrame: 0.2)
+        let animate = SKAction.animateWithTextures([idleTextures[1],idleTextures[0]], timePerFrame: 0.2)
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait,animate])), withKey:"Idle")
-        
-        
     }
     
     func jump() {
         
         if !isJumping {
-            jumpTextures = self.paradoTextures
+            jumpTextures = self.idleTextures
             //let animate = SKAction.animateWithTextures(jumpTextures, timePerFrame: 0.2)
             //let jumpAction = SKAction.group([animate,impulse])
             //self.runAction(jumpAction, withKey:"Jump")

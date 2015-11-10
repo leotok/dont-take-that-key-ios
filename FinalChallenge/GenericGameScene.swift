@@ -175,14 +175,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        let t = touches.first!
-        let lp = t.previousLocationInNode(self)
-        let p = t.locationInNode(self)
-        let x = lp.x-p.x
-        let y = lp.y-p.y
+        hud.touchesMoved(touches, withEvent: event)
         
         if let camera = scene?.camera {
+            let t = touches.first!
+            let lp = t.previousLocationInNode(self)
+            let p = t.locationInNode(self)
+            let x = lp.x-p.x
+            let y = lp.y-p.y
             camera.position.x += x
             camera.position.y += y
         }

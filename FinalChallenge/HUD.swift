@@ -10,9 +10,6 @@ import Foundation
 import SpriteKit
 
 class HUD: SKSpriteNode {
-    
-    //var switchCharacterButton: SwitchCharacterButton
-    //var pauseButton: PauseButton
     var switchCharacterButton: SwitchCharacterButton
     var pauseButton: PauseButton
     var leftButton: LeftButton
@@ -25,8 +22,6 @@ class HUD: SKSpriteNode {
     var walkingRight: Bool = false
     
     init() {
-
-        //self.switchCharacterButton = SwitchCharacterButton(characterImage: "Elie")
         self.leftButton = LeftButton()
         self.rightButton = RightButton()
         self.jumpButton = JumpButton()
@@ -35,16 +30,6 @@ class HUD: SKSpriteNode {
         self.pauseButton = PauseButton()
         
         super.init(texture: nil, color: UIColor.clearColor(), size: UIScreen.mainScreen().bounds.size)
-        
-        //self.position = CGPoint(x: 100,y: 100)
-        
-//        self.leftButton.userInteractionEnabled = true
-//        self.rightButton.userInteractionEnabled = true
-//        self.jumpButton.userInteractionEnabled = true
-//        self.powerButton.userInteractionEnabled = true
-//        self.switchCharacterButton.userInteractionEnabled = true
-//        self.pauseButton.userInteractionEnabled = true
-//        self.userInteractionEnabled = true
     }
 
     func setPositions(){
@@ -110,14 +95,12 @@ class HUD: SKSpriteNode {
             }
             else if(self.rightButton.frame.contains(location)){
                 currC.currentCharacter?.walkRight()
-                //self.rightButton.touchesBegan(touches, withEvent: event)
                 walking = true
                 walkingRight = true
                 print("rightButton")
             }
             if(self.jumpButton.frame.contains(location)){
                 currC.currentCharacter?.jump()
-                //self.jumpButton.touchesBegan(touches, withEvent: event)
                 print("jumpButton")
             }
             if(self.powerButton.frame.contains(location)){
@@ -135,13 +118,11 @@ class HUD: SKSpriteNode {
             
             if(self.leftButton.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
-                //self.leftButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingLeft = false
             }
             if(self.rightButton.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
-                //self.rightButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingRight = false
             }
@@ -150,7 +131,6 @@ class HUD: SKSpriteNode {
                     characterSingleton.currentCharacter?.removeActionForKey("Jump")
                     characterSingleton.currentCharacter!.stopImpulse()
                 }
-                //self.jumpButton.touchesEnded(touches, withEvent: event)
             }
         }
     }
@@ -159,26 +139,24 @@ class HUD: SKSpriteNode {
         print("moved was called")
         let characterSingleton = CurrentCharacterSingleton.sharedInstance
         for touch in (touches) {
+            let previousLocation = touch.previousLocationInNode(self)
             let location = touch.locationInNode(self)
             
-            if(self.leftButton.frame.contains(location)){
+            if(self.leftButton.frame.contains(previousLocation) && !self.leftButton.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
-                //self.leftButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingLeft = false
             }
-            if(self.rightButton.frame.contains(location)){
+            if(self.rightButton.frame.contains(previousLocation) && !self.rightButton.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
-                //self.rightButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingRight = false
             }
-            if(self.jumpButton.frame.contains(location)){
+            if(self.jumpButton.frame.contains(previousLocation) && !self.jumpButton.frame.contains(location)){
                 if(characterSingleton.currentCharacter!.isJumping == true){
                     characterSingleton.currentCharacter?.removeActionForKey("Jump")
                     characterSingleton.currentCharacter!.stopImpulse()
                 }
-                //self.jumpButton.touchesEnded(touches, withEvent: event)
             }
         }
     }

@@ -16,11 +16,15 @@ class CrateNode: MovableObject {
         let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         
-        let keySprite = SKTexture(imageNamed: "crate")
-        super.init(sprite: keySprite)
+        let sprite = SKTexture(imageNamed: "crate")
+        super.init(sprite: sprite)
         
         self.size = CGSizeMake(spriteWidth, spriteHeight)
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size, center: CGPointMake(0,0))
+        self.physicsBody?.allowsRotation = false
         self.physicsBody?.categoryBitMask = objectCategory
+        self.physicsBody?.collisionBitMask = 1 | 2
+        self.physicsBody?.restitution = 0
     }
     
     

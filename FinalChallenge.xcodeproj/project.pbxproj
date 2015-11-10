@@ -13,7 +13,6 @@
 		3F1316401BC8298500D227DD /* Level_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316391BC8298500D227DD /* Level_4.txt */; };
 		3F1316411BC8298500D227DD /* Level_5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F13163A1BC8298500D227DD /* Level_5.txt */; };
 		3F1316421BC8298500D227DD /* Level_6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F13163B1BC8298500D227DD /* Level_6.txt */; };
-		3F1316451BC8302000D227DD /* spike.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316441BC8302000D227DD /* spike.png */; };
 		3F1316521BC8415100D227DD /* Level_7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316461BC8415100D227DD /* Level_7.txt */; };
 		3F1316531BC8415100D227DD /* Level_8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316471BC8415100D227DD /* Level_8.txt */; };
 		3F1316541BC8415100D227DD /* Level_9.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316481BC8415100D227DD /* Level_9.txt */; };
@@ -111,7 +110,6 @@
 		3F1316391BC8298500D227DD /* Level_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_4.txt; sourceTree = "<group>"; };
 		3F13163A1BC8298500D227DD /* Level_5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_5.txt; sourceTree = "<group>"; };
 		3F13163B1BC8298500D227DD /* Level_6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_6.txt; sourceTree = "<group>"; };
-		3F1316441BC8302000D227DD /* spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spike.png; sourceTree = "<group>"; };
 		3F1316461BC8415100D227DD /* Level_7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_7.txt; sourceTree = "<group>"; };
 		3F1316471BC8415100D227DD /* Level_8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_8.txt; sourceTree = "<group>"; };
 		3F1316481BC8415100D227DD /* Level_9.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level_9.txt; sourceTree = "<group>"; };
@@ -390,7 +388,6 @@
 				E974FEC01BD69C0800613064 /* pixelart.ttf */,
 				3F1316A41BD56EBE00D227DD /* gameplayBackground.png */,
 				3F1316351BC8298500D227DD /* Levels */,
-				3F1316441BC8302000D227DD /* spike.png */,
 				3F7E93A71BC3007D0018BA4E /* key.png */,
 				3FA561AC1BC5BF4D009AD173 /* clock.png */,
 				3FA561AA1BC5BF22009AD173 /* lock.png */,
@@ -531,7 +528,6 @@
 				3F1316541BC8415100D227DD /* Level_9.txt in Resources */,
 				3F13163F1BC8298500D227DD /* Level_3.txt in Resources */,
 				3F1316401BC8298500D227DD /* Level_4.txt in Resources */,
-				3F1316451BC8302000D227DD /* spike.png in Resources */,
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				3F1316571BC8415100D227DD /* Level_12.txt in Resources */,
 				3F1316581BC8415100D227DD /* Level_13.txt in Resources */,

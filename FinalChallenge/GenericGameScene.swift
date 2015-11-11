@@ -48,6 +48,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     var popUp:Menu?
     var finishedPositioning: Bool = false
     
+    var pausableObjectsArray = [SKSpriteNode]()
+    
     var switchCharacterButton: SwitchCharacterButton?
     var pauseButton: PauseButton?
     var leftButton: LeftButton?
@@ -209,6 +211,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             notPlayerPB = contact.bodyA
         }
         
+        print("categoria: \(notPlayerPB.categoryBitMask)")
+        
         let player = playerPB.node as! GameCharacter
         
         if notPlayerPB.categoryBitMask == hazardCategory {
@@ -267,28 +271,26 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         if pausableLayer.paused == true {
             return unpauseScene()
         }
-
-        
         pausableLayer.paused = true
         
-        print(pausableLayer.children.count)
-        for(var i = 0;i < pausableLayer.children.count;i++){
-            pausableLayer.children[i].physicsBody?.affectedByGravity = false
-            pausableLayer.children[i].paused = true
-            pausableLayer.children[i].physicsBody?.velocity = CGVectorMake(0, 0)
-            pausableLayer.children[i].physicsBody?.dynamic = false
+        print(" number of objects: \("pausableObjectsArray.count")")
+        for(var i = 0;i < pausableObjectsArray.count;i++) {
+            pausableObjectsArray[i].physicsBody?.affectedByGravity = false
+            pausableObjectsArray[i].paused = true
+            pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
+            pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
+
         }
         return true
     }
     func unpauseScene() -> Bool {
         pausableLayer.paused = false
         
-        for(var i = 0;i < pausableLayer.children.count;i++){
-            //if(pausableLayer.children[i].isKindOfClass(MovableObject)){
+        for(var i = 0;i < pausableObjectsArray.count;i++) {
             let categoria = (pausableLayer.children[i] as! SKSpriteNode).physicsBody?.categoryBitMask
-            if pausableLayer.children[i].isKindOfClass(MovableObject) == true || categoria == crateCategory {
-                pausableLayer.children[i].physicsBody?.dynamic = true
-                pausableLayer.children[i].physicsBody?.affectedByGravity = true
+            
+            if pausableObjectsArray[i].isKindOfClass(MovableObject) == true || categoria == crateCategory {
+                pausableObjectsArray[i].physicsBody?.affectedByGravity = true
             }
         }
         return false
@@ -301,7 +303,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.view?.presentScene(scene, transition: transition)
     }
     
-    //Menus
+    // Menus
     func pauseGame() {
         if !popUpOpened {
             self.popUpOpened = true

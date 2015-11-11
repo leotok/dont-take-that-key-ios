@@ -22,9 +22,11 @@ class CrateNode: MovableObject {
         self.size = CGSizeMake(spriteWidth, spriteHeight)
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size, center: CGPointMake(0,0))
         self.physicsBody?.allowsRotation = false
-        self.physicsBody?.categoryBitMask = objectCategory
-        self.physicsBody?.collisionBitMask = 1 | 2
+        self.physicsBody?.categoryBitMask = crateCategory
+        self.physicsBody?.contactTestBitMask = playerCategory
+        self.physicsBody?.collisionBitMask = playerCategory | objectCategory | crateCategory | clockHandCategory
         self.physicsBody?.restitution = 0
+        self.physicsBody?.dynamic = true
     }
     
     

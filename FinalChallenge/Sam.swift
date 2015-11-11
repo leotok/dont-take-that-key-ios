@@ -28,7 +28,6 @@ class Sam: GameCharacter{
         texture1.filteringMode = SKTextureFilteringMode.Nearest
         texture2.filteringMode = SKTextureFilteringMode.Nearest
         super.init(sprite:[texture1,texture2])
-        //self.physicsBody = SKPhysicsBody(texture: self.texture!, size: (self.texture?.size())!)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
         

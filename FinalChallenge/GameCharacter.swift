@@ -132,7 +132,12 @@ class GameCharacter: SKSpriteNode {
     }
     
     func getPercentagePower () ->Double {
-        return self.powerDuration / self.initialPowerDuration
+        if powerDuration > 0 {
+            return self.powerDuration / self.initialPowerDuration
+        }
+        else {
+            return 0
+        }
     }
     
     /* INTERNAL AND PRIVATE METHODS */
@@ -143,7 +148,7 @@ class GameCharacter: SKSpriteNode {
             isUsingPower = true
             lastUpdatePower = NSDate()
             let perform = SKAction.performSelector("updatePower:", onTarget: self)
-            let wait = SKAction.waitForDuration(1)
+            let wait = SKAction.waitForDuration(0.1)
         
             let update = SKAction.repeatActionForever(SKAction.sequence([wait,perform]))
             self.runAction(update, withKey: "UpdatePower")
@@ -152,7 +157,7 @@ class GameCharacter: SKSpriteNode {
     internal func deactivatePower() {
         let elapsedTime = NSDate().timeIntervalSinceDate(lastUpdatePower)
         self.powerDuration = self.powerDuration - elapsedTime
-        print("powerDuration")
+        NSNotificationCenter.defaultCenter().postNotificationName("UpdatePowerBar", object: nil)
         isUsingPower = false
         self.removeActionForKey("UpdatePower")
     }

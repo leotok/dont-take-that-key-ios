@@ -135,7 +135,7 @@ class HUD: SKSpriteNode {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("moved was called")
+
         let characterSingleton = CurrentCharacterSingleton.sharedInstance
         for touch in (touches) {
             let previousLocation = touch.previousLocationInNode(self)

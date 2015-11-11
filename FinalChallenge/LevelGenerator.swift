@@ -191,10 +191,12 @@ class LevelGenerator {
             case "2":
             
                 tile = KeyNode()
+                levelScene.pausableObjectsArray.append(tile)
             
             case "3":
             
                 tile = CrateNode()
+                levelScene.pausableObjectsArray.append(tile)
             
             case "4":
             
@@ -220,11 +222,13 @@ class LevelGenerator {
             case "8":
             
                 tile = ClockHandNode()
+                levelScene.pausableObjectsArray.append(tile)
             
             case "9":
             
                 tile = AmpulhetaNode()
-                
+                levelScene.pausableObjectsArray.append(tile)
+            
             case "0":
                 
                 break;

@@ -268,12 +268,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     // Sam Protocol
     func pauseScene() -> Bool {
         
-        if pausableLayer.paused == true {
-            return unpauseScene()
-        }
         pausableLayer.paused = true
         
-        print(" number of objects: \("pausableObjectsArray.count")")
+        print(" number of objects: \(pausableObjectsArray.count)")
         for(var i = 0;i < pausableObjectsArray.count;i++) {
             pausableObjectsArray[i].physicsBody?.affectedByGravity = false
             pausableObjectsArray[i].paused = true

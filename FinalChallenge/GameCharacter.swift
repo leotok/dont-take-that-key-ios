@@ -113,10 +113,10 @@ class GameCharacter: SKSpriteNode {
         
     }
     
-    func updatePower(sender:AnyObject) {
+    func updatePower() {
         print("UPDATING POWER")
         if isUsingPower {
-            let elapsedTime = NSDate().timeIntervalSinceDate(lastUpdatePower)
+            let elapsedTime = NSDate().timeIntervalSinceDate(self.lastUpdatePower)
             self.powerDuration = self.powerDuration - elapsedTime
             print(powerDuration)
             lastUpdatePower = NSDate()
@@ -136,7 +136,7 @@ class GameCharacter: SKSpriteNode {
             return self.powerDuration / self.initialPowerDuration
         }
         else {
-            return 0
+            return 0.0
         }
     }
     
@@ -145,13 +145,16 @@ class GameCharacter: SKSpriteNode {
     internal func activatePower() {
 
         if powerDuration > 0.0 {
-            isUsingPower = true
-            lastUpdatePower = NSDate()
-            let perform = SKAction.performSelector("updatePower:", onTarget: self)
+            self.isUsingPower = true
+            self.lastUpdatePower = NSDate()
+            
+            let perform = SKAction.performSelector("updatePower", onTarget: self)
+    
+            
             let wait = SKAction.waitForDuration(0.1)
         
-            let update = SKAction.repeatActionForever(SKAction.sequence([wait,perform]))
-            self.runAction(update, withKey: "UpdatePower")
+            let updatePowerDuration = SKAction.repeatActionForever(SKAction.sequence([wait,perform]))
+            self.runAction(updatePowerDuration, withKey: "UpdatePower")
         }
     }
     internal func deactivatePower() {

@@ -53,8 +53,11 @@ class Sam: GameCharacter{
     
      internal override func activatePower() {
         super.activatePower()
-        self.delegate?.pauseScene()
-//        print(self.delegate)
+
+        if self.powerDuration > 0.0 {
+            self.delegate?.pauseScene()
+        }
+
     }
     internal override func deactivatePower() {
         super.deactivatePower()

@@ -13,7 +13,8 @@ class GameCharacter: SKSpriteNode {
     
     var isJumping = false
     private var isUsingPower = false
-    private var powerDuration:Float = 0.0
+    internal var initialPowerDuration:Double = 10.0
+    internal var powerDuration:Double = 10.0
     private var lastUpdatePower = NSDate()
     private var idleTextures:[SKTexture]!
     internal var walkTextures:[SKTexture]!
@@ -112,27 +113,56 @@ class GameCharacter: SKSpriteNode {
         
     }
     
-    func updatePower(interval:NSDate) {
-        
-        //TODO calcular intervalo e substrair do power duration
-        
-        
+    func updatePower(sender:AnyObject) {
+        print("UPDATING POWER")
+        if isUsingPower {
+            let elapsedTime = NSDate().timeIntervalSinceDate(lastUpdatePower)
+            self.powerDuration = self.powerDuration - elapsedTime
+            print(powerDuration)
+            lastUpdatePower = NSDate()
+            if self.powerDuration <= 0.0 {
+                self.deactivatePower()
+            }
+            NSNotificationCenter.defaultCenter().postNotificationName("UpdatePowerBar", object: nil)
+        }
     }
     
     func die() {
     
     }
     
+    func getPercentagePower () ->Double {
+        if powerDuration > 0 {
+            return self.powerDuration / self.initialPowerDuration
+        }
+        else {
+            return 0
+        }
+    }
+    
     /* INTERNAL AND PRIVATE METHODS */
     
     internal func activatePower() {
 
-        isUsingPower = true
-        lastUpdatePower = NSDate()
-    
+        if powerDuration > 0.0 {
+            isUsingPower = true
+            lastUpdatePower = NSDate()
+            let perform = SKAction.performSelector("updatePower:", onTarget: self)
+            let wait = SKAction.waitForDuration(0.1)
+        
+            let update = SKAction.repeatActionForever(SKAction.sequence([wait,perform]))
+            self.runAction(update, withKey: "UpdatePower")
+        }
     }
     internal func deactivatePower() {
+        let elapsedTime = NSDate().timeIntervalSinceDate(lastUpdatePower)
+        self.powerDuration = self.powerDuration - elapsedTime
+        NSNotificationCenter.defaultCenter().postNotificationName("UpdatePowerBar", object: nil)
         isUsingPower = false
+        self.removeActionForKey("UpdatePower")
     }
+    
+    
+    
     
 } //End of Class

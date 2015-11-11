@@ -81,6 +81,8 @@ class HUD: SKSpriteNode {
         for touch in (touches) {
             let location = touch.locationInNode(self)
             
+            print("isJumping: \(currC.currentCharacter?.isJumping)")
+            
             if(self.switchCharacterButton.frame.contains(location)){
             }
             if(self.pauseButton.frame.contains(location)){

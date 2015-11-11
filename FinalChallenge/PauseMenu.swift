@@ -30,11 +30,13 @@ class PauseMenu: Menu {
         msgLabel.position = CGPointMake(0, pauseMenu.size.height/4)
         pauseMenu.addChild(msgLabel)
         
-        
+        let restartButton = SKSpriteNode(imageNamed: "RestartButton")
+        restartButton.name = "reset"
+        restartButton.position = CGPointMake(-restartButton.size.width/2-10, -50)
         
         let resumeButton = SKSpriteNode(imageNamed: "ResumeButton")
         resumeButton.name = "resume"
-        resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
+        resumeButton.position = CGPointMake(0 , 0)
 
         let quit = SKSpriteNode(imageNamed: "QuitButton")
         quit.name = "quit"
@@ -42,6 +44,7 @@ class PauseMenu: Menu {
         
         
         pauseMenu.addChild(resumeButton)
+        pauseMenu.addChild(restartButton)
         pauseMenu.addChild(quit)
         
         return pauseMenu
@@ -66,6 +69,10 @@ class PauseMenu: Menu {
             }
             else if node.name == "quit" {
                 scene.quitLevel()
+            }
+            else if node.name == "reset" {
+                scene.reset()
+                
             }
             
             

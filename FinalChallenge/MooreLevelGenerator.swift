@@ -9,7 +9,7 @@
 
 // IMPORTANTE!
 
-//TODO: encontrar diferentes tipos de tile no tilemap
+//TODO: melhorar a criação do shape pra evitar wall jump
 //TODO: shapes muito proximos (1 tile de distancia) fazem com a leitura saia errada ou até entre em loop
 //TODO: shapes em algumas das margens dao problema de leitura
 
@@ -307,18 +307,31 @@ class MooreLevelGenerator {
         CGPathCloseSubpath(path)
         print("Shape created.\n")
         
-        let shape = SKShapeNode(path: path)
-        shape.strokeColor = .clearColor()
-        shape.position.y = CGFloat(spriteHeight * CGFloat(numberOfVerticalTiles*levelRatio!))
-        shape.position.x =  -spriteWidth / 2
-        shape.physicsBody = SKPhysicsBody(edgeChainFromPath: path)
-        shape.physicsBody?.categoryBitMask = objectCategory
-        shape.physicsBody?.contactTestBitMask = playerCategory
-        shape.physicsBody?.collisionBitMask = playerCategory
-        shape.physicsBody?.affectedByGravity = false
-        shape.physicsBody?.restitution = 0
-        shape.yScale = -1
-        levelScene?.addChild(shape)
+//        let shape = SKShapeNode(path: path)
+//        shape.strokeColor = .clearColor()
+//        shape.position.y = CGFloat(spriteHeight * CGFloat(numberOfVerticalTiles*levelRatio!))
+//        shape.position.x =  -spriteWidth / 2
+//        shape.physicsBody = SKPhysicsBody(edgeChainFromPath: path)
+//        shape.physicsBody?.categoryBitMask = objectCategory
+//        shape.physicsBody?.contactTestBitMask = playerCategory
+//        shape.physicsBody?.collisionBitMask = playerCategory
+//        shape.physicsBody?.affectedByGravity = false
+//        shape.physicsBody?.restitution = 0
+//        shape.yScale = -1
+        
+        let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeZero)
+        node.position.y = CGFloat(spriteHeight * CGFloat(numberOfVerticalTiles*levelRatio!))
+        node.position.x =  -spriteWidth / 2
+        node.physicsBody = SKPhysicsBody(edgeChainFromPath: path)
+        node.physicsBody?.categoryBitMask = objectCategory
+        node.physicsBody?.contactTestBitMask = playerCategory
+        node.physicsBody?.collisionBitMask = playerCategory
+        node.physicsBody?.affectedByGravity = false
+        node.physicsBody?.restitution = 0
+        node.yScale = -1
+
+        
+        levelScene?.addChild(node)
     }
     
     private func traceContourForChar(inout contourLinesArray: Array<ContourLine> ,tracedChar: Character, contourChar: Character, start: TilePoint, point: TilePoint, startingDir: Direction) {

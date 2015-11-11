@@ -230,11 +230,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             }
         }
         else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
-            if playerPB.velocity.dy == 0 {
+//            if playerPB.velocity.dy == 0 {
 //                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                 finishedPositioning = true
                 selectedPlayer.reachedGround()
-            }
+//            }
         }
 //        else if (notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory ){
 //            selectedPlayer.reachedGround()
@@ -299,7 +299,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     func quitLevel() {
         
         let scene = MapMenu(size:self.size)
-        let transition = SKTransition.fadeWithDuration(1.5)
+        let transition = SKTransition.fadeWithDuration(1)
         self.view?.presentScene(scene, transition: transition)
     }
     
@@ -321,7 +321,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     func reset() {
         let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)
-        let transition = SKTransition.fadeWithDuration(1.5)
+        let transition = SKTransition.fadeWithDuration(0.5)
         self.view?.presentScene(scene, transition: transition)
     }
     

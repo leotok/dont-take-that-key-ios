@@ -24,6 +24,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         background.position = CGPointZero
         background.size = CGSizeMake(self.size.width * 1.5, self.size.height * 1.5)
         background.zPosition = ZPositionEnum.Background.rawValue
+        background.color = UIColor.grayColor()
         addChild(background)
         
         // PanGesture
@@ -40,6 +41,17 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         backButton.name = "back"
      
         addChild(backButton)
+        
+        
+        // InApp-Purchase Button
+        
+        let inAppButotn = SKSpriteNode(imageNamed: "inApp")
+        inAppButotn.size = CGSize(width: 40, height: 40)
+        inAppButotn.position = CGPointMake(size.width - backButton.size.width/2, (scene?.size.height)! - backButton.size.height/2)
+        inAppButotn.name = "inApp"
+        
+        addChild(inAppButotn)
+        
         
         // Add Levels Nodes
         
@@ -58,7 +70,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             if node.name == "back" {
                 
                 let scene = MainMenu(size:self.frame.size)
-                let transition = SKTransition.fadeWithDuration(1.5)
+                let transition = SKTransition.fadeWithDuration(1)
                 self.view?.removeGestureRecognizer(panGesture)
                 self.view?.presentScene(scene, transition: transition)
             }
@@ -70,6 +82,13 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                     let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
                     self.view?.presentScene(scene)
                 }
+            }
+            else if node.name == "inApp" {
+                print("inApp")
+                self.view?.removeGestureRecognizer(panGesture)
+                let inAppScene = InAppMenu()
+                let transition = SKTransition.fadeWithDuration(1)
+                self.view?.presentScene(inAppScene, transition: transition)
             }
         }
     }
@@ -103,7 +122,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 level = LevelButton(type: LevelButtonType.Sam, level: i)
             }
             else {
-                level = LevelButton(type: LevelButtonType.Sam, level: i)
+                level = LevelButton(type: LevelButtonType.Locked, level: i)
             }
             level.position = samLevelPositionArray[i-1]
             background.addChild(level)
@@ -120,7 +139,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             let level: LevelButton!
             
             if i <= userInfo.shrinkLevels {
-                level = LevelButton(type: LevelButtonType.Sam, level: i + 6)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
             }
             else {
                 level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
@@ -140,7 +159,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             let level: LevelButton!
             
             if i <= userInfo.ellieLevels {
-                level = LevelButton(type: LevelButtonType.Sam, level: i + 12)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 12)
             }
             else {
                 level = LevelButton(type: LevelButtonType.Locked, level: i + 12)

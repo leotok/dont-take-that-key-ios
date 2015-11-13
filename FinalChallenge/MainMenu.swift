@@ -119,7 +119,7 @@ class MainMenu: SKScene {
             if node.name == "Play" {
                 
                 let scene = MapMenu(size:self.frame.size)
-                let transition = SKTransition.fadeWithDuration(1.5)
+                let transition = SKTransition.fadeWithDuration(1)
                 if userInfo.musicON {
                     backgroundMusic.stop()
                 }
@@ -128,7 +128,7 @@ class MainMenu: SKScene {
             } else if node.name == "conf" {
                 
                 let scene = Settings(size:self.frame.size)
-                let transition2 = SKTransition.fadeWithDuration(1.5)
+                let transition2 = SKTransition.fadeWithDuration(1)
                 if userInfo.musicON {
                     backgroundMusic.stop()
                 }

@@ -86,7 +86,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             else if node.name == "inApp" {
                 print("inApp")
                 self.view?.removeGestureRecognizer(panGesture)
-                let inAppScene = InAppMenu()
+                let inAppScene = InAppMenu(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(1)
                 self.view?.presentScene(inAppScene, transition: transition)
             }

@@ -275,7 +275,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             pausableObjectsArray[i].physicsBody?.affectedByGravity = false
             pausableObjectsArray[i].paused = true
             pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
-            pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
+            pausableObjectsArray[i].physicsBody?.dynamic = false
 
         }
         return true
@@ -288,6 +288,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             
             if pausableObjectsArray[i].isKindOfClass(MovableObject) == true || categoria == crateCategory {
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = true
+                pausableObjectsArray[i].physicsBody?.dynamic = true
             }
         }
         return false

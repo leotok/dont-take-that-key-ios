@@ -13,8 +13,8 @@ class DoorNode: StaticObject {
 
     init() {
         
-        let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
-        let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
+      //  let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
+      // let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
         
         let doorSprite = SKTexture(imageNamed: "door")
         super.init(sprite: doorSprite)

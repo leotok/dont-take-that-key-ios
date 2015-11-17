@@ -63,7 +63,8 @@ class GameCenterManager {
         if self.localPlayer.authenticated {
             
             let gkachiev = GKAchievement(identifier: id)
-            
+            gkachiev.percentComplete = 100
+            gkachiev.showsCompletionBanner = true
             
             GKAchievement.reportAchievements([gkachiev], withCompletionHandler: {(error:NSError?) ->Void in
                 if error != nil {

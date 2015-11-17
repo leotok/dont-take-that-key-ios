@@ -105,6 +105,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         scene.physicsWorld.gravity = CGVectorMake(0, -9.8)
         
+        
+        
         return scene
         
     }
@@ -145,6 +147,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
+        
+        GameCenterManager.sharedInstance.postAchievement("HelloWorld")
+        
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

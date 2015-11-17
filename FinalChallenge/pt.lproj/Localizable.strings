@@ -16,9 +16,15 @@
 "MusicSettings"="musica";
 "SoundSettings"="som";
 "LanguageSettings"="idioma";
-"CreditsSettings"="creditos";
+"CreditsSettings"="créditos";
 "ResetGameSettings"="resetar jogo";
 "inAppLabel"="Nos compre um copo de açai e remova a propaganda!";
+"Credits"="créditos";
+"Hugo"="Hugo Rodrigues - programador";
+"Leo"="Leonardo Wajnsztok - programador";
+"Thiago"="Thiago Klein - programador";
+"Julia"="Julia Baitelli - designer";
+"Mayara"="Mayara Gasparini - marketing";
 
 "Level1.1" = "Este é Sam. Como toda criança, deveria estar correndo por ai, se divertindo,";
 "Level1.2" = "porém ele se encontra agora neste mundo desconhecido.";

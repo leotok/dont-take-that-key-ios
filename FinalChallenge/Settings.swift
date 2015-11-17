@@ -228,6 +228,12 @@ class Settings: SKScene {
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
                 
+            } else if node.name == "credits" {
+                
+                let scene = Credits(size:self.frame.size)
+                let transition = SKTransition.fadeWithDuration(0.8)
+                self.view?.presentScene(scene, transition: transition)
+            
             }
             else if node.name == "checkMusic" {
             

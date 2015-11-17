@@ -51,6 +51,7 @@
 		3FA561A11BC5B3DA009AD173 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */; };
 		3FA561AB1BC5BF22009AD173 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AA1BC5BF22009AD173 /* lock.png */; };
 		3FA561AD1BC5BF4D009AD173 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AC1BC5BF4D009AD173 /* clock.png */; };
+		7DD0662F1BFB491A007043C4 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0662E1BFB491A007043C4 /* Credits.swift */; };
 		7DDE880F1BF3D36C00A6A88A /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDE880E1BF3D36C00A6A88A /* crate.png */; };
 		7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */; };
 		D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F11631BBEECFE00DC6888 /* Menu.swift */; };
@@ -155,6 +156,7 @@
 		3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3FA561AA1BC5BF22009AD173 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		3FA561AC1BC5BF4D009AD173 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		7DD0662E1BFB491A007043C4 /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		7DDE880E1BF3D36C00A6A88A /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
 		7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainMenuMusic.mp3; sourceTree = "<group>"; };
 		D01F11631BBEECFE00DC6888 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				D0B502791BB44CEE006C9C90 /* MainMenu.swift */,
 				D0B5027B1BB44D0A006C9C90 /* Settings.swift */,
 				3F1BE66A1BF500D500D2FFDE /* InAppMenu.swift */,
+				7DD0662E1BFB491A007043C4 /* Credits.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				3F29DE6A1BB440EB00ADE6F8 /* AppDelegate.swift in Sources */,
 				D0B502671BB44689006C9C90 /* Shrink.swift in Sources */,
 				D0B502801BB44DB3006C9C90 /* LevelGenerator.swift in Sources */,
+				7DD0662F1BFB491A007043C4 /* Credits.swift in Sources */,
 				D0B502871BB44E9F006C9C90 /* GameWinMenu.swift in Sources */,
 				D0B502781BB44CD6006C9C90 /* MapMenu.swift in Sources */,
 				D08F3B351BBC59EE008E1B79 /* PauseButton.swift in Sources */,

@@ -19,6 +19,7 @@ class JumpButton: SKSpriteNode{
         let texture = SKTexture(image: self.jumpImage)
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(60, 60))
+        self.alpha = 0.3
     }
     
     required init?(coder aDecoder: NSCoder) {

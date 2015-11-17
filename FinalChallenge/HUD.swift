@@ -30,6 +30,7 @@ class HUD: SKSpriteNode {
         self.pauseButton = PauseButton()
         
         super.init(texture: nil, color: UIColor.clearColor(), size: UIScreen.mainScreen().bounds.size)
+
     }
 
     func setPositions(){

@@ -16,90 +16,102 @@ class Credits: SKScene {
     
     let dao = DAOUserInfo()
  
+        self.scene?.userInteractionEnabled = true
+        
+//        let background = SKSpriteNode(imageNamed: "wallpaper1")
+//        background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
+//        background.size = self.size
+//        background.alpha = 1
+//        
+//        addChild(background)
         
         
-        let background = SKSpriteNode(imageNamed: "wallpaper1")
-        background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
-        background.size = self.size
-        background.alpha = 1
-        
-        addChild(background)
-
+        self.backgroundColor = UIColor.blackColor()
     
-        let credits = SKLabelNode(fontNamed: "Pixel-Art")
+        let credits = SKLabelNode(fontNamed: "Avenir")
         credits.text = NSLocalizedString("Credits", comment: "")
-        credits.position = CGPointMake(self.size.width/2, 340)
+        credits.fontSize = 50
+        credits.position = CGPointMake(self.size.width/2, self.size.height/1.25)
         credits.name = "credits"
         credits.zPosition = ZPositionEnum.Button.rawValue
-        credits.fontColor = SKColor.blackColor()
+        credits.fontColor = SKColor.whiteColor()
     
         addChild(credits)
         
-        let hugo = SKLabelNode(fontNamed: "Pixel-Art")
+        let hugo = SKLabelNode(fontNamed: "Avenir")
         hugo.text = NSLocalizedString("Hugo", comment: "")
-        hugo.position = CGPointMake(self.size.width/2, 290)
+        hugo.fontSize = 25
+        hugo.position = CGPointMake(self.size.width/2, self.size.height/1.47)
         hugo.name = "hugo"
         hugo.zPosition = ZPositionEnum.Button.rawValue
-        hugo.fontColor = SKColor.blackColor()
+        hugo.fontColor = SKColor.whiteColor()
         
         addChild(hugo)
         
-        let leo = SKLabelNode(fontNamed: "Pixel-Art")
+        let leo = SKLabelNode(fontNamed: "Avenir")
         leo.text = NSLocalizedString("Leo", comment: "")
-        leo.position = CGPointMake(self.size.width/2, 240)
+        leo.fontSize = 25
+        leo.position = CGPointMake(self.size.width/2, self.size.height/1.72)
         leo.name = "leo"
         leo.zPosition = ZPositionEnum.Button.rawValue
-        leo.fontColor = SKColor.blackColor()
+        leo.fontColor = SKColor.whiteColor()
         
         addChild(leo)
         
-        let thiago = SKLabelNode(fontNamed: "Pixel-Art")
+        let thiago = SKLabelNode(fontNamed: "Avenir")
         thiago.text = NSLocalizedString("Thiago", comment: "")
-        thiago.position = CGPointMake(self.size.width/2, 190)
+        thiago.fontSize = 25
+        thiago.position = CGPointMake(self.size.width/2, self.size.height/2.07)
         thiago.name = "thiago"
         thiago.zPosition = ZPositionEnum.Button.rawValue
-        thiago.fontColor = SKColor.blackColor()
+        thiago.fontColor = SKColor.whiteColor()
         
         addChild(thiago)
 
-        let julia = SKLabelNode(fontNamed: "Pixel-Art")
+        let julia = SKLabelNode(fontNamed: "Avenir")
         julia.text = NSLocalizedString("Julia", comment: "")
-        julia.position = CGPointMake(self.size.width/2, 140)
+        julia.fontSize = 25
+        julia.position = CGPointMake(self.size.width/2, self.size.height/2.58)
         julia.name = "julia"
         julia.zPosition = ZPositionEnum.Button.rawValue
-        julia.fontColor = SKColor.blackColor()
+        julia.fontColor = SKColor.whiteColor()
         
         addChild(julia)
 
-        let mayara = SKLabelNode(fontNamed: "Pixel-Art")
+        let mayara = SKLabelNode(fontNamed: "Avenir")
         mayara.text = NSLocalizedString("Mayara", comment: "")
-        mayara.position = CGPointMake(self.size.width/2, 90)
+        mayara.fontSize = 25
+        mayara.position = CGPointMake(self.size.width/2, self.size.height/3.45)
         mayara.name = "mayara"
         mayara.zPosition = ZPositionEnum.Button.rawValue
-        mayara.fontColor = SKColor.blackColor()
+        mayara.fontColor = SKColor.whiteColor()
         
         addChild(mayara)
-
-
-
-
+        
+        let backButton = SKSpriteNode(imageNamed: "seta")
+        backButton.size = CGSize(width: 40, height: 40)
+        backButton.position = CGPointMake(30, 380)
+        backButton.name = "backButton"
+        backButton.zPosition = ZPositionEnum.Button.rawValue
+        
+        addChild(backButton)
+    
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+    
+        
+     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch in (touches ) {
+            let location = touch.locationInNode(self)
+            let node = self.nodeAtPoint(location)
+            
+        if node.name == "backButton" {
+            let scene = Settings(size:self.frame.size)
+            let transition = SKTransition.fadeWithDuration(0.8)
+            self.view?.presentScene(scene, transition: transition)
+            
+            }
+        }
+    }
+    
+} //End of Class

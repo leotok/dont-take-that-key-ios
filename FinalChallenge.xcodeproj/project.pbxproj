@@ -52,6 +52,7 @@
 		3FA561AB1BC5BF22009AD173 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AA1BC5BF22009AD173 /* lock.png */; };
 		3FA561AD1BC5BF4D009AD173 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AC1BC5BF4D009AD173 /* clock.png */; };
 		7DD0662F1BFB491A007043C4 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0662E1BFB491A007043C4 /* Credits.swift */; };
+		7DD066311BFB5EB2007043C4 /* seta.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DD066301BFB5EB2007043C4 /* seta.png */; };
 		7DDE880F1BF3D36C00A6A88A /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDE880E1BF3D36C00A6A88A /* crate.png */; };
 		7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */; };
 		D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F11631BBEECFE00DC6888 /* Menu.swift */; };
@@ -157,6 +158,7 @@
 		3FA561AA1BC5BF22009AD173 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		3FA561AC1BC5BF4D009AD173 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		7DD0662E1BFB491A007043C4 /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		7DD066301BFB5EB2007043C4 /* seta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seta.png; sourceTree = "<group>"; };
 		7DDE880E1BF3D36C00A6A88A /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
 		7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainMenuMusic.mp3; sourceTree = "<group>"; };
 		D01F11631BBEECFE00DC6888 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				3F29DE761BB440EB00ADE6F8 /* LaunchScreen.storyboard */,
 				3F29DE791BB440EB00ADE6F8 /* Info.plist */,
 				3F29DE741BB440EB00ADE6F8 /* Assets.xcassets */,
+				7DD066301BFB5EB2007043C4 /* seta.png */,
 				3F29DE691BB440EB00ADE6F8 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
@@ -532,6 +535,7 @@
 				3F7E93A91BC3007D0018BA4E /* key.png in Resources */,
 				3F1316541BC8415100D227DD /* Level_9.txt in Resources */,
 				3F13163F1BC8298500D227DD /* Level_3.txt in Resources */,
+				7DD066311BFB5EB2007043C4 /* seta.png in Resources */,
 				3F1316401BC8298500D227DD /* Level_4.txt in Resources */,
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				3F1316571BC8415100D227DD /* Level_12.txt in Resources */,

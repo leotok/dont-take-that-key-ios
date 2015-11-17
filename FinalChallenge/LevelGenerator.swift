@@ -184,7 +184,7 @@ class LevelGenerator {
             case "1":
             
                 let i = 1 //Int.random(2...5)
-                tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_\(i)"))
+                tile = StaticObject(sprite: SKTexture(imageNamed: "ground_1"))
                 tile.physicsBody = nil
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)
             
@@ -209,7 +209,7 @@ class LevelGenerator {
             case "6":
             
                 let i = 1 //Int.random(1...4)
-                tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop\(i)"))
+                tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop1"))
                 tile.size = CGSizeMake(spriteWidth, spriteHeight)
                 tile.physicsBody = nil
             

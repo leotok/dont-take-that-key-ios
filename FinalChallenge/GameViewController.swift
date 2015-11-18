@@ -9,8 +9,10 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, ADMobDelegate {
 
+    private let AdMob = ADMobSingleton.sharedIstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,9 +31,17 @@ class GameViewController: UIViewController {
         
         GameCenterManager.sharedInstance.vc = self
         GameCenterManager.sharedInstance.authenticateLocalPlayer()
+        AdMob.delegate = self
+        AdMob.loadInterstitial()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAd", name: "ShowAd", object: nil)
+        
         
         skView.presentScene(scene)
-
+    }
+    
+    func showAd() {
+        AdMob.showInterstitial(self)
     }
 
     override func shouldAutorotate() -> Bool {
@@ -54,4 +64,11 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-}
+    
+    func didDissmissAd() {
+        NSNotificationCenter.defaultCenter().postNotificationName("AdDissmissed", object: nil)        
+        
+    }
+    
+    
+} //End of Class

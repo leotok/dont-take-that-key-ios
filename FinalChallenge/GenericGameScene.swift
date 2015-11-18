@@ -150,6 +150,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         GameCenterManager.sharedInstance.postAchievement("HelloWorld")
         
+        ADMobSingleton.sharedIstance.loadInterstitial()
+
+        
+        
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -329,7 +333,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     private func GameOver() {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
+
         self.popUp = GameOverMenu.createGameOverMenu(UIScreen.mainScreen().bounds.size)
         self.popUp?.position = CGPointMake(self.frame.size.width/2,self.frame.size.height/2)
         self.scene?.paused = true
@@ -338,6 +343,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.popUp?.userInteractionEnabled = true
         self.addChild(self.popUp!)
     }
+    
     
     private func GameWin() {
         let dao = DAOUserInfo()

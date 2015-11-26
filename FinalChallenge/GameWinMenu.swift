@@ -30,20 +30,34 @@ class GameWinMenu: Menu {
         msgLabel.position = CGPointMake(0, pauseMenu.size.height/4)
         pauseMenu.addChild(msgLabel)
         
-        
-        let resumeButton = SKSpriteNode(imageNamed: "NextButton")
-        resumeButton.name = "next"
-        resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
-        
         let quit = SKSpriteNode(imageNamed: "QuitButton")
         quit.name = "quit"
         quit.position = CGPointMake(quit.size.width/2+10, -50)
         
+        let image = UIImage(named: "NextButton")
+        let texture = SKTexture(image: image!)
+        texture.filteringMode = .Nearest
+        let resumeButton = SKSpriteNode(texture: texture)
+        resumeButton.size = CGSize(width: quit.size.width, height: quit.size.height)
+        resumeButton.name = "next"
+        resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
         
         pauseMenu.addChild(resumeButton)
         pauseMenu.addChild(quit)
         
         return pauseMenu
+    }
+    
+    func imageResize (imageObj:UIImage, sizeChange:CGSize)-> UIImage{
+        
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+        imageObj.drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        return scaledImage
     }
     
     required init?(coder aDecoder: NSCoder) {

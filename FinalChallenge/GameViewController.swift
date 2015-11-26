@@ -65,8 +65,9 @@ class GameViewController: UIViewController, ADMobDelegate {
         return true
     }
     
-    func didDissmissAd() {
-        NSNotificationCenter.defaultCenter().postNotificationName("AdDissmissed", object: nil)        
+    func didDismissAd() {
+        
+        //NSNotificationCenter.defaultCenter().postNotificationName("AdDismissed", object: nil)
         
     }
     

@@ -11,7 +11,7 @@ import UIKit
 import GoogleMobileAds
 
 protocol ADMobDelegate {
-    func didDissmissAd()
+    func didDismissAd()
 }
 
 class ADMobSingleton:NSObject, GADInterstitialDelegate  {
@@ -43,7 +43,7 @@ class ADMobSingleton:NSObject, GADInterstitialDelegate  {
     func interstitialDidDismissScreen (interstitial: GADInterstitial) {
         print("interstitialDidDismissScreen")
         self.interstitial = nil
-        self.delegate?.didDissmissAd()
+        self.delegate?.didDismissAd()
     }
     
     func showInterstitial(rootViewController:UIViewController) {

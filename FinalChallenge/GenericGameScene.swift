@@ -333,7 +333,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     private func GameOver() {
-        NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
+        //NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
 
         self.popUp = GameOverMenu.createGameOverMenu(UIScreen.mainScreen().bounds.size)
         self.popUp?.position = CGPointMake(self.frame.size.width/2,self.frame.size.height/2)

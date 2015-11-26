@@ -20,6 +20,8 @@ class ADMobSingleton:NSObject, GADInterstitialDelegate  {
     var interstitial: GADInterstitial?
     var delegate:ADMobDelegate?
     
+    var adCounter = 0
+    
     private override init() {}
     
     func loadInterstitial() {

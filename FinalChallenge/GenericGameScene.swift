@@ -310,6 +310,16 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.view?.presentScene(scene, transition: transition)
     }
     
+    func shouldShowAd() {
+        
+        ADMobSingleton.sharedIstance.adCounter++
+        
+        if ADMobSingleton.sharedIstance.adCounter % 3 == 0 {
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
+        }
+
+    }
+    
     // Menus
     func pauseGame() {
         if !popUpOpened {
@@ -327,14 +337,16 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.popUpOpened = false
     }
     func reset() {
+        
+        shouldShowAd()
+        
         let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)
         let transition = SKTransition.fadeWithDuration(0.5)
         self.view?.presentScene(scene, transition: transition)
     }
     
     private func GameOver() {
-        //NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
-
+        
         self.popUp = GameOverMenu.createGameOverMenu(UIScreen.mainScreen().bounds.size)
         self.popUp?.position = CGPointMake(self.frame.size.width/2,self.frame.size.height/2)
         self.scene?.paused = true

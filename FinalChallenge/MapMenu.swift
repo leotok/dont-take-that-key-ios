@@ -18,11 +18,12 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     override func didMoveToView(view: SKView) {
         
         // Background
-        let texture = SKTexture(imageNamed: "desert")
-        background = SKSpriteNode(texture: nil, color: UIColor.blackColor(), size: texture.size())//(imageNamed: "desert")
+        let texture = SKTexture(imageNamed: "map")
+        texture.filteringMode = .Nearest
+        background = SKSpriteNode(texture: texture)
         background.anchorPoint = CGPointZero
         background.position = CGPointZero
-        background.size = CGSizeMake(self.size.width * 1.5, self.size.height * 1.5)
+        background.size = CGSizeMake(self.size.width * 2, self.size.height)
         background.zPosition = ZPositionEnum.Background.rawValue
         background.color = UIColor.grayColor()
         addChild(background)
@@ -47,7 +48,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         
         let inAppButotn = SKSpriteNode(imageNamed: "inApp")
         inAppButotn.size = CGSize(width: 40, height: 40)
-        inAppButotn.position = CGPointMake(size.width - backButton.size.width/2, (scene?.size.height)! - backButton.size.height/2)
+        inAppButotn.position = CGPointMake(size.width - backButton.size.width, (scene?.size.height)! - backButton.size.height/1.5)
         inAppButotn.name = "inApp"
         
         addChild(inAppButotn)

@@ -321,7 +321,7 @@ class MooreLevelGenerator {
         
         let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeZero)
         node.position.y = CGFloat(spriteHeight * CGFloat(numberOfVerticalTiles*levelRatio!))
-        node.position.x =  -spriteWidth / 2
+        node.position.x =  0
         node.physicsBody = SKPhysicsBody(edgeChainFromPath: path)
         node.physicsBody?.categoryBitMask = objectCategory
         node.physicsBody?.contactTestBitMask = playerCategory

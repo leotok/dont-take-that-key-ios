@@ -48,6 +48,11 @@ class GameCharacter: SKSpriteNode {
         self.walkTextures = sprites
     }
     
+    func charIsUsingPower() -> Bool {
+        
+        return isUsingPower
+    }
+    
     func walkRight () {
         self.removeActionForKey("Idle")
         let moveX = SKAction.moveByX(30, y: 0, duration: 0.2)
@@ -114,11 +119,10 @@ class GameCharacter: SKSpriteNode {
     }
     
     func updatePower() {
-        print("UPDATING POWER")
+        
         if isUsingPower {
             let elapsedTime = NSDate().timeIntervalSinceDate(self.lastUpdatePower)
             self.powerDuration = self.powerDuration - elapsedTime
-            print(powerDuration)
             lastUpdatePower = NSDate()
             if self.powerDuration <= 0.0 {
                 self.deactivatePower()

@@ -12,14 +12,23 @@ import SpriteKit
 class SwitchCharacterButton: SKSpriteNode{
     
     var characterImage: UIImage
+    private var initialTexturePos = 0
     private var bar:SKSpriteNode!
     private let initialDuration:Double
     private var initialWidth:CGFloat
+    var textures = [SKTexture]()
     
     init(characterImage:String) {
-        self.characterImage = UIImage(named: "Sam_bolinha")!
+        self.characterImage = UIImage(named: "Sam_bolinha1")!
         let texture = SKTexture(image: self.characterImage)
         texture.filteringMode = SKTextureFilteringMode.Nearest
+        
+        let texture2 = SKTexture(imageNamed: "Sam_bolinha2")
+        texture2.filteringMode = .Nearest
+        
+        textures.append(texture)
+        textures.append(texture2)
+    
         self.initialDuration = 10
         initialWidth = 0
 
@@ -40,7 +49,14 @@ class SwitchCharacterButton: SKSpriteNode{
     }
     
     func updateBar(sender:AnyObject) {
+
         if let percentage = CurrentCharacterSingleton.sharedInstance.currentCharacter?.getPercentagePower() {
+        
+            if percentage == 0.0 {
+
+                changeSwitchButtonImage()
+            }
+            
             bar.removeFromParent()
             let size = initialWidth * CGFloat(percentage)
             bar = SKSpriteNode(texture: nil, color: SKColor.yellowColor(), size: CGSizeMake(size, 5))
@@ -51,6 +67,25 @@ class SwitchCharacterButton: SKSpriteNode{
             
             
         }
+        
+    }
+    
+    func changeSwitchButtonImage() {
+        
+        if CurrentCharacterSingleton.sharedInstance.currentCharacter?.powerDuration > 0 {
+            if initialTexturePos == 0 {
+                initialTexturePos = 1
+            }
+            else {
+                initialTexturePos = 0
+            }
+        
+            self.texture = textures[initialTexturePos]
+        }
+        else {
+            self.texture = textures[0]
+        }
+    
     }
     
     

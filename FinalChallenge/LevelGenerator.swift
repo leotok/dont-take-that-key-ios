@@ -167,7 +167,7 @@ class LevelGenerator {
             {
                 if let tile: SKSpriteNode = getNodeType( string[index] )
                 {
-                    tile.position = CGPointMake(  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
+                    tile.position = CGPointMake( spriteWidth/2 +  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
                     levelScene.pausableLayer.addChild(tile)
                 }
                 index = index.advancedBy(1)

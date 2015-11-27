@@ -128,7 +128,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         lvlGen.loadLevel(levelIndex, scene: scene1)
         
-        scene!.view!.frame.size = lvlGen.getLevelSize()
+        //scene!.view!.frame.size = lvlGen.getLevelSize()
         
         self.physicsWorld.contactDelegate = self
         

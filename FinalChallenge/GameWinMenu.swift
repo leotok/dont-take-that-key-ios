@@ -37,8 +37,9 @@ class GameWinMenu: Menu {
         let image = UIImage(named: "NextButton")
         let texture = SKTexture(image: image!)
         texture.filteringMode = .Nearest
+        texture.size().height
         let resumeButton = SKSpriteNode(texture: texture)
-        resumeButton.size = CGSize(width: quit.size.width, height: quit.size.height)
+        resumeButton.size = CGSize(width: 2*texture.size().width, height: 2*texture.size().height)
         resumeButton.name = "next"
         resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
         

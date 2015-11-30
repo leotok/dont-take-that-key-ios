@@ -68,6 +68,13 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             let location = touch.locationInNode(self)
             let node = self.nodeAtPoint(location)
             
+            //      NAO REMOVER COMENTARIO
+            // serve para descobrir onde posicionar as fases
+            //let xm = background.size.width/location.x
+            //let ym = background.size.height/location.y
+            //print("CGPointMake(background.size.width / \(xm), background.size.height / \(ym))")
+            
+            
             if node.name == "back" {
                 
                 let scene = MainMenu(size:self.frame.size)
@@ -113,7 +120,12 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func addSamLevels() {
         
         let userInfo = DAOUserInfo().load()
-        let samLevelPositionArray = [CGPointMake(60, 100),CGPointMake(90, 190),CGPointMake(150, 150),CGPointMake(210, 110), CGPointMake(270, 140), CGPointMake(320, 200)]
+        let samLevelPositionArray = [CGPointMake(self.size.width / 8.1176479695991, self.size.height / 2.40697674418605),
+            CGPointMake(self.size.width / 5.41176409869877, self.size.height / 3.47899159663866),
+            CGPointMake(self.size.width / 3.00408163265306, self.size.height / 3.72972947337317),
+            CGPointMake(self.size.width / 2.3096235046905, self.size.height / 2.35227252333619),
+            CGPointMake(self.size.width / 1.93175853018373, self.size.height / 1.72739901887056),
+            CGPointMake(self.size.width / 1.5343989206575, self.size.height / 2.04612824364548)]
         
         for i in 1...6 {
             
@@ -133,7 +145,12 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func addShrinkLevels() {
         
         let userInfo = DAOUserInfo().load()
-        let shrinkLevelPositionArray = [CGPointMake(370, 230),CGPointMake(420, 250),CGPointMake(470, 270),CGPointMake(520, 300), CGPointMake(570, 270), CGPointMake(620, 230)]
+        let shrinkLevelPositionArray = [CGPointMake(background.size.width / 2.59307151576196, background.size.height / 1.52392643743134),
+            CGPointMake(background.size.width / 2.16258602349113, background.size.height / 1.48564598724679),
+            CGPointMake(background.size.width / 1.94280696751388, background.size.height / 1.44924159186388),
+            CGPointMake(background.size.width / 1.78640803163518, background.size.height / 1.49099645318319),
+            CGPointMake(background.size.width / 1.64469296175216, background.size.height / 1.48387113005073),
+            CGPointMake(background.size.width / 1.52591575199344, background.size.height / 1.48387113005073)]
         
         for i in 1...6 {
             
@@ -153,7 +170,12 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func addEllieLevels() {
         
         let userInfo = DAOUserInfo().load()
-        let ellieLevelPositionArray = [CGPointMake(370, 190),CGPointMake(420, 170),CGPointMake(470, 150),CGPointMake(520, 130), CGPointMake(570, 120), CGPointMake(620, 140)]
+        let ellieLevelPositionArray = [CGPointMake(background.size.width / 2.81453187721872, background.size.height / 3.64222784261606),
+            CGPointMake(background.size.width / 2.27043708924241, background.size.height / 4.85156235541217),
+            CGPointMake(background.size.width / 2.02012820063938, background.size.height / 4.85156235541217),
+            CGPointMake(background.size.width / 1.87994906097444, background.size.height / 4.92857142857143),
+            CGPointMake(background.size.width / 1.75726232173082, background.size.height / 4.92857142857143),
+            CGPointMake(background.size.width / 1.64714666209165, background.size.height / 4.92857142857143)]
         
         for i in 1...6 {
             

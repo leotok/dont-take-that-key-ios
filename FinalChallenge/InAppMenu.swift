@@ -64,7 +64,7 @@ class InAppMenu: SKScene {
             
             if node.name == "back" {
                 
-                let scene = MainMenu(size:self.frame.size)
+                let scene = MapMenu(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(1.5)
                 self.view?.presentScene(scene, transition: transition)
             }

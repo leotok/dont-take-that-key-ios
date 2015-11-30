@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class HUD: SKSpriteNode {
+    
     var switchCharacterButton: SwitchCharacterButton
     var pauseButton: PauseButton
     var leftButton: LeftButton

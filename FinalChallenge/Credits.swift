@@ -12,19 +12,6 @@ import SpriteKit
 class Credits: SKScene {
     
     override func didMoveToView(view: SKView) {
-
-    
-    let dao = DAOUserInfo()
- 
-        self.scene?.userInteractionEnabled = true
-        
-//        let background = SKSpriteNode(imageNamed: "wallpaper1")
-//        background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
-//        background.size = self.size
-//        background.alpha = 1
-//        
-//        addChild(background)
-        
         
         self.backgroundColor = UIColor.blackColor()
     
@@ -32,7 +19,6 @@ class Credits: SKScene {
         credits.text = NSLocalizedString("Credits", comment: "")
         credits.fontSize = 50
         credits.position = CGPointMake(self.size.width/2, self.size.height/1.25)
-        credits.name = "credits"
         credits.zPosition = ZPositionEnum.Button.rawValue
         credits.fontColor = SKColor.whiteColor()
     
@@ -42,7 +28,6 @@ class Credits: SKScene {
         hugo.text = NSLocalizedString("Hugo", comment: "")
         hugo.fontSize = 25
         hugo.position = CGPointMake(self.size.width/2, self.size.height/1.47)
-        hugo.name = "hugo"
         hugo.zPosition = ZPositionEnum.Button.rawValue
         hugo.fontColor = SKColor.whiteColor()
         
@@ -52,7 +37,6 @@ class Credits: SKScene {
         leo.text = NSLocalizedString("Leo", comment: "")
         leo.fontSize = 25
         leo.position = CGPointMake(self.size.width/2, self.size.height/1.72)
-        leo.name = "leo"
         leo.zPosition = ZPositionEnum.Button.rawValue
         leo.fontColor = SKColor.whiteColor()
         
@@ -62,7 +46,6 @@ class Credits: SKScene {
         thiago.text = NSLocalizedString("Thiago", comment: "")
         thiago.fontSize = 25
         thiago.position = CGPointMake(self.size.width/2, self.size.height/2.07)
-        thiago.name = "thiago"
         thiago.zPosition = ZPositionEnum.Button.rawValue
         thiago.fontColor = SKColor.whiteColor()
         
@@ -72,7 +55,6 @@ class Credits: SKScene {
         julia.text = NSLocalizedString("Julia", comment: "")
         julia.fontSize = 25
         julia.position = CGPointMake(self.size.width/2, self.size.height/2.58)
-        julia.name = "julia"
         julia.zPosition = ZPositionEnum.Button.rawValue
         julia.fontColor = SKColor.whiteColor()
         
@@ -82,7 +64,6 @@ class Credits: SKScene {
         mayara.text = NSLocalizedString("Mayara", comment: "")
         mayara.fontSize = 25
         mayara.position = CGPointMake(self.size.width/2, self.size.height/3.45)
-        mayara.name = "mayara"
         mayara.zPosition = ZPositionEnum.Button.rawValue
         mayara.fontColor = SKColor.whiteColor()
         

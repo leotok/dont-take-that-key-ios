@@ -8,7 +8,7 @@
 
 
 "Play"="Jogar";
-"Game Name"="Stuck on the Puzzle";
+"Game Name"="Dont take that Key";
 
 "ResetMsg"="Você tem certeza?";
 "LeftAnswer"="Sim";
@@ -19,7 +19,7 @@
 "CreditsSettings"="créditos";
 "ResetGameSettings"="resetar jogo";
 "inAppLabel"="Nos compre um copo de açai e remova a propaganda!";
-"Credits"="Créditos";
+"Credits"="Creditos";
 "Hugo"="Hugo Rodrigues - programador";
 "Leo"="Leonardo Wajnsztok - programador";
 "Thiago"="Thiago Klein - programador";

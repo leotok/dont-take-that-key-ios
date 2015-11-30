@@ -135,7 +135,7 @@
 		3F1316A41BD56EBE00D227DD /* gameplayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameplayBackground.png; sourceTree = "<group>"; };
 		3F14C9DF1BE1544C00CC57B2 /* ClockHandNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockHandNode.swift; sourceTree = "<group>"; };
 		3F1BE66A1BF500D500D2FFDE /* InAppMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppMenu.swift; sourceTree = "<group>"; };
-		3F29DE661BB440EB00ADE6F8 /* FinalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F29DE661BB440EB00ADE6F8 /* Dont take that Key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dont take that Key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29DE691BB440EB00ADE6F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F29DE6D1BB440EB00ADE6F8 /* GenericGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGameScene.swift; sourceTree = "<group>"; };
 		3F29DE6F1BB440EB00ADE6F8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -143,10 +143,10 @@
 		3F29DE741BB440EB00ADE6F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F29DE771BB440EB00ADE6F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F29DE791BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F29DE7E1BB440EB00ADE6F8 /* FinalChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F29DE7E1BB440EB00ADE6F8 /* Dont take that Key.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dont take that Key.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29DE821BB440EB00ADE6F8 /* FinalChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalChallengeTests.swift; sourceTree = "<group>"; };
 		3F29DE841BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F29DE891BB440EB00ADE6F8 /* FinalChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F29DE891BB440EB00ADE6F8 /* Dont take that Key.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dont take that Key.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalChallengeUITests.swift; sourceTree = "<group>"; };
 		3F29DE8F1BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
@@ -281,9 +281,9 @@
 		3F29DE671BB440EB00ADE6F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F29DE661BB440EB00ADE6F8 /* FinalChallenge.app */,
-				3F29DE7E1BB440EB00ADE6F8 /* FinalChallengeTests.xctest */,
-				3F29DE891BB440EB00ADE6F8 /* FinalChallengeUITests.xctest */,
+				3F29DE661BB440EB00ADE6F8 /* Dont take that Key.app */,
+				3F29DE7E1BB440EB00ADE6F8 /* Dont take that Key.xctest */,
+				3F29DE891BB440EB00ADE6F8 /* Dont take that Key.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -461,9 +461,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F29DE651BB440EB00ADE6F8 /* FinalChallenge */ = {
+		3F29DE651BB440EB00ADE6F8 /* Dont take that Key */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F29DE921BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "FinalChallenge" */;
+			buildConfigurationList = 3F29DE921BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "Dont take that Key" */;
 			buildPhases = (
 				3F29DE621BB440EB00ADE6F8 /* Sources */,
 				3F29DE631BB440EB00ADE6F8 /* Frameworks */,
@@ -473,14 +473,14 @@
 			);
 			dependencies = (
 			);
-			name = FinalChallenge;
+			name = "Dont take that Key";
 			productName = FinalChallenge;
-			productReference = 3F29DE661BB440EB00ADE6F8 /* FinalChallenge.app */;
+			productReference = 3F29DE661BB440EB00ADE6F8 /* Dont take that Key.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3F29DE7D1BB440EB00ADE6F8 /* FinalChallengeTests */ = {
+		3F29DE7D1BB440EB00ADE6F8 /* Dont take that KeyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F29DE951BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "FinalChallengeTests" */;
+			buildConfigurationList = 3F29DE951BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "Dont take that KeyTests" */;
 			buildPhases = (
 				3F29DE7A1BB440EB00ADE6F8 /* Sources */,
 				3F29DE7B1BB440EB00ADE6F8 /* Frameworks */,
@@ -491,14 +491,14 @@
 			dependencies = (
 				3F29DE801BB440EB00ADE6F8 /* PBXTargetDependency */,
 			);
-			name = FinalChallengeTests;
+			name = "Dont take that KeyTests";
 			productName = FinalChallengeTests;
-			productReference = 3F29DE7E1BB440EB00ADE6F8 /* FinalChallengeTests.xctest */;
+			productReference = 3F29DE7E1BB440EB00ADE6F8 /* Dont take that Key.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3F29DE881BB440EB00ADE6F8 /* FinalChallengeUITests */ = {
+		3F29DE881BB440EB00ADE6F8 /* Dont take that KeyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F29DE981BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "FinalChallengeUITests" */;
+			buildConfigurationList = 3F29DE981BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "Dont take that KeyUITests" */;
 			buildPhases = (
 				3F29DE851BB440EB00ADE6F8 /* Sources */,
 				3F29DE861BB440EB00ADE6F8 /* Frameworks */,
@@ -509,9 +509,9 @@
 			dependencies = (
 				3F29DE8B1BB440EB00ADE6F8 /* PBXTargetDependency */,
 			);
-			name = FinalChallengeUITests;
+			name = "Dont take that KeyUITests";
 			productName = FinalChallengeUITests;
-			productReference = 3F29DE891BB440EB00ADE6F8 /* FinalChallengeUITests.xctest */;
+			productReference = 3F29DE891BB440EB00ADE6F8 /* Dont take that Key.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -526,6 +526,7 @@
 				TargetAttributes = {
 					3F29DE651BB440EB00ADE6F8 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 5BS7QB5JFF;
 					};
 					3F29DE7D1BB440EB00ADE6F8 = {
 						CreatedOnToolsVersion = 7.0;
@@ -537,7 +538,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3F29DE611BB440EB00ADE6F8 /* Build configuration list for PBXProject "FinalChallenge" */;
+			buildConfigurationList = 3F29DE611BB440EB00ADE6F8 /* Build configuration list for PBXProject "Dont take that Key" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -551,9 +552,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F29DE651BB440EB00ADE6F8 /* FinalChallenge */,
-				3F29DE7D1BB440EB00ADE6F8 /* FinalChallengeTests */,
-				3F29DE881BB440EB00ADE6F8 /* FinalChallengeUITests */,
+				3F29DE651BB440EB00ADE6F8 /* Dont take that Key */,
+				3F29DE7D1BB440EB00ADE6F8 /* Dont take that KeyTests */,
+				3F29DE881BB440EB00ADE6F8 /* Dont take that KeyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -688,12 +689,12 @@
 /* Begin PBXTargetDependency section */
 		3F29DE801BB440EB00ADE6F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3F29DE651BB440EB00ADE6F8 /* FinalChallenge */;
+			target = 3F29DE651BB440EB00ADE6F8 /* Dont take that Key */;
 			targetProxy = 3F29DE7F1BB440EB00ADE6F8 /* PBXContainerItemProxy */;
 		};
 		3F29DE8B1BB440EB00ADE6F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3F29DE651BB440EB00ADE6F8 /* FinalChallenge */;
+			target = 3F29DE651BB440EB00ADE6F8 /* Dont take that Key */;
 			targetProxy = 3F29DE8A1BB440EB00ADE6F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -826,8 +827,9 @@
 				INFOPLIST_FILE = FinalChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallenge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dont take that Key";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -845,8 +847,9 @@
 				INFOPLIST_FILE = FinalChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallenge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dont take that Key";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -858,8 +861,8 @@
 				INFOPLIST_FILE = FinalChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinalChallenge.app/FinalChallenge";
+				PRODUCT_NAME = "Dont take that Key";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dont take that Key.app/Dont take that Key";
 			};
 			name = Debug;
 		};
@@ -870,8 +873,8 @@
 				INFOPLIST_FILE = FinalChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinalChallenge.app/FinalChallenge";
+				PRODUCT_NAME = "Dont take that Key";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dont take that Key.app/Dont take that Key";
 			};
 			name = Release;
 		};
@@ -882,7 +885,7 @@
 				INFOPLIST_FILE = FinalChallengeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dont take that Key";
 				TEST_TARGET_NAME = FinalChallenge;
 				USES_XCTRUNNER = YES;
 			};
@@ -894,7 +897,7 @@
 				INFOPLIST_FILE = FinalChallengeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dont take that Key";
 				TEST_TARGET_NAME = FinalChallenge;
 				USES_XCTRUNNER = YES;
 			};
@@ -903,7 +906,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F29DE611BB440EB00ADE6F8 /* Build configuration list for PBXProject "FinalChallenge" */ = {
+		3F29DE611BB440EB00ADE6F8 /* Build configuration list for PBXProject "Dont take that Key" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F29DE901BB440EB00ADE6F8 /* Debug */,
@@ -912,7 +915,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F29DE921BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "FinalChallenge" */ = {
+		3F29DE921BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "Dont take that Key" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F29DE931BB440EB00ADE6F8 /* Debug */,
@@ -921,7 +924,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F29DE951BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "FinalChallengeTests" */ = {
+		3F29DE951BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "Dont take that KeyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F29DE961BB440EB00ADE6F8 /* Debug */,
@@ -930,7 +933,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F29DE981BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "FinalChallengeUITests" */ = {
+		3F29DE981BB440EB00ADE6F8 /* Build configuration list for PBXNativeTarget "Dont take that KeyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F29DE991BB440EB00ADE6F8 /* Debug */,

@@ -281,10 +281,12 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         print(" number of objects: \(pausableObjectsArray.count)")
         for(var i = 0;i < pausableObjectsArray.count;i++) {
-            pausableObjectsArray[i].physicsBody?.affectedByGravity = false
-            pausableObjectsArray[i].paused = true
-            pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
-            pausableObjectsArray[i].physicsBody?.dynamic = false
+            if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
+                pausableObjectsArray[i].physicsBody?.affectedByGravity = false
+                pausableObjectsArray[i].paused = true
+                pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
+                pausableObjectsArray[i].physicsBody?.dynamic = false
+            }
 
         }
         return true

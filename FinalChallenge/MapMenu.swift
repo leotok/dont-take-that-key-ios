@@ -11,7 +11,6 @@ import SpriteKit
 
 class MapMenu: SKScene, UIGestureRecognizerDelegate {
     
-    var parentScene: SKScene!
     var background: SKSpriteNode!
     var panGesture: UIPanGestureRecognizer!
     
@@ -87,9 +86,11 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                     
                     self.view?.removeGestureRecognizer(panGesture)
                     let levelButton = node as! LevelButton
-                    self.removeAllChildren()
-                    self.removeFromParent()
                     let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
+                    self.removeAllChildren()
+                    self.removeAllActions()
+                    self.background = nil
+                    
                     self.view?.presentScene(scene)
                 }
             }

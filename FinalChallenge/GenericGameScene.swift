@@ -50,14 +50,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     var pausableObjectsArray = [SKSpriteNode]()
     
-    var switchCharacterButton: SwitchCharacterButton?
-    var pauseButton: PauseButton?
-    var leftButton: LeftButton?
-    var rightButton: RightButton?
-    
-    var jumpButton: JumpButton?
-    var powerButton: PowerButton?
-    
     var lastPositionX: CGFloat?
     var lastPositionY: CGFloat?
     var onBeginAchiev:String?
@@ -208,6 +200,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         
+        if self.paused {
+            return
+        }
         var playerPB:SKPhysicsBody
         var notPlayerPB:SKPhysicsBody
         
@@ -306,14 +301,29 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     func quitLevel() {
-        self.removeAllChildren()
-        self.removeAllActions()
-        self.pausableLayer.removeAllChildren()
-        self.removeFromParent()
-        self.characterSingleton.currentCharacter = nil
+
+        
+        cleanScene()
         let scene = MapMenu(size:self.size)
         let transition = SKTransition.fadeWithDuration(1)
         self.view?.presentScene(scene, transition: transition)
+    }
+    
+    private func cleanScene() {
+        
+        self.paused = true
+        self.removeAllChildren()
+        self.removeAllActions()
+        self.pausableLayer.removeAllChildren()
+        self.characterSingleton.currentCharacter = nil
+        self.pausableObjectsArray.removeAll()
+        self.characters = nil
+        self.selectedPlayer = nil
+        self.hud = nil
+        self.popUp = nil
+        self.scene?.removeFromParent()
+        self.removeFromParent()
+
     }
     
     func shouldShowAd() {
@@ -345,7 +355,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     func reset() {
         
         shouldShowAd()
-        
+    
         let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)
         let transition = SKTransition.fadeWithDuration(0.5)
         self.view?.presentScene(scene, transition: transition)

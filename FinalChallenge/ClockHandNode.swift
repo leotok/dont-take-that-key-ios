@@ -13,13 +13,12 @@ class ClockHandNode: StaticObject {
     
     init() {
         
-        let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height  / 12.9375
-        let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
+//        let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height  / 12.9375
+//        let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
         
         let sprite = SKTexture(imageNamed: "ponteiroGrande")
         super.init(sprite: sprite)
         
-       // self.anchorPoint = CGPointMake(0.1, 0.53 )
         
         size = sprite.size()
         physicsBody = SKPhysicsBody(texture: sprite, size: sprite.size())

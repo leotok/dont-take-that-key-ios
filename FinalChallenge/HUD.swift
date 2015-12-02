@@ -11,12 +11,12 @@ import SpriteKit
 
 class HUD: SKSpriteNode {
     
-    var switchCharacterButton: SwitchCharacterButton
-    var pauseButton: PauseButton
-    var leftButton: LeftButton
-    var rightButton: RightButton
-    var jumpButton: JumpButton
-    var powerButton: PowerButton
+    let switchCharacterButton: SwitchCharacterButton
+    let pauseButton: PauseButton
+    let leftButton: LeftButton
+    let rightButton: RightButton
+    let jumpButton: JumpButton
+    let powerButton: PowerButton
     var currentCharacter: GameCharacter?
     var walking: Bool = false
     var walkingLeft: Bool = false
@@ -172,13 +172,11 @@ class HUD: SKSpriteNode {
             
             if(self.leftButton.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
-                //self.leftButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingLeft = false
             }
             if(self.rightButton.frame.contains(location)){
                 characterSingleton.currentCharacter!.stopWalking()
-                //self.rightButton.touchesEnded(touches, withEvent: event)
                 walking = false
                 walkingRight = false
             }
@@ -187,7 +185,6 @@ class HUD: SKSpriteNode {
                     characterSingleton.currentCharacter?.removeActionForKey("Jump")
                     characterSingleton.currentCharacter!.stopImpulse()
                 }
-                //self.jumpButton.touchesEnded(touches, withEvent: event)
             }
         }
     }

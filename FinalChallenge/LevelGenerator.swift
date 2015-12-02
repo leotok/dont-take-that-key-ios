@@ -61,7 +61,6 @@ class LevelGenerator {
     var numberOfControlTiles = 0
     let numberOfVerticalTiles = 13
     let numberOfHorizontalTiles = 24
-    let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
     let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375  // 32 pts. Mesmo calculo para width e height para manter a proporcao 1x1 em qualquer device
     
     func loadLevel(level:Int , scene:GenericGameScene )->Bool {
@@ -103,12 +102,16 @@ class LevelGenerator {
         generateNodes()
         addCharacterToGameScene()
         
+        self.levelScene = nil
+        self.levelMatrix = nil
+        
+        
         print("Generated in \(NSDate().timeIntervalSinceDate(time)) seconds.")
         return true
     }
     
     func getLevelSize()->CGSize{
-        let size = CGSize(width: CGFloat(self.numberOfHorizontalTiles) * CGFloat(levelRatio) * spriteWidth, height: CGFloat(self.numberOfVerticalTiles) * CGFloat(levelRatio) * spriteHeight)
+        let size = CGSize(width: CGFloat(self.numberOfHorizontalTiles) * CGFloat(levelRatio) * spriteHeight, height: CGFloat(self.numberOfVerticalTiles) * CGFloat(levelRatio) * spriteHeight)
         return size
     }
     
@@ -274,10 +277,10 @@ class LevelGenerator {
         
         let initialPoint = contourLinesArray.first?.point
         if contourLinesArray.count == 1 {
-            CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j ) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteWidth)
+            CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j ) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteHeight)
         }
         else {
-            CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j + 1) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteWidth)
+            CGPathMoveToPoint(path, nil, CGFloat(initialPoint!.j + 1) * spriteHeight, CGFloat(initialPoint!.i + 1) * spriteHeight)
         }
         
         for k in 0...contourLinesArray.count - 1 {
@@ -541,7 +544,7 @@ class LevelGenerator {
             {
                 if let tile: SKSpriteNode = getNodeType( string[index] )
                 {
-                    tile.position = CGPointMake( spriteWidth/2 +  spriteWidth * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
+                    tile.position = CGPointMake( spriteHeight/2 +  spriteHeight * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
                     (levelScene as! GenericGameScene).pausableLayer.addChild(tile)
                 }
                 index = index.advancedBy(1)
@@ -561,7 +564,7 @@ class LevelGenerator {
             
                 tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_1"))
                 tile.physicsBody = nil
-                tile.size = CGSizeMake(spriteWidth, spriteHeight)
+                tile.size = CGSizeMake(spriteHeight, spriteHeight)
             
             case "2":
             
@@ -584,7 +587,7 @@ class LevelGenerator {
             case "6":
         
                 tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop1"))
-                tile.size = CGSizeMake(spriteWidth, spriteHeight)
+                tile.size = CGSizeMake(spriteHeight, spriteHeight)
                 tile.physicsBody = nil
             
             case "7":

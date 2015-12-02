@@ -87,6 +87,8 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                     
                     self.view?.removeGestureRecognizer(panGesture)
                     let levelButton = node as! LevelButton
+                    self.removeAllChildren()
+                    self.removeFromParent()
                     let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
                     self.view?.presentScene(scene)
                 }

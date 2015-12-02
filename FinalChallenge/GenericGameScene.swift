@@ -304,7 +304,11 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     func quitLevel() {
-        
+        self.removeAllChildren()
+        self.removeAllActions()
+        self.pausableLayer.removeAllChildren()
+        self.removeFromParent()
+        self.characterSingleton.currentCharacter = nil
         let scene = MapMenu(size:self.size)
         let transition = SKTransition.fadeWithDuration(1)
         self.view?.presentScene(scene, transition: transition)
@@ -346,7 +350,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     private func GameOver() {
-        
+       
+        /*
         self.popUp = GameOverMenu.createGameOverMenu(UIScreen.mainScreen().bounds.size)
         self.popUp?.position = CGPointMake(self.frame.size.width/2,self.frame.size.height/2)
         self.scene?.paused = true
@@ -354,7 +359,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.popUp!.zPosition = ZPositionEnum.PopUp.rawValue
         self.popUp?.userInteractionEnabled = true
         self.addChild(self.popUp!)
-    }
+*/
+        self.quitLevel()
+}
     
     
     private func GameWin() {

@@ -69,6 +69,16 @@ class Credits: SKScene {
         
         addChild(mayara)
         
+        
+        let david = SKLabelNode(fontNamed: "Avenir")
+        david.text = NSLocalizedString("David", comment: "")
+        david.fontSize = 25
+        david.position = CGPointMake(self.size.width/2, self.size.height/5.10)
+        david.zPosition = ZPositionEnum.Button.rawValue
+        david.fontColor = SKColor.whiteColor()
+        
+        addChild(david)
+        
         let backButton = SKSpriteNode(imageNamed: "seta")
         backButton.size = CGSize(width: 40, height: 40)
         backButton.position = CGPointMake(30, 380)
@@ -76,6 +86,7 @@ class Credits: SKScene {
         backButton.zPosition = ZPositionEnum.Button.rawValue
         
         addChild(backButton)
+       
     
     }
     

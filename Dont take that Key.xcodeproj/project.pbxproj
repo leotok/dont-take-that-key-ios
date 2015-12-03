@@ -40,6 +40,7 @@
 		3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F29DE761BB440EB00ADE6F8 /* LaunchScreen.storyboard */; };
 		3F29DE831BB440EB00ADE6F8 /* FinalChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE821BB440EB00ADE6F8 /* FinalChallengeTests.swift */; };
 		3F29DE8E1BB440EB00ADE6F8 /* FinalChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */; };
+		3F51B62F1C10D7E900A9B1F5 /* ClockHandBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51B62E1C10D7E900A9B1F5 /* ClockHandBlockNode.swift */; };
 		3F609D601BBC6F4B00B30010 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */; };
 		3F6580261BDFFEF2004B473E /* StoryLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6580251BDFFEF2004B473E /* StoryLabelNode.swift */; };
 		3F6580281BE00530004B473E /* ControlTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6580271BE00530004B473E /* ControlTile.swift */; };
@@ -148,6 +149,7 @@
 		3F29DE891BB440EB00ADE6F8 /* Dont take that Key.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dont take that Key.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29DE8D1BB440EB00ADE6F8 /* FinalChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalChallengeUITests.swift; sourceTree = "<group>"; };
 		3F29DE8F1BB440EB00ADE6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F51B62E1C10D7E900A9B1F5 /* ClockHandBlockNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockHandBlockNode.swift; sourceTree = "<group>"; };
 		3F609D5F1BBC6F4B00B30010 /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		3F6580251BDFFEF2004B473E /* StoryLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryLabelNode.swift; sourceTree = "<group>"; };
 		3F6580271BE00530004B473E /* ControlTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlTile.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				D0B5026E1BB44A7D006C9C90 /* MovableObject.swift */,
 				D0B502701BB44A8A006C9C90 /* StaticObject.swift */,
 				3F14C9DF1BE1544C00CC57B2 /* ClockHandNode.swift */,
+				3F51B62E1C10D7E900A9B1F5 /* ClockHandBlockNode.swift */,
 				3F13165E1BCB003200D227DD /* DoorNode.swift */,
 				3F1316601BCB032B00D227DD /* KeyNode.swift */,
 				3F1316621BCD4B6100D227DD /* CrateNode.swift */,
@@ -641,6 +644,7 @@
 				D08F3B331BBC59EE008E1B79 /* JumpButton.swift in Sources */,
 				D08F3B381BBC59EE008E1B79 /* SwitchCharacterButton.swift in Sources */,
 				3F1BE66B1BF500D500D2FFDE /* InAppMenu.swift in Sources */,
+				3F51B62F1C10D7E900A9B1F5 /* ClockHandBlockNode.swift in Sources */,
 				3F29DE6A1BB440EB00ADE6F8 /* AppDelegate.swift in Sources */,
 				D0B502671BB44689006C9C90 /* Shrink.swift in Sources */,
 				D0B502801BB44DB3006C9C90 /* LevelGenerator.swift in Sources */,

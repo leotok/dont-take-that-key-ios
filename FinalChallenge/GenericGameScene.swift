@@ -17,6 +17,7 @@ let doorCategory:UInt32   = 16
 let controlTileCategory: UInt32 = 32
 let clockHandCategory: UInt32 = 64
 let crateCategory: UInt32 = 128
+let clockBlockCategory: UInt32 = 256
 
 enum ZPositionEnum : CGFloat {
     
@@ -217,40 +218,49 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         print("categoria: \(notPlayerPB.categoryBitMask)")
         
-        let player = playerPB.node as! GameCharacter
-        
-        if notPlayerPB.categoryBitMask == hazardCategory {
-            player.die()
-            self.GameOver()
+        if ((playerPB.node?.isKindOfClass(GameCharacter)) == true ) {
+            let player = playerPB.node as! GameCharacter
             
-        }
-        else if notPlayerPB.categoryBitMask == keyCategory {
-            gotKey = true
-            notPlayerPB.node?.removeFromParent()
-        }
-        else if notPlayerPB.categoryBitMask == doorCategory {
-            if gotKey {
-                self.GameWin()
+            
+            if notPlayerPB.categoryBitMask == hazardCategory {
+                player.die()
+                self.GameOver()
+                
+            }
+            else if notPlayerPB.categoryBitMask == keyCategory {
+                gotKey = true
+                notPlayerPB.node?.removeFromParent()
+            }
+            else if notPlayerPB.categoryBitMask == doorCategory {
+                if gotKey {
+                    self.GameWin()
+                }
+            }
+            else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
+                if playerPB.velocity.dy == 0 {
+    //                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+                    finishedPositioning = true
+                    selectedPlayer.reachedGround()
+                }
+            }
+    //        else if (notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory ){
+    //            selectedPlayer.reachedGround()
+    //        }
+            else if notPlayerPB.categoryBitMask == controlTileCategory {
+                
+                let control = notPlayerPB.node as! ControlTile
+                print(control.activated)
+                if control.activated == false {
+                    control.activated = true
+                    levelStory.reactToControlTile(control, level: levelIndex)
+                }   
             }
         }
-        else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
-//            if playerPB.velocity.dy == 0 {
-//                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
-                finishedPositioning = true
-                selectedPlayer.reachedGround()
-//            }
-        }
-//        else if (notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory ){
-//            selectedPlayer.reachedGround()
-//        }
-        else if notPlayerPB.categoryBitMask == controlTileCategory {
-            
-            let control = notPlayerPB.node as! ControlTile
-            print(control.activated)
-            if control.activated == false {
-                control.activated = true
-                levelStory.reactToControlTile(control, level: levelIndex)
-            }   
+        // tratamento nao player
+        if notPlayerPB.categoryBitMask == clockBlockCategory
+        {
+            print("ASDASDAS")
+            notPlayerPB.dynamic = false
         }
     }
     

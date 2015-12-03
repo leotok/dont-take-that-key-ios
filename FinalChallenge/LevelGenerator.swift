@@ -606,6 +606,11 @@ class LevelGenerator {
                 tile = AmpulhetaNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
             
+            case "!":
+            
+                tile = ClockHandBlockNode()
+                (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
+            
             case "0":
                 
                 break;

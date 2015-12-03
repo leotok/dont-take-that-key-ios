@@ -40,14 +40,14 @@ class HUD: SKSpriteNode {
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
         switchCharacterButton.position = CGPointMake(switchCharacterButton.size.width/2, screenHeight - switchCharacterButton.size.height/2)
-        pauseButton.position = CGPointMake(screenWidth - pauseButton.size.width/2, screenHeight - pauseButton.size.height/2)
+        pauseButton.position = CGPointMake(screenWidth  /*- pauseButton.size.width/2*/ , screenHeight - pauseButton.size.height/2)
         leftButton.position = CGPointMake(leftButton.frame.size.width/2+10, leftButton.frame.size.height/2+7)
         
         rightButton.position.y = leftButton.position.y
-        rightButton.position.x = leftButton.position.x + rightButton.size.width
+        rightButton.position.x = leftButton.position.x + rightButton.size.width + 10
         
-        jumpButton.position = CGPointMake(screenWidth - 2 * jumpButton.size.width, leftButton.position.y)
-        powerButton.position = CGPointMake(screenWidth - powerButton.size.width, leftButton.position.y)
+        jumpButton.position = CGPointMake(screenWidth - /* 2 * */ jumpButton.size.width - 20, leftButton.position.y)
+        powerButton.position = CGPointMake(jumpButton.position.x + powerButton.size.width + 10, leftButton.position.y)
         
         self.switchCharacterButton.zPosition = ZPositionEnum.Button.rawValue
         self.pauseButton.zPosition = ZPositionEnum.Button.rawValue

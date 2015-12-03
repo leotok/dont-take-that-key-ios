@@ -46,7 +46,6 @@
 		3F77937E1BBB242B0005F6D8 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77937D1BBB242B0005F6D8 /* desert.png */; };
 		3F7E93A91BC3007D0018BA4E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E93A71BC3007D0018BA4E /* key.png */; };
 		3F9CAADB1BE9167D008A3A2C /* AmpulhetaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */; };
-		3F9CAADD1BEA6D10008A3A2C /* MooreLevelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CAADC1BEA6D10008A3A2C /* MooreLevelGenerator.swift */; };
 		3FA5619F1BC5B3A0009AD173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */; };
 		3FA561A11BC5B3DA009AD173 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */; };
 		3FA561AB1BC5BF22009AD173 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA561AA1BC5BF22009AD173 /* lock.png */; };
@@ -155,7 +154,6 @@
 		3F77937D1BBB242B0005F6D8 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desert.png; sourceTree = "<group>"; };
 		3F7E93A71BC3007D0018BA4E /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmpulhetaNode.swift; sourceTree = "<group>"; };
-		3F9CAADC1BEA6D10008A3A2C /* MooreLevelGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MooreLevelGenerator.swift; sourceTree = "<group>"; };
 		3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3FA561AA1BC5BF22009AD173 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 				E974FEBE1BD549EA00613064 /* Extensions.swift */,
 				E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */,
 				D0B5027F1BB44DB3006C9C90 /* LevelGenerator.swift */,
-				3F9CAADC1BEA6D10008A3A2C /* MooreLevelGenerator.swift */,
 				D0B502881BB44EBC006C9C90 /* StoryText.swift */,
 				3F6580251BDFFEF2004B473E /* StoryLabelNode.swift */,
 				D0B5029A1BB45259006C9C90 /* HUD.swift */,
@@ -526,7 +523,7 @@
 				TargetAttributes = {
 					3F29DE651BB440EB00ADE6F8 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = KBBQ26V2UR;
+						DevelopmentTeam = 6ZQ4CB9ZL9;
 					};
 					3F29DE7D1BB440EB00ADE6F8 = {
 						CreatedOnToolsVersion = 7.0;
@@ -662,7 +659,6 @@
 				D0B5026F1BB44A7D006C9C90 /* MovableObject.swift in Sources */,
 				E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */,
 				3F9CAADB1BE9167D008A3A2C /* AmpulhetaNode.swift in Sources */,
-				3F9CAADD1BEA6D10008A3A2C /* MooreLevelGenerator.swift in Sources */,
 				D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */,
 				D0B502631BB4466A006C9C90 /* GameCharacter.swift in Sources */,
 			);

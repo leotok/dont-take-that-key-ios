@@ -107,7 +107,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         /* Setup your scene here */
         let scene1 = GenericGameScene(size: scene!.size)
-        let lvlGen = LevelGenerator()
+//        let lvlGen = LevelGenerator()
         
         scene1.gameLayer = SKNode()
         scene1.gameLayer.zPosition = ZPositionEnum.GameLayer.rawValue
@@ -118,7 +118,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         scene1.pausableLayer.physicsBody?.collisionBitMask = 0
         scene1.gameLayer.addChild(scene1.pausableLayer)
         
-        lvlGen.loadLevel(levelIndex, scene: scene1)
+       // lvlGen.loadLevel(levelIndex, scene: scene1)  // pq isso ??? esta carregando 2 vezes
         
         //scene!.view!.frame.size = lvlGen.getLevelSize()
         
@@ -274,14 +274,16 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         pausableLayer.paused = true
         
-        print(" number of objects: \(pausableObjectsArray.count)")
+        print(" number of paused objects: \(pausableObjectsArray.count)")
         for(var i = 0;i < pausableObjectsArray.count;i++) {
-            if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
+            print("object type: \(pausableObjectsArray[i].superclass)")
+//            if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
+                print("caixa \(i + 1) parou!")
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = false
                 pausableObjectsArray[i].paused = true
-                pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
                 pausableObjectsArray[i].physicsBody?.dynamic = false
-            }
+                pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
+            //}
 
         }
         return true
@@ -301,9 +303,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     
     func quitLevel() {
-
         
+        shouldShowAd()
         cleanScene()
+        
         let scene = MapMenu(size:self.size)
         let transition = SKTransition.fadeWithDuration(1)
         self.view?.presentScene(scene, transition: transition)
@@ -315,7 +318,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.removeAllChildren()
         self.removeAllActions()
         self.pausableLayer.removeAllChildren()
-        self.characterSingleton.currentCharacter = nil
+        self.characterSingleton.currentCharacter = nil  // ???
         self.pausableObjectsArray.removeAll()
         self.characters = nil
         self.selectedPlayer = nil
@@ -330,7 +333,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         ADMobSingleton.sharedIstance.adCounter++
         
-        if ADMobSingleton.sharedIstance.adCounter % 3 == 0 {
+        if ADMobSingleton.sharedIstance.adCounter > 2 {
+            
+            ADMobSingleton.sharedIstance.adCounter = 0
             NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
         }
 
@@ -355,8 +360,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     func reset() {
         
         shouldShowAd()
-    
         cleanScene()
+        
         let scene = GenericGameScene.createScene(self.size, levelIndex: levelIndex)
         let transition = SKTransition.fadeWithDuration(0.5)
         self.view?.presentScene(scene, transition: transition)

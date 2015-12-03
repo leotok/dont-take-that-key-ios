@@ -27,6 +27,8 @@ class CrateNode: MovableObject {
         self.physicsBody?.collisionBitMask = playerCategory | objectCategory | crateCategory | clockHandCategory
         self.physicsBody?.restitution = 0
         self.physicsBody?.dynamic = true
+        self.physicsBody?.linearDamping = 15
+        
     }
     
     

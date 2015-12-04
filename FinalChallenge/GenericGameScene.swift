@@ -23,8 +23,8 @@ enum ZPositionEnum : CGFloat {
     
     case Background     = -1
     case GameLayer      = 1
-    case Objects        = 2
-    case Spike          = 3
+    case Objects        = 3
+    case Spike          = 2
     case ClockHand      = 4
     case Tile           = 6
     case NegBackground  = 8

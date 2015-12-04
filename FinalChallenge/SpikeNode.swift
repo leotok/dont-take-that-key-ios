@@ -35,7 +35,7 @@ class SpikeNode: StaticObject {
         let reverseY = SKAction.reversedAction(moveY);
         let wait = SKAction.waitForDuration(2);
         
-        let moviment = SKAction.sequence([moveY,wait,reverseY()])
+        let moviment = SKAction.sequence([moveY,wait,reverseY(),wait])
         self.runAction(SKAction.repeatActionForever(moviment))
     }
     

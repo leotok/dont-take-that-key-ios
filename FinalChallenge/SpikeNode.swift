@@ -27,6 +27,18 @@ class SpikeNode: StaticObject {
         self.zPosition = ZPositionEnum.Spike.rawValue
     }
     
+    func activeMoviment() {
+    
+        let width = self.texture!.size().height
+        
+        let moveY = SKAction.moveBy(CGVectorMake(0,-width), duration: 0.3)
+        let reverseY = SKAction.reversedAction(moveY);
+        let wait = SKAction.waitForDuration(2);
+        
+        let moviment = SKAction.sequence([moveY,wait,reverseY()])
+        self.runAction(SKAction.repeatActionForever(moviment))
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

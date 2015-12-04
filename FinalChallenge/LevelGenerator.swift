@@ -582,7 +582,10 @@ class LevelGenerator {
             
             case "5":
             
-                tile = SpikeNode()
+                let spike = SpikeNode()
+                spike.activeMoviment()
+                tile = spike
+            
             
             case "6":
         

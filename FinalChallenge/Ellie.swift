@@ -12,13 +12,13 @@ import SpriteKit
 
 class Ellie: GameCharacter{
    
-    init () {
+    init (level: Int) {
         
         //Setting Ellie`s properties
         
         
         
-        super.init(sprite: [SKTexture(imageNamed: "Ellie_Idle")])
+        super.init(sprite: [SKTexture(imageNamed: "Ellie_Idle")], level: level)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
         

@@ -237,7 +237,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 }
             }
             else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
-                if playerPB.velocity.dy == 0 {
+//                if playerPB.velocity.dy == 0 {
+                if contact.contactNormal.dy > 0 {
     //                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                     finishedPositioning = true
                     selectedPlayer.reachedGround()
@@ -256,12 +257,14 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 }   
             }
         }
-        // tratamento nao player
-        if notPlayerPB.categoryBitMask == clockBlockCategory
-        {
-            print("ASDASDAS")
-            notPlayerPB.dynamic = false
+        else {
+            // tratamento objetos nao player
+            if notPlayerPB.categoryBitMask == clockBlockCategory || playerPB.categoryBitMask == clockBlockCategory
+            {
+                notPlayerPB.dynamic = false
+            }
         }
+
     }
     
     func centerCamera() {
@@ -286,9 +289,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         print(" number of paused objects: \(pausableObjectsArray.count)")
         for(var i = 0;i < pausableObjectsArray.count;i++) {
-            print("object type: \(pausableObjectsArray[i].superclass)")
 //            if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
-                print("caixa \(i + 1) parou!")
+//                print("caixa \(i + 1) parou!")
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = false
                 pausableObjectsArray[i].paused = true
                 pausableObjectsArray[i].physicsBody?.dynamic = false
@@ -303,11 +305,15 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         for(var i = 0;i < pausableObjectsArray.count;i++) {
             let categoria = (pausableLayer.children[i] as! SKSpriteNode).physicsBody?.categoryBitMask
-            
-            if pausableObjectsArray[i].isKindOfClass(MovableObject) == true || categoria == crateCategory {
+
+            if  categoria == clockBlockCategory || categoria == crateCategory {
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = true
-                pausableObjectsArray[i].physicsBody?.dynamic = true
+                //pausableObjectsArray[i].physicsBody?.dynamic = true
             }
+
+                pausableObjectsArray[i].paused = false
+            
+            
         }
         return false
     }
@@ -346,7 +352,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         if ADMobSingleton.sharedIstance.adCounter > 2 {
             
             ADMobSingleton.sharedIstance.adCounter = 0
-            NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
+            //NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
         }
 
     }

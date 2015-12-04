@@ -32,7 +32,7 @@ class ClockHandBlockNode: StaticObject {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0
         physicsBody?.friction = 2
-        physicsBody?.linearDamping = 15
+        physicsBody?.linearDamping = 20
         
         self.runAction(SKAction.applyImpulse(CGVectorMake(0, -50), duration: 1))
         

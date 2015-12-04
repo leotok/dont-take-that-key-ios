@@ -11,13 +11,13 @@ import SpriteKit
 
 class Shrink: GameCharacter{
  
-    init () {
+    init (level: Int) {
         
         //Setting Shrink`s properties
         
         
         
-        super.init(sprite: [SKTexture(imageNamed: "Shrink_Idle")])
+        super.init(sprite: [SKTexture(imageNamed: "Shrink_Idle")], level: level)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
         

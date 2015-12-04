@@ -171,7 +171,7 @@ class LevelGenerator {
     
     private func addCharacterToGameScene() {
     
-        let player = Sam()
+        let player = Sam(level: levelIndex)
         player.setDelegate(levelScene as! GenericGameScene)
         (levelScene as! GenericGameScene).selectedPlayer = player
         (levelScene as! GenericGameScene).selectedPlayer.position = CGPointMake(50, 200)

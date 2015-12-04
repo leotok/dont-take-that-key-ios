@@ -19,7 +19,7 @@ class Sam: GameCharacter{
     
     var delegate:Pausable?
     
-    init () {
+    init (level: Int) {
     
 
         //Setting Sam`s properties
@@ -27,7 +27,7 @@ class Sam: GameCharacter{
         let texture2 = SKTexture(imageNamed: "Sam_Idle2")
         texture1.filteringMode = SKTextureFilteringMode.Nearest
         texture2.filteringMode = SKTextureFilteringMode.Nearest
-        super.init(sprite:[texture1,texture2])
+        super.init(sprite:[texture1,texture2], level: level)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
         

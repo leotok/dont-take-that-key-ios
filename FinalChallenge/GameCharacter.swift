@@ -14,7 +14,8 @@ class GameCharacter: SKSpriteNode {
     var isJumping = false
     private var isUsingPower = false
     internal var initialPowerDuration:Double = 10.0
-    internal var powerDuration:Double = 10.0
+    internal var powerDurationArray:[Double] = [10.0,10.0,10.0,2.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,]
+    internal var powerDuration:Double = 0
     private var lastUpdatePower = NSDate()
     private var idleTextures:[SKTexture]!
     internal var walkTextures:[SKTexture]!
@@ -23,7 +24,7 @@ class GameCharacter: SKSpriteNode {
     let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
     let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2  / 12.9375
     
-    init (sprite:[SKTexture]) {
+    init (sprite:[SKTexture], level: Int) {
         self.idleTextures = sprite
         let spriteSize = sprite.first?.size()
         let charSize = CGSizeMake((spriteSize?.width)! / 1.5, (spriteSize?.height)! / 1.5)
@@ -34,6 +35,9 @@ class GameCharacter: SKSpriteNode {
         physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory | clockHandCategory |  crateCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
+        
+        powerDuration = powerDurationArray[level - 1]
+        initialPowerDuration = powerDuration
 
         self.zPosition = ZPositionEnum.Character.rawValue
 

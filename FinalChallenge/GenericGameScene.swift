@@ -289,7 +289,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         print(" number of paused objects: \(pausableObjectsArray.count)")
         for(var i = 0;i < pausableObjectsArray.count;i++) {
-//            if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
+            //if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
 //                print("caixa \(i + 1) parou!")
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = false
                 pausableObjectsArray[i].paused = true
@@ -304,11 +304,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         pausableLayer.paused = false
         
         for(var i = 0;i < pausableObjectsArray.count;i++) {
-            let categoria = (pausableLayer.children[i] as! SKSpriteNode).physicsBody?.categoryBitMask
-
-            if  categoria == clockBlockCategory || categoria == crateCategory {
+            if(pausableObjectsArray[i].isKindOfClass(CrateNode) || pausableObjectsArray[i].isKindOfClass(ClockHandBlockNode) || pausableObjectsArray[i].isKindOfClass(AmpulhetaNode)){
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = true
-                //pausableObjectsArray[i].physicsBody?.dynamic = true
+                pausableObjectsArray[i].physicsBody?.dynamic = true
             }
 
                 pausableObjectsArray[i].paused = false

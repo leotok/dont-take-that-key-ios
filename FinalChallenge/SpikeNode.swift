@@ -11,6 +11,8 @@ import SpriteKit
 
 class SpikeNode: StaticObject {
     
+    var movableBevahior: Bool = false
+    
     init() {
         
         let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height / 12.9375
@@ -28,7 +30,7 @@ class SpikeNode: StaticObject {
     }
     
     func activeMoviment() {
-    
+        movableBevahior = true
         let width = self.texture!.size().height
         
         let moveY = SKAction.moveBy(CGVectorMake(0,-width), duration: 0.3)

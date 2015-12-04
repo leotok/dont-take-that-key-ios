@@ -583,7 +583,6 @@ class LevelGenerator {
             case "5":
             
                 let spike = SpikeNode()
-                spike.activeMoviment()
                 tile = spike
             
             
@@ -613,6 +612,12 @@ class LevelGenerator {
             
                 tile = ClockHandBlockNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
+            
+            case "a":
+            
+                let spike = SpikeNode()
+                spike.activeMoviment()
+                tile = spike
             
             case "0":
                 

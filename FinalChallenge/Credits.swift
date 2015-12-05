@@ -91,7 +91,7 @@ class Credits: SKScene {
         
         let backButton = SKSpriteNode(imageNamed: "seta")
         backButton.size = CGSize(width: 40, height: 40)
-        backButton.position = CGPointMake(30, 380)
+        backButton.position = CGPointMake(backButton.size.width/2, self.frame.size.height - backButton.size.height/2)
         backButton.name = "backButton"
         backButton.zPosition = ZPositionEnum.Button.rawValue
         

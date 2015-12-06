@@ -195,7 +195,7 @@ class LevelGenerator {
                 background.texture?.filteringMode = SKTextureFilteringMode.Nearest
                 background.zPosition = ZPositionEnum.Background.rawValue
                 levelScene.addChild(background)
-                
+                break
             case LevelTheme.Shrink:
                 break
 
@@ -317,7 +317,7 @@ class LevelGenerator {
                 else {
                     print("Outro caso de North.")
                 }
-                
+                break
             case .South:
                 if ( line.point.i == nextLine.point.i  && line.point.j == nextLine.point.j + 1 ) || ( line.point.i == nextLine.point.i - 1  && line.point.j == nextLine.point.j + 1 )  {
                     // caso desenha apenas uma linha
@@ -565,60 +565,60 @@ class LevelGenerator {
                 tile = StaticObject(sprite: SKTexture(imageNamed: "Ground_1"))
                 tile.physicsBody = nil
                 tile.size = CGSizeMake(spriteHeight, spriteHeight)
-            
+                break
             case "2":
             
                 tile = KeyNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
-            
+                break
             case "3":
             
                 tile = CrateNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
-            
+                break
             case "4":
             
                 tile = DoorNode()
-            
+                break
             case "5":
             
                 let spike = SpikeNode()
                 tile = spike
-            
+                break
             
             case "6":
         
                 tile = StaticObject(sprite: SKTexture(imageNamed: "groundTop1"))
                 tile.size = CGSizeMake(spriteHeight, spriteHeight)
                 tile.physicsBody = nil
-            
+                break
             case "7":
             
                 tile =  ControlTile.createControlTile()
                 numberOfControlTiles++
                 (tile as! ControlTile).number = numberOfControlTiles
-            
+                break
             case "8":
             
                 tile = ClockHandNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
-            
+                break
             case "9":
             
                 tile = AmpulhetaNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
-            
+                break
             case "!":
             
                 tile = ClockHandBlockNode()
                 (levelScene as! GenericGameScene).pausableObjectsArray.append(tile)
-            
+                break
             case "a":
             
                 let spike = SpikeNode()
                 spike.activeMoviment()
                 tile = spike
-            
+                break
             case "0":
                 
                 break;

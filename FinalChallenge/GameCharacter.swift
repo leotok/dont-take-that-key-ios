@@ -14,7 +14,7 @@ class GameCharacter: SKSpriteNode {
     var isJumping = false
     private var isUsingPower = false
     internal var initialPowerDuration:Double = 10.0
-    internal var powerDurationArray:[Double] = [10.0,10.0,10.0,2.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,]
+    internal var powerDurationArray:[Double] = [10.0,10.0,10.0,2.0,10.0,10.0,5.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,]
     internal var powerDuration:Double = 0
     var lastUpdatePower = NSDate()
     private var idleTextures:[SKTexture]!
@@ -27,7 +27,7 @@ class GameCharacter: SKSpriteNode {
     init (sprite:[SKTexture], level: Int) {
         self.idleTextures = sprite
         let spriteSize = sprite.first?.size()
-        let charSize = CGSizeMake((spriteSize?.width)! / 1.5, (spriteSize?.height)! / 1.5)
+        let charSize = CGSizeMake((spriteSize?.width)! / 1.6, (spriteSize?.height)! / 1.6)
         super.init(texture: sprite.first, color: UIColor.clearColor(), size: charSize)
         physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory

@@ -18,6 +18,7 @@ let controlTileCategory: UInt32 = 32
 let clockHandCategory: UInt32 = 64
 let crateCategory: UInt32 = 128
 let clockBlockCategory: UInt32 = 256
+let fallingGroundCategory: UInt32 = 512
 
 enum ZPositionEnum : CGFloat {
     
@@ -227,6 +228,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 self.GameOver()
                 
             }
+            else if notPlayerPB.categoryBitMask == fallingGroundCategory && pausableLayer.paused == false{
+                let fallingGround = notPlayerPB.node as! FallingGround
+                fallingGround.fall()
+            }
             else if notPlayerPB.categoryBitMask == keyCategory {
                 gotKey = true
                 notPlayerPB.node?.removeFromParent()
@@ -236,9 +241,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                     self.GameWin()
                 }
             }
-            else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
+            else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory || notPlayerPB.categoryBitMask == fallingGroundCategory {
                 
-                if  notPlayerPB.categoryBitMask == clockHandCategory
+                if  notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == fallingGroundCategory
                 {
                     if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
                         finishedPositioning = true

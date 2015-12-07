@@ -126,9 +126,9 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         let samLevelPositionArray = [CGPointMake(background.size.width / 16.7058823529412, background.size.height / 2.0000003814698),
             CGPointMake(background.size.width / 10.8708149844543, background.size.height / 2.72340478581948),
             CGPointMake(background.size.width / 6.884849758236, background.size.height / 3.31606296268039),
-            CGPointMake(background.size.width / 5.07142891689225, background.size.height / 2.74678183540883),
-            CGPointMake(background.size.width / 4.58989955584896, background.size.height / 1.92771119776552),
-            CGPointMake(background.size.width / 3.83783823351868, background.size.height / 1.5384617641833),
+            CGPointMake(background.size.width / 5.10142891689225, background.size.height / 2.74678183540883),
+            CGPointMake(background.size.width / 4.62989955584896, background.size.height / 1.92771119776552),
+            CGPointMake(background.size.width / 3.85783823351868, background.size.height / 1.5384617641833),
             CGPointMake(background.size.width / 3.0827684888935, background.size.height / 1.78770980199203)]
         
         for i in 1...7 {
@@ -139,7 +139,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 level = LevelButton(type: LevelButtonType.Sam, level: i)
             }
             else {
-                level = LevelButton(type: LevelButtonType.Sam, level: i)
+                level = LevelButton(type: LevelButtonType.Locked, level: i)
             }
             level.position = samLevelPositionArray[i-1]
             background.addChild(level)

@@ -237,16 +237,20 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 }
             }
             else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
-//                if playerPB.velocity.dy == 0 {
-                if contact.contactNormal.dy > 0 {
-    //                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+                
+                if  notPlayerPB.categoryBitMask == clockHandCategory
+                {
+                    if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+                        finishedPositioning = true
+                        selectedPlayer.reachedGround()
+                    }
+                }
+                else if contact.contactNormal.dy > 0 {
+
                     finishedPositioning = true
                     selectedPlayer.reachedGround()
                 }
             }
-    //        else if (notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory ){
-    //            selectedPlayer.reachedGround()
-    //        }
             else if notPlayerPB.categoryBitMask == controlTileCategory {
                 
                 let control = notPlayerPB.node as! ControlTile

@@ -31,7 +31,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         
         panGesture = UIPanGestureRecognizer(target: self, action: Selector("dragMap:"))
         panGesture.delegate = self
-        self.view?.addGestureRecognizer(panGesture)
+       // self.view?.addGestureRecognizer(panGesture)
         
         // Back Button
         

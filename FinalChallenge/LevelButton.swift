@@ -28,8 +28,9 @@ class LevelButton: SKSpriteNode{
         
         self.level = level
         self.type = type
-        let texture = SKTexture(imageNamed: type.rawValue)
-        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(40, 40))
+//        let texture = SKTexture(imageNamed: type.rawValue)
+        let texture = SKTexture(imageNamed: "1")
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSizeMake(15, 15))
         self.zPosition = ZPositionEnum.Button.rawValue
         self.name = "LevelButton"
 

@@ -31,8 +31,8 @@ class GameCharacter: SKSpriteNode {
         super.init(texture: sprite.first, color: UIColor.clearColor(), size: charSize)
         physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory
-        physicsBody?.collisionBitMask = objectCategory | hazardCategory | clockHandCategory | crateCategory | clockBlockCategory
-        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory | clockHandCategory |  crateCategory
+        physicsBody?.collisionBitMask = objectCategory | hazardCategory | clockHandCategory | crateCategory | clockBlockCategory | fallingGroundCategory
+        physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory | clockHandCategory |  crateCategory | fallingGroundCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
         

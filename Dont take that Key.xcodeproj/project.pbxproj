@@ -88,6 +88,7 @@
 		D0D6C3F91BFCF36900EB56A6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D6C3F01BFCF36900EB56A6 /* GoogleMobileAds.framework */; };
 		D0D6C3FA1BFCF36900EB56A6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0D6C3F71BFCF36900EB56A6 /* README.txt */; };
 		D0D6C3FD1BFCF3E600EB56A6 /* ADMobSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6C3FC1BFCF3E600EB56A6 /* ADMobSingleton.swift */; };
+		E9163FBB1C15F05000A13D94 /* FallingGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9163FBA1C15F05000A13D94 /* FallingGround.swift */; };
 		E920A65E1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */; };
 		E974FEBF1BD549EA00613064 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974FEBE1BD549EA00613064 /* Extensions.swift */; };
 		E974FEC11BD69D5000613064 /* pixelart.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E974FEC01BD69C0800613064 /* pixelart.ttf */; };
@@ -206,6 +207,7 @@
 		D0D6C3F61BFCF36900EB56A6 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		D0D6C3F71BFCF36900EB56A6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		D0D6C3FC1BFCF3E600EB56A6 /* ADMobSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADMobSingleton.swift; sourceTree = "<group>"; };
+		E9163FBA1C15F05000A13D94 /* FallingGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingGround.swift; sourceTree = "<group>"; };
 		E920A65D1BBC8D5A007A2C4F /* CurrentCharacterSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCharacterSingleton.swift; sourceTree = "<group>"; };
 		E974FEBE1BD549EA00613064 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E974FEC01BD69C0800613064 /* pixelart.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixelart.ttf; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				3F1316621BCD4B6100D227DD /* CrateNode.swift */,
 				3F9CAADA1BE9167D008A3A2C /* AmpulhetaNode.swift */,
 				3F1316641BCD4C4800D227DD /* SpikeNode.swift */,
+				E9163FBA1C15F05000A13D94 /* FallingGround.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				D0B502761BB44C94006C9C90 /* GameCenterManager.swift in Sources */,
 				D0B502741BB44C69006C9C90 /* DAOUserInfo.swift in Sources */,
 				3F6580261BDFFEF2004B473E /* StoryLabelNode.swift in Sources */,
+				E9163FBB1C15F05000A13D94 /* FallingGround.swift in Sources */,
 				3F1316651BCD4C4800D227DD /* SpikeNode.swift in Sources */,
 				D08F3B371BBC59EE008E1B79 /* RightButton.swift in Sources */,
 				D08F3B361BBC59EE008E1B79 /* PowerButton.swift in Sources */,

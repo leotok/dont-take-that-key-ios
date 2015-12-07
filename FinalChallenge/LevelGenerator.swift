@@ -630,6 +630,11 @@ class LevelGenerator {
                 playerFound = true
                 break
             
+            case "f":
+                tile = FallingGround(sprite: SKTexture(imageNamed: "groundTop1"))
+                tile.size = CGSizeMake(spriteHeight, spriteHeight)
+
+                break
             
             case "0":
                 

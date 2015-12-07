@@ -54,6 +54,7 @@ class LevelGenerator {
     private var shapesArray = Array<Array<ContourLine>>()
     private var levelScene: SKScene!
     
+    var playerFound = false
     var levelTheme: LevelTheme!
     var levelIndex = 0
     var levelRatio: Int = 1
@@ -100,7 +101,6 @@ class LevelGenerator {
         
         addCorrespondingBackground()
         generateNodes()
-        addCharacterToGameScene()
         
         self.levelScene = nil
         self.levelMatrix = nil
@@ -169,12 +169,12 @@ class LevelGenerator {
     
     // ADICIONA O PERSONAGEM PARA O CAPITULO CORRETO
     
-    private func addCharacterToGameScene() {
+    private func addCharacterToGameScene(i: Int, j: Int) {
     
         let player = Sam(level: levelIndex)
         player.setDelegate(levelScene as! GenericGameScene)
         (levelScene as! GenericGameScene).selectedPlayer = player
-        (levelScene as! GenericGameScene).selectedPlayer.position = CGPointMake(50, 200)
+        (levelScene as! GenericGameScene).selectedPlayer.position = CGPointMake( spriteHeight/2 +  spriteHeight * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
         (levelScene as! GenericGameScene).addChild((levelScene as! GenericGameScene).selectedPlayer)
     
     }
@@ -547,6 +547,12 @@ class LevelGenerator {
                     tile.position = CGPointMake( spriteHeight/2 +  spriteHeight * CGFloat( (j) )  , (spriteHeight / 2) + spriteHeight * CGFloat( (levelRatio * numberOfVerticalTiles - i - 1) ) )
                     (levelScene as! GenericGameScene).pausableLayer.addChild(tile)
                 }
+                
+                if(playerFound){
+                    addCharacterToGameScene(i,j: j)
+                    playerFound = false
+                }
+                
                 index = index.advancedBy(1)
             }
         }
@@ -619,9 +625,15 @@ class LevelGenerator {
                 spike.activeMoviment()
                 tile = spike
                 break
+            case "p":
+                
+                playerFound = true
+                break
+            
+            
             case "0":
                 
-                break;
+                break
             
             default:
                 print("Node type inside .txt doesnt exists.")

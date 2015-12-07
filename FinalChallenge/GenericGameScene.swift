@@ -369,6 +369,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     func resume() {
         self.scene?.paused = false
+        selectedPlayer.lastUpdatePower = NSDate()
         self.popUpOpened = false
     }
     func reset() {

@@ -16,7 +16,7 @@ class GameCharacter: SKSpriteNode {
     internal var initialPowerDuration:Double = 10.0
     internal var powerDurationArray:[Double] = [10.0,10.0,10.0,2.2,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,]
     internal var powerDuration:Double = 0
-    private var lastUpdatePower = NSDate()
+    var lastUpdatePower = NSDate()
     private var idleTextures:[SKTexture]!
     internal var walkTextures:[SKTexture]!
     internal var jumpTextures:[SKTexture]!
@@ -172,7 +172,6 @@ class GameCharacter: SKSpriteNode {
         isUsingPower = false
         self.removeActionForKey("UpdatePower")
     }
-    
     
     
     

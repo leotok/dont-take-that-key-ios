@@ -244,13 +244,13 @@ class LevelGenerator {
         
         switch (levelIndex) {
             
-        case 1...6:
+        case 1...7:
             return LevelTheme.Sam
             
-        case 7...12:
+        case 8...13:
             return LevelTheme.Shrink
             
-        case 13...18:
+        case 14...19:
             return LevelTheme.Ellie
             
         default:

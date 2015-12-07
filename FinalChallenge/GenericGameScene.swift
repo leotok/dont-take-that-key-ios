@@ -399,18 +399,18 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         let dao = DAOUserInfo()
         let userInfo = dao.load()
         
-        if levelIndex < 6 && userInfo.samLevels <= levelIndex {
+        if levelIndex < 7 && userInfo.samLevels <= levelIndex {
             userInfo.samLevels = levelIndex + 1
         }
-        else if levelIndex == 6 && userInfo.ellieLevels == 0 && userInfo.shrinkLevels == 0 {
-            userInfo.ellieLevels = levelIndex - 5
-            userInfo.shrinkLevels = levelIndex - 5
+        else if levelIndex == 7 && userInfo.ellieLevels == 0 && userInfo.shrinkLevels == 0 {
+            userInfo.ellieLevels = levelIndex - 6
+            userInfo.shrinkLevels = levelIndex - 6
         }
-        else if levelIndex < 12 && userInfo.shrinkLevels <= levelIndex - 6 {
-            userInfo.shrinkLevels = levelIndex - 5
+        else if levelIndex < 13 && userInfo.shrinkLevels <= levelIndex - 7 {
+            userInfo.shrinkLevels = levelIndex - 6
         }
-        else if levelIndex < 18 && userInfo.ellieLevels <= levelIndex - 12 {
-            userInfo.ellieLevels = levelIndex - 11
+        else if levelIndex < 19 && userInfo.ellieLevels <= levelIndex - 13 {
+            userInfo.ellieLevels = levelIndex - 12
         }
         dao.save(userInfo)
         

@@ -68,10 +68,10 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
             let node = self.nodeAtPoint(location)
             
             //      NAO REMOVER COMENTARIO
-            // serve para descobrir onde posicionar as fases
-            //let xm = background.size.width/location.x
-            //let ym = background.size.height/location.y
-            //print("CGPointMake(background.size.width / \(xm), background.size.height / \(ym))")
+//             serve para descobrir onde posicionar as fases
+//            let xm = background.size.width/location.x
+//            let ym = background.size.height/location.y
+//            print("CGPointMake(background.size.width / \(xm), background.size.height / \(ym))")
             
             
             if node.name == "back" {
@@ -123,14 +123,15 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func addSamLevels() {
         
         let userInfo = DAOUserInfo().load()
-        let samLevelPositionArray = [CGPointMake(self.size.width / 8.1176479695991, self.size.height / 2.40697674418605),
-            CGPointMake(self.size.width / 5.41176409869877, self.size.height / 3.47899159663866),
-            CGPointMake(self.size.width / 3.00408163265306, self.size.height / 3.72972947337317),
-            CGPointMake(self.size.width / 2.3096235046905, self.size.height / 2.35227252333619),
-            CGPointMake(self.size.width / 1.93175853018373, self.size.height / 1.72739901887056),
-            CGPointMake(self.size.width / 1.5343989206575, self.size.height / 2.04612824364548)]
+        let samLevelPositionArray = [CGPointMake(background.size.width / 16.7058823529412, background.size.height / 2.0000003814698),
+            CGPointMake(background.size.width / 10.8708149844543, background.size.height / 2.72340478581948),
+            CGPointMake(background.size.width / 6.884849758236, background.size.height / 3.31606296268039),
+            CGPointMake(background.size.width / 5.07142891689225, background.size.height / 2.74678183540883),
+            CGPointMake(background.size.width / 4.58989955584896, background.size.height / 1.92771119776552),
+            CGPointMake(background.size.width / 3.83783823351868, background.size.height / 1.5384617641833),
+            CGPointMake(background.size.width / 3.0827684888935, background.size.height / 1.78770980199203)]
         
-        for i in 1...6 {
+        for i in 1...7 {
             
             let level: LevelButton!
             
@@ -148,22 +149,23 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func addShrinkLevels() {
         
         let userInfo = DAOUserInfo().load()
-        let shrinkLevelPositionArray = [CGPointMake(background.size.width / 2.59307151576196, background.size.height / 1.52392643743134),
-            CGPointMake(background.size.width / 2.16258602349113, background.size.height / 1.48564598724679),
-            CGPointMake(background.size.width / 1.94280696751388, background.size.height / 1.44924159186388),
-            CGPointMake(background.size.width / 1.78640803163518, background.size.height / 1.49099645318319),
-            CGPointMake(background.size.width / 1.64469296175216, background.size.height / 1.48387113005073),
-            CGPointMake(background.size.width / 1.52591575199344, background.size.height / 1.48387113005073)]
+        let shrinkLevelPositionArray = [CGPointMake(background.size.width / 2.5876996764024, background.size.height / 1.38528165979724),
+            CGPointMake(background.size.width / 2.17416293339785, background.size.height / 1.35306588830693),
+            CGPointMake(background.size.width / 1.88235332192122, background.size.height / 1.48491910892901),
+            CGPointMake(background.size.width / 1.70955637123564, background.size.height / 1.57635503526998),
+            CGPointMake(background.size.width / 1.55297360160215, background.size.height / 1.69761314435312),
+            CGPointMake(background.size.width / 1.46959919714674, background.size.height / 1.85507295604928)]
+
         
         for i in 1...6 {
             
             let level: LevelButton!
             
             if i <= userInfo.shrinkLevels {
-                level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 7)
             }
             else {
-                level = LevelButton(type: LevelButtonType.Locked, level: i + 6)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 7)
             }
             level.position = shrinkLevelPositionArray[i-1]
             background.addChild(level)
@@ -173,22 +175,22 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
     func addEllieLevels() {
         
         let userInfo = DAOUserInfo().load()
-        let ellieLevelPositionArray = [CGPointMake(background.size.width / 2.81453187721872, background.size.height / 3.64222784261606),
-            CGPointMake(background.size.width / 2.27043708924241, background.size.height / 4.85156235541217),
-            CGPointMake(background.size.width / 2.02012820063938, background.size.height / 4.85156235541217),
-            CGPointMake(background.size.width / 1.87994906097444, background.size.height / 4.92857142857143),
-            CGPointMake(background.size.width / 1.75726232173082, background.size.height / 4.92857142857143),
-            CGPointMake(background.size.width / 1.64714666209165, background.size.height / 4.92857142857143)]
+        let ellieLevelPositionArray = [CGPointMake(background.size.width / 2.81536597728947, background.size.height / 2.86995613883532),
+            CGPointMake(background.size.width / 2.27200027734378, background.size.height / 3.65714381377576),
+            CGPointMake(background.size.width / 1.97565259333657, background.size.height / 3.78698293236419),
+            CGPointMake(background.size.width / 1.83078180780347, background.size.height / 3.26530739348563),
+            CGPointMake(background.size.width / 1.71471713910646, background.size.height / 2.62295131175894),
+            CGPointMake(background.size.width / 1.61020580660287, background.size.height / 2.92237504007175)]
         
         for i in 1...6 {
             
             let level: LevelButton!
             
             if i <= userInfo.ellieLevels {
-                level = LevelButton(type: LevelButtonType.Locked, level: i + 12)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 13)
             }
             else {
-                level = LevelButton(type: LevelButtonType.Locked, level: i + 12)
+                level = LevelButton(type: LevelButtonType.Locked, level: i + 13)
             }
             level.position = ellieLevelPositionArray[i-1]
             background.addChild(level)

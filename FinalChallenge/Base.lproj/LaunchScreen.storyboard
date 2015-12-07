@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="pixelart.ttf">
-            <string>Pixel-Art</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -21,22 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Iradimal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-St-69Y">
-                                <rect key="frame" x="133" y="258" width="335" height="84"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="Sam_bolinha1" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-cE-EFg">
+                                <rect key="frame" x="226" y="238" width="148" height="124"/>
+                                <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="Wfn-nQ-QqX"/>
-                                    <constraint firstAttribute="width" constant="335" id="tMp-GF-MW3"/>
+                                    <constraint firstAttribute="width" constant="148" id="Aco-KZ-hzh"/>
+                                    <constraint firstAttribute="height" constant="124" id="TCM-wv-7cr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Pixel-Art" family="Pixel-Art" pointSize="25"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="ymY-St-69Y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SGR-wW-88H"/>
-                            <constraint firstItem="ymY-St-69Y" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="UU7-lD-yIU"/>
+                            <constraint firstItem="uy8-cE-EFg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YWN-o3-sil"/>
+                            <constraint firstItem="uy8-cE-EFg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jqo-ZE-UO5"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Sam_bolinha1" width="50" height="50"/>
+    </resources>
 </document>

@@ -13,7 +13,7 @@ class InAppMenu: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        self.backgroundColor = UIColor.grayColor()
+        self.backgroundColor = UIColor.blackColor()
         
         // InApp Purchase Button
         

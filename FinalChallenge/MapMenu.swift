@@ -85,8 +85,15 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 if (node as! LevelButton).type != LevelButtonType.Locked {
                     
                     self.view?.removeGestureRecognizer(panGesture)
+                    
+                    
                     let levelButton = node as! LevelButton
-                    let scene = GenericGameScene.createScene(self.size, levelIndex: levelButton.level)
+                 
+
+
+                    let scene = LoadingScene(size:self.size)
+                    scene.level = levelButton.level
+                    
                     self.removeAllChildren()
                     self.removeAllActions()
                     self.background = nil
@@ -98,7 +105,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
                 print("inApp")
                 self.view?.removeGestureRecognizer(panGesture)
                 let inAppScene = InAppMenu(size:self.frame.size)
-                let transition = SKTransition.fadeWithDuration(1)
+                let transition = SKTransition.fadeWithDuration(0.5)
                 self.view?.presentScene(inAppScene, transition: transition)
             }
         }

@@ -18,6 +18,7 @@ let controlTileCategory: UInt32 = 32
 let clockHandCategory: UInt32 = 64
 let crateCategory: UInt32 = 128
 let clockBlockCategory: UInt32 = 256
+let fallingGroundCategory: UInt32 = 512
 
 enum ZPositionEnum : CGFloat {
     
@@ -220,6 +221,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                 self.GameOver()
                 
             }
+            else if notPlayerPB.categoryBitMask == fallingGroundCategory && pausableLayer.paused == false{
+                let fallingGround = notPlayerPB.node as! FallingGround
+                fallingGround.fall()
+            }
             else if notPlayerPB.categoryBitMask == keyCategory {
                 gotKey = true
                 notPlayerPB.node?.removeFromParent()
@@ -229,17 +234,21 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
                     self.GameWin()
                 }
             }
-            else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory {
-//                if playerPB.velocity.dy == 0 {
-                if contact.contactNormal.dy > 0 {
-    //                if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+            else if notPlayerPB.categoryBitMask == objectCategory || notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory || notPlayerPB.categoryBitMask == fallingGroundCategory {
+                
+                if  notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == fallingGroundCategory
+                {
+                    if(playerPB.node?.position.y > notPlayerPB.node?.position.y){
+                        finishedPositioning = true
+                        selectedPlayer.reachedGround()
+                    }
+                }
+                else if contact.contactNormal.dy > 0 {
+
                     finishedPositioning = true
                     selectedPlayer.reachedGround()
                 }
             }
-    //        else if (notPlayerPB.categoryBitMask == clockHandCategory || notPlayerPB.categoryBitMask == crateCategory ){
-    //            selectedPlayer.reachedGround()
-    //        }
             else if notPlayerPB.categoryBitMask == controlTileCategory {
                 
                 let control = notPlayerPB.node as! ControlTile
@@ -392,18 +401,18 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         let dao = DAOUserInfo()
         let userInfo = dao.load()
         
-        if levelIndex < 6 && userInfo.samLevels <= levelIndex {
+        if levelIndex < 7 && userInfo.samLevels <= levelIndex {
             userInfo.samLevels = levelIndex + 1
         }
-        else if levelIndex == 6 && userInfo.ellieLevels == 0 && userInfo.shrinkLevels == 0 {
-            userInfo.ellieLevels = levelIndex - 5
-            userInfo.shrinkLevels = levelIndex - 5
+        else if levelIndex == 7 && userInfo.ellieLevels == 0 && userInfo.shrinkLevels == 0 {
+            userInfo.ellieLevels = levelIndex - 6
+            userInfo.shrinkLevels = levelIndex - 6
         }
-        else if levelIndex < 12 && userInfo.shrinkLevels <= levelIndex - 6 {
-            userInfo.shrinkLevels = levelIndex - 5
+        else if levelIndex < 13 && userInfo.shrinkLevels <= levelIndex - 7 {
+            userInfo.shrinkLevels = levelIndex - 6
         }
-        else if levelIndex < 18 && userInfo.ellieLevels <= levelIndex - 12 {
-            userInfo.ellieLevels = levelIndex - 11
+        else if levelIndex < 19 && userInfo.ellieLevels <= levelIndex - 13 {
+            userInfo.ellieLevels = levelIndex - 12
         }
         dao.save(userInfo)
         

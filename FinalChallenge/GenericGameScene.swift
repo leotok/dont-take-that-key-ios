@@ -108,8 +108,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         /* Setup your scene here */
         let scene1 = GenericGameScene(size: scene!.size)
-//        let lvlGen = LevelGenerator()
-        
         scene1.gameLayer = SKNode()
         scene1.gameLayer.zPosition = ZPositionEnum.GameLayer.rawValue
         scene1.addChild(scene1.gameLayer)
@@ -118,10 +116,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         scene1.pausableLayer.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeZero)
         scene1.pausableLayer.physicsBody?.collisionBitMask = 0
         scene1.gameLayer.addChild(scene1.pausableLayer)
-        
-       // lvlGen.loadLevel(levelIndex, scene: scene1)  // pq isso ??? esta carregando 2 vezes
-        
-        //scene!.view!.frame.size = lvlGen.getLevelSize()
         
         self.physicsWorld.contactDelegate = self
         
@@ -136,7 +130,6 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         self.lastPositionX = selectedPlayer.position.x
         self.lastPositionY = selectedPlayer.position.y
-
         
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)

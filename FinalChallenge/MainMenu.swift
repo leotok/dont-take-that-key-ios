@@ -17,7 +17,11 @@ class MainMenu: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        let background = SKSpriteNode(imageNamed: "bg_teste")
+        
+        let fadeout = SKAction.fadeOutWithDuration(0)
+        let fadein = SKAction.fadeInWithDuration(1)
+        
+        let background = SKSpriteNode(imageNamed: "MainScreenBG")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
         background.size = self.size
         self.backgroundColor = UIColor.blackColor()
@@ -41,40 +45,20 @@ class MainMenu: SKScene {
         
         self.addChild(configuration)
         
-        let gameName = SKLabelNode(fontNamed: "Pixel-Art")
-        gameName.text = NSLocalizedString("Game Name", comment: "")
-        gameName.fontSize = 40
-        gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 2.2)
+        let gameName = SKSpriteNode(imageNamed: "GameName")
+        gameName.size = CGSizeMake (1334/2.3, 199/2.3)
+        gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 1.3)
         gameName.zPosition = ZPositionEnum.Labels.rawValue
-        
         self.addChild(gameName)
-        
-        let relogin = SKSpriteNode(imageNamed: "Relogio")
-        relogin.position = CGPointMake(relogin.size.width/2+20, self.size.height-relogin.size.height/2)
-        relogin.zPosition = 6
-        self.addChild(relogin)
-        
-        let maiorPonteiro = SKSpriteNode(imageNamed: "Maior")
-        maiorPonteiro.zPosition = 7
-        maiorPonteiro.anchorPoint = CGPointMake(0.5, 0)
-        relogin.addChild(maiorPonteiro)
-        
-        let menorPonteiro = SKSpriteNode(imageNamed: "Menor")
-        menorPonteiro.zPosition = 8
-        menorPonteiro.anchorPoint = CGPointMake(0.5, 0)
-        relogin.addChild(menorPonteiro)
-        
-        let meiota = SKSpriteNode(imageNamed: "Meio")
-        meiota.zPosition = 9
-        relogin.addChild(meiota)
-        
-        
-        let rotateAction = SKAction.rotateByAngle(-36, duration: 10)
-        let rotateAction2 = SKAction.rotateByAngle(-36, duration: 20)
-        
-        maiorPonteiro.runAction(SKAction.repeatActionForever(rotateAction))
-        menorPonteiro.runAction(SKAction.repeatActionForever(rotateAction2))
-        
+        gameName.runAction(SKAction.sequence([fadeout,fadein]))
+    
+        let key = SKSpriteNode(imageNamed: "MainScreenKey")
+        key.size = CGSizeMake(314/1.6, 178/1.6)
+        key.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 2.1)
+        key.zPosition = ZPositionEnum.Labels.rawValue
+        self.addChild(key)
+        let action = SKAction.moveBy(CGVectorMake(0, 10), duration: 1)
+        key.runAction(SKAction.repeatActionForever((SKAction.sequence([action,action.reversedAction()]))))
         
         playBackGroundMusic()
         

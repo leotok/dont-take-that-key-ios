@@ -95,6 +95,7 @@ class GameCharacter: SKSpriteNode {
             //let jumpAction = SKAction.group([animate,impulse])
             //self.runAction(jumpAction, withKey:"Jump")
 
+            self.physicsBody?.velocity.dy = 0
             let impulse = SKAction.applyImpulse(CGVectorMake(0, 15), duration: 0.1)
             isJumping = true
             self.runAction(impulse, withKey: "Jump")

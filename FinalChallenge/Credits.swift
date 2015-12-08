@@ -26,7 +26,7 @@ class Credits: SKScene {
         
         let hugo = SKLabelNode(fontNamed: "Avenir")
         hugo.text = NSLocalizedString("Hugo", comment: "")
-        hugo.fontSize = 25
+        hugo.fontSize = 22
         hugo.position = CGPointMake(self.size.width/2, self.size.height/1.47)
         hugo.zPosition = ZPositionEnum.Button.rawValue
         hugo.fontColor = SKColor.whiteColor()
@@ -35,7 +35,7 @@ class Credits: SKScene {
         
         let leo = SKLabelNode(fontNamed: "Avenir")
         leo.text = NSLocalizedString("Leo", comment: "")
-        leo.fontSize = 25
+        leo.fontSize = 22
         leo.position = CGPointMake(self.size.width/2, self.size.height/1.72)
         leo.zPosition = ZPositionEnum.Button.rawValue
         leo.fontColor = SKColor.whiteColor()
@@ -44,7 +44,7 @@ class Credits: SKScene {
         
         let thiago = SKLabelNode(fontNamed: "Avenir")
         thiago.text = NSLocalizedString("Thiago", comment: "")
-        thiago.fontSize = 25
+        thiago.fontSize = 22
         thiago.position = CGPointMake(self.size.width/2, self.size.height/2.07)
         thiago.zPosition = ZPositionEnum.Button.rawValue
         thiago.fontColor = SKColor.whiteColor()
@@ -53,7 +53,7 @@ class Credits: SKScene {
 
         let julia = SKLabelNode(fontNamed: "Avenir")
         julia.text = NSLocalizedString("Julia", comment: "")
-        julia.fontSize = 25
+        julia.fontSize = 22
         julia.position = CGPointMake(self.size.width/2, self.size.height/2.58)
         julia.zPosition = ZPositionEnum.Button.rawValue
         julia.fontColor = SKColor.whiteColor()
@@ -62,7 +62,7 @@ class Credits: SKScene {
 
         let mayara = SKLabelNode(fontNamed: "Avenir")
         mayara.text = NSLocalizedString("Mayara", comment: "")
-        mayara.fontSize = 25
+        mayara.fontSize = 22
         mayara.position = CGPointMake(self.size.width/2, self.size.height/3.45)
         mayara.zPosition = ZPositionEnum.Button.rawValue
         mayara.fontColor = SKColor.whiteColor()
@@ -72,7 +72,7 @@ class Credits: SKScene {
         
         let david = SKLabelNode(fontNamed: "Avenir")
         david.text = NSLocalizedString("David", comment: "")
-        david.fontSize = 25
+        david.fontSize = 20
         david.position = CGPointMake(self.size.width/2, self.size.height/5.10)
         david.zPosition = ZPositionEnum.Button.rawValue
         david.fontColor = SKColor.whiteColor()

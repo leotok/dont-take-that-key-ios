@@ -17,33 +17,42 @@ class GameOverMenu: Menu {
     }
     
     
-    class func createGameOverMenu(size:CGSize)->GameOverMenu {
+    class func createGameOverMenu(size:CGSize)-> GameOverMenu {
         
         
-        let pauseMenu = GameOverMenu(color: UIColor(red: 53/255, green: 42/255, blue: 42/255, alpha: 1), size: CGSizeMake(size.width*0.8, size.height*0.8))
-        pauseMenu.position = CGPointMake(size.width/2, size.height/2)
         
-        let msgLabel = SKLabelNode(text: "You are dead.")
+        let texture = SKTexture(imageNamed: "PopUp_preto")
+        texture.filteringMode = .Nearest
+        let menu = GameOverMenu(texture: texture, color: SKColor.clearColor(), size: CGSizeMake(size.width * 0.8, size.height * 0.8))
+        menu.position = CGPointMake(size.width/2, size.height/2.5)
+        
+        let msgLabel = SKLabelNode(text: "Try again")
         msgLabel.fontColor = UIColor.whiteColor()
-        msgLabel.fontSize = 40
-        msgLabel.fontName = "Arial"
-        msgLabel.position = CGPointMake(0, pauseMenu.size.height/4)
-        pauseMenu.addChild(msgLabel)
+        msgLabel.fontSize = 38
+        msgLabel.fontName = "Pixel-Art"
+        msgLabel.position = CGPointMake(0, menu.size.height / 6.5)
+        msgLabel.zPosition = ZPositionEnum.Labels.rawValue
         
+        let restartLabel = SKLabelNode(text: "RESTART")
+        restartLabel.name = "reset"
+        restartLabel.fontColor = UIColor.whiteColor()
+        restartLabel.fontSize = 24
+        restartLabel.fontName = "Pixel-Art"
+        restartLabel.position = CGPointMake(0, -menu.size.height / 16 )
+        restartLabel.zPosition = ZPositionEnum.Labels.rawValue
         
-        let restartButton = SKSpriteNode(imageNamed: "RestartButton")
-        restartButton.name = "reset"
-        restartButton.position = CGPointMake(-restartButton.size.width/2-10, -50)
-        
-        let quit = SKSpriteNode(imageNamed: "QuitButton")
+        let textQuit = SKTexture(imageNamed: "QuitButton")
+        textQuit.filteringMode = .Nearest
+        let quit = SKSpriteNode(texture: textQuit, color: SKColor.clearColor(), size: CGSizeMake(textQuit.size().width / 2, textQuit.size().height / 2 ))
         quit.name = "quit"
-        quit.position = CGPointMake(quit.size.width/2+10, -50)
+        quit.position = CGPointMake(0,  -menu.size.height / 5.5 )
+        quit.zPosition = ZPositionEnum.Labels.rawValue
+    
+        menu.addChild(msgLabel)
+        menu.addChild(restartLabel)
+        menu.addChild(quit)
         
-        
-        pauseMenu.addChild(restartButton)
-        pauseMenu.addChild(quit)
-        
-        return pauseMenu
+        return menu
 
     }
     

@@ -217,6 +217,8 @@ class Settings: SKScene {
                 
             } else if node.name == "credits" {
                 
+                self.removeAllActions()
+                self.removeAllChildren()
                 let scene = Credits(size:self.frame.size)
                 let transition = SKTransition.fadeWithDuration(0.8)
                 self.view?.presentScene(scene, transition: transition)

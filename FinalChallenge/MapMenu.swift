@@ -43,7 +43,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         addChild(backButton)
         
         
-        // InApp-Purchase Button
+        /*/ InApp-Purchase Button
         
         let inAppButotn = SKSpriteNode(imageNamed: "inApp")
         inAppButotn.size = CGSize(width: 40, height: 40)
@@ -51,7 +51,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         inAppButotn.name = "inApp"
         
         addChild(inAppButotn)
-        
+        */
         
         // Add Levels Nodes
         

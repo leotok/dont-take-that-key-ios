@@ -29,7 +29,6 @@
 		3F1316611BCB032B00D227DD /* KeyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1316601BCB032B00D227DD /* KeyNode.swift */; };
 		3F1316631BCD4B6100D227DD /* CrateNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1316621BCD4B6100D227DD /* CrateNode.swift */; };
 		3F1316651BCD4C4800D227DD /* SpikeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1316641BCD4C4800D227DD /* SpikeNode.swift */; };
-		3F1316A51BD56EBE00D227DD /* gameplayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1316A41BD56EBE00D227DD /* gameplayBackground.png */; };
 		3F14C9E01BE1544C00CC57B2 /* ClockHandNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14C9DF1BE1544C00CC57B2 /* ClockHandNode.swift */; };
 		3F1BE66B1BF500D500D2FFDE /* InAppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1BE66A1BF500D500D2FFDE /* InAppMenu.swift */; };
 		3F29DE6A1BB440EB00ADE6F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29DE691BB440EB00ADE6F8 /* AppDelegate.swift */; };
@@ -49,8 +48,6 @@
 		3FA5619F1BC5B3A0009AD173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */; };
 		3FA561A11BC5B3DA009AD173 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */; };
 		7DD0662F1BFB491A007043C4 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0662E1BFB491A007043C4 /* Credits.swift */; };
-		7DD066311BFB5EB2007043C4 /* seta.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DD066301BFB5EB2007043C4 /* seta.png */; };
-		7DDE880F1BF3D36C00A6A88A /* crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDE880E1BF3D36C00A6A88A /* crate.png */; };
 		7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */; };
 		D01F11641BBEECFE00DC6888 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F11631BBEECFE00DC6888 /* Menu.swift */; };
 		D0202D6D1BDA9A8A008B5030 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0202D6C1BDA9A8A008B5030 /* GameKit.framework */; };
@@ -130,7 +127,6 @@
 		3F1316601BCB032B00D227DD /* KeyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyNode.swift; sourceTree = "<group>"; };
 		3F1316621BCD4B6100D227DD /* CrateNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrateNode.swift; sourceTree = "<group>"; };
 		3F1316641BCD4C4800D227DD /* SpikeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpikeNode.swift; sourceTree = "<group>"; };
-		3F1316A41BD56EBE00D227DD /* gameplayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameplayBackground.png; sourceTree = "<group>"; };
 		3F14C9DF1BE1544C00CC57B2 /* ClockHandNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockHandNode.swift; sourceTree = "<group>"; };
 		3F1BE66A1BF500D500D2FFDE /* InAppMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppMenu.swift; sourceTree = "<group>"; };
 		3F29DE661BB440EB00ADE6F8 /* Dont take that Key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dont take that Key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +152,6 @@
 		3FA5619E1BC5B3A0009AD173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FA561A01BC5B3DA009AD173 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7DD0662E1BFB491A007043C4 /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
-		7DD066301BFB5EB2007043C4 /* seta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seta.png; sourceTree = "<group>"; };
-		7DDE880E1BF3D36C00A6A88A /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
 		7DE112151BC5BAE10094468A /* MainMenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainMenuMusic.mp3; sourceTree = "<group>"; };
 		D01F11631BBEECFE00DC6888 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		D0202D6C1BDA9A8A008B5030 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -406,14 +400,11 @@
 			isa = PBXGroup;
 			children = (
 				E974FEC01BD69C0800613064 /* pixelart.ttf */,
-				3F1316A41BD56EBE00D227DD /* gameplayBackground.png */,
 				3F1316351BC8298500D227DD /* Levels */,
-				7DDE880E1BF3D36C00A6A88A /* crate.png */,
 				3F29DE711BB440EB00ADE6F8 /* Main.storyboard */,
 				3F29DE761BB440EB00ADE6F8 /* LaunchScreen.storyboard */,
 				3F29DE791BB440EB00ADE6F8 /* Info.plist */,
 				3F29DE741BB440EB00ADE6F8 /* Assets.xcassets */,
-				7DD066301BFB5EB2007043C4 /* seta.png */,
 				3F29DE691BB440EB00ADE6F8 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
@@ -559,13 +550,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F1316421BC8298500D227DD /* Level_6.txt in Resources */,
-				3F1316A51BD56EBE00D227DD /* gameplayBackground.png in Resources */,
 				3F1316561BC8415100D227DD /* Level_11.txt in Resources */,
 				3F1316411BC8298500D227DD /* Level_5.txt in Resources */,
 				3F1316551BC8415100D227DD /* Level_10.txt in Resources */,
 				3F1316541BC8415100D227DD /* Level_9.txt in Resources */,
 				3F13163F1BC8298500D227DD /* Level_3.txt in Resources */,
-				7DD066311BFB5EB2007043C4 /* seta.png in Resources */,
 				3F1316401BC8298500D227DD /* Level_4.txt in Resources */,
 				3F29DE781BB440EB00ADE6F8 /* LaunchScreen.storyboard in Resources */,
 				3F1316571BC8415100D227DD /* Level_12.txt in Resources */,
@@ -582,7 +571,6 @@
 				7DE112161BC5BAE10094468A /* MainMenuMusic.mp3 in Resources */,
 				D0B5029D1BB4885C006C9C90 /* UserInfo.plist in Resources */,
 				3F29DE731BB440EB00ADE6F8 /* Main.storyboard in Resources */,
-				7DDE880F1BF3D36C00A6A88A /* crate.png in Resources */,
 				3F13165C1BC8415100D227DD /* Level_17.txt in Resources */,
 				3F1316521BC8415100D227DD /* Level_7.txt in Resources */,
 				3F13165A1BC8415100D227DD /* Level_15.txt in Resources */,

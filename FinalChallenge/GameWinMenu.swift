@@ -73,7 +73,13 @@ class GameWinMenu: Menu {
             let scene = node.scene! as! GenericGameScene
             
             if node.name == "next" {
-                scene.quitLevel()
+                if scene.levelIndex  == 7 {
+                    scene.quitLevel()
+                }
+                else {
+                    scene.changeToLevel(scene.levelIndex+1)
+                
+                }
             }
             else if node.name == "quit" {
                 scene.quitLevel()

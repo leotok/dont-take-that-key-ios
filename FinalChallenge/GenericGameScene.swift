@@ -385,6 +385,13 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.view?.presentScene(scene, transition: transition)
     }
     
+    func changeToLevel(index:Int) {
+        shouldShowAd()
+        cleanScene()
+        let scene = GenericGameScene.createScene(self.size, levelIndex: index)
+        let transition = SKTransition.fadeWithDuration(0.5)
+        self.view?.presentScene(scene, transition: transition)
+    }
     private func GameOver() {
        
         
@@ -419,6 +426,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         
         self.popUpOpened = true
         self.scene?.paused = true
+        if levelIndex == 7 {
+            GameCenterManager.sharedInstance.postAchievement("Chapter1")
+        }
         self.popUp = GameWinMenu.createGameWinMenu(self.size)
         self.popUp!.zPosition = ZPositionEnum.PopUp.rawValue
         self.popUp?.userInteractionEnabled = true

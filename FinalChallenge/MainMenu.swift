@@ -21,7 +21,9 @@ class MainMenu: SKScene {
         let fadeout = SKAction.fadeOutWithDuration(0)
         let fadein = SKAction.fadeInWithDuration(1)
         
-        let background = SKSpriteNode(imageNamed: "MainScreenBG")
+        let bgText = SKTexture(imageNamed: "gameplayBackground")
+        bgText.filteringMode = .Nearest
+        let background = SKSpriteNode(texture: bgText)
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )
         background.size = self.size
         self.backgroundColor = UIColor.blackColor()
@@ -54,11 +56,11 @@ class MainMenu: SKScene {
     
         let key = SKSpriteNode(imageNamed: "MainScreenKey")
         key.name = "Play"
-        key.size = CGSizeMake(314/2.0, 178/2.0)
-        key.position = CGPoint(x: self.size.width / 2, y: self.size.height / 3.4)//x:CGRectGetMidX(self.frame), y:self.frame.height / 2.1)
+        key.size = CGSizeMake( size.width / 3.0, size.height / 3.0 )
+        key.position = CGPoint(x: self.size.width / 2, y: self.size.height / 3.8)//x:CGRectGetMidX(self.frame), y:self.frame.height / 2.1)
         key.zPosition = ZPositionEnum.Labels.rawValue
         self.addChild(key)
-        let action = SKAction.moveBy(CGVectorMake(0, 10), duration: 2)
+        let action = SKAction.moveBy(CGVectorMake(0, 10), duration: 1)
         key.runAction(SKAction.repeatActionForever((SKAction.sequence([action,action.reversedAction()]))))
         
         playBackGroundMusic()

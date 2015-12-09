@@ -38,7 +38,7 @@ class Settings: SKScene {
         self.addChild(gear3)
         let rodaRoda3 = SKAction.rotateByAngle(60, duration: 20)
         gear3.runAction(SKAction.repeatActionForever(rodaRoda3))
-        gear3.position = CGPointMake(self.size.width-gear3.size.width/2,self.size.height/2)
+        gear3.position = CGPointMake(self.size.width-gear3.size.width/2,self.size.height/5)
         gear3.zPosition = 10
         gear3.size = CGSizeMake(130, 130)
 
@@ -131,7 +131,7 @@ class Settings: SKScene {
         addChild(languageButton)
         
         let brazilFlag = SKSpriteNode(imageNamed: "BRAflag")
-        brazilFlag.position = CGPointMake(self.size.width / 1.45, self.size.height / 2)
+        brazilFlag.position = CGPointMake(self.size.width / 1.4, self.size.height / 2.08)
         brazilFlag.size = CGSize(width: 30, height: 20)
         brazilFlag.name = "brFlag"
         brazilFlag.zPosition = ZPositionEnum.Button.rawValue
@@ -139,7 +139,7 @@ class Settings: SKScene {
         addChild(brazilFlag)
         
         let euaFlag = SKSpriteNode(imageNamed: "EUAflag2")
-        euaFlag.position = CGPointMake(self.size.width / 1.33, self.size.height / 2)
+        euaFlag.position = CGPointMake(self.size.width / 1.3, self.size.height / 2.08)
         euaFlag.size = CGSize(width: 30, height: 20)
         euaFlag.name = "enFlag"
         euaFlag.zPosition = ZPositionEnum.Button.rawValue

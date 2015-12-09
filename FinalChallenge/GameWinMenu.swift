@@ -23,7 +23,7 @@ class GameWinMenu: Menu {
         let texture = SKTexture(imageNamed: "PopUp_preto")
         texture.filteringMode = .Nearest
         let menu = GameWinMenu(texture: texture, color: SKColor.clearColor(), size: CGSizeMake(size.width * 0.8, size.height * 0.8))
-        menu.position = CGPointMake(size.width/2, size.height/2.5)
+        menu.position = CGPointMake(size.width/2, size.height/2)
         
         let msgLabel = SKLabelNode(text: "You Won!")
         msgLabel.fontColor = UIColor.whiteColor()

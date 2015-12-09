@@ -16,19 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="Sam_bolinha1" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-cE-EFg">
-                                <rect key="frame" x="226" y="238" width="148" height="124"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="148" id="Aco-KZ-hzh"/>
-                                    <constraint firstAttribute="height" constant="124" id="TCM-wv-7cr"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle3x" translatesAutoresizingMaskIntoConstraints="NO" id="ZYK-9E-D9H">
+                                <rect key="frame" x="204" y="204" width="192" height="192"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="uy8-cE-EFg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YWN-o3-sil"/>
-                            <constraint firstItem="uy8-cE-EFg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jqo-ZE-UO5"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,6 +29,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sam_bolinha1" width="50" height="50"/>
+        <image name="idle3x" width="192" height="192"/>
     </resources>
 </document>

@@ -29,7 +29,6 @@ enum ZPositionEnum : CGFloat {
     case Objects        = 4
     case ClockHand      = 5
     case Tile           = 6
-    case NegBackground  = 8
     case Button         = 10
     case Labels         = 12
     case Character      = 14
@@ -122,8 +121,8 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         hud = HUD()
-        self.addChild(self.hud)
-        hud.zPosition = ZPositionEnum.Button.rawValue
+        self.addChild(self.hud) // como hud ta em self direto, o zposition dele nao é relacionado ao dos outros objetos diretamente
+        hud.zPosition = 0//ZPositionEnum.Button.rawValue
         hud.setPositions()
         
         
@@ -136,7 +135,9 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         characterSingleton = CurrentCharacterSingleton.sharedInstance
         characterSingleton.setCurrentCharacter(selectedPlayer)
         
-        GameCenterManager.sharedInstance.postAchievement("HelloWorld")
+        if levelIndex == 1 {
+            GameCenterManager.sharedInstance.postAchievement("HelloWorld")
+        }
         
         ADMobSingleton.sharedIstance.loadInterstitial()
 
@@ -368,6 +369,10 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             self.popUp?.userInteractionEnabled = true
             popUp!.zPosition = ZPositionEnum.PopUp.rawValue
             self.addChild(popUp!)
+            
+            // zposition da hud e popup tao estranhas entao mudei valores
+            
+            print("hud: \(hud.zPosition)  popup: \(popUp?.zPosition)")
         }
     }
     func resume() {

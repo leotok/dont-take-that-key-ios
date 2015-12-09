@@ -32,6 +32,7 @@ class HUD: SKSpriteNode {
         
         super.init(texture: nil, color: UIColor.clearColor(), size: UIScreen.mainScreen().bounds.size)
 
+        self.zPosition = ZPositionEnum.Button.rawValue
     }
 
     func setPositions(){

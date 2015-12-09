@@ -187,6 +187,7 @@ class Settings: SKScene {
         let yes = SKLabelNode(text: NSLocalizedString("LeftAnswer", comment: ""))
        //yes.position = CGPointMake(-100, -69)
         yes.fontColor = SKColor.blackColor()
+        yes.name = "yesSquare"
         yesSquare.addChild(yes)
         
         let cancelSquare = SKSpriteNode(color: SKColor.whiteColor(), size: CGSizeMake(frame.width*0.2, frame.height*0.12))
@@ -271,7 +272,12 @@ class Settings: SKScene {
                 
                 self.popUp?.removeFromParent()
             }
-                
+            else if node.name == "yesSquare" {
+                self.popUp?.removeFromParent()
+                self.userInfo = UserInfo()
+                DAOUserInfo().save(self.userInfo)
+            
+            }
             else if node.name == "brFlag" {
                 NSUserDefaults.standardUserDefaults().setObject(["pt"], forKey: "AppleLanguages")
                 NSUserDefaults.standardUserDefaults().synchronize()

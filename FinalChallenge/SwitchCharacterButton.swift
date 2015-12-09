@@ -54,6 +54,7 @@ class SwitchCharacterButton: SKSpriteNode{
         
             if percentage == 0.0 {
 
+                CurrentCharacterSingleton.sharedInstance.currentCharacter?.texture = CurrentCharacterSingleton.sharedInstance.currentCharacter?.idleTextures[0]
                 changeSwitchButtonImage()
             }
             

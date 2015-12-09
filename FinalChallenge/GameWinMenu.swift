@@ -20,33 +20,38 @@ class GameWinMenu: Menu {
     class func createGameWinMenu(size:CGSize)->GameWinMenu {
         
         
-        let pauseMenu = GameWinMenu(color: UIColor(red: 53/255, green: 42/255, blue: 42/255, alpha: 1), size: CGSizeMake(size.width*0.8, size.height*0.8))
-        pauseMenu.position = CGPointMake(size.width/2, size.height/2)
+        let texture = SKTexture(imageNamed: "PopUp_preto")
+        texture.filteringMode = .Nearest
+        let menu = GameWinMenu(texture: texture, color: SKColor.clearColor(), size: CGSizeMake(size.width * 0.8, size.height * 0.8))
+        menu.position = CGPointMake(size.width/2, size.height/2.5)
         
         let msgLabel = SKLabelNode(text: "You Won!")
         msgLabel.fontColor = UIColor.whiteColor()
-        msgLabel.fontSize = 40
-        msgLabel.fontName = "Arial"
-        msgLabel.position = CGPointMake(0, pauseMenu.size.height/4)
-        pauseMenu.addChild(msgLabel)
+        msgLabel.fontSize = 38
+        msgLabel.fontName = "Pixel-Art"
+        msgLabel.position = CGPointMake(0, menu.size.height / 6.5)
+        msgLabel.zPosition = ZPositionEnum.Labels.rawValue
         
-        let quit = SKSpriteNode(imageNamed: "QuitButton")
+        let restartLabel = SKLabelNode(text: "NEXT")
+        restartLabel.name = "next"
+        restartLabel.fontColor = UIColor.whiteColor()
+        restartLabel.fontSize = 24
+        restartLabel.fontName = "Pixel-Art"
+        restartLabel.position = CGPointMake(0, -menu.size.height / 16 )
+        restartLabel.zPosition = ZPositionEnum.Labels.rawValue
+        
+        let textQuit = SKTexture(imageNamed: "QuitButton")
+        textQuit.filteringMode = .Nearest
+        let quit = SKSpriteNode(texture: textQuit, color: SKColor.clearColor(), size: CGSizeMake(textQuit.size().width / 2, textQuit.size().height / 2 ))
         quit.name = "quit"
-        quit.position = CGPointMake(quit.size.width/2+10, -50)
+        quit.position = CGPointMake(0,  -menu.size.height / 5.5 )
+        quit.zPosition = ZPositionEnum.Labels.rawValue
         
-        let image = UIImage(named: "NextButton")
-        let texture = SKTexture(image: image!)
-        texture.filteringMode = .Nearest
-        texture.size().height
-        let resumeButton = SKSpriteNode(texture: texture)
-        resumeButton.size = CGSize(width: 2*texture.size().width, height: 2*texture.size().height)
-        resumeButton.name = "next"
-        resumeButton.position = CGPointMake(-resumeButton.size.width/2-10, -50)
+        menu.addChild(msgLabel)
+        menu.addChild(restartLabel)
+        menu.addChild(quit)
         
-        pauseMenu.addChild(resumeButton)
-        pauseMenu.addChild(quit)
-        
-        return pauseMenu
+        return menu
     }
     
     func imageResize (imageObj:UIImage, sizeChange:CGSize)-> UIImage{

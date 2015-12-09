@@ -17,7 +17,7 @@ class GameCharacter: SKSpriteNode {
     internal var powerDurationArray:[Double] = [10.0,10.0,10.0,5.0,10.0,1.9,5.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,]
     internal var powerDuration:Double = 0
     var lastUpdatePower = NSDate()
-    private var idleTextures:[SKTexture]!
+    internal var idleTextures:[SKTexture]!
     internal var walkTextures:[SKTexture]!
     internal var jumpTextures:[SKTexture]!
     internal var idlePowerTexture:SKTexture!
@@ -123,9 +123,13 @@ class GameCharacter: SKSpriteNode {
         if !isUsingPower {
             self.texture = self.idlePowerTexture
             self.activatePower()
+            self.removeActionForKey("Idle")
         }
         else {
             self.texture = idleTextures[0]
+            let wait = SKAction.waitForDuration(3)
+            let animate = SKAction.animateWithTextures([idleTextures[1],idleTextures[0]], timePerFrame: 0.2)
+            self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait,animate])), withKey:"Idle")
             self.deactivatePower()
         }
         

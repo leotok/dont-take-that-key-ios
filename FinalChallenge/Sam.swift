@@ -30,7 +30,8 @@ class Sam: GameCharacter{
         super.init(sprite:[texture1,texture2], level: level)
         self.walkTextures = [SKTexture]()
         self.jumpTextures = [SKTexture]()
-        
+        self.idlePowerTexture = SKTexture(imageNamed: "Sam_Idle_Power")
+
         var walkingTexures = [SKTexture]()
         
         for i in 1...4 {

@@ -20,6 +20,7 @@ class GameCharacter: SKSpriteNode {
     private var idleTextures:[SKTexture]!
     internal var walkTextures:[SKTexture]!
     internal var jumpTextures:[SKTexture]!
+    internal var idlePowerTexture:SKTexture!
     
     let spriteWidth: CGFloat = UIScreen.mainScreen().bounds.height * 2 / 12.9375
     let spriteHeight: CGFloat = UIScreen.mainScreen().bounds.height * 2  / 12.9375
@@ -81,10 +82,15 @@ class GameCharacter: SKSpriteNode {
         self.removeActionForKey("Walk")
         self.removeActionForKey("Animate")
         physicsBody?.velocity = CGVectorMake(0, 0)
-        self.texture = idleTextures[0]
-        let wait = SKAction.waitForDuration(3)
-        let animate = SKAction.animateWithTextures([idleTextures[1],idleTextures[0]], timePerFrame: 0.2)
-        self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait,animate])), withKey:"Idle")
+        if self.isUsingPower {
+            self.texture = self.idlePowerTexture
+        }
+        else {
+            self.texture = idleTextures[0]
+            let wait = SKAction.waitForDuration(3)
+            let animate = SKAction.animateWithTextures([idleTextures[1],idleTextures[0]], timePerFrame: 0.2)
+            self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait,animate])), withKey:"Idle")
+        }
     }
     
     func jump() {
@@ -115,9 +121,11 @@ class GameCharacter: SKSpriteNode {
     func usePower() {
     
         if !isUsingPower {
+            self.texture = self.idlePowerTexture
             self.activatePower()
         }
         else {
+            self.texture = idleTextures[0]
             self.deactivatePower()
         }
         

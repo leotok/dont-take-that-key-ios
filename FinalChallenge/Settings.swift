@@ -19,7 +19,6 @@ class Settings: SKScene {
         let dao = DAOUserInfo()
         self.userInfo = dao.load()
         
-
         let gear1 = SKSpriteNode(imageNamed: "brownGear")
         self.addChild(gear1)
         let rodaRoda = SKAction.rotateByAngle(-30, duration: 20)
@@ -57,18 +56,6 @@ class Settings: SKScene {
         gear5.position = CGPointMake(self.size.width/4.33,self.size.height/1.38)
         gear5.zPosition = 10
         gear5.size = CGSizeMake(150, 150)
-        
-//        let gear6 = SKSpriteNode(imageNamed: "gearGear")
-//        self.addChild(gear6)
-//        let rodaRoda6 = SKAction.rotateByAngle(60, duration: 20)
-//        gear6.runAction(SKAction.repeatActionForever(rodaRoda6))
-//        gear6.position = CGPointMake(100,300)
-//        gear6.zPosition = 10
-   
-
-
-        
-        
         
         let background = SKSpriteNode(imageNamed: "wallpaper1")
         background.position = CGPointMake( self.size.width / 2 , self.size.height / 2 )

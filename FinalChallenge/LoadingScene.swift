@@ -11,16 +11,38 @@ import SpriteKit
 class LoadingScene: SKScene {
 
     var level:Int!
-    
+    var msg:SKLabelNode!
     var gameScene:GenericGameScene!
     
     
     override func didMoveToView(view: SKView) {
         
         self.backgroundColor = SKColor.blackColor()
-        let msg = SKLabelNode(text: "Loading...")
+        self.msg = SKLabelNode(text: "Loading")
+        self.msg.fontName = "Pixel-Art"
+        
+        self.msg.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        
+        let act1 = SKAction.runBlock({
+            self.msg.text = "Loading."
+        })
+        let act2 = SKAction.runBlock({
+            self.msg.text = "Loading.."
+        })
+        let act3 = SKAction.runBlock({
+            self.msg.text = "Loading..."
+        })
+        let act4 = SKAction.runBlock({
+            self.msg.text = "Loading"
+        })
+        let wait = SKAction.waitForDuration(0.1)
+        
+        let sequence = SKAction.sequence([wait,act1,wait,act2,wait,act3,wait,act4,wait])
+        self.runAction(SKAction.repeatActionForever(sequence), withKey:"Animate")
+
+        
         msg.position.y = self.frame.size.height/2
-        msg.position.x = self.frame.size.width/2
+        msg.position.x = self.frame.size.width/2 - msg.frame.size.width/2
         self.addChild(msg)
         
         let qualityOfServiceClass = QOS_CLASS_BACKGROUND
@@ -35,7 +57,8 @@ class LoadingScene: SKScene {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 
                 let transition = SKTransition.fadeWithDuration(1)
-                
+                self.removeActionForKey("Animate")
+                self.msg = nil
                 self.view?.presentScene(self.gameScene ,transition: transition)
             })
             })

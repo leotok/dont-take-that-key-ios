@@ -27,18 +27,18 @@ class MainMenu: SKScene {
         self.backgroundColor = UIColor.blackColor()
         self.addChild(background)
         
-        let playButton = SKLabelNode(fontNamed:"Pixel-Art")
-        playButton.text = NSLocalizedString("Play", comment: "")
-        playButton.fontSize = 35
-        playButton.position = CGPointMake(self.size.width / 2, self.size.height / 6.1)
-        playButton.name = "Play"
-        playButton.zPosition = ZPositionEnum.Button.rawValue
-        playButton.runAction(SKAction.repeatActionForever(
-            SKAction.sequence([SKAction.fadeOutWithDuration(2),SKAction.fadeInWithDuration(2)])))
-        self.addChild(playButton)
+//        let playButton = SKLabelNode(fontNamed:"Pixel-Art")
+//        playButton.text = NSLocalizedString("Play", comment: "")
+//        playButton.fontSize = 35
+//        playButton.position = CGPointMake(self.size.width / 2, self.size.height / 6.1)
+//        playButton.name = "Play"
+//        playButton.zPosition = ZPositionEnum.Button.rawValue
+//        playButton.runAction(SKAction.repeatActionForever(
+//            SKAction.sequence([SKAction.fadeOutWithDuration(2),SKAction.fadeInWithDuration(2)])))
+//        self.addChild(playButton)
         
         let configuration = SKSpriteNode(imageNamed: "configuracaoBt")
-        configuration.position = CGPointMake(self.size.width / 1.05, self.size.height / 1.10)
+        configuration.position = CGPointMake(self.size.width / 1.05, self.size.height / 10.10)
         configuration.size = CGSize(width: 40, height: 40)
         configuration.name = "conf"
         configuration.zPosition = ZPositionEnum.Button.rawValue
@@ -46,15 +46,16 @@ class MainMenu: SKScene {
         self.addChild(configuration)
         
         let gameName = SKSpriteNode(imageNamed: "GameName")
-        gameName.size = CGSizeMake (1334/2.3, 199/2.3)
-        gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 1.3)
+        gameName.size = CGSizeMake (1334/2.3, 199/1.8)
+        gameName.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 1.45)
         gameName.zPosition = ZPositionEnum.Labels.rawValue
         self.addChild(gameName)
         gameName.runAction(SKAction.sequence([fadeout,fadein]))
     
         let key = SKSpriteNode(imageNamed: "MainScreenKey")
-        key.size = CGSizeMake(314/1.6, 178/1.6)
-        key.position = CGPoint(x:CGRectGetMidX(self.frame), y:self.frame.height / 2.1)
+        key.name = "Play"
+        key.size = CGSizeMake(314/2.0, 178/2.0)
+        key.position = CGPoint(x: self.size.width / 2, y: self.size.height / 3.4)//x:CGRectGetMidX(self.frame), y:self.frame.height / 2.1)
         key.zPosition = ZPositionEnum.Labels.rawValue
         self.addChild(key)
         let action = SKAction.moveBy(CGVectorMake(0, 10), duration: 1)

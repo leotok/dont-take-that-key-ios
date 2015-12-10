@@ -19,7 +19,7 @@ class MainMenu: SKScene {
         
         
         let fadeout = SKAction.fadeOutWithDuration(0)
-        let fadein = SKAction.fadeInWithDuration(1)
+        let fadein = SKAction.fadeInWithDuration(0.8)
         
         let bgText = SKTexture(imageNamed: "gameplayBackground")
         bgText.filteringMode = .Nearest

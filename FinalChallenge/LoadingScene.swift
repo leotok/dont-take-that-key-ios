@@ -46,6 +46,10 @@ class LoadingScene: SKScene {
         
         if level == 1 {
             self.msg.text = "Chapter i:"
+            self.msg.horizontalAlignmentMode = .Center
+            self.msg.position.x = size.width / 2
+            self.msg.position.y = size.height / 1.8
+            self.msg.fontSize = 22
             
             let subtitle = SKLabelNode(text: "Dawn of Time")
             subtitle.fontName = "Pixel-Art"
@@ -53,9 +57,7 @@ class LoadingScene: SKScene {
             subtitle.position.x = size.width / 2
             subtitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
             subtitle.fontSize = 40
-            self.msg.horizontalAlignmentMode = .Center
-            self.msg.position.x = size.width / 2
-            self.msg.fontSize = 22
+
             
             self.addChild(subtitle)
         }

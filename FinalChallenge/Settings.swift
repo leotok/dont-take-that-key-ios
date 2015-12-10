@@ -131,7 +131,7 @@ class Settings: SKScene {
         addChild(languageButton)
         
         let brazilFlag = SKSpriteNode(imageNamed: "BRAflag")
-        brazilFlag.position = CGPointMake(self.size.width / 1.4, self.size.height / 2.08)
+        brazilFlag.position = CGPointMake(self.size.width / 1.4, self.size.height / 1.95)
         brazilFlag.size = CGSize(width: 30, height: 20)
         brazilFlag.name = "brFlag"
         brazilFlag.zPosition = ZPositionEnum.Button.rawValue
@@ -139,7 +139,7 @@ class Settings: SKScene {
         addChild(brazilFlag)
         
         let euaFlag = SKSpriteNode(imageNamed: "EUAflag2")
-        euaFlag.position = CGPointMake(self.size.width / 1.3, self.size.height / 2.08)
+        euaFlag.position = CGPointMake(self.size.width / 1.29, self.size.height / 1.95)
         euaFlag.size = CGSize(width: 30, height: 20)
         euaFlag.name = "enFlag"
         euaFlag.zPosition = ZPositionEnum.Button.rawValue

@@ -60,7 +60,7 @@ class MainMenu: SKScene {
         key.position = CGPoint(x: self.size.width / 2, y: self.size.height / 3.8)//x:CGRectGetMidX(self.frame), y:self.frame.height / 2.1)
         key.zPosition = ZPositionEnum.Labels.rawValue
         self.addChild(key)
-        let action = SKAction.moveBy(CGVectorMake(0, 10), duration: 1)
+        let action = SKAction.moveBy(CGVectorMake(0, 15), duration: 1)
         key.runAction(SKAction.repeatActionForever((SKAction.sequence([action,action.reversedAction()]))))
         
         playBackGroundMusic()

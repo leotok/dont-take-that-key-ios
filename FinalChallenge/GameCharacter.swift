@@ -121,9 +121,7 @@ class GameCharacter: SKSpriteNode {
     func usePower() {
     
         if !isUsingPower {
-            self.texture = self.idlePowerTexture
             self.activatePower()
-            self.removeActionForKey("Idle")
         }
         else {
             self.texture = idleTextures[0]
@@ -166,6 +164,9 @@ class GameCharacter: SKSpriteNode {
     internal func activatePower() {
 
         if powerDuration > 0.0 {
+            self.texture = self.idlePowerTexture
+            self.removeActionForKey("Idle")
+
             self.isUsingPower = true
             self.lastUpdatePower = NSDate()
             

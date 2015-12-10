@@ -70,6 +70,42 @@ class StoryText: SKNode {
             story.addChild(line1)
             story.addChild(line2)
             break
+        case 4:
+            
+            let line1 = StoryLabelNode(text: NSLocalizedString("Level4.1", comment: ""))
+            line1.position.x = size.width / 2
+            line1.position.y = size.height / 1.2
+            
+            story.addChild(line1)
+            break
+            
+        case 5:
+            
+            let line1 = StoryLabelNode(text: NSLocalizedString("Level5.1", comment: ""))
+            line1.position.x = size.width / 2
+            line1.position.y = size.height / 1.2
+            
+            story.addChild(line1)
+            break
+            
+        case 6:
+            
+            let line1 = StoryLabelNode(text: NSLocalizedString("Level6", comment: ""))
+            line1.position.x = size.width / 2
+            line1.position.y = size.height / 1.2
+            
+            story.addChild(line1)
+            break
+            
+        case 7:
+            
+            let line1 = StoryLabelNode(text: NSLocalizedString("Level7.1", comment: ""))
+            line1.position.x = size.width / 2
+            line1.position.y = size.height / 1.2
+            
+            story.addChild(line1)
+            break
+            
         default:
             break
         }
@@ -155,6 +191,61 @@ class StoryText: SKNode {
                 self.addChild(line2)
             }
             break
+            
+        case 4:
+            
+            let line1 = StoryLabelNode(text: NSLocalizedString("Level4.2", comment: ""))
+            line1.position.x = UIScreen.mainScreen().bounds.width / 2
+            line1.position.y = UIScreen.mainScreen().bounds.height / 1.2
+            self.addChild(line1)
+                
+            let line2 = StoryLabelNode(text: NSLocalizedString("Level4.3", comment: ""))
+            line2.position.x = UIScreen.mainScreen().bounds.width / 2
+            line2.position.y = UIScreen.mainScreen().bounds.height / 1.3
+            self.addChild(line2)
+            
+            break
+            
+        case 5:
+            
+            let line1 = StoryLabelNode(text: NSLocalizedString("Level5.2", comment: ""))
+            line1.position.x = UIScreen.mainScreen().bounds.width / 2
+            line1.position.y = UIScreen.mainScreen().bounds.height / 1.2
+            self.addChild(line1)
+            
+            let line2 = StoryLabelNode(text: NSLocalizedString("Level5.3", comment: ""))
+            line2.position.x = UIScreen.mainScreen().bounds.width / 2
+            line2.position.y = UIScreen.mainScreen().bounds.height / 1.3
+            self.addChild(line2)
+            
+            let line3 = StoryLabelNode(text: NSLocalizedString("Level5.4", comment: ""))
+            line3.position.x = UIScreen.mainScreen().bounds.width / 2
+            line3.position.y = UIScreen.mainScreen().bounds.height / 1.4
+            self.addChild(line3)
+            
+            break
+            
+        case 7:
+            
+            if tile.number == 1 {
+                
+                let line1 = StoryLabelNode(text: NSLocalizedString("Level7.2", comment: ""))
+                line1.position.x = UIScreen.mainScreen().bounds.width / 2
+                line1.position.y = UIScreen.mainScreen().bounds.height / 1.3
+                
+                self.addChild(line1)
+                
+            }
+            else if tile.number == 2 {
+                
+                let line1 = StoryLabelNode(text: NSLocalizedString("Level7.3", comment: ""))
+                line1.position.x = UIScreen.mainScreen().bounds.width / 2
+                line1.position.y = UIScreen.mainScreen().bounds.height / 1.3
+                
+                self.addChild(line1)
+                
+            }
+
 
         default:
             break

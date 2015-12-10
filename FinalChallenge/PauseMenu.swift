@@ -56,6 +56,22 @@ class PauseMenu: Menu {
         quit.position = CGPointMake(0,  -pauseMenu.size.height / 4 )
         quit.zPosition = ZPositionEnum.Labels.rawValue
         
+//        let gear1 = SKSpriteNode(imageNamed: "bigGear")
+//        pauseMenu.addChild(gear1)
+//        let rodaRoda1 = SKAction.rotateByAngle(60, duration: 20)
+//        gear1.runAction(SKAction.repeatActionForever(rodaRoda1))
+//        gear1.position = CGPointMake(-pauseMenu.size.height/1.35,pauseMenu.size.height / 2.5)
+//        gear1.zPosition = ZPositionEnum.Labels.rawValue
+//        gear1.size = CGSizeMake(90, 90)
+//        
+//        let gear2 = SKSpriteNode(imageNamed: "bigGear")
+//        pauseMenu.addChild(gear2)
+//        let rodaRoda2 = SKAction.rotateByAngle(60, duration: 20)
+//        gear2.runAction(SKAction.repeatActionForever(rodaRoda2))
+//        gear2.position = CGPointMake(-pauseMenu.size.height/1.35,pauseMenu.size.height / 2.5)
+//        gear2.zPosition = ZPositionEnum.Labels.rawValue
+//        gear2.size = CGSizeMake(90, 90)
+        
         pauseMenu.addChild(msgLabel)
         pauseMenu.addChild(restartLabel)
         pauseMenu.addChild(resumeLabel)

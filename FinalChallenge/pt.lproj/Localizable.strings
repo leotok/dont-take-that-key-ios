@@ -10,6 +10,14 @@
 "Play"="Jogar";
 "Game Name"="Dont take that Key";
 
+/*
+ Localizable.strings
+ FinalChallenge
+ 
+ Created by Thiago De Angelis on 24/09/15.
+ Copyright © 2015 Hjlmt. All rights reserved.
+ */
+
 "ResetMsg"="Você tem certeza?";
 "LeftAnswer"="Sim";
 "RightAnswer"="Cancelar";
@@ -75,5 +83,3 @@
 "Level17" = "";
 
 "Level18" = "";
-
-

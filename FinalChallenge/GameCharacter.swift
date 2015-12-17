@@ -11,10 +11,12 @@ import SpriteKit
 
 class GameCharacter: SKSpriteNode {
     
+    let screenHeight = UIScreen.mainScreen().bounds.width
+    
     var isJumping = false
     private var isUsingPower = false
     internal var initialPowerDuration:Double = 10.0
-    internal var powerDurationArray:[Double] = [10.0,10.0,10.0,5.0,10.0,1.9,5.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,]
+    internal var powerDurationArray:[Double]!
     internal var powerDuration:Double = 0
     var lastUpdatePower = NSDate()
     internal var idleTextures:[SKTexture]!
@@ -30,12 +32,19 @@ class GameCharacter: SKSpriteNode {
         let spriteSize = sprite.first?.size()
         let charSize = CGSizeMake((spriteSize?.width)! / 1.6, (spriteSize?.height)! / 1.6)
         super.init(texture: sprite.first, color: UIColor.clearColor(), size: charSize)
+        
         physicsBody = SKPhysicsBody(rectangleOfSize: charSize)
         physicsBody?.categoryBitMask = playerCategory
         physicsBody?.collisionBitMask = objectCategory | hazardCategory | clockHandCategory | crateCategory | clockBlockCategory | fallingGroundCategory
         physicsBody?.contactTestBitMask = keyCategory | doorCategory | objectCategory | hazardCategory | controlTileCategory | clockHandCategory |  crateCategory | fallingGroundCategory
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
+        
+        let t10:Double = Double(screenHeight / 56.8)
+        let t5:Double = Double(screenHeight / 113.6)
+        let t1_9:Double = Double(screenHeight / 29.895)
+        
+        powerDurationArray = [t10 ,t10 ,t10 ,t5 ,t10 ,t1_9 ,t5 ,t10 ,t10 ,t10 , t10 ,t10,t10 ,t10 ,t10 ,t10 ,t10 ,t10]
         
         powerDuration = powerDurationArray[level - 1]
         initialPowerDuration = powerDuration
@@ -60,7 +69,7 @@ class GameCharacter: SKSpriteNode {
     
     func walkRight () {
         self.removeActionForKey("Idle")
-        let moveX = SKAction.moveByX(30, y: 0, duration: 0.2)
+        let moveX = SKAction.moveByX(screenHeight / 18.93 , y: 0, duration: 0.2)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.15)
     
         self.xScale = 1
@@ -70,7 +79,7 @@ class GameCharacter: SKSpriteNode {
     
     func walkLeft () {
         self.removeActionForKey("Idle")
-        let moveX = SKAction.moveByX(-30, y: 0, duration: 0.2)
+        let moveX = SKAction.moveByX(-screenHeight / 18.93, y: 0, duration: 0.2)
         let animate = SKAction.animateWithTextures(walkTextures, timePerFrame: 0.15)
         
         self.xScale = -1
@@ -102,7 +111,8 @@ class GameCharacter: SKSpriteNode {
             //self.runAction(jumpAction, withKey:"Jump")
 
             self.physicsBody?.velocity.dy = 0
-            let impulse = SKAction.applyImpulse(CGVectorMake(0, 15), duration: 0.1)
+            let impulse = SKAction.applyImpulse(CGVectorMake(0, screenHeight / 37.867), duration: 0.1)
+            print(screenHeight / 37.568)
             isJumping = true
             self.runAction(impulse, withKey: "Jump")
         }

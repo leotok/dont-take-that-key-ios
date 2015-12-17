@@ -97,7 +97,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
             scene.addChild(cameraNode)
         }
         
-        scene.physicsWorld.gravity = CGVectorMake(0, -9.8)
+        scene.physicsWorld.gravity = CGVectorMake(0, -size.width / 58.061)
         
         
         

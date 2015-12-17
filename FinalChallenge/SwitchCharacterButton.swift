@@ -11,6 +11,7 @@ import SpriteKit
 
 class SwitchCharacterButton: SKSpriteNode{
     
+    var screenHeight = UIScreen.mainScreen().bounds.width
     var characterImage: UIImage
     private var initialTexturePos = 0
     private var bar:SKSpriteNode!

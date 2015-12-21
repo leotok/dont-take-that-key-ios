@@ -354,7 +354,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         if ADMobSingleton.sharedIstance.adCounter > 2 {
             
             ADMobSingleton.sharedIstance.adCounter = 0
-            //NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowAd", object: nil)
         }
 
     }

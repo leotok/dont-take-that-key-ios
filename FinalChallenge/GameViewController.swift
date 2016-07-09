@@ -34,7 +34,7 @@ class GameViewController: UIViewController, ADMobDelegate {
         AdMob.delegate = self
         AdMob.loadInterstitial()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAd", name: "ShowAd", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showAd), name: "ShowAd", object: nil)
         
         
         skView.presentScene(scene)

@@ -847,6 +847,7 @@
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.5.2",
 				);
 				INFOPLIST_FILE = FinalChallenge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallenge;
 				PRODUCT_NAME = "Dont take that Key";
@@ -868,6 +869,7 @@
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.5.2",
 				);
 				INFOPLIST_FILE = FinalChallenge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hjlmt.FinalChallenge;
 				PRODUCT_NAME = "Dont take that Key";

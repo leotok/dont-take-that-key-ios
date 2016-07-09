@@ -29,7 +29,7 @@ class MapMenu: SKScene, UIGestureRecognizerDelegate {
         
         // PanGesture
         
-        panGesture = UIPanGestureRecognizer(target: self, action: Selector("dragMap:"))
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(MapMenu.dragMap(_:)))
         panGesture.delegate = self
        // self.view?.addGestureRecognizer(panGesture)
         

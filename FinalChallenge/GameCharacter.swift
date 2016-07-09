@@ -180,7 +180,7 @@ class GameCharacter: SKSpriteNode {
             self.isUsingPower = true
             self.lastUpdatePower = NSDate()
             
-            let perform = SKAction.performSelector("updatePower", onTarget: self)
+            let perform = SKAction.performSelector(#selector(GameCharacter.updatePower), onTarget: self)
     
             
             let wait = SKAction.waitForDuration(0.1)

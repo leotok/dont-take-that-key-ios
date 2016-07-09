@@ -41,7 +41,7 @@ class SwitchCharacterButton: SKSpriteNode{
         
         bar.position = CGPointMake(-bar.size.width/2,-self.size.height/2-bar.size.height)
         self.addChild(bar)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBar:", name: "UpdatePowerBar", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SwitchCharacterButton.updateBar(_:)), name: "UpdatePowerBar", object: nil)
 
     }
     

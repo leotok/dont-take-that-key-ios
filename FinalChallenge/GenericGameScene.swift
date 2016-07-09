@@ -292,13 +292,15 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
         pausableLayer.paused = true
         
         print(" number of paused objects: \(pausableObjectsArray.count)")
-        for(var i = 0;i < pausableObjectsArray.count;i++) {
+        var i = 0
+        while(i < pausableObjectsArray.count) {
             //if(!pausableObjectsArray[i].isKindOfClass(CrateNode)){
 //                print("caixa \(i + 1) parou!")
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = false
                 pausableObjectsArray[i].paused = true
                 pausableObjectsArray[i].physicsBody?.dynamic = false
                 pausableObjectsArray[i].physicsBody?.velocity = CGVectorMake(0, 0)
+                i = i + 1
             //}
 
         }
@@ -306,11 +308,12 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     }
     func unpauseScene() -> Bool {
         pausableLayer.paused = false
-        
-        for(var i = 0;i < pausableObjectsArray.count;i++) {
+        var i = 0
+        while(i < pausableObjectsArray.count) {
             if(pausableObjectsArray[i].isKindOfClass(CrateNode) || pausableObjectsArray[i].isKindOfClass(ClockHandBlockNode) || pausableObjectsArray[i].isKindOfClass(AmpulhetaNode)){
                 pausableObjectsArray[i].physicsBody?.affectedByGravity = true
                 pausableObjectsArray[i].physicsBody?.dynamic = true
+                i = i + 1
             }
 
                 pausableObjectsArray[i].paused = false
@@ -349,7 +352,7 @@ class GenericGameScene: SKScene, Pausable, SKPhysicsContactDelegate {
     
     func shouldShowAd() {
         
-        ADMobSingleton.sharedIstance.adCounter++
+        ADMobSingleton.sharedIstance.adCounter += 1
         
         if ADMobSingleton.sharedIstance.adCounter > 2 {
             

@@ -83,7 +83,8 @@ class LevelGenerator {
         var startingChar = getCharFromStringAtIndex(alphabet, index: 0)
         var line = defineStartingPoint("1",contourChar: "a")
 
-        for var i = 1; i < 26 && (line.point.i >= 0 && line.point.j >= 0) ; i++ {
+        var i = 1
+        while (i < 26 && (line.point.i >= 0 && line.point.j >= 0)){
             
             var array = Array<ContourLine>()
             array.append(line)
@@ -92,6 +93,7 @@ class LevelGenerator {
                 shapesArray.append(array)
                 startingChar = getCharFromStringAtIndex(alphabet, index: i)
                 line = defineStartingPoint("1",contourChar: startingChar)
+                i += 1
             }
         }
         
@@ -439,8 +441,9 @@ class LevelGenerator {
         var dir: Direction = startingDir
         var nextDir: Direction!
         var newDir: Direction!
-        
-        for var cont = 0; cont < 8 && found == false; cont++ {
+       
+        var cont = 0
+        while (cont < 8 && found == false) {
             
             switch (dir) {
                 
@@ -521,6 +524,7 @@ class LevelGenerator {
                 print("Contour done.")
                 return
             }
+            cont += 1
         }
         
         if found == false {
@@ -601,7 +605,7 @@ class LevelGenerator {
             case "7":
             
                 tile =  ControlTile.createControlTile()
-                numberOfControlTiles++
+                numberOfControlTiles += 1
                 (tile as! ControlTile).number = numberOfControlTiles
                 break
             case "8":
